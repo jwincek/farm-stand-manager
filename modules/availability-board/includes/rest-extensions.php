@@ -228,23 +228,7 @@ function get_board( \WP_REST_Request $request ): \WP_REST_Response {
 		$grouped[ $group_key ]['items'][] = $item;
 	}
 
-	// Get available product type terms for filter UI.
-	$all_types    = get_terms(
-		[
-			'taxonomy'   => 'pkit_product_type',
-			'hide_empty' => true,
-		]
-	);
-	$filter_types = [];
-	if ( $all_types && ! is_wp_error( $all_types ) ) {
-		foreach ( $all_types as $term ) {
-			$filter_types[] = [
-				'slug'  => $term->slug,
-				'label' => $term->name,
-				'count' => $term->count,
-			];
-		}
-	}
+	$filter_types = collect_type_filters( $items );
 
 	return new \WP_REST_Response(
 		[
@@ -319,6 +303,50 @@ function trait_slugs( int $product_id ): array {
  * @param array[] $items
  * @return array<int, array{taxonomy: string, label: string, terms: array<int, array{slug: string, label: string}>}>
  */
+/**
+ * The product-type filters, built from what is actually on the board.
+ *
+ * Previously read from get_terms( hide_empty => true ), which means "has a
+ * post assigned" and not "is on this board". A product with a type but no
+ * current availability row — or one whose only row is sold out while the
+ * sold-out filter is off — left its term non-empty and so kept its button,
+ * and clicking it emptied the board.
+ *
+ * The counts were wrong for the same reason: they were the number of posts
+ * carrying the term, so a type with four products and one in stock read "4".
+ *
+ * collect_trait_filters() below has always worked this way. The two rows sit
+ * side by side in the same interface and now agree about what they mean.
+ *
+ * @param array<int, array> $items Board items.
+ * @return array<int, array{slug: string, label: string, count: int}>
+ */
+function collect_type_filters( array $items ): array {
+	$present = [];
+
+	foreach ( $items as $item ) {
+		foreach ( (array) ( $item['product_slugs'] ?? [] ) as $i => $slug ) {
+			if ( ! isset( $present[ $slug ] ) ) {
+				$present[ $slug ] = [
+					'slug'  => $slug,
+					'label' => (string) ( $item['product_types'][ $i ] ?? $slug ),
+					'count' => 0,
+				];
+			}
+
+			++$present[ $slug ]['count'];
+		}
+	}
+
+	// Alphabetical by the word a person reads, which is what the row shows.
+	uasort(
+		$present,
+		static fn ( array $a, array $b ): int => strcasecmp( $a['label'], $b['label'] )
+	);
+
+	return array_values( $present );
+}
+
 function collect_trait_filters( array $items ): array {
 	$present = [];
 
