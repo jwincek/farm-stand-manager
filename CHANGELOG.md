@@ -7,6 +7,35 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+
+- A retailer's page listed everything you make rather than what they stock.
+  `get_for_location()` included rows marked "available everywhere", on the
+  reasoning that a product generally available is available here too. That
+  holds for your own stand and the market you run. It does not hold for
+  somebody else's shop, which carries what you delivered and nothing else — so
+  a shop stocking four things listed eleven, on the one screen a customer
+  might act on by driving there.
+
+  General rows now reach a producer's own locations and not a retailer, with a
+  `pkit_general_rows_apply_at` filter for consignment shelves and other
+  arrangements that do not fit. A location with no type set keeps the old
+  behaviour, so nothing disappears on upgrade.
+
+  This also settles a disagreement: the inverse view, *Where to find it* on a
+  product page, already excluded general rows, so the two directions had
+  different ideas about what one meant.
+
+- The availability board offered type filters that emptied it. `filter_types`
+  came from `get_terms( hide_empty => true )`, which means "has a post
+  assigned" rather than "is on this board", so a product with a type but no
+  availability row kept its filter button. The counts were wrong the same way,
+  showing posts carrying the term rather than items shown.
+
+  Both now come from the items on the board — which is how the trait filters
+  beside them have always worked, so the two rows in the same interface now
+  agree about what they mean.
+
 ### Added
 
 - ProducerKit now asks what you make. Everything downstream is named by that

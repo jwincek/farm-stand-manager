@@ -76,8 +76,9 @@ final class StockedAtTest extends WP_UnitTestCase {
 		$this->assertContains( 'Comb Honey', $with );
 	}
 
-	public function test_shelf_includes_rows_available_everywhere(): void {
+	public function test_your_own_places_show_what_is_generally_available(): void {
 		[ $shop_a ] = $this->two_shops();
+		update_post_meta( $shop_a, '_pkit_location_type', 'stand' );
 
 		$wax = $this->make( 'pkit_product', 'Beeswax Block' );
 		$this->stock( $wax, 0, 'available' );
@@ -85,7 +86,55 @@ final class StockedAtTest extends WP_UnitTestCase {
 		$this->assertContains(
 			'Beeswax Block',
 			wp_list_pluck( get_for_location( $shop_a ), 'product_name' ),
-			'A product stocked everywhere is stocked here too.'
+			'If it is generally available it is available at your own stand.'
+		);
+	}
+
+	public function test_a_retailer_shows_only_what_they_were_given(): void {
+		// A shop carries what you delivered. A general row is no evidence
+		// they have it, and claiming otherwise sends someone driving.
+		[ $shop_a ] = $this->two_shops();
+		update_post_meta( $shop_a, '_pkit_location_type', 'retailer' );
+
+		$wax = $this->make( 'pkit_product', 'Beeswax Block' );
+		$this->stock( $wax, 0, 'available' );
+
+		$names = wp_list_pluck( get_for_location( $shop_a ), 'product_name' );
+
+		$this->assertNotContains( 'Beeswax Block', $names );
+		$this->assertContains( 'Honey Bear', $names, 'What was actually delivered still shows.' );
+	}
+
+	public function test_the_rule_can_be_overridden(): void {
+		// An unusual arrangement — a consignment shelf you restock yourself.
+		[ $shop_a ] = $this->two_shops();
+		update_post_meta( $shop_a, '_pkit_location_type', 'retailer' );
+
+		$wax = $this->make( 'pkit_product', 'Beeswax Block' );
+		$this->stock( $wax, 0, 'available' );
+
+		add_filter( 'pkit_general_rows_apply_at', '__return_true' );
+
+		$this->assertContains(
+			'Beeswax Block',
+			wp_list_pluck( get_for_location( $shop_a ), 'product_name' )
+		);
+
+		remove_all_filters( 'pkit_general_rows_apply_at' );
+	}
+
+	public function test_a_location_with_no_type_keeps_the_general_rows(): void {
+		// Only a retailer is excluded. An unset type is somebody's own place
+		// until they say otherwise, so nothing vanishes on upgrade.
+		[ $shop_a ] = $this->two_shops();
+		delete_post_meta( $shop_a, '_pkit_location_type' );
+
+		$wax = $this->make( 'pkit_product', 'Beeswax Block' );
+		$this->stock( $wax, 0, 'available' );
+
+		$this->assertContains(
+			'Beeswax Block',
+			wp_list_pluck( get_for_location( $shop_a ), 'product_name' )
 		);
 	}
 

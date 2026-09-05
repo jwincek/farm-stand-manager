@@ -247,13 +247,39 @@ add_action( 'before_delete_post', __NAMESPACE__ . '\\on_post_delete', 10, 2 );
  * ─────────────────────────────────────────────── */
 
 /**
+ * Does a general availability row apply at this location?
+ *
+ * A row with location_id 0 means "generally available", and for a producer's
+ * own places that is the whole point: if honey is available, it is available
+ * at your stand and at the market you run.
+ *
+ * It is not true of somebody else's shop. A retailer carries what you
+ * delivered to them and nothing else, so a general row is no evidence at all
+ * that they have it. Rendering one made a shop stocking four things list
+ * eleven — which reads as a mistake to anyone who has been in, and it is the
+ * one screen a customer might act on by driving there.
+ */
+function general_rows_apply_at( int $location_id ): bool {
+	$type = (string) get_post_meta( $location_id, '_pkit_location_type', true );
+
+	/**
+	 * Filters whether "available everywhere" reaches this location.
+	 *
+	 * @param bool   $applies Whether general rows are shown here.
+	 * @param int    $location_id Location post ID.
+	 * @param string $type    The location's type.
+	 */
+	return (bool) apply_filters( 'pkit_general_rows_apply_at', 'retailer' !== $type, $location_id, $type );
+}
+
+/**
  * Everything currently available at one location.
  *
  * The inverse of get_current(), which answers "where is this product". A shop
  * page needs the other direction: what is on the shelf here.
  *
- * Rows whose location_id is 0 mean "everywhere" and are included, because a
- * product available generally is available here too.
+ * Rows marked "available everywhere" are included for a producer's own places
+ * and excluded for a retailer — see general_rows_apply_at().
  *
  * @param int  $location_id      Location post ID.
  * @param bool $include_sold_out Whether to keep sold-out rows, which a "we
@@ -275,13 +301,17 @@ function get_for_location( int $location_id, bool $include_sold_out = false ): a
 		? ''
 		: " AND a.status NOT IN ( 'sold_out', 'unavailable' )";
 
-	// phpcs:disable WordPress.DB.PreparedSQL.InterpolatedNotPrepared -- Table name is a $wpdb->prefix identifier and the status clause is one of two literals chosen above; neither is user input. The location and dates are bound.
+	$location_clause = general_rows_apply_at( $location_id )
+		? '( a.location_id = %d OR a.location_id = 0 )'
+		: 'a.location_id = %d';
+
+	// phpcs:disable WordPress.DB.PreparedSQL.InterpolatedNotPrepared -- Table name is a $wpdb->prefix identifier, and both the status and location clauses are literals chosen above; neither is user input. The location and dates are bound.
 	$rows = $wpdb->get_results(
 		$wpdb->prepare(
 			"SELECT a.*, p.post_title AS product_name, p.ID AS product_post_id
 			 FROM {$table} a
 			 INNER JOIN {$wpdb->posts} p ON p.ID = a.product_id
-			 WHERE ( a.location_id = %d OR a.location_id = 0 )
+			 WHERE {$location_clause}
 			   AND p.post_type = 'pkit_product'
 			   AND p.post_status = 'publish'
 			   AND a.effective_date <= %s
