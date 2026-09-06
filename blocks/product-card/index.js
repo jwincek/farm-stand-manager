@@ -469,8 +469,7 @@
 										const farmName =
 											src.meta &&
 											src.meta._pkit_source_name
-												? src.meta
-														._pkit_source_name
+												? src.meta._pkit_source_name
 												: src.title?.rendered ||
 												  src.title?.raw ||
 												  '';

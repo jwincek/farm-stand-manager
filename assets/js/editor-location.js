@@ -220,7 +220,10 @@
 		}
 
 		function updateSchedule( newSchedule ) {
-			updateMeta( '_pkit_weekly_schedule', JSON.stringify( newSchedule ) );
+			updateMeta(
+				'_pkit_weekly_schedule',
+				JSON.stringify( newSchedule )
+			);
 		}
 
 		function addDay() {
