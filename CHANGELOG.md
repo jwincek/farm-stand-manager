@@ -7,6 +7,35 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- Stored field names no longer carry one trade's vocabulary, or the name of
+  the module that happened to register them. Nineteen keys were renamed, and
+  an existing site is migrated on update with its values intact.
+
+  Two things were wrong. The `_pkit_em_` and `_pkit_ss_` infixes were
+  documented as collision avoidance between modules — but there is nothing to
+  collide with inside a single plugin, and the convention was not followed
+  anyway: core registered `_pkit_rsvp_cap` while the event module registered
+  `_pkit_em_rsvp_enabled`, so one feature's settings sat under two prefixes on
+  one post type. An infix by module also freezes a code boundary into storage,
+  and code boundaries move. Making a field universal should not rename it.
+
+  Separately, `growing`, `milling` and `farm` named one trade in fields every
+  trade stores. The per-trade labels already covered this at the surface — a
+  potter's `_pkit_milling_notes` reads "Preparation Notes", a musician's
+  "Mastering Notes" — but a label filter cannot reach storage, a REST
+  response, or a spreadsheet header, and those are the places an integration
+  actually sees.
+
+  The API follows: `farm_name` is now `source_name` and `milling_notes` is
+  `processing_notes` in the sources endpoint and the matching ability.
+
+- The product CSV export column `growing_notes` is now `production_notes`.
+  Import still accepts the old header, because the migration can reach a
+  database but not a spreadsheet already sitting on someone's desktop.
+
+
 ### Added
 
 - Sample data now matches the trade you chose. Choosing a profile already
