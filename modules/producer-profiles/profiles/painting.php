@@ -26,6 +26,7 @@ return [
 	],
 	'meta_labels'     => [
 		'_pkit_growing_notes' => [ __( 'Making Notes', 'producerkit' ), __( 'Shown on the product page. Free-form.', 'producerkit' ) ],
+		'_pkit_em_also_appearing' => [ __( 'Also showing', 'producerkit' ), __( 'Another artist exhibiting alongside you.', 'producerkit' ) ],
 	],
 	'terms'           => [
 		'pkit_product_type' => [ 'Painting', 'Drawing', 'Study', 'Sketch', 'Giclee Print', 'Screen Print', 'Miniature', 'Diptych', 'Sketchbook' ],

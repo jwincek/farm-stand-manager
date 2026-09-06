@@ -70,6 +70,14 @@ final class EditorI18nTest extends WP_UnitTestCase {
 					continue;
 				}
 
+				// Nor is a URL or a scheme. "https://" in a placeholder is a
+				// format hint, the same class as Content-Type — and the
+				// message_literals() check below already skips these, so the
+				// two halves of this guard now agree.
+				if ( preg_match( '~^https?:~', $match[2] ) ) {
+					continue;
+				}
+
 				$bare[] = basename( dirname( $file ) ) . '/' . basename( $file ) . ': ' . $match[0];
 			}
 		}

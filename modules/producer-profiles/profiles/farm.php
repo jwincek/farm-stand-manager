@@ -23,6 +23,10 @@ return [
 		'menu'     => __( 'Special Orders', 'producerkit' ),
 		'action'   => __( 'Request a special order', 'producerkit' ),
 	],
+	'meta_labels'     => [
+		'_pkit_em_also_appearing' => [ __( 'Sharing the booth', 'producerkit' ), __( 'Another grower or maker selling alongside you.', 'producerkit' ) ],
+		'_pkit_em_doors_datetime' => [ __( 'Gates open', 'producerkit' ), __( 'When people can arrive, if that is earlier than the start.', 'producerkit' ) ],
+	],
 	'terms'       => [
 		'pkit_product_type' => [ 'Produce', 'Bread', 'Baked Good', 'Pantry Good', 'Seedling' ],
 		'pkit_season'       => [ 'Spring', 'Summer', 'Fall', 'Winter' ],

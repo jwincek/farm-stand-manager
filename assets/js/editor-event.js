@@ -22,6 +22,22 @@
 	const Notice = wp.components.Notice;
 	const Spinner = wp.components.Spinner;
 	const useState = wp.element.useState;
+
+	/**
+	 * The wording this trade uses for a field, resolved server-side from the
+	 * active producer profile. Falls back to the neutral default if the
+	 * settings blob is missing.
+	 *
+	 * @param key
+	 * @param slot
+	 * @param fallback
+	 */
+	function fieldText( key, slot, fallback ) {
+		const labels =
+			( window.pkitSettings && window.pkitSettings.metaLabels ) || {};
+
+		return ( labels[ key ] && labels[ key ][ slot ] ) || fallback;
+	}
 	const useEffect = wp.element.useEffect;
 	const apiFetch = wp.apiFetch;
 	const Button = wp.components.Button;
@@ -903,6 +919,168 @@
 	}
 
 	/* ─────────────────────────────────────────────
+	 * Panel: Who and when
+	 *
+	 * Four things any event can have. Written as musician fields to begin
+	 * with — support acts, doors, age limit, tickets — until it became clear
+	 * that two farmers sharing a booth is a support act, and a co-teacher is
+	 * too. The words come from the producer profile; the fields do not.
+	 *
+	 * Collapsed by default. A farm that never sets an age restriction loses
+	 * nothing to a closed panel, and letting profiles opt in would put back
+	 * the per-trade branching this avoids.
+	 * ───────────────────────────────────────────── */
+
+	function EventWhoAndWhenPanel() {
+		const postType = useSelect( function ( select ) {
+			return select( 'core/editor' ).getCurrentPostType();
+		}, [] );
+
+		const _meta = useEntityProp( 'postType', 'pkit_event', 'meta' );
+		const meta = _meta[ 0 ] || {};
+		const setMeta = _meta[ 1 ];
+
+		if ( postType !== 'pkit_event' ) {
+			return null;
+		}
+
+		function updateMeta( key, value ) {
+			const updated = {};
+			updated[ key ] = value;
+			setMeta( Object.assign( {}, meta, updated ) );
+		}
+
+		const doors = meta._pkit_em_doors_datetime || '';
+		const start = meta._pkit_start_datetime || '';
+
+		// The comparison a sanitize_callback cannot make: it is handed the
+		// value with no object id, so it never sees the start time. Told here
+		// while the producer is still looking at it, rather than discarding
+		// what they typed or printing "Doors 9pm, starts 7pm" on the site.
+		const doorsAfterStart = doors && start && doors >= start;
+
+		const children = [
+			el( TextControl, {
+				key: 'also',
+				label: fieldText(
+					'_pkit_em_also_appearing',
+					'label',
+					__( 'Also appearing', 'producerkit' )
+				),
+				value: meta._pkit_em_also_appearing || '',
+				onChange( value ) {
+					updateMeta( '_pkit_em_also_appearing', value );
+				},
+				help: fieldText(
+					'_pkit_em_also_appearing',
+					'help',
+					__(
+						'Who else is on this — another maker, another act, a co-teacher.',
+						'producerkit'
+					)
+				),
+			} ),
+
+			el( TextControl, {
+				key: 'doors',
+				label: fieldText(
+					'_pkit_em_doors_datetime',
+					'label',
+					__( 'Doors open', 'producerkit' )
+				),
+				type: 'datetime-local',
+				value: doors,
+				onChange( value ) {
+					updateMeta( '_pkit_em_doors_datetime', value );
+				},
+				help: fieldText(
+					'_pkit_em_doors_datetime',
+					'help',
+					__(
+						'When people can arrive, if that is earlier than when it starts.',
+						'producerkit'
+					)
+				),
+			} ),
+		];
+
+		if ( doorsAfterStart ) {
+			children.push(
+				el(
+					Notice,
+					{
+						key: 'doors-warning',
+						status: 'warning',
+						isDismissible: false,
+					},
+					__(
+						'Doors are at or after the start time, so they will not be shown. Set them earlier, or clear them.',
+						'producerkit'
+					)
+				)
+			);
+		}
+
+		children.push(
+			el( TextControl, {
+				key: 'age',
+				label: fieldText(
+					'_pkit_em_age_restriction',
+					'label',
+					__( 'Age restriction', 'producerkit' )
+				),
+				value: meta._pkit_em_age_restriction || '',
+				onChange( value ) {
+					updateMeta( '_pkit_em_age_restriction', value );
+				},
+				placeholder: __(
+					'e.g. 18+, All ages, Under-12s with an adult',
+					'producerkit'
+				),
+				help: fieldText(
+					'_pkit_em_age_restriction',
+					'help',
+					__( 'Leave blank if anyone can come.', 'producerkit' )
+				),
+			} ),
+
+			el( TextControl, {
+				key: 'tickets',
+				label: fieldText(
+					'_pkit_em_ticket_url',
+					'label',
+					__( 'Ticket link', 'producerkit' )
+				),
+				type: 'url',
+				value: meta._pkit_em_ticket_url || '',
+				onChange( value ) {
+					updateMeta( '_pkit_em_ticket_url', value );
+				},
+				placeholder: 'https://',
+				help: fieldText(
+					'_pkit_em_ticket_url',
+					'help',
+					__(
+						'Where tickets are sold. This plugin does not sell them.',
+						'producerkit'
+					)
+				),
+			} )
+		);
+
+		return el(
+			PluginDocumentSettingPanel,
+			{
+				name: 'pkit-event-who-and-when',
+				title: __( 'Who and When', 'producerkit' ),
+				initialOpen: false,
+				icon: 'groups',
+			},
+			children
+		);
+	}
+
+	/* ─────────────────────────────────────────────
 	 * Register
 	 * ───────────────────────────────────────────── */
 
@@ -924,6 +1102,11 @@
 	registerPlugin( 'pkit-event-recurrence', {
 		render: EventRecurrencePanel,
 		icon: 'update',
+	} );
+
+	registerPlugin( 'pkit-event-who-and-when', {
+		render: EventWhoAndWhenPanel,
+		icon: 'groups',
 	} );
 
 	registerPlugin( 'pkit-event-info', {

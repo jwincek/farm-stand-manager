@@ -12,6 +12,7 @@ declare(strict_types=1);
 
 namespace ProducerKit\EventManager\REST;
 
+use ProducerKit\EventManager\Meta;
 use ProducerKit\EventManager\RSVP;
 
 defined( 'ABSPATH' ) || exit;
@@ -417,6 +418,13 @@ function build_event_data( \WP_Post $event ): array {
 		'cost_note'       => get_post_meta( $id, '_pkit_em_cost_note', true ),
 		'what_to_bring'   => get_post_meta( $id, '_pkit_em_what_to_bring', true ),
 		'cancelled'       => (bool) get_post_meta( $id, '_pkit_em_cancelled', true ),
+		// Four things any event can have. doors_datetime() rather than the
+		// raw meta, so a doors time at or after the start is simply absent
+		// instead of being rendered as "Doors 9pm, starts 7pm".
+		'also_appearing'  => get_post_meta( $id, '_pkit_em_also_appearing', true ),
+		'doors'           => Meta\doors_datetime( $id ),
+		'age_restriction' => get_post_meta( $id, '_pkit_em_age_restriction', true ),
+		'ticket_url'      => get_post_meta( $id, '_pkit_em_ticket_url', true ),
 		'rsvp'            => $rsvp_summary,
 		'products'        => $products,
 	];

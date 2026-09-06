@@ -31,6 +31,7 @@ return [
 	],
 	'meta_labels'     => [
 		'_pkit_growing_notes' => [ __( 'Book Notes', 'producerkit' ), __( 'Shown on the book page. Free-form.', 'producerkit' ) ],
+		'_pkit_em_also_appearing' => [ __( 'Also reading', 'producerkit' ), __( 'Who else is on the bill.', 'producerkit' ) ],
 	],
 	'terms'           => [
 		'pkit_product_type' => [ 'Novel', 'Novella', 'Short Stories', 'Poetry', 'Chapbook', 'Zine', 'Anthology', 'Non-fiction', 'Illustrated', 'Childrens' ],

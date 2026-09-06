@@ -45,6 +45,9 @@ return [
 		'_pkit_source_history' => [ __( 'Background', 'producerkit' ), __( 'The story behind the session or the songs.', 'producerkit' ) ],
 		'_pkit_milling_notes' => [ __( 'Mastering Notes', 'producerkit' ), __( 'What was done in post — mixing, mastering, the cut.', 'producerkit' ) ],
 		'_pkit_growing_notes' => [ __( 'Release Notes', 'producerkit' ), __( 'Shown on the release page. Free-form.', 'producerkit' ) ],
+		'_pkit_em_also_appearing' => [ __( 'Support Acts', 'producerkit' ), __( 'Who else is on the bill.', 'producerkit' ) ],
+		'_pkit_em_doors_datetime' => [ __( 'Doors', 'producerkit' ), __( 'When the room opens, if that is before the set.', 'producerkit' ) ],
+		'_pkit_em_ticket_url' => [ __( 'Tickets', 'producerkit' ), __( 'Where tickets are sold. This plugin does not sell them.', 'producerkit' ) ],
 	],
 	'terms'           => [
 		'pkit_product_type' => [ 'Vinyl LP', 'Vinyl 7"', 'Cassette', 'CD', 'Digital Download', 'T-Shirt', 'Hoodie', 'Poster', 'Sticker', 'Patch', 'Tote Bag', 'Songbook' ],

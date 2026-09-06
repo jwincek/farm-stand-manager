@@ -23,6 +23,7 @@ return [
 		'_pkit_source_history' => [ __( 'Background', 'producerkit' ), __( 'The story behind this body or glaze.', 'producerkit' ) ],
 		'_pkit_milling_notes' => [ __( 'Preparation Notes', 'producerkit' ), __( 'How it was wedged, aged, sieved or blended.', 'producerkit' ) ],
 		'_pkit_growing_notes' => [ __( 'Making Notes', 'producerkit' ), __( 'Shown on the product page. Free-form.', 'producerkit' ) ],
+		'_pkit_em_also_appearing' => [ __( 'Also showing', 'producerkit' ), __( 'Another maker exhibiting alongside you.', 'producerkit' ) ],
 	],
 	'terms'       => [
 		'pkit_product_type' => [ 'Mug', 'Bowl', 'Vase', 'Plate', 'Platter', 'Pitcher', 'Teapot', 'Cup', 'Planter', 'Sculpture' ],
