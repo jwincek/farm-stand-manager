@@ -752,6 +752,57 @@ foreach ( $documented_counts as $claim ) {
 	}
 }
 
+// ── Check 13: no renamed meta key is still referenced ────────────────────────
+// Meta keys renamed in 2.6.0 are migrated once per site and then gone. A file
+// that still writes an old name would write to a key nothing reads; one that
+// still reads an old name gets an empty string. Neither raises an error — the
+// field just goes quiet — so the only way to catch it is to look.
+//
+// includes/upgrade.php is exempt: it holds the map, which is the one place the
+// old names have to survive.
+$upgrade_src = $read( 'includes/upgrade.php' );
+
+if ( '' === $upgrade_src ) {
+	$add( 'error', 'meta-keys', 'includes/upgrade.php is missing — the rename map has no home.' );
+} elseif ( preg_match_all( "/'(_pkit_[a-z_]+)'\s*=>\s*'(_pkit_[a-z_]+)'/", $upgrade_src, $rm, PREG_SET_ORDER ) ) {
+	$renamed_keys = [];
+	foreach ( $rm as $pair ) {
+		$renamed_keys[ $pair[1] ] = $pair[2];
+	}
+
+	$scan = array_merge(
+		$php_files_in( 'modules' ),
+		$php_files_in( 'includes' ),
+		glob( $root . '/assets/js/*.js' ) ?: [],
+		glob( $root . '/blocks/*/*.js' ) ?: []
+	);
+
+	foreach ( $scan as $file ) {
+		if ( str_ends_with( $file, 'includes/upgrade.php' ) ) {
+			continue;
+		}
+
+		$contents = (string) file_get_contents( $file );
+		$rel      = str_replace( $root . '/', '', $file );
+
+		foreach ( $renamed_keys as $old => $new ) {
+			if ( preg_match( '/\b' . preg_quote( $old, '/' ) . '\b/', $contents ) ) {
+				$add( 'error', 'meta-keys', "{$rel} still uses {$old} (renamed to {$new})." );
+			}
+		}
+	}
+
+	// The rename is only worth having if the targets are actually clean.
+	foreach ( $renamed_keys as $old => $new ) {
+		if ( preg_match( '/^_pkit_(em|ss)_/', $new ) ) {
+			$add( 'error', 'meta-keys', "{$new} still carries a module infix." );
+		}
+		if ( preg_match( '/\b(growing|milling|farm)\b/', $new ) ) {
+			$add( 'error', 'meta-keys', "{$new} names one trade in a field every trade stores." );
+		}
+	}
+}
+
 // ── Report ───────────────────────────────────────────────────────────────────
 $errors   = array_filter( $issues, static fn( $i ) => $i['level'] === 'error' );
 $warnings = array_filter( $issues, static fn( $i ) => $i['level'] === 'warning' );

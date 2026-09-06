@@ -41,8 +41,8 @@ add_action(
 					}
 
 					update_post_meta( $location_id, '_pkit_is_open', $is_open );
-					update_post_meta( $location_id, '_pkit_ss_status_message', $status_message );
-					update_post_meta( $location_id, '_pkit_ss_last_toggled', gmdate( 'c' ) );
+					update_post_meta( $location_id, '_pkit_status_message', $status_message );
+					update_post_meta( $location_id, '_pkit_last_toggled', gmdate( 'c' ) );
 
 					do_action( 'pkit_stand_status_changed', $location_id, $is_open, $status_message );
 

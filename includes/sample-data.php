@@ -171,11 +171,11 @@ function seed_locations(): int {
 	update_post_meta( $id, '_pkit_is_open', false );
 	update_post_meta( $id, '_pkit_lat', 36.3134 );
 	update_post_meta( $id, '_pkit_lng', -82.3535 );
-	update_post_meta( $id, '_pkit_ss_season_start', '2026-05-04' );
-	update_post_meta( $id, '_pkit_ss_season_end', '2026-12-01' );
+	update_post_meta( $id, '_pkit_season_start', '2026-05-04' );
+	update_post_meta( $id, '_pkit_season_end', '2026-12-01' );
 	update_post_meta(
 		$id,
-		'_pkit_ss_schedule',
+		'_pkit_weekly_schedule',
 		wp_json_encode(
 			[
 				[
@@ -186,7 +186,7 @@ function seed_locations(): int {
 			]
 		)
 	);
-	update_post_meta( $id, '_pkit_ss_auto_toggle', true );
+	update_post_meta( $id, '_pkit_auto_toggle', true );
 
 	// Also create a market location.
 	$market_id = wp_insert_post(
@@ -360,10 +360,10 @@ function seed_events( int $location_id, array $product_ids ): void {
 		update_post_meta( $pizza_id, '_pkit_event_location_id', $location_id );
 		update_post_meta( $pizza_id, '_pkit_donation_link', 'https://venmo.com/examplefarm' );
 		update_post_meta( $pizza_id, '_pkit_rsvp_cap', 30 );
-		update_post_meta( $pizza_id, '_pkit_em_rsvp_enabled', true );
-		update_post_meta( $pizza_id, '_pkit_em_rsvp_label', 'Count me in!' );
-		update_post_meta( $pizza_id, '_pkit_em_cost_note', 'Donation-based — suggested $10/person' );
-		update_post_meta( $pizza_id, '_pkit_em_what_to_bring', 'A side dish or dessert to share' );
+		update_post_meta( $pizza_id, '_pkit_rsvp_enabled', true );
+		update_post_meta( $pizza_id, '_pkit_rsvp_label', 'Count me in!' );
+		update_post_meta( $pizza_id, '_pkit_cost_note', 'Donation-based — suggested $10/person' );
+		update_post_meta( $pizza_id, '_pkit_what_to_bring', 'A side dish or dessert to share' );
 		wp_set_object_terms( $pizza_id, 'Pizza Night', 'pkit_event_type' );
 		if ( ! empty( $product_ids ) ) {
 			update_post_meta( $pizza_id, '_pkit_featured_product_ids', array_slice( $product_ids, 0, 3 ) );
@@ -388,10 +388,10 @@ function seed_events( int $location_id, array $product_ids ): void {
 		update_post_meta( $seed_id, '_pkit_end_datetime', $seed_date . 'T14:00:00' );
 		update_post_meta( $seed_id, '_pkit_event_location_id', $location_id );
 		update_post_meta( $seed_id, '_pkit_rsvp_cap', 0 );
-		update_post_meta( $seed_id, '_pkit_em_rsvp_enabled', true );
-		update_post_meta( $seed_id, '_pkit_em_rsvp_label', "I'll be there!" );
-		update_post_meta( $seed_id, '_pkit_em_cost_note', 'Free!' );
-		update_post_meta( $seed_id, '_pkit_em_what_to_bring', 'Seeds to swap, a dish for the potluck, and your curiosity' );
+		update_post_meta( $seed_id, '_pkit_rsvp_enabled', true );
+		update_post_meta( $seed_id, '_pkit_rsvp_label', "I'll be there!" );
+		update_post_meta( $seed_id, '_pkit_cost_note', 'Free!' );
+		update_post_meta( $seed_id, '_pkit_what_to_bring', 'Seeds to swap, a dish for the potluck, and your curiosity' );
 		wp_set_object_terms( $seed_id, [ 'Seed Exchange', 'Potluck' ], 'pkit_event_type' );
 	}
 
@@ -413,10 +413,10 @@ function seed_events( int $location_id, array $product_ids ): void {
 		update_post_meta( $tour_id, '_pkit_end_datetime', $tour_date . 'T12:00:00' );
 		update_post_meta( $tour_id, '_pkit_event_location_id', $location_id );
 		update_post_meta( $tour_id, '_pkit_rsvp_cap', 15 );
-		update_post_meta( $tour_id, '_pkit_em_rsvp_enabled', true );
-		update_post_meta( $tour_id, '_pkit_em_rsvp_label', 'Reserve my spot' );
-		update_post_meta( $tour_id, '_pkit_em_cost_note', '$15/person — supports the farm' );
-		update_post_meta( $tour_id, '_pkit_em_what_to_bring', 'Comfortable shoes and water' );
+		update_post_meta( $tour_id, '_pkit_rsvp_enabled', true );
+		update_post_meta( $tour_id, '_pkit_rsvp_label', 'Reserve my spot' );
+		update_post_meta( $tour_id, '_pkit_cost_note', '$15/person — supports the farm' );
+		update_post_meta( $tour_id, '_pkit_what_to_bring', 'Comfortable shoes and water' );
 		update_post_meta( $tour_id, '_pkit_donation_link', 'https://venmo.com/examplefarm' );
 		wp_set_object_terms( $tour_id, [ 'Farm Tour', 'Workshop' ], 'pkit_event_type' );
 	}

@@ -87,8 +87,8 @@ final class SeriesGeneratorTest extends WP_UnitTestCase {
 			'FREQ=WEEKLY;BYDAY=SA;COUNT=2',
 			[
 				'_pkit_rsvp_cap'         => 20,
-				'_pkit_em_rsvp_enabled'  => 1,
-				'_pkit_em_cost_note'     => 'Free',
+				'_pkit_rsvp_enabled'  => 1,
+				'_pkit_cost_note'     => 'Free',
 			]
 		);
 
@@ -96,7 +96,7 @@ final class SeriesGeneratorTest extends WP_UnitTestCase {
 
 		foreach ( Series\occurrences( $series ) as $occurrence ) {
 			$this->assertSame( '20', (string) get_post_meta( $occurrence->ID, '_pkit_rsvp_cap', true ) );
-			$this->assertSame( 'Free', get_post_meta( $occurrence->ID, '_pkit_em_cost_note', true ) );
+			$this->assertSame( 'Free', get_post_meta( $occurrence->ID, '_pkit_cost_note', true ) );
 		}
 	}
 
@@ -165,7 +165,7 @@ final class SeriesGeneratorTest extends WP_UnitTestCase {
 		Series\generate( $series );
 
 		$holiday = Series\occurrences( $series )[2];
-		update_post_meta( $holiday->ID, '_pkit_em_cancelled', 1 );
+		update_post_meta( $holiday->ID, '_pkit_cancelled', 1 );
 		wp_update_post(
 			[
 				'ID'         => $holiday->ID,
@@ -182,7 +182,7 @@ final class SeriesGeneratorTest extends WP_UnitTestCase {
 		Series\generate( $series );
 
 		$this->assertSame( 'Closed for the fair', get_the_title( $holiday->ID ) );
-		$this->assertSame( '1', (string) get_post_meta( $holiday->ID, '_pkit_em_cancelled', true ) );
+		$this->assertSame( '1', (string) get_post_meta( $holiday->ID, '_pkit_cancelled', true ) );
 	}
 
 	public function test_untouched_occurrences_do_follow_the_series(): void {

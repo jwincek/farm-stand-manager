@@ -161,12 +161,12 @@
 				),
 			} ),
 
-			meta._pkit_ss_status_message !== undefined
+			meta._pkit_status_message !== undefined
 				? el( TextControl, {
 						label: __( 'Status Message', 'producerkit' ),
-						value: meta._pkit_ss_status_message || '',
+						value: meta._pkit_status_message || '',
 						onChange( val ) {
-							updateMeta( '_pkit_ss_status_message', val );
+							updateMeta( '_pkit_status_message', val );
 						},
 						placeholder: __( 'Back at 2 PM', 'producerkit' ),
 						help: __(
@@ -208,7 +208,7 @@
 		}
 
 		// Parse schedule JSON into array.
-		const scheduleRaw = meta._pkit_ss_schedule || '[]';
+		const scheduleRaw = meta._pkit_weekly_schedule || '[]';
 		let schedule;
 		try {
 			schedule = JSON.parse( scheduleRaw );
@@ -220,7 +220,10 @@
 		}
 
 		function updateSchedule( newSchedule ) {
-			updateMeta( '_pkit_ss_schedule', JSON.stringify( newSchedule ) );
+			updateMeta(
+				'_pkit_weekly_schedule',
+				JSON.stringify( newSchedule )
+			);
 		}
 
 		function addDay() {
@@ -261,8 +264,8 @@
 		}
 
 		// Season date handling.
-		const seasonStart = meta._pkit_ss_season_start || '';
-		const seasonEnd = meta._pkit_ss_season_end || '';
+		const seasonStart = meta._pkit_season_start || '';
+		const seasonEnd = meta._pkit_season_end || '';
 
 		// Pickup blackout dates (JSON array of YYYY-MM-DD in meta).
 		const blackouts = parseBlackouts();
@@ -311,7 +314,7 @@
 					type: 'date',
 					value: seasonStart,
 					onChange( val ) {
-						updateMeta( '_pkit_ss_season_start', val );
+						updateMeta( '_pkit_season_start', val );
 					},
 					style: { flex: 1 },
 				} ),
@@ -320,7 +323,7 @@
 					type: 'date',
 					value: seasonEnd,
 					onChange( val ) {
-						updateMeta( '_pkit_ss_season_end', val );
+						updateMeta( '_pkit_season_end', val );
 					},
 					style: { flex: 1 },
 				} )
@@ -329,9 +332,9 @@
 			// Auto-toggle.
 			el( ToggleControl, {
 				label: __( 'Auto-toggle from schedule', 'producerkit' ),
-				checked: !! meta._pkit_ss_auto_toggle,
+				checked: !! meta._pkit_auto_toggle,
 				onChange( val ) {
-					updateMeta( '_pkit_ss_auto_toggle', val );
+					updateMeta( '_pkit_auto_toggle', val );
 				},
 				help: __(
 					'Automatically open/close based on the weekly schedule below.',

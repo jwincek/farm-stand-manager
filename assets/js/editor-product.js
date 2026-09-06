@@ -156,13 +156,13 @@
 
 			el( TextareaControl, {
 				label: fieldText(
-					'_pkit_growing_notes',
+					'_pkit_production_notes',
 					'label',
 					__( 'Growing / Baking Notes', 'producerkit' )
 				),
-				value: meta._pkit_growing_notes || '',
+				value: meta._pkit_production_notes || '',
 				onChange( val ) {
-					updateMeta( '_pkit_growing_notes', val );
+					updateMeta( '_pkit_production_notes', val );
 				},
 				placeholder: __(
 					'Heirloom variety, cold-hardy. No-till grown.',

@@ -64,7 +64,7 @@ final class StructuredDataTest extends WP_UnitTestCase {
 		update_post_meta( $location, '_pkit_lng', -82.2 );
 		update_post_meta(
 			$location,
-			'_pkit_ss_schedule',
+			'_pkit_weekly_schedule',
 			wp_json_encode(
 				[
 					[

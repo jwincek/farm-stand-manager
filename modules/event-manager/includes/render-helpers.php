@@ -248,7 +248,7 @@ function render_event_card( array $event, bool $show_image, bool $show_rsvp, boo
 								>
 								<?php
 								echo esc_html(
-									get_post_meta( $id, '_pkit_em_rsvp_label', true ) ?: __( "I'm coming!", 'producerkit' )
+									get_post_meta( $id, '_pkit_rsvp_label', true ) ?: __( "I'm coming!", 'producerkit' )
 								);
 								?>
 								</button>

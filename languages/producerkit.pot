@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-09-06T19:56:39+00:00\n"
+"POT-Creation-Date: 2026-09-06T21:30:32+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: producerkit\n"
@@ -19,7 +19,7 @@ msgstr ""
 #: includes/admin-dashboard.php:26
 #: includes/admin-dashboard.php:27
 #: includes/admin-dashboard.php:127
-#: producerkit.php:269
+#: producerkit.php:273
 msgid "ProducerKit"
 msgstr ""
 
@@ -415,7 +415,7 @@ msgid "No schedule set yet."
 msgstr ""
 
 #: blocks/stand-hours-schedule/render.php:84
-#: assets/js/editor-location.js:385
+#: assets/js/editor-location.js:388
 msgid "Day"
 msgstr ""
 
@@ -509,7 +509,7 @@ msgid "Events"
 msgstr ""
 
 #: includes/admin-dashboard.php:141
-#: assets/js/editor-location.js:397
+#: assets/js/editor-location.js:400
 #: blocks/stand-toggle/index.js:247
 msgid "Open"
 msgstr ""
@@ -588,7 +588,7 @@ msgid "Inactive"
 msgstr ""
 
 #: includes/admin-dashboard.php:285
-#: modules/core/includes/product-import-export.php:469
+#: modules/core/includes/product-import-export.php:473
 msgid "Required"
 msgstr ""
 
@@ -1476,37 +1476,37 @@ msgid "Where tickets are sold. This plugin does not sell them."
 msgstr ""
 
 #: modules/core/includes/payments.php:39
-#: assets/js/editor-location.js:555
+#: assets/js/editor-location.js:558
 msgid "Venmo"
 msgstr ""
 
 #: modules/core/includes/payments.php:44
-#: assets/js/editor-location.js:558
+#: assets/js/editor-location.js:561
 msgid "Cash App"
 msgstr ""
 
 #: modules/core/includes/payments.php:49
-#: assets/js/editor-location.js:563
+#: assets/js/editor-location.js:566
 msgid "PayPal"
 msgstr ""
 
 #: modules/core/includes/payments.php:54
-#: assets/js/editor-location.js:568
+#: assets/js/editor-location.js:571
 msgid "Payment Link"
 msgstr ""
 
 #: modules/core/includes/payments.php:58
-#: assets/js/editor-location.js:571
+#: assets/js/editor-location.js:574
 msgid "Cash"
 msgstr ""
 
 #: modules/core/includes/payments.php:62
-#: assets/js/editor-location.js:572
+#: assets/js/editor-location.js:575
 msgid "Check"
 msgstr ""
 
 #: modules/core/includes/payments.php:66
-#: assets/js/editor-location.js:575
+#: assets/js/editor-location.js:578
 msgid "SNAP/EBT"
 msgstr ""
 
@@ -1679,12 +1679,12 @@ msgstr ""
 msgid "Row %1$d: failed to create \"%2$s\" — %3$s"
 msgstr ""
 
-#: modules/core/includes/product-import-export.php:386
+#: modules/core/includes/product-import-export.php:390
 msgid "Product Import / Export"
 msgstr ""
 
 #. translators: %d: number of products created.
-#: modules/core/includes/product-import-export.php:395
+#: modules/core/includes/product-import-export.php:399
 #, php-format
 msgid "%d product created"
 msgid_plural "%d products created"
@@ -1692,85 +1692,85 @@ msgstr[0] ""
 msgstr[1] ""
 
 #. translators: %d: number of products updated.
-#: modules/core/includes/product-import-export.php:399
+#: modules/core/includes/product-import-export.php:403
 #, php-format
 msgid "%d product updated"
 msgid_plural "%d products updated"
 msgstr[0] ""
 msgstr[1] ""
 
-#: modules/core/includes/product-import-export.php:401
+#: modules/core/includes/product-import-export.php:405
 msgid "No changes made."
 msgstr ""
 
-#: modules/core/includes/product-import-export.php:407
+#: modules/core/includes/product-import-export.php:411
 msgid "Some rows had issues:"
 msgstr ""
 
-#: modules/core/includes/product-import-export.php:420
+#: modules/core/includes/product-import-export.php:424
 msgid "Export"
 msgstr ""
 
 #. translators: %d: number of published products.
-#: modules/core/includes/product-import-export.php:425
+#: modules/core/includes/product-import-export.php:429
 #, php-format
 msgid "Download all %d products as a CSV file. Use this as a backup or as a template for bulk edits."
 msgstr ""
 
-#: modules/core/includes/product-import-export.php:435
+#: modules/core/includes/product-import-export.php:439
 #: modules/event-manager/includes/admin-rsvps.php:108
 msgid "Download CSV"
 msgstr ""
 
-#: modules/core/includes/product-import-export.php:441
+#: modules/core/includes/product-import-export.php:445
 msgid "Import"
 msgstr ""
 
-#: modules/core/includes/product-import-export.php:442
+#: modules/core/includes/product-import-export.php:446
 msgid "Upload a CSV to create or update products in bulk. Products are matched by title — if a product with the same name exists, it will be updated."
 msgstr ""
 
-#: modules/core/includes/product-import-export.php:454
+#: modules/core/includes/product-import-export.php:458
 msgid "Upload & Import"
 msgstr ""
 
-#: modules/core/includes/product-import-export.php:461
+#: modules/core/includes/product-import-export.php:465
 msgid "CSV format reference"
 msgstr ""
 
-#: modules/core/includes/product-import-export.php:464
+#: modules/core/includes/product-import-export.php:468
 msgid "The CSV should have these columns (in any order):"
 msgstr ""
 
-#: modules/core/includes/product-import-export.php:468
+#: modules/core/includes/product-import-export.php:472
 msgid "Column"
 msgstr ""
 
-#: modules/core/includes/product-import-export.php:470
+#: modules/core/includes/product-import-export.php:474
 msgid "Example"
 msgstr ""
 
-#: modules/core/includes/product-import-export.php:474
+#: modules/core/includes/product-import-export.php:478
 msgid "Yes"
 msgstr ""
 
-#: modules/core/includes/product-import-export.php:475
-#: modules/core/includes/product-import-export.php:476
-#: modules/core/includes/product-import-export.php:477
-#: modules/core/includes/product-import-export.php:478
 #: modules/core/includes/product-import-export.php:479
 #: modules/core/includes/product-import-export.php:480
 #: modules/core/includes/product-import-export.php:481
 #: modules/core/includes/product-import-export.php:482
 #: modules/core/includes/product-import-export.php:483
+#: modules/core/includes/product-import-export.php:484
+#: modules/core/includes/product-import-export.php:485
+#: modules/core/includes/product-import-export.php:486
+#: modules/core/includes/product-import-export.php:487
 msgid "No"
 msgstr ""
 
-#: modules/core/includes/product-import-export.php:487
+#: modules/core/includes/product-import-export.php:491
 msgid "Use pipes (|) to separate multiple values in product_types, seasons, and sources."
 msgstr ""
 
-#: modules/core/includes/product-import-export.php:489
+#: modules/core/includes/product-import-export.php:493
 msgid "Tip: export your existing products first to see the format, then edit the CSV and re-import."
 msgstr ""
 
@@ -2785,7 +2785,7 @@ msgid "Flours"
 msgstr ""
 
 #: modules/producer-profiles/profiles/bakery.php:21
-#: assets/js/editor-location.js:716
+#: assets/js/editor-location.js:719
 msgid "Method"
 msgstr ""
 
@@ -3817,12 +3817,12 @@ msgid "Set a start date before publishing."
 msgstr ""
 
 #: assets/js/editor-event.js:164
-#: assets/js/editor-location.js:310
+#: assets/js/editor-location.js:313
 msgid "Start"
 msgstr ""
 
 #: assets/js/editor-event.js:205
-#: assets/js/editor-location.js:319
+#: assets/js/editor-location.js:322
 msgid "End"
 msgstr ""
 
@@ -3927,9 +3927,9 @@ msgid "What you are bringing to this one. Shown on the event in the API, so a bo
 msgstr ""
 
 #: assets/js/editor-event.js:582
-#: assets/js/editor-location.js:418
-#: assets/js/editor-location.js:490
-#: assets/js/editor-location.js:731
+#: assets/js/editor-location.js:421
+#: assets/js/editor-location.js:493
+#: assets/js/editor-location.js:734
 #: assets/js/editor-product.js:304
 msgid "Remove"
 msgstr ""
@@ -4063,7 +4063,7 @@ msgid "Venmo Handle"
 msgstr ""
 
 #: assets/js/editor-location.js:120
-#: assets/js/editor-location.js:749
+#: assets/js/editor-location.js:752
 msgid "examplefarm"
 msgstr ""
 
@@ -4099,87 +4099,87 @@ msgstr ""
 msgid "Optional message shown alongside open/closed status."
 msgstr ""
 
-#: assets/js/editor-location.js:280
+#: assets/js/editor-location.js:283
 msgid "Schedule & Season"
 msgstr ""
 
-#: assets/js/editor-location.js:289
+#: assets/js/editor-location.js:292
 msgid "Season Dates"
 msgstr ""
 
-#: assets/js/editor-location.js:297
+#: assets/js/editor-location.js:300
 msgid "Leave blank if open year-round."
 msgstr ""
 
-#: assets/js/editor-location.js:331
+#: assets/js/editor-location.js:334
 msgid "Auto-toggle from schedule"
 msgstr ""
 
-#: assets/js/editor-location.js:336
+#: assets/js/editor-location.js:339
 msgid "Automatically open/close based on the weekly schedule below."
 msgstr ""
 
-#: assets/js/editor-location.js:352
+#: assets/js/editor-location.js:355
 msgid "Weekly Schedule"
 msgstr ""
 
-#: assets/js/editor-location.js:365
+#: assets/js/editor-location.js:368
 msgid "No schedule set. Add a day below."
 msgstr ""
 
-#: assets/js/editor-location.js:406
+#: assets/js/editor-location.js:409
 msgid "Close"
 msgstr ""
 
-#: assets/js/editor-location.js:437
+#: assets/js/editor-location.js:440
 msgid "Add Day"
 msgstr ""
 
-#: assets/js/editor-location.js:451
+#: assets/js/editor-location.js:454
 msgid "Closed Dates"
 msgstr ""
 
-#: assets/js/editor-location.js:459
+#: assets/js/editor-location.js:462
 msgid "Specific dates with no pickups — holidays, closures. Pre-orders for these dates are refused."
 msgstr ""
 
-#: assets/js/editor-location.js:507
+#: assets/js/editor-location.js:510
 msgid "Add Closed Date"
 msgstr ""
 
-#: assets/js/editor-location.js:580
+#: assets/js/editor-location.js:583
 msgid "Market Vouchers (WIC/Sr FMNP)"
 msgstr ""
 
-#: assets/js/editor-location.js:662
+#: assets/js/editor-location.js:665
 msgid "Payment Options"
 msgstr ""
 
-#: assets/js/editor-location.js:686
+#: assets/js/editor-location.js:689
 msgid "No payment options set. Add one below."
 msgstr ""
 
-#: assets/js/editor-location.js:740
+#: assets/js/editor-location.js:743
 msgid "Handle"
 msgstr ""
 
-#: assets/js/editor-location.js:750
+#: assets/js/editor-location.js:753
 msgid "Username without the @ or $."
 msgstr ""
 
-#: assets/js/editor-location.js:758
+#: assets/js/editor-location.js:761
 msgid "URL"
 msgstr ""
 
-#: assets/js/editor-location.js:764
+#: assets/js/editor-location.js:767
 msgid "https://squareup.com/…"
 msgstr ""
 
-#: assets/js/editor-location.js:771
+#: assets/js/editor-location.js:774
 msgid "Display label (optional)"
 msgstr ""
 
-#: assets/js/editor-location.js:790
+#: assets/js/editor-location.js:793
 msgid "Add Payment Option"
 msgstr ""
 
@@ -4658,19 +4658,19 @@ msgstr ""
 msgid "No availability set"
 msgstr ""
 
-#: blocks/product-card/index.js:515
+#: blocks/product-card/index.js:514
 msgid "Product Settings"
 msgstr ""
 
-#: blocks/product-card/index.js:519
+#: blocks/product-card/index.js:518
 msgid "Select Product"
 msgstr ""
 
-#: blocks/product-card/index.js:529
+#: blocks/product-card/index.js:528
 msgid "Show availability status"
 msgstr ""
 
-#: blocks/product-card/index.js:539
+#: blocks/product-card/index.js:538
 msgid "Show source / grain info"
 msgstr ""
 

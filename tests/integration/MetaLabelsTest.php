@@ -30,15 +30,15 @@ final class MetaLabelsTest extends WP_UnitTestCase {
 	public function test_the_farm_wording_is_the_fallback(): void {
 		$this->use_profile( 'general' );
 
-		$this->assertSame( 'Farm / Origin Name', MetaLabels\label( '_pkit_source_farm_name' ) );
-		$this->assertSame( 'Milling / Process Notes', MetaLabels\label( '_pkit_milling_notes' ) );
+		$this->assertSame( 'Farm / Origin Name', MetaLabels\label( '_pkit_source_name' ) );
+		$this->assertSame( 'Milling / Process Notes', MetaLabels\label( '_pkit_source_processing_notes' ) );
 	}
 
 	public function test_a_beekeeper_reads_apiary_and_extraction(): void {
 		$this->use_profile( 'beekeeping' );
 
-		$this->assertSame( 'Apiary', MetaLabels\label( '_pkit_source_farm_name' ) );
-		$this->assertSame( 'Extraction Notes', MetaLabels\label( '_pkit_milling_notes' ) );
+		$this->assertSame( 'Apiary', MetaLabels\label( '_pkit_source_name' ) );
+		$this->assertSame( 'Extraction Notes', MetaLabels\label( '_pkit_source_processing_notes' ) );
 	}
 
 	public function test_the_issues_own_example(): void {
@@ -46,59 +46,59 @@ final class MetaLabelsTest extends WP_UnitTestCase {
 		// when what they mean is Label, with a studio … and mastering notes."
 		$this->use_profile( 'musician' );
 
-		$this->assertSame( 'Label', MetaLabels\label( '_pkit_source_farm_name' ) );
+		$this->assertSame( 'Label', MetaLabels\label( '_pkit_source_name' ) );
 		$this->assertSame( 'Studio', MetaLabels\label( '_pkit_source_location' ) );
-		$this->assertSame( 'Mastering Notes', MetaLabels\label( '_pkit_milling_notes' ) );
+		$this->assertSame( 'Mastering Notes', MetaLabels\label( '_pkit_source_processing_notes' ) );
 	}
 
 	public function test_help_text_follows_the_label(): void {
 		// Re-labelling a field and leaving the sentence underneath talking
 		// about grind and cure is the same mistake one line further down.
 		$this->use_profile( 'musician' );
-		$this->assertStringContainsString( 'mastering', MetaLabels\help( '_pkit_milling_notes' ) );
+		$this->assertStringContainsString( 'mastering', MetaLabels\help( '_pkit_source_processing_notes' ) );
 
 		$this->use_profile( 'beekeeping' );
-		$this->assertStringContainsString( 'spin', MetaLabels\help( '_pkit_milling_notes' ) );
+		$this->assertStringContainsString( 'spin', MetaLabels\help( '_pkit_source_processing_notes' ) );
 	}
 
 	public function test_a_profile_may_override_only_some_fields(): void {
 		// Bakery re-words three and leaves History alone.
 		$this->use_profile( 'bakery' );
 
-		$this->assertSame( 'Mill / Farm', MetaLabels\label( '_pkit_source_farm_name' ) );
+		$this->assertSame( 'Mill / Farm', MetaLabels\label( '_pkit_source_name' ) );
 		$this->assertSame( 'History', MetaLabels\label( '_pkit_source_history' ) );
 	}
 
 	public function test_the_labelling_profile_decides(): void {
 		$this->use_profile( 'beekeeping', 'pottery' );
-		$this->assertSame( 'Apiary', MetaLabels\label( '_pkit_source_farm_name' ) );
+		$this->assertSame( 'Apiary', MetaLabels\label( '_pkit_source_name' ) );
 
 		$this->use_profile( 'pottery', 'beekeeping' );
-		$this->assertSame( 'Clay Supplier', MetaLabels\label( '_pkit_source_farm_name' ) );
+		$this->assertSame( 'Clay Supplier', MetaLabels\label( '_pkit_source_name' ) );
 	}
 
 	public function test_a_blank_override_keeps_the_default(): void {
 		add_filter(
 			'pkit_meta_labels',
-			static fn (): array => [ '_pkit_source_farm_name' => [ '', '' ] ],
+			static fn (): array => [ '_pkit_source_name' => [ '', '' ] ],
 			99
 		);
 
-		$this->assertSame( 'Farm / Origin Name', MetaLabels\label( '_pkit_source_farm_name' ) );
-		$this->assertNotSame( '', MetaLabels\help( '_pkit_source_farm_name' ) );
+		$this->assertSame( 'Farm / Origin Name', MetaLabels\label( '_pkit_source_name' ) );
+		$this->assertNotSame( '', MetaLabels\help( '_pkit_source_name' ) );
 	}
 
 	public function test_a_half_declared_pair_keeps_the_other_half(): void {
 		add_filter(
 			'pkit_meta_labels',
-			static fn (): array => [ '_pkit_milling_notes' => [ 'Curing Notes' ] ],
+			static fn (): array => [ '_pkit_source_processing_notes' => [ 'Curing Notes' ] ],
 			99
 		);
 
-		$this->assertSame( 'Curing Notes', MetaLabels\label( '_pkit_milling_notes' ) );
+		$this->assertSame( 'Curing Notes', MetaLabels\label( '_pkit_source_processing_notes' ) );
 		$this->assertStringContainsString(
 			'grind',
-			MetaLabels\help( '_pkit_milling_notes' ),
+			MetaLabels\help( '_pkit_source_processing_notes' ),
 			'Overriding a label must not blank the sentence under it.'
 		);
 	}
@@ -112,15 +112,15 @@ final class MetaLabelsTest extends WP_UnitTestCase {
 
 		$this->assertSame(
 			[
-				'_pkit_source_farm_name',
+				'_pkit_source_name',
 				'_pkit_source_location',
 				'_pkit_source_history',
-				'_pkit_milling_notes',
-				'_pkit_growing_notes',
-				'_pkit_em_also_appearing',
-				'_pkit_em_doors_datetime',
-				'_pkit_em_age_restriction',
-				'_pkit_em_ticket_url',
+				'_pkit_source_processing_notes',
+				'_pkit_production_notes',
+				'_pkit_also_appearing',
+				'_pkit_doors_datetime',
+				'_pkit_age_restriction',
+				'_pkit_ticket_url',
 			],
 			array_keys( MetaLabels\labels() )
 		);
@@ -131,8 +131,8 @@ final class MetaLabelsTest extends WP_UnitTestCase {
 
 		$editor = MetaLabels\for_editor();
 
-		$this->assertSame( 'Apiary', $editor['_pkit_source_farm_name']['label'] );
-		$this->assertArrayHasKey( 'help', $editor['_pkit_source_farm_name'] );
+		$this->assertSame( 'Apiary', $editor['_pkit_source_name']['label'] );
+		$this->assertArrayHasKey( 'help', $editor['_pkit_source_name'] );
 	}
 
 	/* ── Only the words moved ───────────────────────────── */
@@ -143,14 +143,14 @@ final class MetaLabelsTest extends WP_UnitTestCase {
 		$this->use_profile( 'musician' );
 
 		$id = self::factory()->post->create( [ 'post_type' => 'pkit_source' ] );
-		update_post_meta( $id, '_pkit_source_farm_name', 'Tiny Global' );
+		update_post_meta( $id, '_pkit_source_name', 'Tiny Global' );
 
-		$this->assertSame( 'Tiny Global', get_post_meta( $id, '_pkit_source_farm_name', true ) );
+		$this->assertSame( 'Tiny Global', get_post_meta( $id, '_pkit_source_name', true ) );
 
 		$this->use_profile( 'beekeeping' );
 		$this->assertSame(
 			'Tiny Global',
-			get_post_meta( $id, '_pkit_source_farm_name', true ),
+			get_post_meta( $id, '_pkit_source_name', true ),
 			'Switching profiles must not strand data under a different key.'
 		);
 	}
@@ -171,10 +171,10 @@ final class MetaLabelsTest extends WP_UnitTestCase {
 
 		foreach (
 			[
-				'_pkit_source_farm_name',
+				'_pkit_source_name',
 				'_pkit_source_location',
 				'_pkit_source_history',
-				'_pkit_milling_notes',
+				'_pkit_source_processing_notes',
 			] as $key
 		) {
 			if ( ! str_contains( $template, "MetaLabels\\label( '" . $key . "' )" ) ) {

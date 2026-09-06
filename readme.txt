@@ -137,6 +137,8 @@ They are generated in the visitor's browser by a bundled open-source library (qr
 * Added: seven trades had no event types at all. A potter now gets Open Studio, Kiln Opening and Craft Fair; a jeweller a Trunk Show.
 * Fixed: a latent crash in the editor sidebars. The panels checked which post type they were on before reading its data, which breaks a rule React relies on — it happened to work, and would have stopped without warning.
 * Added: events can now say who else is on the bill or sharing the booth, when people can arrive, who can come, and where tickets are sold. The words follow your trade — a band's support acts are a farm's shared booth.
+* Changed: the spreadsheet column `growing_notes` is now `production_notes`, since it is where a potter writes about making and a musician about a release. A spreadsheet exported by an earlier version still imports.
+* Changed: field names stored behind the scenes no longer carry a farm's vocabulary, or the name of the part of the plugin that happened to add them. Your data is renamed for you when you update. This only matters if you have written code against those names — see the upgrade notice.
 
 = 2.5.0 =
 * Fixed: on the availability board, a product-type button now fades when the statuses you are showing leave it with nothing, instead of looking available and then emptying the board.
@@ -215,6 +217,9 @@ They are generated in the visitor's browser by a bundled open-source library (qr
 * REST API and Abilities API coverage for all core operations.
 
 == Upgrade Notice ==
+
+= 2.6.0 =
+Stored field names are corrected on update — automatically, with your data intact. If you have written a template, snippet or integration against names like _pkit_em_ticket_url or _pkit_growing_notes, they are now _pkit_ticket_url and _pkit_production_notes. The spreadsheet column growing_notes is now production_notes; older exports still import.
 
 = 2.5.0 =
 Recommended. Recurring events now create a real event for each date, so people can RSVP to one Saturday rather than to the series. One thing to know if you set a recurrence rule by hand before this release, through WordPress's custom fields box: that event becomes a series the next time it is saved. It stops appearing on the site itself and the dated events it generates appear instead, reachable from the occurrences link on its row. Nothing is deleted. If you never touched that field — and there was no way to, until now — this does not affect you.

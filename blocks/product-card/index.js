@@ -201,7 +201,7 @@
 			const meta = product ? product.meta || {} : {};
 			const price = meta._pkit_price || '';
 			const unit = meta._pkit_unit || '';
-			const growingNotes = meta._pkit_growing_notes || '';
+			const growingNotes = meta._pkit_production_notes || '';
 
 			// Thumbnail from _embedded.
 			let thumbnailUrl = '';
@@ -468,9 +468,8 @@
 									sources.map( function ( src ) {
 										const farmName =
 											src.meta &&
-											src.meta._pkit_source_farm_name
-												? src.meta
-														._pkit_source_farm_name
+											src.meta._pkit_source_name
+												? src.meta._pkit_source_name
 												: src.title?.rendered ||
 												  src.title?.raw ||
 												  '';

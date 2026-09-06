@@ -50,7 +50,7 @@ function rsvp_events(): array {
 			'post_type'      => 'pkit_event',
 			'post_status'    => [ 'publish', 'draft' ],
 			'posts_per_page' => 100,
-			'meta_key'       => '_pkit_em_rsvp_enabled',
+			'meta_key'       => '_pkit_rsvp_enabled',
 			'meta_value'     => '1',
 			'orderby'        => 'meta_value',
 			'meta_query'     => [

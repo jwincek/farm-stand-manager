@@ -23,7 +23,7 @@ if ( ! $post || $post->post_type !== 'pkit_location' || $post->post_status !== '
 	return;
 }
 
-$schedule_json  = get_post_meta( $location_id, '_pkit_ss_schedule', true );
+$schedule_json  = get_post_meta( $location_id, '_pkit_weekly_schedule', true );
 $schedule       = $schedule_json ? json_decode( $schedule_json, true ) : [];
 $hours_fallback = get_post_meta( $location_id, '_pkit_hours', true );
 

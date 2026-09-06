@@ -106,10 +106,10 @@ function render_dashboard(): void {
 				'id'             => $stand->ID,
 				'title'          => $stand->post_title,
 				'is_open'        => (bool) get_post_meta( $stand->ID, '_pkit_is_open', true ),
-				'status_message' => get_post_meta( $stand->ID, '_pkit_ss_status_message', true ),
-				'last_toggled'   => get_post_meta( $stand->ID, '_pkit_ss_last_toggled', true ),
-				'season_start'   => get_post_meta( $stand->ID, '_pkit_ss_season_start', true ),
-				'season_end'     => get_post_meta( $stand->ID, '_pkit_ss_season_end', true ),
+				'status_message' => get_post_meta( $stand->ID, '_pkit_status_message', true ),
+				'last_toggled'   => get_post_meta( $stand->ID, '_pkit_last_toggled', true ),
+				'season_start'   => get_post_meta( $stand->ID, '_pkit_season_start', true ),
+				'season_end'     => get_post_meta( $stand->ID, '_pkit_season_end', true ),
 				'edit_url'       => get_edit_post_link( $stand->ID, 'raw' ),
 			];
 		}

@@ -215,7 +215,7 @@ function pickup_constraints( int $location_id ): array {
 		return $constraints;
 	}
 
-	$schedule = json_decode( (string) get_post_meta( $location_id, '_pkit_ss_schedule', true ), true );
+	$schedule = json_decode( (string) get_post_meta( $location_id, '_pkit_weekly_schedule', true ), true );
 	if ( is_array( $schedule ) && $schedule !== [] ) {
 		$days = array_values(
 			array_unique(
@@ -231,8 +231,8 @@ function pickup_constraints( int $location_id ): array {
 		}
 	}
 
-	$constraints['season_start'] = (string) get_post_meta( $location_id, '_pkit_ss_season_start', true );
-	$constraints['season_end']   = (string) get_post_meta( $location_id, '_pkit_ss_season_end', true );
+	$constraints['season_start'] = (string) get_post_meta( $location_id, '_pkit_season_start', true );
+	$constraints['season_end']   = (string) get_post_meta( $location_id, '_pkit_season_end', true );
 
 	$blackouts = json_decode( (string) get_post_meta( $location_id, '_pkit_pickup_blackouts', true ), true );
 	if ( is_array( $blackouts ) ) {

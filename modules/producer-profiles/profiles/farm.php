@@ -24,8 +24,8 @@ return [
 		'action'   => __( 'Request a special order', 'producerkit' ),
 	],
 	'meta_labels'   => [
-		'_pkit_em_also_appearing' => [ __( 'Sharing the booth', 'producerkit' ), __( 'Another grower or maker selling alongside you.', 'producerkit' ) ],
-		'_pkit_em_doors_datetime' => [ __( 'Gates open', 'producerkit' ), __( 'When people can arrive, if that is earlier than the start.', 'producerkit' ) ],
+		'_pkit_also_appearing' => [ __( 'Sharing the booth', 'producerkit' ), __( 'Another grower or maker selling alongside you.', 'producerkit' ) ],
+		'_pkit_doors_datetime' => [ __( 'Gates open', 'producerkit' ), __( 'When people can arrive, if that is earlier than the start.', 'producerkit' ) ],
 	],
 	'sample'        => [
 		'unit'        => 'bunch',

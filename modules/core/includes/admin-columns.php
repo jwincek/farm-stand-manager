@@ -167,7 +167,7 @@ add_action(
 				}
 
 				// Cancelled badge.
-				if ( (bool) get_post_meta( $post_id, '_pkit_em_cancelled', true ) ) {
+				if ( (bool) get_post_meta( $post_id, '_pkit_cancelled', true ) ) {
 					echo '<br><span style="display:inline-block;padding:1px 6px;border-radius:3px;font-size:11px;font-weight:600;background:#fee2e2;color:#991b1b">Cancelled</span>';
 				}
 				break;
@@ -191,7 +191,7 @@ add_action(
 				break;
 
 			case 'pkit_event_rsvp':
-				$enabled = (bool) get_post_meta( $post_id, '_pkit_em_rsvp_enabled', true );
+				$enabled = (bool) get_post_meta( $post_id, '_pkit_rsvp_enabled', true );
 				if ( ! $enabled ) {
 					echo '<span style="opacity:0.4">Off</span>';
 					break;
@@ -200,7 +200,7 @@ add_action(
 				if ( function_exists( 'ProducerKit\\EventManager\\RSVP\\get_headcount' ) ) {
 					$headcount = \ProducerKit\EventManager\RSVP\get_headcount( $post_id );
 					$cap       = (int) get_post_meta( $post_id, '_pkit_rsvp_cap', true );
-					$closed    = (bool) get_post_meta( $post_id, '_pkit_em_rsvp_closed', true );
+					$closed    = (bool) get_post_meta( $post_id, '_pkit_rsvp_closed', true );
 
 					echo '<strong>' . (int) $headcount . '</strong>';
 					if ( $cap > 0 ) {

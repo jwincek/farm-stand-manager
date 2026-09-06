@@ -5,7 +5,7 @@
  * Frequently runs alongside the farm profile rather than instead of it — a
  * grower who mills and bakes, or two businesses sharing one site. The Source
  * post type already models that join: a loaf links to the grain it came from,
- * and `_pkit_milling_notes` records the step between them.
+ * and `_pkit_source_processing_notes` records the step between them.
  */
 
 declare(strict_types=1);
@@ -31,10 +31,10 @@ return [
 		'action'   => __( 'Order something special', 'producerkit' ),
 	],
 	'meta_labels'     => [
-		'_pkit_source_farm_name'  => [ __( 'Mill / Farm', 'producerkit' ), __( 'Who grew or milled it. Falls back to the post title on the front end if left empty.', 'producerkit' ) ],
-		'_pkit_milling_notes'     => [ __( 'Milling Notes', 'producerkit' ), __( 'Grind, extraction rate, how fresh it was milled.', 'producerkit' ) ],
-		'_pkit_growing_notes'     => [ __( 'Baking Notes', 'producerkit' ), __( 'Shown on the product page. Free-form.', 'producerkit' ) ],
-		'_pkit_em_also_appearing' => [ __( 'Sharing the table', 'producerkit' ), __( 'Another baker or maker selling alongside you.', 'producerkit' ) ],
+		'_pkit_source_name'  => [ __( 'Mill / Farm', 'producerkit' ), __( 'Who grew or milled it. Falls back to the post title on the front end if left empty.', 'producerkit' ) ],
+		'_pkit_source_processing_notes'     => [ __( 'Milling Notes', 'producerkit' ), __( 'Grind, extraction rate, how fresh it was milled.', 'producerkit' ) ],
+		'_pkit_production_notes'     => [ __( 'Baking Notes', 'producerkit' ), __( 'Shown on the product page. Free-form.', 'producerkit' ) ],
+		'_pkit_also_appearing' => [ __( 'Sharing the table', 'producerkit' ), __( 'Another baker or maker selling alongside you.', 'producerkit' ) ],
 	],
 	'sample'          => [
 		'unit'        => 'loaf',

@@ -141,17 +141,17 @@ function add_rsvp( array $data ): array|\WP_Error {
 	}
 
 	// Check if cancelled.
-	if ( (bool) get_post_meta( $event_id, '_pkit_em_cancelled', true ) ) {
+	if ( (bool) get_post_meta( $event_id, '_pkit_cancelled', true ) ) {
 		return new \WP_Error( 'event_cancelled', __( 'This event has been cancelled.', 'producerkit' ) );
 	}
 
 	// Check if RSVPs are enabled.
-	if ( ! (bool) get_post_meta( $event_id, '_pkit_em_rsvp_enabled', true ) ) {
+	if ( ! (bool) get_post_meta( $event_id, '_pkit_rsvp_enabled', true ) ) {
 		return new \WP_Error( 'rsvp_disabled', __( 'RSVPs are not enabled for this event.', 'producerkit' ) );
 	}
 
 	// Check if manually closed.
-	if ( (bool) get_post_meta( $event_id, '_pkit_em_rsvp_closed', true ) ) {
+	if ( (bool) get_post_meta( $event_id, '_pkit_rsvp_closed', true ) ) {
 		return new \WP_Error( 'rsvp_closed', __( 'RSVPs are closed for this event.', 'producerkit' ) );
 	}
 
@@ -451,8 +451,8 @@ function get_event_rsvp_summary( int $event_id ): array {
 	$cap        = (int) get_post_meta( $event_id, '_pkit_rsvp_cap', true );
 	$headcount  = get_headcount( $event_id );
 	$rsvp_count = get_rsvp_count( $event_id );
-	$enabled    = (bool) get_post_meta( $event_id, '_pkit_em_rsvp_enabled', true );
-	$closed     = (bool) get_post_meta( $event_id, '_pkit_em_rsvp_closed', true );
+	$enabled    = (bool) get_post_meta( $event_id, '_pkit_rsvp_enabled', true );
+	$closed     = (bool) get_post_meta( $event_id, '_pkit_rsvp_closed', true );
 
 	return [
 		'enabled'    => $enabled,

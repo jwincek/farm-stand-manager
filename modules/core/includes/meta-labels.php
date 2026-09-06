@@ -8,8 +8,8 @@
  * "History" and "Milling / Process Notes" — when what they mean is a label, a
  * studio, some background and mastering notes.
  *
- * The data model was already right. `_pkit_source_farm_name` is "who this came
- * from", `_pkit_source_location` is "where", `_pkit_milling_notes` is "what was
+ * The data model was already right. `_pkit_source_name` is "who this came
+ * from", `_pkit_source_location` is "where", `_pkit_source_processing_notes` is "what was
  * done to it in between". Those are the right three questions for a record
  * label, a tannery or a mill. Only the words were wrong, which is why this is
  * a labelling problem and not a schema one — the meta keys are in the
@@ -41,7 +41,7 @@ defined( 'ABSPATH' ) || exit;
  */
 function labels(): array {
 	$defaults = [
-		'_pkit_source_farm_name' => [
+		'_pkit_source_name' => [
 			__( 'Farm / Origin Name', 'producerkit' ),
 			__( 'Who this came from. Falls back to the post title on the front end if left empty.', 'producerkit' ),
 		],
@@ -53,27 +53,27 @@ function labels(): array {
 			__( 'History', 'producerkit' ),
 			__( 'Heritage notes — the story behind this ingredient or variety.', 'producerkit' ),
 		],
-		'_pkit_milling_notes'    => [
+		'_pkit_source_processing_notes'    => [
 			__( 'Milling / Process Notes', 'producerkit' ),
 			__( 'What was done to it in between — grind, cure, age, finish.', 'producerkit' ),
 		],
-		'_pkit_growing_notes'    => [
+		'_pkit_production_notes'    => [
 			__( 'Growing / Baking Notes', 'producerkit' ),
 			__( 'Shown on the product page. Free-form.', 'producerkit' ),
 		],
-		'_pkit_em_also_appearing'  => [
+		'_pkit_also_appearing'  => [
 			__( 'Also appearing', 'producerkit' ),
 			__( 'Who else is on this — another maker, another act, a co-teacher.', 'producerkit' ),
 		],
-		'_pkit_em_doors_datetime'  => [
+		'_pkit_doors_datetime'  => [
 			__( 'Doors open', 'producerkit' ),
 			__( 'When people can arrive, if that is earlier than when it starts.', 'producerkit' ),
 		],
-		'_pkit_em_age_restriction' => [
+		'_pkit_age_restriction' => [
 			__( 'Age restriction', 'producerkit' ),
 			__( 'Leave blank if anyone can come.', 'producerkit' ),
 		],
-		'_pkit_em_ticket_url'      => [
+		'_pkit_ticket_url'      => [
 			__( 'Ticket link', 'producerkit' ),
 			__( 'Where tickets are sold. This plugin does not sell them.', 'producerkit' ),
 		],
