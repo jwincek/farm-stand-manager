@@ -17,6 +17,11 @@
  *
  * Scope is the trade-specific labels, not every field. "Price" and "Location"
  * are the same word in every trade; "Growing / Baking Notes" is not.
+ *
+ * The four event fields are here for the same reason. What they record is the
+ * same everywhere — who else is on this, when to arrive, who can come, where
+ * tickets are sold — and only the word changes: a band's support act is a
+ * farm's shared booth is a workshop's co-teacher.
  */
 
 declare(strict_types=1);
@@ -55,6 +60,22 @@ function labels(): array {
 		'_pkit_growing_notes'    => [
 			__( 'Growing / Baking Notes', 'producerkit' ),
 			__( 'Shown on the product page. Free-form.', 'producerkit' ),
+		],
+		'_pkit_em_also_appearing'  => [
+			__( 'Also appearing', 'producerkit' ),
+			__( 'Who else is on this — another maker, another act, a co-teacher.', 'producerkit' ),
+		],
+		'_pkit_em_doors_datetime'  => [
+			__( 'Doors open', 'producerkit' ),
+			__( 'When people can arrive, if that is earlier than when it starts.', 'producerkit' ),
+		],
+		'_pkit_em_age_restriction' => [
+			__( 'Age restriction', 'producerkit' ),
+			__( 'Leave blank if anyone can come.', 'producerkit' ),
+		],
+		'_pkit_em_ticket_url'      => [
+			__( 'Ticket link', 'producerkit' ),
+			__( 'Where tickets are sold. This plugin does not sell them.', 'producerkit' ),
 		],
 	];
 

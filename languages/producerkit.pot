@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-09-06T01:50:25+00:00\n"
+"POT-Creation-Date: 2026-09-06T18:01:49+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: producerkit\n"
@@ -236,7 +236,8 @@ msgstr ""
 #: blocks/location-info/render.php:139
 #: blocks/stand-status-banner/render.php:261
 #: modules/core/includes/single-content.php:349
-#: modules/core/includes/single-content.php:514
+#: modules/core/includes/single-content.php:519
+#: modules/core/includes/single-content.php:559
 #: modules/event-manager/includes/render-helpers.php:167
 msgid "(opens in a new tab)"
 msgstr ""
@@ -573,7 +574,7 @@ msgstr ""
 #: modules/core/includes/admin-columns.php:276
 #: modules/core/includes/single-content.php:99
 #: modules/core/includes/single-content.php:306
-#: modules/core/includes/single-content.php:449
+#: modules/core/includes/single-content.php:459
 #: modules/notifications/includes/commission-notifications.php:63
 msgid "Type"
 msgstr ""
@@ -1302,11 +1303,11 @@ msgid "Event Date"
 msgstr ""
 
 #: modules/core/includes/admin-columns.php:134
-#: modules/core/includes/meta-labels.php:44
+#: modules/core/includes/meta-labels.php:49
 #: modules/core/includes/post-types.php:243
-#: modules/core/includes/single-content.php:458
+#: modules/core/includes/single-content.php:468
 #: modules/pre-order/includes/admin-orders.php:214
-#: assets/js/editor-event.js:226
+#: assets/js/editor-event.js:242
 #: assets/js/editor-source.js:134
 #: blocks/stand-hours-schedule/index.js:357
 #: blocks/stand-status-banner/index.js:469
@@ -1315,7 +1316,7 @@ msgid "Location"
 msgstr ""
 
 #: modules/core/includes/admin-columns.php:135
-#: modules/core/includes/single-content.php:489
+#: modules/core/includes/single-content.php:534
 #: modules/event-manager/includes/admin-rsvps.php:34
 #: modules/event-manager/includes/admin-rsvps.php:35
 #: modules/event-manager/includes/admin-rsvps.php:81
@@ -1344,48 +1345,48 @@ msgstr ""
 msgid "%s deposit per item when you order, balance at pickup."
 msgstr ""
 
-#: modules/core/includes/meta-labels.php:40
+#: modules/core/includes/meta-labels.php:45
 #: assets/js/editor-source.js:114
 msgid "Farm / Origin Name"
 msgstr ""
 
-#: modules/core/includes/meta-labels.php:41
+#: modules/core/includes/meta-labels.php:46
 #: assets/js/editor-source.js:123
 msgid "Who this came from. Falls back to the post title on the front end if left empty."
 msgstr ""
 
-#: modules/core/includes/meta-labels.php:45
+#: modules/core/includes/meta-labels.php:50
 #: modules/producer-profiles/profiles/beekeeping.php:32
 #: assets/js/editor-source.js:143
 msgid "County and state, or however you would say where."
 msgstr ""
 
-#: modules/core/includes/meta-labels.php:48
+#: modules/core/includes/meta-labels.php:53
 #: assets/js/editor-source.js:178
 msgid "History"
 msgstr ""
 
-#: modules/core/includes/meta-labels.php:49
+#: modules/core/includes/meta-labels.php:54
 #: assets/js/editor-source.js:188
 msgid "Heritage notes — the story behind this ingredient or variety."
 msgstr ""
 
-#: modules/core/includes/meta-labels.php:52
+#: modules/core/includes/meta-labels.php:57
 #: assets/js/editor-source.js:199
 msgid "Milling / Process Notes"
 msgstr ""
 
-#: modules/core/includes/meta-labels.php:53
+#: modules/core/includes/meta-labels.php:58
 #: assets/js/editor-source.js:209
 msgid "What was done to it in between — grind, cure, age, finish."
 msgstr ""
 
-#: modules/core/includes/meta-labels.php:56
+#: modules/core/includes/meta-labels.php:61
 #: assets/js/editor-product.js:159
 msgid "Growing / Baking Notes"
 msgstr ""
 
-#: modules/core/includes/meta-labels.php:57
+#: modules/core/includes/meta-labels.php:62
 #: modules/producer-profiles/profiles/bakery.php:36
 #: modules/producer-profiles/profiles/beekeeping.php:35
 #: modules/producer-profiles/profiles/fiber-arts.php:24
@@ -1398,6 +1399,47 @@ msgstr ""
 #: modules/producer-profiles/profiles/taxidermy.php:35
 #: modules/producer-profiles/profiles/woodworking.php:24
 msgid "Shown on the product page. Free-form."
+msgstr ""
+
+#: modules/core/includes/meta-labels.php:65
+#: assets/js/editor-event.js:968
+msgid "Also appearing"
+msgstr ""
+
+#: modules/core/includes/meta-labels.php:66
+#: assets/js/editor-event.js:977
+msgid "Who else is on this — another maker, another act, a co-teacher."
+msgstr ""
+
+#: modules/core/includes/meta-labels.php:69
+#: assets/js/editor-event.js:989
+msgid "Doors open"
+msgstr ""
+
+#: modules/core/includes/meta-labels.php:70
+#: assets/js/editor-event.js:999
+msgid "When people can arrive, if that is earlier than when it starts."
+msgstr ""
+
+#: modules/core/includes/meta-labels.php:73
+#: assets/js/editor-event.js:1030
+msgid "Age restriction"
+msgstr ""
+
+#: modules/core/includes/meta-labels.php:74
+#: assets/js/editor-event.js:1043
+msgid "Leave blank if anyone can come."
+msgstr ""
+
+#: modules/core/includes/meta-labels.php:77
+#: assets/js/editor-event.js:1052
+msgid "Ticket link"
+msgstr ""
+
+#: modules/core/includes/meta-labels.php:78
+#: modules/producer-profiles/profiles/musician.php:50
+#: assets/js/editor-event.js:1063
+msgid "Where tickets are sold. This plugin does not sell them."
 msgstr ""
 
 #: modules/core/includes/payments.php:39
@@ -1717,7 +1759,7 @@ msgid "Used in"
 msgstr ""
 
 #: modules/core/includes/single-content.php:327
-#: modules/core/includes/single-content.php:510
+#: modules/core/includes/single-content.php:555
 msgid "Payment"
 msgstr ""
 
@@ -1729,50 +1771,54 @@ msgstr ""
 msgid "Running low"
 msgstr ""
 
-#: modules/core/includes/single-content.php:427
+#: modules/core/includes/single-content.php:437
 #: modules/event-manager/includes/rsvp-table.php:145
 msgid "This event has been cancelled."
 msgstr ""
 
-#: modules/core/includes/single-content.php:433
-#: assets/js/editor-event.js:158
-#: assets/js/editor-event.js:199
+#: modules/core/includes/single-content.php:443
+#: assets/js/editor-event.js:174
+#: assets/js/editor-event.js:215
 msgid "Date"
 msgstr ""
 
-#: modules/core/includes/single-content.php:437
-#: assets/js/editor-event.js:170
-#: assets/js/editor-event.js:211
+#: modules/core/includes/single-content.php:447
+#: assets/js/editor-event.js:186
+#: assets/js/editor-event.js:227
 msgid "Time"
 msgstr ""
 
-#: modules/core/includes/single-content.php:475
+#: modules/core/includes/single-content.php:508
 msgid "Cost"
 msgstr ""
 
-#: modules/core/includes/single-content.php:482
+#: modules/core/includes/single-content.php:518
+msgid "Buy tickets"
+msgstr ""
+
+#: modules/core/includes/single-content.php:527
 msgid "What to bring"
 msgstr ""
 
 #. translators: %d: number of people who have RSVPed.
-#: modules/core/includes/single-content.php:493
+#: modules/core/includes/single-content.php:538
 #: modules/event-manager/includes/render-helpers.php:178
 #, php-format
 msgid "%d people coming"
 msgstr ""
 
 #. translators: %d: total number of RSVP spots.
-#: modules/core/includes/single-content.php:498
+#: modules/core/includes/single-content.php:543
 #, php-format
 msgid "(%d spots total)"
 msgstr ""
 
-#: modules/core/includes/single-content.php:502
+#: modules/core/includes/single-content.php:547
 #: modules/event-manager/includes/admin-rsvps.php:121
 msgid "Full"
 msgstr ""
 
-#: modules/core/includes/single-content.php:513
+#: modules/core/includes/single-content.php:558
 #: modules/event-manager/includes/render-helpers.php:166
 msgid "Donate / Pay"
 msgstr ""
@@ -2048,15 +2094,15 @@ msgstr ""
 msgid "Cancel my RSVP"
 msgstr ""
 
-#: modules/event-manager/includes/rest-extensions.php:299
+#: modules/event-manager/includes/rest-extensions.php:300
 msgid "You're on the list! See you there."
 msgstr ""
 
-#: modules/event-manager/includes/rest-extensions.php:315
+#: modules/event-manager/includes/rest-extensions.php:316
 msgid "RSVP not found or already cancelled."
 msgstr ""
 
-#: modules/event-manager/includes/rest-extensions.php:323
+#: modules/event-manager/includes/rest-extensions.php:324
 msgid "Your RSVP has been cancelled."
 msgstr ""
 
@@ -2157,7 +2203,7 @@ msgstr[0] ""
 msgstr[1] ""
 
 #: modules/event-manager/includes/series.php:795
-#: assets/js/editor-event.js:897
+#: assets/js/editor-event.js:913
 msgid "Recurrence"
 msgstr ""
 
@@ -2659,6 +2705,15 @@ msgstr ""
 msgid "Shown on the book page. Free-form."
 msgstr ""
 
+#: modules/producer-profiles/profiles/author.php:34
+msgid "Also reading"
+msgstr ""
+
+#: modules/producer-profiles/profiles/author.php:34
+#: modules/producer-profiles/profiles/musician.php:48
+msgid "Who else is on the bill."
+msgstr ""
+
 #: modules/producer-profiles/profiles/bakery.php:16
 #: modules/producer-profiles/profiles/bakery.php:25
 msgid "Bakery"
@@ -2727,6 +2782,14 @@ msgstr ""
 
 #: modules/producer-profiles/profiles/bakery.php:36
 msgid "Baking Notes"
+msgstr ""
+
+#: modules/producer-profiles/profiles/bakery.php:37
+msgid "Sharing the table"
+msgstr ""
+
+#: modules/producer-profiles/profiles/bakery.php:37
+msgid "Another baker or maker selling alongside you."
 msgstr ""
 
 #: modules/producer-profiles/profiles/beekeeping.php:16
@@ -2806,6 +2869,15 @@ msgstr ""
 msgid "Hive Notes"
 msgstr ""
 
+#: modules/producer-profiles/profiles/beekeeping.php:36
+#: modules/producer-profiles/profiles/farm.php:27
+msgid "Sharing the booth"
+msgstr ""
+
+#: modules/producer-profiles/profiles/beekeeping.php:36
+msgid "Another beekeeper or maker selling alongside you."
+msgstr ""
+
 #: modules/producer-profiles/profiles/comics.php:27
 msgid "Comics & Graphic Novels"
 msgstr ""
@@ -2826,6 +2898,14 @@ msgstr ""
 msgid "Request a commission or a sketch"
 msgstr ""
 
+#: modules/producer-profiles/profiles/comics.php:46
+msgid "Also tabling"
+msgstr ""
+
+#: modules/producer-profiles/profiles/comics.php:46
+msgid "Who else is sharing the table."
+msgstr ""
+
 #: modules/producer-profiles/profiles/farm.php:15
 msgid "Farm"
 msgstr ""
@@ -2836,6 +2916,18 @@ msgstr ""
 
 #: modules/producer-profiles/profiles/farm.php:24
 msgid "Request a special order"
+msgstr ""
+
+#: modules/producer-profiles/profiles/farm.php:27
+msgid "Another grower or maker selling alongside you."
+msgstr ""
+
+#: modules/producer-profiles/profiles/farm.php:28
+msgid "Gates open"
+msgstr ""
+
+#: modules/producer-profiles/profiles/farm.php:28
+msgid "When people can arrive, if that is earlier than the start."
 msgstr ""
 
 #: modules/producer-profiles/profiles/fiber-arts.php:13
@@ -3120,6 +3212,22 @@ msgstr ""
 msgid "Shown on the release page. Free-form."
 msgstr ""
 
+#: modules/producer-profiles/profiles/musician.php:48
+msgid "Support Acts"
+msgstr ""
+
+#: modules/producer-profiles/profiles/musician.php:49
+msgid "Doors"
+msgstr ""
+
+#: modules/producer-profiles/profiles/musician.php:49
+msgid "When the room opens, if that is before the set."
+msgstr ""
+
+#: modules/producer-profiles/profiles/musician.php:50
+msgid "Tickets"
+msgstr ""
+
 #: modules/producer-profiles/profiles/painting.php:16
 msgid "Painting & Drawing"
 msgstr ""
@@ -3154,6 +3262,15 @@ msgstr ""
 
 #: modules/producer-profiles/profiles/painting.php:25
 msgid "Works"
+msgstr ""
+
+#: modules/producer-profiles/profiles/painting.php:29
+#: modules/producer-profiles/profiles/pottery.php:26
+msgid "Also showing"
+msgstr ""
+
+#: modules/producer-profiles/profiles/painting.php:29
+msgid "Another artist exhibiting alongside you."
 msgstr ""
 
 #: modules/producer-profiles/profiles/pottery.php:13
@@ -3202,6 +3319,10 @@ msgstr ""
 
 #: modules/producer-profiles/profiles/pottery.php:24
 msgid "How it was wedged, aged, sieved or blended."
+msgstr ""
+
+#: modules/producer-profiles/profiles/pottery.php:26
+msgid "Another maker exhibiting alongside you."
 msgstr ""
 
 #: modules/producer-profiles/profiles/screen-printing.php:16
@@ -3528,13 +3649,13 @@ msgstr ""
 msgid "WooCommerce Settlement"
 msgstr ""
 
-#: assets/js/editor-event.js:103
+#: assets/js/editor-event.js:119
 msgid "— Select Location —"
 msgstr ""
 
-#: assets/js/editor-event.js:109
-#: assets/js/editor-event.js:552
-#: assets/js/editor-event.js:587
+#: assets/js/editor-event.js:125
+#: assets/js/editor-event.js:568
+#: assets/js/editor-event.js:603
 #: assets/js/editor-product.js:294
 #: assets/js/editor-product.js:324
 #: blocks/availability-badge/index.js:58
@@ -3550,125 +3671,125 @@ msgstr ""
 msgid "(untitled)"
 msgstr ""
 
-#: assets/js/editor-event.js:122
+#: assets/js/editor-event.js:138
 msgid "Event Details"
 msgstr ""
 
-#: assets/js/editor-event.js:135
+#: assets/js/editor-event.js:151
 msgid "Set a start date before publishing."
 msgstr ""
 
-#: assets/js/editor-event.js:146
+#: assets/js/editor-event.js:162
 #: assets/js/editor-location.js:306
 msgid "Start"
 msgstr ""
 
-#: assets/js/editor-event.js:187
+#: assets/js/editor-event.js:203
 #: assets/js/editor-location.js:315
 msgid "End"
 msgstr ""
 
-#: assets/js/editor-event.js:235
+#: assets/js/editor-event.js:251
 msgid "Where is this event happening?"
 msgstr ""
 
-#: assets/js/editor-event.js:240
+#: assets/js/editor-event.js:256
 msgid "Donation / Payment Link"
 msgstr ""
 
-#: assets/js/editor-event.js:245
+#: assets/js/editor-event.js:261
 msgid "https://venmo.com/examplefarm"
 msgstr ""
 
-#: assets/js/editor-event.js:249
+#: assets/js/editor-event.js:265
 msgid "Venmo link or other payment URL."
 msgstr ""
 
-#: assets/js/editor-event.js:284
+#: assets/js/editor-event.js:300
 msgid "RSVP Settings"
 msgstr ""
 
-#: assets/js/editor-event.js:290
+#: assets/js/editor-event.js:306
 msgid "Enable RSVPs"
 msgstr ""
 
-#: assets/js/editor-event.js:295
+#: assets/js/editor-event.js:311
 msgid "Allow visitors to RSVP on the front end."
 msgstr ""
 
-#: assets/js/editor-event.js:306
+#: assets/js/editor-event.js:322
 msgid "RSVP Cap"
 msgstr ""
 
-#: assets/js/editor-event.js:313
+#: assets/js/editor-event.js:329
 msgid "0 = unlimited. Total headcount including party sizes."
 msgstr ""
 
-#: assets/js/editor-event.js:320
+#: assets/js/editor-event.js:336
 msgid "Button Label"
 msgstr ""
 
-#: assets/js/editor-event.js:326
+#: assets/js/editor-event.js:342
 msgid "Custom text for the RSVP button."
 msgstr ""
 
-#: assets/js/editor-event.js:333
+#: assets/js/editor-event.js:349
 msgid "Manually Close RSVPs"
 msgstr ""
 
-#: assets/js/editor-event.js:338
+#: assets/js/editor-event.js:354
 msgid "Close RSVPs regardless of the cap."
 msgstr ""
 
-#: assets/js/editor-event.js:375
+#: assets/js/editor-event.js:391
 msgid "Event Info"
 msgstr ""
 
-#: assets/js/editor-event.js:381
+#: assets/js/editor-event.js:397
 msgid "Cost / Donation Note"
 msgstr ""
 
-#: assets/js/editor-event.js:386
+#: assets/js/editor-event.js:402
 msgid "Donation-based — suggested $10/person"
 msgstr ""
 
-#: assets/js/editor-event.js:390
+#: assets/js/editor-event.js:406
 msgid "Shown on the event card."
 msgstr ""
 
-#: assets/js/editor-event.js:394
+#: assets/js/editor-event.js:410
 msgid "What to Bring"
 msgstr ""
 
-#: assets/js/editor-event.js:399
+#: assets/js/editor-event.js:415
 msgid "A side dish or dessert to share"
 msgstr ""
 
-#: assets/js/editor-event.js:403
+#: assets/js/editor-event.js:419
 msgid "Shown on the event card with a 🧺 icon."
 msgstr ""
 
-#: assets/js/editor-event.js:410
+#: assets/js/editor-event.js:426
 msgid "Event Cancelled"
 msgstr ""
 
-#: assets/js/editor-event.js:415
+#: assets/js/editor-event.js:431
 msgid "Mark this event as cancelled. It will show a cancelled badge."
 msgstr ""
 
-#: assets/js/editor-event.js:428
+#: assets/js/editor-event.js:444
 msgid "This event is marked as cancelled. It will display with a cancelled badge on the front end."
 msgstr ""
 
-#: assets/js/editor-event.js:511
+#: assets/js/editor-event.js:527
 msgid "Featured Products"
 msgstr ""
 
-#: assets/js/editor-event.js:522
+#: assets/js/editor-event.js:538
 msgid "What you are bringing to this one. Shown on the event in the API, so a booth listing can name the three things worth the trip."
 msgstr ""
 
-#: assets/js/editor-event.js:558
+#: assets/js/editor-event.js:574
 #: assets/js/editor-location.js:414
 #: assets/js/editor-location.js:486
 #: assets/js/editor-location.js:725
@@ -3676,76 +3797,88 @@ msgstr ""
 msgid "Remove"
 msgstr ""
 
-#: assets/js/editor-event.js:579
+#: assets/js/editor-event.js:595
 msgid "— Add a product —"
 msgstr ""
 
-#: assets/js/editor-event.js:604
+#: assets/js/editor-event.js:620
 msgid "No products created yet. Add them under Catalog in the sidebar."
 msgstr ""
 
-#: assets/js/editor-event.js:608
+#: assets/js/editor-event.js:624
 msgid "Every product is already featured."
 msgstr ""
 
-#: assets/js/editor-event.js:765
+#: assets/js/editor-event.js:781
 msgid "Repeats"
 msgstr ""
 
-#: assets/js/editor-event.js:769
+#: assets/js/editor-event.js:785
 msgid "Does not repeat"
 msgstr ""
 
-#: assets/js/editor-event.js:773
+#: assets/js/editor-event.js:789
 msgid "Every week"
 msgstr ""
 
-#: assets/js/editor-event.js:777
+#: assets/js/editor-event.js:793
 msgid "Every other week"
 msgstr ""
 
-#: assets/js/editor-event.js:781
+#: assets/js/editor-event.js:797
 msgid "Every month, on this date"
 msgstr ""
 
-#: assets/js/editor-event.js:785
+#: assets/js/editor-event.js:801
 msgid "Every month, on the first of this weekday"
 msgstr ""
 
-#: assets/js/editor-event.js:792
+#: assets/js/editor-event.js:808
 msgid "Every month, on the last of this weekday"
 msgstr ""
 
-#: assets/js/editor-event.js:799
+#: assets/js/editor-event.js:815
 msgid "Every year"
 msgstr ""
 
-#: assets/js/editor-event.js:803
+#: assets/js/editor-event.js:819
 msgid "Custom rule…"
 msgstr ""
 
-#: assets/js/editor-event.js:817
+#: assets/js/editor-event.js:833
 msgid "Worked out from this event’s own start date."
 msgstr ""
 
-#: assets/js/editor-event.js:821
+#: assets/js/editor-event.js:837
 msgid "Set a start date first — the pattern is worked out from it."
 msgstr ""
 
-#: assets/js/editor-event.js:832
+#: assets/js/editor-event.js:848
 msgid "Recurrence rule"
 msgstr ""
 
-#: assets/js/editor-event.js:835
+#: assets/js/editor-event.js:851
 msgid "An iCal RRULE. Supported: FREQ, INTERVAL, COUNT, UNTIL, BYDAY, BYMONTHDAY, BYMONTH."
 msgstr ""
 
-#: assets/js/editor-event.js:871
+#: assets/js/editor-event.js:887
 msgid "Next dates"
 msgstr ""
 
-#: assets/js/editor-event.js:883
+#: assets/js/editor-event.js:899
 msgid "…and more. Dates are created about a year ahead and topped up daily."
+msgstr ""
+
+#: assets/js/editor-event.js:1016
+msgid "Doors are at or after the start time, so they will not be shown. Set them earlier, or clear them."
+msgstr ""
+
+#: assets/js/editor-event.js:1036
+msgid "e.g. 18+, All ages, Under-12s with an adult"
+msgstr ""
+
+#: assets/js/editor-event.js:1075
+msgid "Who and When"
 msgstr ""
 
 #: assets/js/editor-location.js:50

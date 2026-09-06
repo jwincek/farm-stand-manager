@@ -43,6 +43,7 @@ return [
 	],
 	'meta_labels'     => [
 		'_pkit_growing_notes' => [ __( 'Book Notes', 'producerkit' ), __( 'Shown on the book page. Free-form.', 'producerkit' ) ],
+		'_pkit_em_also_appearing' => [ __( 'Also tabling', 'producerkit' ), __( 'Who else is sharing the table.', 'producerkit' ) ],
 	],
 	'terms'           => [
 		'pkit_product_type' => [ 'Graphic Novel', 'Single Issue', 'Trade Paperback', 'Mini-Comic', 'Ashcan', 'Zine', 'Anthology', 'Art Book', 'Sketchbook', 'Original Page', 'Print', 'Sticker', 'Pin' ],

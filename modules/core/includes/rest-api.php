@@ -305,6 +305,16 @@ function get_event_details( \WP_REST_Request $request ): \WP_REST_Response {
 				'start'           => get_post_meta( $event_id, '_pkit_start_datetime', true ),
 				'end'             => get_post_meta( $event_id, '_pkit_end_datetime', true ),
 				'recurrence_rule' => get_post_meta( $event_id, '_pkit_recurrence_rule', true ),
+				// Four things any event can have. doors_datetime() rather than
+				// the raw meta, so a doors time at or after the start is absent
+				// instead of reading as "Doors 9pm, starts 7pm". The
+				// event-manager module owns it and is optional.
+				'also_appearing'  => get_post_meta( $event_id, '_pkit_em_also_appearing', true ),
+				'doors'           => function_exists( '\\ProducerKit\\EventManager\\Meta\\doors_datetime' )
+					? \ProducerKit\EventManager\Meta\doors_datetime( $event_id )
+					: '',
+				'age_restriction' => get_post_meta( $event_id, '_pkit_em_age_restriction', true ),
+				'ticket_url'      => get_post_meta( $event_id, '_pkit_em_ticket_url', true ),
 				'rsvp_cap'        => (int) get_post_meta( $event_id, '_pkit_rsvp_cap', true ),
 				'donation_link'   => get_post_meta( $event_id, '_pkit_donation_link', true ),
 			],

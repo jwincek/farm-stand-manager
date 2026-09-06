@@ -132,6 +132,9 @@ They are generated in the visitor's browser by a bundled open-source library (qr
 
 == Changelog ==
 
+= Unreleased =
+* Added: events can now say who else is on the bill or sharing the booth, when people can arrive, who can come, and where tickets are sold. The words follow your trade — a band's support acts are a farm's shared booth.
+
 = 2.5.0 =
 * Fixed: on the availability board, a product-type button now fades when the statuses you are showing leave it with nothing, instead of looking available and then emptying the board.
 * Fixed: a shop's page listed everything you make instead of what they carry. Products marked available everywhere now show at your own stand and market, not on a retailer's shelf.

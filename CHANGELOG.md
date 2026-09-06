@@ -7,6 +7,41 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- Four things any event can have, named for your trade: who else is on it,
+  when people can arrive if that differs from when it starts, who can come,
+  and where tickets are sold.
+
+  These began as musician fields — support acts, doors, an age limit, a
+  ticket link — and were nearly built as profile-conditional meta on that
+  basis. They are not musician fields. **Two farmers sharing a booth is a
+  support act**, and so is a co-teacher on a workshop or a guest maker at an
+  open studio. Once that lands the rest follow: a cider tasting has an age
+  restriction, a farm dinner sells tickets through Eventbrite, a workshop
+  has a sign-in period before it begins.
+
+  So they are four fields on every event, with the words coming from the
+  producer profile through the filter 2.4.0 already shipped. A musician sees
+  *Doors* and *Support Acts*; a farm sees *Gates open* and *Sharing the
+  booth*; anyone else sees *Doors open* and *Also appearing*. One set of
+  meta keys, so nothing forks by trade.
+
+  Doors is a new field rather than a reinterpretation of the start time — a
+  doors time at or after the start is kept but not shown, and the editor
+  says why rather than discarding what was typed. A `sanitize_callback` is
+  handed the value with no object id, so it cannot make that comparison; the
+  readers do.
+
+  Age restriction is free text. "18+", "All ages", "Licensed premises",
+  "Under-12s with an adult" — a dropdown would be wrong within a week. The
+  ticket link is sanitised as a URL rather than as text, since it is
+  rendered as an href.
+
+  They ship with their readers: the editor panel, both REST responses, and
+  the event page. A field with no reader, or a reader with no field, is
+  something this plugin has produced in both directions.
+
 ## [2.5.0] - 2026-09-06
 
 Recurring events, and the plugin finally asking what you make.

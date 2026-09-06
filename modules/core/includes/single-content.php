@@ -402,6 +402,16 @@ function render_event_details( \WP_Post $post ): string {
 	$donation  = get_post_meta( $id, '_pkit_donation_link', true );
 	$cancelled = (bool) get_post_meta( $id, '_pkit_em_cancelled', true );
 
+	// Four things any event can have, named for the trade. doors_datetime()
+	// rather than the raw meta, so a doors time at or after the start is
+	// absent rather than printed as "Doors 9pm, starts 7pm".
+	$also_appearing  = get_post_meta( $id, '_pkit_em_also_appearing', true );
+	$age_restriction = get_post_meta( $id, '_pkit_em_age_restriction', true );
+	$ticket_url      = get_post_meta( $id, '_pkit_em_ticket_url', true );
+	$doors           = function_exists( '\ProducerKit\EventManager\Meta\doors_datetime' )
+		? \ProducerKit\EventManager\Meta\doors_datetime( $id )
+		: '';
+
 	// Location.
 	$location_id = (int) get_post_meta( $id, '_pkit_event_location_id', true );
 	$location    = $location_id > 0 ? get_post( $location_id ) : null;
@@ -470,10 +480,45 @@ function render_event_details( \WP_Post $post ): string {
 			</div>
 		<?php endif; ?>
 
+		<?php if ( $doors ) : ?>
+			<div class="pkit-single-details__row">
+				<span class="pkit-single-details__label"><?php echo esc_html( \ProducerKit\Core\MetaLabels\label( '_pkit_em_doors_datetime' ) ); ?></span>
+				<span class="pkit-single-details__value">
+					<?php echo esc_html( wp_date( (string) get_option( 'time_format' ), strtotime( $doors ) ) ); ?>
+				</span>
+			</div>
+		<?php endif; ?>
+
+		<?php if ( $also_appearing ) : ?>
+			<div class="pkit-single-details__row">
+				<span class="pkit-single-details__label"><?php echo esc_html( \ProducerKit\Core\MetaLabels\label( '_pkit_em_also_appearing' ) ); ?></span>
+				<span class="pkit-single-details__value"><?php echo esc_html( $also_appearing ); ?></span>
+			</div>
+		<?php endif; ?>
+
+		<?php if ( $age_restriction ) : ?>
+			<div class="pkit-single-details__row">
+				<span class="pkit-single-details__label"><?php echo esc_html( \ProducerKit\Core\MetaLabels\label( '_pkit_em_age_restriction' ) ); ?></span>
+				<span class="pkit-single-details__value"><?php echo esc_html( $age_restriction ); ?></span>
+			</div>
+		<?php endif; ?>
+
 		<?php if ( $cost_note ) : ?>
 			<div class="pkit-single-details__row">
 				<span class="pkit-single-details__label"><?php esc_html_e( 'Cost', 'producerkit' ); ?></span>
 				<span class="pkit-single-details__value"><?php echo esc_html( $cost_note ); ?></span>
+			</div>
+		<?php endif; ?>
+
+		<?php if ( $ticket_url ) : ?>
+			<div class="pkit-single-details__row">
+				<span class="pkit-single-details__label"><?php echo esc_html( \ProducerKit\Core\MetaLabels\label( '_pkit_em_ticket_url' ) ); ?></span>
+				<span class="pkit-single-details__value">
+					<a href="<?php echo esc_url( $ticket_url ); ?>" rel="noopener nofollow" target="_blank">
+						<?php esc_html_e( 'Buy tickets', 'producerkit' ); ?>
+						<span class="screen-reader-text"><?php esc_html_e( '(opens in a new tab)', 'producerkit' ); ?></span>
+					</a>
+				</span>
 			</div>
 		<?php endif; ?>
 

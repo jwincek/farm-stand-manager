@@ -117,6 +117,10 @@ final class MetaLabelsTest extends WP_UnitTestCase {
 				'_pkit_source_history',
 				'_pkit_milling_notes',
 				'_pkit_growing_notes',
+				'_pkit_em_also_appearing',
+				'_pkit_em_doors_datetime',
+				'_pkit_em_age_restriction',
+				'_pkit_em_ticket_url',
 			],
 			array_keys( MetaLabels\labels() )
 		);
