@@ -53,10 +53,10 @@ function inherited_meta(): array {
 			'_pkit_featured_product_ids',
 			'_pkit_rsvp_cap',
 			'_pkit_donation_link',
-			'_pkit_em_cost_note',
-			'_pkit_em_what_to_bring',
-			'_pkit_em_rsvp_enabled',
-			'_pkit_em_rsvp_label',
+			'_pkit_cost_note',
+			'_pkit_what_to_bring',
+			'_pkit_rsvp_enabled',
+			'_pkit_rsvp_label',
 		]
 	);
 }

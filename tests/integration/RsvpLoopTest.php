@@ -233,7 +233,7 @@ final class RsvpLoopTest extends WP_UnitTestCase {
 			]
 		);
 
-		update_post_meta( $event, '_pkit_em_rsvp_enabled', 1 );
+		update_post_meta( $event, '_pkit_rsvp_enabled', 1 );
 		update_post_meta( $event, '_pkit_start_datetime', gmdate( 'Y-m-d H:i:s', time() + DAY_IN_SECONDS ) );
 
 		if ( $cap > 0 ) {

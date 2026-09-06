@@ -6,7 +6,7 @@
  * Import: uploads a CSV, previews the data, and creates/updates products.
  *
  * CSV columns:
- *   title, excerpt, price, unit, growing_notes, product_types, seasons, sources, featured_image_url
+ *   title, excerpt, price, unit, production_notes, product_types, seasons, sources, featured_image_url
  *
  * - product_types and seasons are pipe-separated: "Produce|Bread"
  * - sources are pipe-separated source post titles (matched by name)
@@ -80,7 +80,7 @@ function handle_export(): void {
 			'excerpt',
 			'price',
 			'unit',
-			'growing_notes',
+			'production_notes',
 			'product_types',
 			'seasons',
 			'sources',
@@ -125,7 +125,7 @@ function handle_export(): void {
 				$product->post_excerpt,
 				get_post_meta( $pid, '_pkit_price', true ),
 				get_post_meta( $pid, '_pkit_unit', true ),
-				get_post_meta( $pid, '_pkit_growing_notes', true ),
+				get_post_meta( $pid, '_pkit_production_notes', true ),
 				$type_str,
 				$season_str,
 				implode( '|', $source_names ),
@@ -320,8 +320,12 @@ function import_rows( array $rows ): array {
 		if ( isset( $row['unit'] ) ) {
 			update_post_meta( $pid, '_pkit_unit', sanitize_text_field( $row['unit'] ) );
 		}
-		if ( isset( $row['growing_notes'] ) ) {
-			update_post_meta( $pid, '_pkit_growing_notes', sanitize_text_field( $row['growing_notes'] ) );
+		// 'growing_notes' was this column's header until 2.6.0. It is still
+		// accepted because the rename cannot reach a CSV already sitting on
+		// someone's desktop, and re-importing an export is a normal thing to do.
+		$notes = $row['production_notes'] ?? $row['growing_notes'] ?? null;
+		if ( null !== $notes ) {
+			update_post_meta( $pid, '_pkit_production_notes', sanitize_text_field( $notes ) );
 		}
 
 		// Taxonomies (pipe-separated).
@@ -476,7 +480,7 @@ function render_page(): void {
 								<tr><td><code>excerpt</code></td><td><?php esc_html_e( 'No', 'producerkit' ); ?></td><td>Peppery and fresh</td></tr>
 								<tr><td><code>price</code></td><td><?php esc_html_e( 'No', 'producerkit' ); ?></td><td>$4</td></tr>
 								<tr><td><code>unit</code></td><td><?php esc_html_e( 'No', 'producerkit' ); ?></td><td>bunch</td></tr>
-								<tr><td><code>growing_notes</code></td><td><?php esc_html_e( 'No', 'producerkit' ); ?></td><td>No-till, heirloom variety</td></tr>
+								<tr><td><code>production_notes</code></td><td><?php esc_html_e( 'No', 'producerkit' ); ?></td><td>No-till, heirloom variety</td></tr>
 								<tr><td><code>product_types</code></td><td><?php esc_html_e( 'No', 'producerkit' ); ?></td><td>Produce</td></tr>
 								<tr><td><code>seasons</code></td><td><?php esc_html_e( 'No', 'producerkit' ); ?></td><td>Spring|Fall</td></tr>
 								<tr><td><code>sources</code></td><td><?php esc_html_e( 'No', 'producerkit' ); ?></td><td>Anson Mills|Boulted Bread</td></tr>

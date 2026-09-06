@@ -289,7 +289,7 @@
 			setMeta( Object.assign( {}, meta, updated ) );
 		}
 
-		const rsvpEnabled = !! meta._pkit_em_rsvp_enabled;
+		const rsvpEnabled = !! meta._pkit_rsvp_enabled;
 
 		// After every hook, never before one: a hook that runs only
 		// sometimes is a hook React cannot account for.
@@ -310,7 +310,7 @@
 				label: __( 'Enable RSVPs', 'producerkit' ),
 				checked: rsvpEnabled,
 				onChange( val ) {
-					updateMeta( '_pkit_em_rsvp_enabled', val );
+					updateMeta( '_pkit_rsvp_enabled', val );
 				},
 				help: __(
 					'Allow visitors to RSVP on the front end.',
@@ -338,9 +338,9 @@
 
 						el( TextControl, {
 							label: __( 'Button Label', 'producerkit' ),
-							value: meta._pkit_em_rsvp_label || '',
+							value: meta._pkit_rsvp_label || '',
 							onChange( val ) {
-								updateMeta( '_pkit_em_rsvp_label', val );
+								updateMeta( '_pkit_rsvp_label', val );
 							},
 							placeholder: "I'm coming!",
 							help: __(
@@ -351,9 +351,9 @@
 
 						el( ToggleControl, {
 							label: __( 'Manually Close RSVPs', 'producerkit' ),
-							checked: !! meta._pkit_em_rsvp_closed,
+							checked: !! meta._pkit_rsvp_closed,
 							onChange( val ) {
-								updateMeta( '_pkit_em_rsvp_closed', val );
+								updateMeta( '_pkit_rsvp_closed', val );
 							},
 							help: __(
 								'Close RSVPs regardless of the cap.',
@@ -401,9 +401,9 @@
 
 			el( TextControl, {
 				label: __( 'Cost / Donation Note', 'producerkit' ),
-				value: meta._pkit_em_cost_note || '',
+				value: meta._pkit_cost_note || '',
 				onChange( val ) {
-					updateMeta( '_pkit_em_cost_note', val );
+					updateMeta( '_pkit_cost_note', val );
 				},
 				placeholder: __(
 					'Donation-based — suggested $10/person',
@@ -414,9 +414,9 @@
 
 			el( TextControl, {
 				label: __( 'What to Bring', 'producerkit' ),
-				value: meta._pkit_em_what_to_bring || '',
+				value: meta._pkit_what_to_bring || '',
 				onChange( val ) {
-					updateMeta( '_pkit_em_what_to_bring', val );
+					updateMeta( '_pkit_what_to_bring', val );
 				},
 				placeholder: __(
 					'A side dish or dessert to share',
@@ -430,9 +430,9 @@
 
 			el( ToggleControl, {
 				label: __( 'Event Cancelled', 'producerkit' ),
-				checked: !! meta._pkit_em_cancelled,
+				checked: !! meta._pkit_cancelled,
 				onChange( val ) {
-					updateMeta( '_pkit_em_cancelled', val );
+					updateMeta( '_pkit_cancelled', val );
 				},
 				help: __(
 					'Mark this event as cancelled. It will show a cancelled badge.',
@@ -440,7 +440,7 @@
 				),
 			} ),
 
-			!! meta._pkit_em_cancelled
+			!! meta._pkit_cancelled
 				? el(
 						Notice,
 						{
@@ -956,7 +956,7 @@
 			setMeta( Object.assign( {}, meta, updated ) );
 		}
 
-		const doors = meta._pkit_em_doors_datetime || '';
+		const doors = meta._pkit_doors_datetime || '';
 		const start = meta._pkit_start_datetime || '';
 
 		// The comparison a sanitize_callback cannot make: it is handed the
@@ -969,16 +969,16 @@
 			el( TextControl, {
 				key: 'also',
 				label: fieldText(
-					'_pkit_em_also_appearing',
+					'_pkit_also_appearing',
 					'label',
 					__( 'Also appearing', 'producerkit' )
 				),
-				value: meta._pkit_em_also_appearing || '',
+				value: meta._pkit_also_appearing || '',
 				onChange( value ) {
-					updateMeta( '_pkit_em_also_appearing', value );
+					updateMeta( '_pkit_also_appearing', value );
 				},
 				help: fieldText(
-					'_pkit_em_also_appearing',
+					'_pkit_also_appearing',
 					'help',
 					__(
 						'Who else is on this — another maker, another act, a co-teacher.',
@@ -990,17 +990,17 @@
 			el( TextControl, {
 				key: 'doors',
 				label: fieldText(
-					'_pkit_em_doors_datetime',
+					'_pkit_doors_datetime',
 					'label',
 					__( 'Doors open', 'producerkit' )
 				),
 				type: 'datetime-local',
 				value: doors,
 				onChange( value ) {
-					updateMeta( '_pkit_em_doors_datetime', value );
+					updateMeta( '_pkit_doors_datetime', value );
 				},
 				help: fieldText(
-					'_pkit_em_doors_datetime',
+					'_pkit_doors_datetime',
 					'help',
 					__(
 						'When people can arrive, if that is earlier than when it starts.',
@@ -1031,20 +1031,20 @@
 			el( TextControl, {
 				key: 'age',
 				label: fieldText(
-					'_pkit_em_age_restriction',
+					'_pkit_age_restriction',
 					'label',
 					__( 'Age restriction', 'producerkit' )
 				),
-				value: meta._pkit_em_age_restriction || '',
+				value: meta._pkit_age_restriction || '',
 				onChange( value ) {
-					updateMeta( '_pkit_em_age_restriction', value );
+					updateMeta( '_pkit_age_restriction', value );
 				},
 				placeholder: __(
 					'e.g. 18+, All ages, Under-12s with an adult',
 					'producerkit'
 				),
 				help: fieldText(
-					'_pkit_em_age_restriction',
+					'_pkit_age_restriction',
 					'help',
 					__( 'Leave blank if anyone can come.', 'producerkit' )
 				),
@@ -1053,18 +1053,18 @@
 			el( TextControl, {
 				key: 'tickets',
 				label: fieldText(
-					'_pkit_em_ticket_url',
+					'_pkit_ticket_url',
 					'label',
 					__( 'Ticket link', 'producerkit' )
 				),
 				type: 'url',
-				value: meta._pkit_em_ticket_url || '',
+				value: meta._pkit_ticket_url || '',
 				onChange( value ) {
-					updateMeta( '_pkit_em_ticket_url', value );
+					updateMeta( '_pkit_ticket_url', value );
 				},
 				placeholder: 'https://',
 				help: fieldText(
-					'_pkit_em_ticket_url',
+					'_pkit_ticket_url',
 					'help',
 					__(
 						'Where tickets are sold. This plugin does not sell them.',

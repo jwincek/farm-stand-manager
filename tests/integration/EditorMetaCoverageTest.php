@@ -38,7 +38,7 @@ final class EditorMetaCoverageTest extends WP_UnitTestCase {
 	private const NO_CONTROL_EXPECTED = [
 		// Stamped by the toggle itself, in both the REST route and the
 		// ability. A control would let someone falsify it.
-		'_pkit_ss_last_toggled'      => 'written by the stand toggle, never by hand',
+		'_pkit_last_toggled'      => 'written by the stand toggle, never by hand',
 
 		// Read by two REST responses and written nowhere, the same shape as
 		// the sources bug. Unlike the others it is not a missing control:
@@ -169,10 +169,10 @@ final class EditorMetaCoverageTest extends WP_UnitTestCase {
 
 		foreach (
 			[
-				'_pkit_source_farm_name',
+				'_pkit_source_name',
 				'_pkit_source_location',
 				'_pkit_source_history',
-				'_pkit_milling_notes',
+				'_pkit_source_processing_notes',
 			] as $key
 		) {
 			$this->assertStringContainsString( $key, $js );

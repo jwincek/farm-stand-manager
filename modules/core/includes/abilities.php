@@ -193,12 +193,12 @@ function register_product_abilities(): void {
 
 				return array_map(
 					fn ( \WP_Post $s ) => [
-						'id'            => $s->ID,
-						'title'         => $s->post_title,
-						'farm_name'     => get_post_meta( $s->ID, '_pkit_source_farm_name', true ),
-						'location'      => get_post_meta( $s->ID, '_pkit_source_location', true ),
-						'history'       => get_post_meta( $s->ID, '_pkit_source_history', true ),
-						'milling_notes' => get_post_meta( $s->ID, '_pkit_milling_notes', true ),
+						'id'               => $s->ID,
+						'title'            => $s->post_title,
+						'source_name'      => get_post_meta( $s->ID, '_pkit_source_name', true ),
+						'location'         => get_post_meta( $s->ID, '_pkit_source_location', true ),
+						'history'          => get_post_meta( $s->ID, '_pkit_source_history', true ),
+						'processing_notes' => get_post_meta( $s->ID, '_pkit_source_processing_notes', true ),
 					],
 					$sources
 				);
@@ -218,12 +218,12 @@ function register_product_abilities(): void {
 				'items' => [
 					'type'       => 'object',
 					'properties' => [
-						'id'            => [ 'type' => 'integer' ],
-						'title'         => [ 'type' => 'string' ],
-						'farm_name'     => [ 'type' => 'string' ],
-						'location'      => [ 'type' => 'string' ],
-						'history'       => [ 'type' => 'string' ],
-						'milling_notes' => [ 'type' => 'string' ],
+						'id'               => [ 'type' => 'integer' ],
+						'title'            => [ 'type' => 'string' ],
+						'source_name'      => [ 'type' => 'string' ],
+						'location'         => [ 'type' => 'string' ],
+						'history'          => [ 'type' => 'string' ],
+						'processing_notes' => [ 'type' => 'string' ],
 					],
 				],
 			],

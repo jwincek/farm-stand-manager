@@ -109,16 +109,16 @@
 
 			el( TextControl, {
 				label: fieldText(
-					'_pkit_source_farm_name',
+					'_pkit_source_name',
 					'label',
 					__( 'Farm / Origin Name', 'producerkit' )
 				),
-				value: source.meta._pkit_source_farm_name || '',
+				value: source.meta._pkit_source_name || '',
 				onChange( value ) {
-					updateMeta( '_pkit_source_farm_name', value );
+					updateMeta( '_pkit_source_name', value );
 				},
 				help: fieldText(
-					'_pkit_source_farm_name',
+					'_pkit_source_name',
 					'help',
 					__(
 						'Who this came from. Falls back to the post title on the front end if left empty.',
@@ -194,17 +194,17 @@
 
 			el( TextareaControl, {
 				label: fieldText(
-					'_pkit_milling_notes',
+					'_pkit_source_processing_notes',
 					'label',
 					__( 'Milling / Process Notes', 'producerkit' )
 				),
-				value: source.meta._pkit_milling_notes || '',
+				value: source.meta._pkit_source_processing_notes || '',
 				rows: 4,
 				onChange( value ) {
-					updateMeta( '_pkit_milling_notes', value );
+					updateMeta( '_pkit_source_processing_notes', value );
 				},
 				help: fieldText(
-					'_pkit_milling_notes',
+					'_pkit_source_processing_notes',
 					'help',
 					__(
 						'What was done to it in between — grind, cure, age, finish.',

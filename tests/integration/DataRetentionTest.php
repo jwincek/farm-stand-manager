@@ -193,7 +193,7 @@ final class DataRetentionTest extends WP_UnitTestCase {
 			]
 		);
 
-		update_post_meta( $event, '_pkit_em_rsvp_enabled', 1 );
+		update_post_meta( $event, '_pkit_rsvp_enabled', 1 );
 
 		return $event;
 	}

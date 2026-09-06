@@ -236,13 +236,13 @@ function get_product_sources( \WP_REST_Request $request ): \WP_REST_Response {
 
 	$result = array_map(
 		fn ( \WP_Post $p ) => [
-			'id'            => $p->ID,
-			'title'         => $p->post_title,
-			'excerpt'       => $p->post_excerpt,
-			'farm_name'     => get_post_meta( $p->ID, '_pkit_source_farm_name', true ),
-			'location'      => get_post_meta( $p->ID, '_pkit_source_location', true ),
-			'history'       => get_post_meta( $p->ID, '_pkit_source_history', true ),
-			'milling_notes' => get_post_meta( $p->ID, '_pkit_milling_notes', true ),
+			'id'               => $p->ID,
+			'title'            => $p->post_title,
+			'excerpt'          => $p->post_excerpt,
+			'source_name'      => get_post_meta( $p->ID, '_pkit_source_name', true ),
+			'location'         => get_post_meta( $p->ID, '_pkit_source_location', true ),
+			'history'          => get_post_meta( $p->ID, '_pkit_source_history', true ),
+			'processing_notes' => get_post_meta( $p->ID, '_pkit_source_processing_notes', true ),
 		],
 		$sources
 	);
@@ -309,12 +309,12 @@ function get_event_details( \WP_REST_Request $request ): \WP_REST_Response {
 				// the raw meta, so a doors time at or after the start is absent
 				// instead of reading as "Doors 9pm, starts 7pm". The
 				// event-manager module owns it and is optional.
-				'also_appearing'  => get_post_meta( $event_id, '_pkit_em_also_appearing', true ),
+				'also_appearing'  => get_post_meta( $event_id, '_pkit_also_appearing', true ),
 				'doors'           => function_exists( '\\ProducerKit\\EventManager\\Meta\\doors_datetime' )
 					? \ProducerKit\EventManager\Meta\doors_datetime( $event_id )
 					: '',
-				'age_restriction' => get_post_meta( $event_id, '_pkit_em_age_restriction', true ),
-				'ticket_url'      => get_post_meta( $event_id, '_pkit_em_ticket_url', true ),
+				'age_restriction' => get_post_meta( $event_id, '_pkit_age_restriction', true ),
+				'ticket_url'      => get_post_meta( $event_id, '_pkit_ticket_url', true ),
 				'rsvp_cap'        => (int) get_post_meta( $event_id, '_pkit_rsvp_cap', true ),
 				'donation_link'   => get_post_meta( $event_id, '_pkit_donation_link', true ),
 			],

@@ -106,8 +106,8 @@ function update_stand_status( \WP_REST_Request $request ): \WP_REST_Response {
 	update_post_meta( $location_id, '_pkit_is_open', $is_open );
 
 	// Update stand-status-specific meta.
-	update_post_meta( $location_id, '_pkit_ss_status_message', sanitize_text_field( $status_message ) );
-	update_post_meta( $location_id, '_pkit_ss_last_toggled', gmdate( 'c' ) );
+	update_post_meta( $location_id, '_pkit_status_message', sanitize_text_field( $status_message ) );
+	update_post_meta( $location_id, '_pkit_last_toggled', gmdate( 'c' ) );
 
 	/**
 	 * Fires after the stand status is toggled.
@@ -125,7 +125,7 @@ function update_stand_status( \WP_REST_Request $request ): \WP_REST_Response {
 			'id'             => $location_id,
 			'is_open'        => $is_open,
 			'status_message' => $status_message,
-			'last_toggled'   => get_post_meta( $location_id, '_pkit_ss_last_toggled', true ),
+			'last_toggled'   => get_post_meta( $location_id, '_pkit_last_toggled', true ),
 		],
 		200
 	);
@@ -170,8 +170,8 @@ function build_stand_data( \WP_Post $post ): array {
 	$id = $post->ID;
 
 	$is_open     = (bool) get_post_meta( $id, '_pkit_is_open', true );
-	$schedule    = get_post_meta( $id, '_pkit_ss_schedule', true );
-	$auto_toggle = (bool) get_post_meta( $id, '_pkit_ss_auto_toggle', true );
+	$schedule    = get_post_meta( $id, '_pkit_weekly_schedule', true );
+	$auto_toggle = (bool) get_post_meta( $id, '_pkit_auto_toggle', true );
 
 	// If auto-toggle is enabled, compute status from schedule.
 	if ( $auto_toggle && $schedule ) {
@@ -179,8 +179,8 @@ function build_stand_data( \WP_Post $post ): array {
 	}
 
 	// Season boundary check.
-	$season_start = get_post_meta( $id, '_pkit_ss_season_start', true );
-	$season_end   = get_post_meta( $id, '_pkit_ss_season_end', true );
+	$season_start = get_post_meta( $id, '_pkit_season_start', true );
+	$season_end   = get_post_meta( $id, '_pkit_season_end', true );
 	$in_season    = is_in_season( $season_start, $season_end );
 
 	if ( ! $in_season ) {
@@ -192,8 +192,8 @@ function build_stand_data( \WP_Post $post ): array {
 		'name'            => $post->post_title,
 		'is_open'         => $is_open,
 		'in_season'       => $in_season,
-		'status_message'  => get_post_meta( $id, '_pkit_ss_status_message', true ),
-		'last_toggled'    => get_post_meta( $id, '_pkit_ss_last_toggled', true ),
+		'status_message'  => get_post_meta( $id, '_pkit_status_message', true ),
+		'last_toggled'    => get_post_meta( $id, '_pkit_last_toggled', true ),
 		'address'         => get_post_meta( $id, '_pkit_address', true ),
 		'hours'           => get_post_meta( $id, '_pkit_hours', true ),
 		'schedule'        => $schedule ? json_decode( $schedule, true ) : null,

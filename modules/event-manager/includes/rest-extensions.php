@@ -378,7 +378,7 @@ function build_event_data( \WP_Post $event ): array {
 	$thumb_url = $thumb_id ? wp_get_attachment_image_url( $thumb_id, 'medium' ) : '';
 
 	// RSVP summary.
-	$rsvp_enabled = (bool) get_post_meta( $id, '_pkit_em_rsvp_enabled', true );
+	$rsvp_enabled = (bool) get_post_meta( $id, '_pkit_rsvp_enabled', true );
 	$rsvp_summary = $rsvp_enabled ? RSVP\get_event_rsvp_summary( $id ) : null;
 
 	// Featured products.
@@ -415,16 +415,16 @@ function build_event_data( \WP_Post $event ): array {
 		'event_slugs'     => array_values( $type_slugs ),
 		'location'        => $location,
 		'donation_link'   => get_post_meta( $id, '_pkit_donation_link', true ),
-		'cost_note'       => get_post_meta( $id, '_pkit_em_cost_note', true ),
-		'what_to_bring'   => get_post_meta( $id, '_pkit_em_what_to_bring', true ),
-		'cancelled'       => (bool) get_post_meta( $id, '_pkit_em_cancelled', true ),
+		'cost_note'       => get_post_meta( $id, '_pkit_cost_note', true ),
+		'what_to_bring'   => get_post_meta( $id, '_pkit_what_to_bring', true ),
+		'cancelled'       => (bool) get_post_meta( $id, '_pkit_cancelled', true ),
 		// Four things any event can have. doors_datetime() rather than the
 		// raw meta, so a doors time at or after the start is simply absent
 		// instead of being rendered as "Doors 9pm, starts 7pm".
-		'also_appearing'  => get_post_meta( $id, '_pkit_em_also_appearing', true ),
+		'also_appearing'  => get_post_meta( $id, '_pkit_also_appearing', true ),
 		'doors'           => Meta\doors_datetime( $id ),
-		'age_restriction' => get_post_meta( $id, '_pkit_em_age_restriction', true ),
-		'ticket_url'      => get_post_meta( $id, '_pkit_em_ticket_url', true ),
+		'age_restriction' => get_post_meta( $id, '_pkit_age_restriction', true ),
+		'ticket_url'      => get_post_meta( $id, '_pkit_ticket_url', true ),
 		'rsvp'            => $rsvp_summary,
 		'products'        => $products,
 	];

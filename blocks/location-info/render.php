@@ -32,10 +32,10 @@ $hours           = get_post_meta( $location_id, '_pkit_hours', true );
 $is_open         = (bool) get_post_meta( $location_id, '_pkit_is_open', true );
 
 // Compute effective status from schedule + season (matches stand-status-banner logic).
-$auto_toggle  = (bool) get_post_meta( $location_id, '_pkit_ss_auto_toggle', true );
-$schedule     = get_post_meta( $location_id, '_pkit_ss_schedule', true );
-$season_start = get_post_meta( $location_id, '_pkit_ss_season_start', true );
-$season_end   = get_post_meta( $location_id, '_pkit_ss_season_end', true );
+$auto_toggle  = (bool) get_post_meta( $location_id, '_pkit_auto_toggle', true );
+$schedule     = get_post_meta( $location_id, '_pkit_weekly_schedule', true );
+$season_start = get_post_meta( $location_id, '_pkit_season_start', true );
+$season_end   = get_post_meta( $location_id, '_pkit_season_end', true );
 
 if ( $auto_toggle && $schedule && function_exists( '\\ProducerKit\\StandStatus\\REST\\compute_schedule_status' ) ) {
 	$is_open = \ProducerKit\StandStatus\REST\compute_schedule_status( $schedule );

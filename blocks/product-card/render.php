@@ -26,7 +26,7 @@ if ( ! $product || $product->post_type !== 'pkit_product' || $product->post_stat
 
 $price         = get_post_meta( $product_id, '_pkit_price', true );
 $unit          = get_post_meta( $product_id, '_pkit_unit', true );
-$growing_notes = get_post_meta( $product_id, '_pkit_growing_notes', true );
+$growing_notes = get_post_meta( $product_id, '_pkit_production_notes', true );
 $thumbnail     = get_the_post_thumbnail( $product_id, 'medium', [ 'alt' => '' ] );
 
 // No featured image: fall back to the product type's placeholder. Still empty
@@ -149,7 +149,7 @@ $wrapper_attrs = get_block_wrapper_attributes(
 				<?php foreach ( $sources as $source ) : ?>
 					<div class="pkit-product-card__source">
 						<a href="<?php echo esc_url( get_permalink( $source->ID ) ); ?>">
-							<?php echo esc_html( get_post_meta( $source->ID, '_pkit_source_farm_name', true ) ?: $source->post_title ); ?>
+							<?php echo esc_html( get_post_meta( $source->ID, '_pkit_source_name', true ) ?: $source->post_title ); ?>
 						</a>
 						<?php $loc = get_post_meta( $source->ID, '_pkit_source_location', true ); ?>
 						<?php if ( $loc ) : ?>

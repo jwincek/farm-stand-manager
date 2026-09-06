@@ -40,7 +40,7 @@ function register_product_meta(): void {
 			'description' => 'Display price (free-text to allow "donation" or "$5/loaf").',
 			'default'     => '',
 		],
-		'_pkit_growing_notes' => [
+		'_pkit_production_notes' => [
 			'type'        => 'string',
 			'description' => 'Brief growing / baking notes shown on front end.',
 			'default'     => '',
@@ -184,7 +184,7 @@ function sanitize_deposit_value( mixed $value ): float {
  * ─────────────────────────────────────────────── */
 function register_source_meta(): void {
 	$fields = [
-		'_pkit_source_farm_name' => [
+		'_pkit_source_name' => [
 			'type'        => 'string',
 			'description' => 'Name of the partner farm or grain origin.',
 			'default'     => '',
@@ -199,7 +199,7 @@ function register_source_meta(): void {
 			'description' => 'Historical / heritage notes about the grain or ingredient.',
 			'default'     => '',
 		],
-		'_pkit_milling_notes'    => [
+		'_pkit_source_processing_notes'    => [
 			'type'        => 'string',
 			'description' => 'Notes on milling process, grind, etc.',
 			'default'     => '',

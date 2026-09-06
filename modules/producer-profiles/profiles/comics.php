@@ -42,8 +42,8 @@ return [
 		'action'   => __( 'Request a commission or a sketch', 'producerkit' ),
 	],
 	'meta_labels'     => [
-		'_pkit_growing_notes'     => [ __( 'Book Notes', 'producerkit' ), __( 'Shown on the book page. Free-form.', 'producerkit' ) ],
-		'_pkit_em_also_appearing' => [ __( 'Also tabling', 'producerkit' ), __( 'Who else is sharing the table.', 'producerkit' ) ],
+		'_pkit_production_notes'     => [ __( 'Book Notes', 'producerkit' ), __( 'Shown on the book page. Free-form.', 'producerkit' ) ],
+		'_pkit_also_appearing' => [ __( 'Also tabling', 'producerkit' ), __( 'Who else is sharing the table.', 'producerkit' ) ],
 	],
 	'sample'          => [
 		'unit'        => 'copy',

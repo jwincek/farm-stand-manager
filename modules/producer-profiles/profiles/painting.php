@@ -25,8 +25,8 @@ return [
 		'pkit_product' => [ __( 'Work', 'producerkit' ), __( 'Works', 'producerkit' ), __( 'Works', 'producerkit' ) ],
 	],
 	'meta_labels'     => [
-		'_pkit_growing_notes'     => [ __( 'Making Notes', 'producerkit' ), __( 'Shown on the product page. Free-form.', 'producerkit' ) ],
-		'_pkit_em_also_appearing' => [ __( 'Also showing', 'producerkit' ), __( 'Another artist exhibiting alongside you.', 'producerkit' ) ],
+		'_pkit_production_notes'     => [ __( 'Making Notes', 'producerkit' ), __( 'Shown on the product page. Free-form.', 'producerkit' ) ],
+		'_pkit_also_appearing' => [ __( 'Also showing', 'producerkit' ), __( 'Another artist exhibiting alongside you.', 'producerkit' ) ],
 	],
 	'sample'          => [
 		'unit'        => 'each',

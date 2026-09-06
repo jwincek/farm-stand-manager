@@ -57,7 +57,7 @@ function render_product_details( \WP_Post $post ): string {
 	$id            = $post->ID;
 	$price         = get_post_meta( $id, '_pkit_price', true );
 	$unit          = get_post_meta( $id, '_pkit_unit', true );
-	$growing_notes = get_post_meta( $id, '_pkit_growing_notes', true );
+	$growing_notes = get_post_meta( $id, '_pkit_production_notes', true );
 	$types         = get_the_terms( $id, 'pkit_product_type' );
 	$seasons       = get_the_terms( $id, 'pkit_season' );
 	$detail_terms  = \ProducerKit\Core\Taxonomies\detail_terms( $id );
@@ -173,7 +173,7 @@ function render_product_details( \WP_Post $post ): string {
 
 		<?php if ( $growing_notes ) : ?>
 			<div class="pkit-single-details__row">
-				<span class="pkit-single-details__label"><?php echo esc_html( \ProducerKit\Core\MetaLabels\label( '_pkit_growing_notes' ) ); ?></span>
+				<span class="pkit-single-details__label"><?php echo esc_html( \ProducerKit\Core\MetaLabels\label( '_pkit_production_notes' ) ); ?></span>
 				<span class="pkit-single-details__value"><?php echo esc_html( $growing_notes ); ?></span>
 			</div>
 		<?php endif; ?>
@@ -184,7 +184,7 @@ function render_product_details( \WP_Post $post ): string {
 				<span class="pkit-single-details__value">
 					<?php
 					foreach ( $sources as $source ) :
-						$farm_name = get_post_meta( $source->ID, '_pkit_source_farm_name', true ) ?: $source->post_title;
+						$farm_name = get_post_meta( $source->ID, '_pkit_source_name', true ) ?: $source->post_title;
 						$location  = get_post_meta( $source->ID, '_pkit_source_location', true );
 						?>
 						<a href="<?php echo esc_url( get_permalink( $source->ID ) ); ?>">
@@ -208,10 +208,10 @@ function render_product_details( \WP_Post $post ): string {
 
 function render_source_details( \WP_Post $post ): string {
 	$id            = $post->ID;
-	$farm_name     = get_post_meta( $id, '_pkit_source_farm_name', true );
+	$farm_name     = get_post_meta( $id, '_pkit_source_name', true );
 	$location      = get_post_meta( $id, '_pkit_source_location', true );
 	$history       = get_post_meta( $id, '_pkit_source_history', true );
-	$milling_notes = get_post_meta( $id, '_pkit_milling_notes', true );
+	$milling_notes = get_post_meta( $id, '_pkit_source_processing_notes', true );
 
 	// Find products that use this source.
 	$products = get_posts(
@@ -234,7 +234,7 @@ function render_source_details( \WP_Post $post ): string {
 	<div class="pkit-single-details pkit-single-details--source">
 		<?php if ( $farm_name ) : ?>
 			<div class="pkit-single-details__row">
-				<span class="pkit-single-details__label"><?php echo esc_html( \ProducerKit\Core\MetaLabels\label( '_pkit_source_farm_name' ) ); ?></span>
+				<span class="pkit-single-details__label"><?php echo esc_html( \ProducerKit\Core\MetaLabels\label( '_pkit_source_name' ) ); ?></span>
 				<span class="pkit-single-details__value"><?php echo esc_html( $farm_name ); ?></span>
 			</div>
 		<?php endif; ?>
@@ -255,7 +255,7 @@ function render_source_details( \WP_Post $post ): string {
 
 		<?php if ( $milling_notes ) : ?>
 			<div class="pkit-single-details__row">
-				<span class="pkit-single-details__label"><?php echo esc_html( \ProducerKit\Core\MetaLabels\label( '_pkit_milling_notes' ) ); ?></span>
+				<span class="pkit-single-details__label"><?php echo esc_html( \ProducerKit\Core\MetaLabels\label( '_pkit_source_processing_notes' ) ); ?></span>
 				<span class="pkit-single-details__value"><?php echo esc_html( $milling_notes ); ?></span>
 			</div>
 		<?php endif; ?>
@@ -397,17 +397,17 @@ function render_event_details( \WP_Post $post ): string {
 
 	$start     = get_post_meta( $id, '_pkit_start_datetime', true );
 	$end       = get_post_meta( $id, '_pkit_end_datetime', true );
-	$cost_note = get_post_meta( $id, '_pkit_em_cost_note', true );
-	$bring     = get_post_meta( $id, '_pkit_em_what_to_bring', true );
+	$cost_note = get_post_meta( $id, '_pkit_cost_note', true );
+	$bring     = get_post_meta( $id, '_pkit_what_to_bring', true );
 	$donation  = get_post_meta( $id, '_pkit_donation_link', true );
-	$cancelled = (bool) get_post_meta( $id, '_pkit_em_cancelled', true );
+	$cancelled = (bool) get_post_meta( $id, '_pkit_cancelled', true );
 
 	// Four things any event can have, named for the trade. doors_datetime()
 	// rather than the raw meta, so a doors time at or after the start is
 	// absent rather than printed as "Doors 9pm, starts 7pm".
-	$also_appearing  = get_post_meta( $id, '_pkit_em_also_appearing', true );
-	$age_restriction = get_post_meta( $id, '_pkit_em_age_restriction', true );
-	$ticket_url      = get_post_meta( $id, '_pkit_em_ticket_url', true );
+	$also_appearing  = get_post_meta( $id, '_pkit_also_appearing', true );
+	$age_restriction = get_post_meta( $id, '_pkit_age_restriction', true );
+	$ticket_url      = get_post_meta( $id, '_pkit_ticket_url', true );
 	$doors           = function_exists( '\ProducerKit\EventManager\Meta\doors_datetime' )
 		? \ProducerKit\EventManager\Meta\doors_datetime( $id )
 		: '';
@@ -420,7 +420,7 @@ function render_event_details( \WP_Post $post ): string {
 	$types = get_the_terms( $id, 'pkit_event_type' );
 
 	// RSVP.
-	$rsvp_enabled = (bool) get_post_meta( $id, '_pkit_em_rsvp_enabled', true );
+	$rsvp_enabled = (bool) get_post_meta( $id, '_pkit_rsvp_enabled', true );
 	$rsvp_summary = null;
 	if ( $rsvp_enabled && function_exists( 'ProducerKit\\EventManager\\RSVP\\get_event_rsvp_summary' ) ) {
 		$rsvp_summary = \ProducerKit\EventManager\RSVP\get_event_rsvp_summary( $id );
@@ -482,7 +482,7 @@ function render_event_details( \WP_Post $post ): string {
 
 		<?php if ( $doors ) : ?>
 			<div class="pkit-single-details__row">
-				<span class="pkit-single-details__label"><?php echo esc_html( \ProducerKit\Core\MetaLabels\label( '_pkit_em_doors_datetime' ) ); ?></span>
+				<span class="pkit-single-details__label"><?php echo esc_html( \ProducerKit\Core\MetaLabels\label( '_pkit_doors_datetime' ) ); ?></span>
 				<span class="pkit-single-details__value">
 					<?php echo esc_html( wp_date( (string) get_option( 'time_format' ), strtotime( $doors ) ) ); ?>
 				</span>
@@ -491,14 +491,14 @@ function render_event_details( \WP_Post $post ): string {
 
 		<?php if ( $also_appearing ) : ?>
 			<div class="pkit-single-details__row">
-				<span class="pkit-single-details__label"><?php echo esc_html( \ProducerKit\Core\MetaLabels\label( '_pkit_em_also_appearing' ) ); ?></span>
+				<span class="pkit-single-details__label"><?php echo esc_html( \ProducerKit\Core\MetaLabels\label( '_pkit_also_appearing' ) ); ?></span>
 				<span class="pkit-single-details__value"><?php echo esc_html( $also_appearing ); ?></span>
 			</div>
 		<?php endif; ?>
 
 		<?php if ( $age_restriction ) : ?>
 			<div class="pkit-single-details__row">
-				<span class="pkit-single-details__label"><?php echo esc_html( \ProducerKit\Core\MetaLabels\label( '_pkit_em_age_restriction' ) ); ?></span>
+				<span class="pkit-single-details__label"><?php echo esc_html( \ProducerKit\Core\MetaLabels\label( '_pkit_age_restriction' ) ); ?></span>
 				<span class="pkit-single-details__value"><?php echo esc_html( $age_restriction ); ?></span>
 			</div>
 		<?php endif; ?>
@@ -512,7 +512,7 @@ function render_event_details( \WP_Post $post ): string {
 
 		<?php if ( $ticket_url ) : ?>
 			<div class="pkit-single-details__row">
-				<span class="pkit-single-details__label"><?php echo esc_html( \ProducerKit\Core\MetaLabels\label( '_pkit_em_ticket_url' ) ); ?></span>
+				<span class="pkit-single-details__label"><?php echo esc_html( \ProducerKit\Core\MetaLabels\label( '_pkit_ticket_url' ) ); ?></span>
 				<span class="pkit-single-details__value">
 					<a href="<?php echo esc_url( $ticket_url ); ?>" rel="noopener nofollow" target="_blank">
 						<?php esc_html_e( 'Buy tickets', 'producerkit' ); ?>

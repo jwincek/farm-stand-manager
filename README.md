@@ -71,7 +71,7 @@ producerkit/
 │   ├── stand-status/
 │   │   ├── bootstrap.php
 │   │   └── includes/
-│   │       ├── meta-extensions.php    # _pkit_ss_* meta on locations
+│   │       ├── meta-extensions.php    # seasonal/schedule meta on locations
 │   │       ├── rest-extensions.php    # /stand/{id}/status, /stand/{id}/info
 │   │       ├── admin-bar.php          # Admin bar quick-toggle
 │   │       └── abilities.php          # Stand-specific abilities
@@ -84,7 +84,7 @@ producerkit/
 │   └── event-manager/
 │       ├── bootstrap.php
 │       └── includes/
-│           ├── meta-extensions.php    # _pkit_em_* meta on events
+│           ├── meta-extensions.php    # RSVP and billing meta on events
 │           ├── rsvp-table.php         # Custom RSVP table + CRUD + rate limiting
 │           ├── rest-extensions.php    # Event listing, RSVP endpoints
 │           ├── render-helpers.php     # Shared render functions for event blocks

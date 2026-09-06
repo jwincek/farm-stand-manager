@@ -18,10 +18,10 @@ return [
 		'pkit_component' => [ __( 'Hardware', 'producerkit' ), __( 'Hardware', 'producerkit' ) ],
 	],
 	'meta_labels' => [
-		'_pkit_source_farm_name' => [ __( 'Tannery', 'producerkit' ), __( 'Who supplied the hide. Falls back to the post title on the front end if left empty.', 'producerkit' ) ],
+		'_pkit_source_name' => [ __( 'Tannery', 'producerkit' ), __( 'Who supplied the hide. Falls back to the post title on the front end if left empty.', 'producerkit' ) ],
 		'_pkit_source_history'   => [ __( 'Background', 'producerkit' ), __( 'The story behind this hide or supplier.', 'producerkit' ) ],
-		'_pkit_milling_notes'    => [ __( 'Tanning Notes', 'producerkit' ), __( 'How it was tanned and finished — veg, chrome, drum, hand-rubbed.', 'producerkit' ) ],
-		'_pkit_growing_notes'    => [ __( 'Making Notes', 'producerkit' ), __( 'Shown on the product page. Free-form.', 'producerkit' ) ],
+		'_pkit_source_processing_notes'    => [ __( 'Tanning Notes', 'producerkit' ), __( 'How it was tanned and finished — veg, chrome, drum, hand-rubbed.', 'producerkit' ) ],
+		'_pkit_production_notes'    => [ __( 'Making Notes', 'producerkit' ), __( 'Shown on the product page. Free-form.', 'producerkit' ) ],
 	],
 	'sample'      => [
 		'unit'        => 'each',

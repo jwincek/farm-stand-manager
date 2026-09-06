@@ -148,7 +148,7 @@ function location_data( \WP_Post $post ): array {
 	}
 
 	// Weekly schedule → schema openingHours ("Sa 09:00-16:00").
-	$schedule = json_decode( (string) get_post_meta( $post->ID, '_pkit_ss_schedule', true ), true );
+	$schedule = json_decode( (string) get_post_meta( $post->ID, '_pkit_weekly_schedule', true ), true );
 	if ( is_array( $schedule ) && $schedule ) {
 		$abbrev = [ 'Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa' ];
 		$hours  = [];

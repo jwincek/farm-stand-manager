@@ -36,7 +36,7 @@ final class PickupDatesTest extends WP_UnitTestCase {
 		// Saturday-only schedule, generous season.
 		update_post_meta(
 			$this->location,
-			'_pkit_ss_schedule',
+			'_pkit_weekly_schedule',
 			wp_json_encode(
 				[
 					[
@@ -47,8 +47,8 @@ final class PickupDatesTest extends WP_UnitTestCase {
 				]
 			)
 		);
-		update_post_meta( $this->location, '_pkit_ss_season_start', current_time( 'Y-m-d' ) );
-		update_post_meta( $this->location, '_pkit_ss_season_end', gmdate( 'Y-m-d', strtotime( current_time( 'Y-m-d' ) . ' +60 days' ) ) );
+		update_post_meta( $this->location, '_pkit_season_start', current_time( 'Y-m-d' ) );
+		update_post_meta( $this->location, '_pkit_season_end', gmdate( 'Y-m-d', strtotime( current_time( 'Y-m-d' ) . ' +60 days' ) ) );
 
 		$day = current_time( 'Y-m-d' );
 		while ( (int) gmdate( 'w', strtotime( $day . ' 12:00:00' ) ) !== 6 ) {
@@ -93,7 +93,7 @@ final class PickupDatesTest extends WP_UnitTestCase {
 	}
 
 	public function test_out_of_season_date_is_refused(): void {
-		update_post_meta( $this->location, '_pkit_ss_season_end', gmdate( 'Y-m-d', strtotime( current_time( 'Y-m-d' ) . ' +2 days' ) ) );
+		update_post_meta( $this->location, '_pkit_season_end', gmdate( 'Y-m-d', strtotime( current_time( 'Y-m-d' ) . ' +2 days' ) ) );
 		$far_saturday = gmdate( 'Y-m-d', strtotime( $this->saturday . ' +14 days' ) );
 		$result       = $this->order_for( $far_saturday );
 		$this->assertWPError( $result );
@@ -105,7 +105,7 @@ final class PickupDatesTest extends WP_UnitTestCase {
 	}
 
 	public function test_location_without_schedule_allows_any_weekday(): void {
-		delete_post_meta( $this->location, '_pkit_ss_schedule' );
+		delete_post_meta( $this->location, '_pkit_weekly_schedule' );
 		$this->assertNotWPError( $this->order_for( $this->monday ) );
 	}
 

@@ -165,6 +165,10 @@ if ( is_admin() ) {
 // Sample data markers load on both front and admin.
 require_once PLUGIN_DIR . '/includes/sample-data-markers.php';
 
+// Data migrations. Front and admin both, since a site may be reached by a
+// front-end request first and the renamed keys have to be in place either way.
+require_once PLUGIN_DIR . '/includes/upgrade.php';
+
 /* ───────────────────────────────────────────────
  * Block registration (all blocks, flat directory)
  * ─────────────────────────────────────────────── */

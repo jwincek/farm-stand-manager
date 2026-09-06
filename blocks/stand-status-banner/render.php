@@ -42,12 +42,12 @@ $is_open        = (bool) get_post_meta( $location_id, '_pkit_is_open', true );
 $address        = get_post_meta( $location_id, '_pkit_address', true );
 $hours          = get_post_meta( $location_id, '_pkit_hours', true );
 $pay_methods    = \ProducerKit\Core\Payments\get_payment_methods( $location_id );
-$status_message = get_post_meta( $location_id, '_pkit_ss_status_message', true );
-$last_toggled   = get_post_meta( $location_id, '_pkit_ss_last_toggled', true );
-$season_start   = get_post_meta( $location_id, '_pkit_ss_season_start', true );
-$season_end     = get_post_meta( $location_id, '_pkit_ss_season_end', true );
-$auto_toggle    = (bool) get_post_meta( $location_id, '_pkit_ss_auto_toggle', true );
-$schedule       = get_post_meta( $location_id, '_pkit_ss_schedule', true );
+$status_message = get_post_meta( $location_id, '_pkit_status_message', true );
+$last_toggled   = get_post_meta( $location_id, '_pkit_last_toggled', true );
+$season_start   = get_post_meta( $location_id, '_pkit_season_start', true );
+$season_end     = get_post_meta( $location_id, '_pkit_season_end', true );
+$auto_toggle    = (bool) get_post_meta( $location_id, '_pkit_auto_toggle', true );
+$schedule       = get_post_meta( $location_id, '_pkit_weekly_schedule', true );
 
 // Compute effective status.
 if ( $auto_toggle && $schedule ) {
@@ -72,7 +72,7 @@ $time_ago = '';
 if ( $last_toggled ) {
 	$toggled_ts = strtotime( $last_toggled );
 	if ( $toggled_ts ) {
-		// time(), not current_time( 'timestamp' ): _pkit_ss_last_toggled is
+		// time(), not current_time( 'timestamp' ): _pkit_last_toggled is
 		// stored with an offset, so strtotime() yields a true UTC epoch, while
 		// current_time( 'timestamp' ) yields epoch + gmt_offset. Comparing the
 		// two made a stand toggled seconds ago read "4 hours ago" on a UTC-4

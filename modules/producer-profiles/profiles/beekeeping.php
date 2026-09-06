@@ -28,12 +28,12 @@ return [
 		'action'   => __( 'Ask about bulk orders', 'producerkit' ),
 	],
 	'meta_labels'   => [
-		'_pkit_source_farm_name'  => [ __( 'Apiary', 'producerkit' ), __( 'Which yard this came from. Falls back to the post title on the front end if left empty.', 'producerkit' ) ],
+		'_pkit_source_name'  => [ __( 'Apiary', 'producerkit' ), __( 'Which yard this came from. Falls back to the post title on the front end if left empty.', 'producerkit' ) ],
 		'_pkit_source_location'   => [ __( 'Yard Location', 'producerkit' ), __( 'County and state, or however you would say where.', 'producerkit' ) ],
 		'_pkit_source_history'    => [ __( 'Forage Notes', 'producerkit' ), __( 'What the bees were working — the floral sources behind this crop.', 'producerkit' ) ],
-		'_pkit_milling_notes'     => [ __( 'Extraction Notes', 'producerkit' ), __( 'How it was taken off and handled — crush, spin, strain, settle.', 'producerkit' ) ],
-		'_pkit_growing_notes'     => [ __( 'Hive Notes', 'producerkit' ), __( 'Shown on the product page. Free-form.', 'producerkit' ) ],
-		'_pkit_em_also_appearing' => [ __( 'Sharing the booth', 'producerkit' ), __( 'Another beekeeper or maker selling alongside you.', 'producerkit' ) ],
+		'_pkit_source_processing_notes'     => [ __( 'Extraction Notes', 'producerkit' ), __( 'How it was taken off and handled — crush, spin, strain, settle.', 'producerkit' ) ],
+		'_pkit_production_notes'     => [ __( 'Hive Notes', 'producerkit' ), __( 'Shown on the product page. Free-form.', 'producerkit' ) ],
+		'_pkit_also_appearing' => [ __( 'Sharing the booth', 'producerkit' ), __( 'Another beekeeper or maker selling alongside you.', 'producerkit' ) ],
 	],
 	'sample'        => [
 		'unit'        => 'jar',
