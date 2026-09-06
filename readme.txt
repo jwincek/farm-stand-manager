@@ -3,7 +3,7 @@ Contributors: jeromewincek
 Tags: availability, pre-orders, farmers market, artisan, events
 Requires at least: 6.9
 Tested up to: 7.1
-Stable tag: 2.4.0
+Stable tag: 2.5.0
 Requires PHP: 8.1
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -132,7 +132,7 @@ They are generated in the visitor's browser by a bundled open-source library (qr
 
 == Changelog ==
 
-= Unreleased =
+= 2.5.0 =
 * Fixed: on the availability board, a product-type button now fades when the statuses you are showing leave it with nothing, instead of looking available and then emptying the board.
 * Fixed: a shop's page listed everything you make instead of what they carry. Products marked available everywhere now show at your own stand and market, not on a retailer's shelf.
 * Fixed: the availability board offered product-type filters that showed nothing when clicked, and counted products rather than what was on the board.
@@ -209,6 +209,12 @@ They are generated in the visitor's browser by a bundled open-source library (qr
 * REST API and Abilities API coverage for all core operations.
 
 == Upgrade Notice ==
+
+= 2.5.0 =
+Recommended. Recurring events now create a real event for each date, so people can RSVP to one Saturday rather than to the series. One thing to know if you set a recurrence rule by hand before this release, through WordPress's custom fields box: that event becomes a series the next time it is saved. It stops appearing on the site itself and the dated events it generates appear instead, reachable from the occurrences link on its row. Nothing is deleted. If you never touched that field — and there was no way to, until now — this does not affect you.
+
+= 2.4.0 =
+Safe from 2.3.0. Adds retailer stock, deposits on pre-orders, and per-trade names for your fields. Nothing changes on its own: pre-orders stay reservations until you mark a product as taking a deposit, and a site that never chose a producer profile reads exactly as it did before.
 
 = 2.3.0 =
 Safe from 2.2.0 — no data changes. Worth taking if you use a producer profile: the trade fields it switches on can now be filtered on the board and edited beside your other product fields.
