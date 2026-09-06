@@ -121,11 +121,14 @@ They are generated in the visitor's browser by a bundled open-source library (qr
 
 == Screenshots ==
 
-1. Availability board block on the front end.
-2. Stand status banner with live open/closed state.
-3. Admin dashboard with module status and content gaps.
-4. Availability quick entry screen.
-5. Product CSV import/export.
+1. The availability board: what you have this week, grouped by type and filterable by status, with your own notes on each.
+2. Sixteen trades to choose from. Your choice names the fields and adds the ones that trade needs — a beekeeper gets Floral Source and Container, a potter gets Clay Body and Glaze.
+3. Updating availability: a status and a note for everything you sell, on one screen, once a week.
+4. Pre-order payment, set per product: reserve only, take a deposit, or take the full price when they order.
+5. The stand status banner — open or closed, with your message, address and payment link.
+6. Recurring events: pick a pattern, see the dates before you publish. Each one becomes a real event people can book.
+7. A shop that carries your goods, showing what is on their shelf right now.
+8. Events and series together, with the recurrence rule at a glance.
 
 == Changelog ==
 
