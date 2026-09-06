@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-09-06T18:01:49+00:00\n"
+"POT-Creation-Date: 2026-09-06T19:14:39+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: producerkit\n"
@@ -356,49 +356,49 @@ msgstr ""
 
 #: blocks/stand-hours-schedule/render.php:42
 #: modules/stand-status/includes/rest-extensions.php:271
-#: assets/js/editor-location.js:184
+#: assets/js/editor-location.js:186
 #: blocks/stand-hours-schedule/index.js:29
 msgid "Sunday"
 msgstr ""
 
 #: blocks/stand-hours-schedule/render.php:43
 #: modules/stand-status/includes/rest-extensions.php:272
-#: assets/js/editor-location.js:185
+#: assets/js/editor-location.js:187
 #: blocks/stand-hours-schedule/index.js:30
 msgid "Monday"
 msgstr ""
 
 #: blocks/stand-hours-schedule/render.php:44
 #: modules/stand-status/includes/rest-extensions.php:273
-#: assets/js/editor-location.js:186
+#: assets/js/editor-location.js:188
 #: blocks/stand-hours-schedule/index.js:31
 msgid "Tuesday"
 msgstr ""
 
 #: blocks/stand-hours-schedule/render.php:45
 #: modules/stand-status/includes/rest-extensions.php:274
-#: assets/js/editor-location.js:187
+#: assets/js/editor-location.js:189
 #: blocks/stand-hours-schedule/index.js:32
 msgid "Wednesday"
 msgstr ""
 
 #: blocks/stand-hours-schedule/render.php:46
 #: modules/stand-status/includes/rest-extensions.php:275
-#: assets/js/editor-location.js:188
+#: assets/js/editor-location.js:190
 #: blocks/stand-hours-schedule/index.js:33
 msgid "Thursday"
 msgstr ""
 
 #: blocks/stand-hours-schedule/render.php:47
 #: modules/stand-status/includes/rest-extensions.php:276
-#: assets/js/editor-location.js:189
+#: assets/js/editor-location.js:191
 #: blocks/stand-hours-schedule/index.js:34
 msgid "Friday"
 msgstr ""
 
 #: blocks/stand-hours-schedule/render.php:48
 #: modules/stand-status/includes/rest-extensions.php:277
-#: assets/js/editor-location.js:190
+#: assets/js/editor-location.js:192
 #: blocks/stand-hours-schedule/index.js:35
 msgid "Saturday"
 msgstr ""
@@ -415,13 +415,13 @@ msgid "No schedule set yet."
 msgstr ""
 
 #: blocks/stand-hours-schedule/render.php:84
-#: assets/js/editor-location.js:381
+#: assets/js/editor-location.js:385
 msgid "Day"
 msgstr ""
 
 #: blocks/stand-hours-schedule/render.php:85
 #: modules/core/includes/single-content.php:320
-#: assets/js/editor-location.js:97
+#: assets/js/editor-location.js:99
 msgid "Hours"
 msgstr ""
 
@@ -493,7 +493,7 @@ msgstr ""
 #: includes/admin-dashboard.php:62
 #: modules/core/includes/post-types.php:204
 #: modules/core/includes/post-types.php:213
-#: assets/js/editor-product.js:252
+#: assets/js/editor-product.js:256
 msgid "Sources"
 msgstr ""
 
@@ -509,7 +509,7 @@ msgid "Events"
 msgstr ""
 
 #: includes/admin-dashboard.php:141
-#: assets/js/editor-location.js:393
+#: assets/js/editor-location.js:397
 #: blocks/stand-toggle/index.js:247
 msgid "Open"
 msgstr ""
@@ -870,7 +870,7 @@ msgid "We accept"
 msgstr ""
 
 #: modules/availability-board/includes/rest-extensions.php:218
-#: assets/js/editor-location.js:72
+#: assets/js/editor-location.js:74
 msgid "Other"
 msgstr ""
 
@@ -999,7 +999,7 @@ msgstr ""
 #: modules/commissions/includes/quote-response.php:177
 #: modules/core/includes/admin-columns.php:32
 #: modules/core/includes/single-content.php:87
-#: assets/js/editor-product.js:117
+#: assets/js/editor-product.js:119
 msgid "Price"
 msgstr ""
 
@@ -1307,7 +1307,7 @@ msgstr ""
 #: modules/core/includes/post-types.php:243
 #: modules/core/includes/single-content.php:468
 #: modules/pre-order/includes/admin-orders.php:214
-#: assets/js/editor-event.js:242
+#: assets/js/editor-event.js:244
 #: assets/js/editor-source.js:134
 #: blocks/stand-hours-schedule/index.js:357
 #: blocks/stand-status-banner/index.js:469
@@ -1325,7 +1325,7 @@ msgstr ""
 
 #: modules/core/includes/admin-columns.php:278
 #: modules/core/includes/single-content.php:313
-#: assets/js/editor-location.js:81
+#: assets/js/editor-location.js:83
 msgid "Address"
 msgstr ""
 
@@ -1382,7 +1382,7 @@ msgid "What was done to it in between — grind, cure, age, finish."
 msgstr ""
 
 #: modules/core/includes/meta-labels.php:61
-#: assets/js/editor-product.js:159
+#: assets/js/editor-product.js:161
 msgid "Growing / Baking Notes"
 msgstr ""
 
@@ -1402,78 +1402,78 @@ msgid "Shown on the product page. Free-form."
 msgstr ""
 
 #: modules/core/includes/meta-labels.php:65
-#: assets/js/editor-event.js:968
+#: assets/js/editor-event.js:974
 msgid "Also appearing"
 msgstr ""
 
 #: modules/core/includes/meta-labels.php:66
-#: assets/js/editor-event.js:977
+#: assets/js/editor-event.js:983
 msgid "Who else is on this — another maker, another act, a co-teacher."
 msgstr ""
 
 #: modules/core/includes/meta-labels.php:69
-#: assets/js/editor-event.js:989
+#: assets/js/editor-event.js:995
 msgid "Doors open"
 msgstr ""
 
 #: modules/core/includes/meta-labels.php:70
-#: assets/js/editor-event.js:999
+#: assets/js/editor-event.js:1005
 msgid "When people can arrive, if that is earlier than when it starts."
 msgstr ""
 
 #: modules/core/includes/meta-labels.php:73
-#: assets/js/editor-event.js:1030
+#: assets/js/editor-event.js:1036
 msgid "Age restriction"
 msgstr ""
 
 #: modules/core/includes/meta-labels.php:74
-#: assets/js/editor-event.js:1043
+#: assets/js/editor-event.js:1049
 msgid "Leave blank if anyone can come."
 msgstr ""
 
 #: modules/core/includes/meta-labels.php:77
-#: assets/js/editor-event.js:1052
+#: assets/js/editor-event.js:1058
 msgid "Ticket link"
 msgstr ""
 
 #: modules/core/includes/meta-labels.php:78
 #: modules/producer-profiles/profiles/musician.php:50
-#: assets/js/editor-event.js:1063
+#: assets/js/editor-event.js:1069
 msgid "Where tickets are sold. This plugin does not sell them."
 msgstr ""
 
 #: modules/core/includes/payments.php:39
-#: assets/js/editor-location.js:551
+#: assets/js/editor-location.js:555
 msgid "Venmo"
 msgstr ""
 
 #: modules/core/includes/payments.php:44
-#: assets/js/editor-location.js:554
+#: assets/js/editor-location.js:558
 msgid "Cash App"
 msgstr ""
 
 #: modules/core/includes/payments.php:49
-#: assets/js/editor-location.js:559
+#: assets/js/editor-location.js:563
 msgid "PayPal"
 msgstr ""
 
 #: modules/core/includes/payments.php:54
-#: assets/js/editor-location.js:564
+#: assets/js/editor-location.js:568
 msgid "Payment Link"
 msgstr ""
 
 #: modules/core/includes/payments.php:58
-#: assets/js/editor-location.js:567
+#: assets/js/editor-location.js:571
 msgid "Cash"
 msgstr ""
 
 #: modules/core/includes/payments.php:62
-#: assets/js/editor-location.js:568
+#: assets/js/editor-location.js:572
 msgid "Check"
 msgstr ""
 
 #: modules/core/includes/payments.php:66
-#: assets/js/editor-location.js:571
+#: assets/js/editor-location.js:575
 msgid "SNAP/EBT"
 msgstr ""
 
@@ -1777,14 +1777,14 @@ msgid "This event has been cancelled."
 msgstr ""
 
 #: modules/core/includes/single-content.php:443
-#: assets/js/editor-event.js:174
-#: assets/js/editor-event.js:215
+#: assets/js/editor-event.js:176
+#: assets/js/editor-event.js:217
 msgid "Date"
 msgstr ""
 
 #: modules/core/includes/single-content.php:447
-#: assets/js/editor-event.js:186
-#: assets/js/editor-event.js:227
+#: assets/js/editor-event.js:188
+#: assets/js/editor-event.js:229
 msgid "Time"
 msgstr ""
 
@@ -2203,7 +2203,7 @@ msgstr[0] ""
 msgstr[1] ""
 
 #: modules/event-manager/includes/series.php:795
-#: assets/js/editor-event.js:913
+#: assets/js/editor-event.js:923
 msgid "Recurrence"
 msgstr ""
 
@@ -2732,7 +2732,7 @@ msgid "Flours"
 msgstr ""
 
 #: modules/producer-profiles/profiles/bakery.php:21
-#: assets/js/editor-location.js:710
+#: assets/js/editor-location.js:716
 msgid "Method"
 msgstr ""
 
@@ -3649,15 +3649,15 @@ msgstr ""
 msgid "WooCommerce Settlement"
 msgstr ""
 
-#: assets/js/editor-event.js:119
+#: assets/js/editor-event.js:115
 msgid "— Select Location —"
 msgstr ""
 
-#: assets/js/editor-event.js:125
-#: assets/js/editor-event.js:568
-#: assets/js/editor-event.js:603
-#: assets/js/editor-product.js:294
-#: assets/js/editor-product.js:324
+#: assets/js/editor-event.js:121
+#: assets/js/editor-event.js:576
+#: assets/js/editor-event.js:611
+#: assets/js/editor-product.js:298
+#: assets/js/editor-product.js:328
 #: blocks/availability-badge/index.js:58
 #: blocks/availability-badge/index.js:70
 #: blocks/availability-board/index.js:157
@@ -3671,382 +3671,382 @@ msgstr ""
 msgid "(untitled)"
 msgstr ""
 
-#: assets/js/editor-event.js:138
+#: assets/js/editor-event.js:140
 msgid "Event Details"
 msgstr ""
 
-#: assets/js/editor-event.js:151
+#: assets/js/editor-event.js:153
 msgid "Set a start date before publishing."
 msgstr ""
 
-#: assets/js/editor-event.js:162
-#: assets/js/editor-location.js:306
+#: assets/js/editor-event.js:164
+#: assets/js/editor-location.js:310
 msgid "Start"
 msgstr ""
 
-#: assets/js/editor-event.js:203
-#: assets/js/editor-location.js:315
+#: assets/js/editor-event.js:205
+#: assets/js/editor-location.js:319
 msgid "End"
 msgstr ""
 
-#: assets/js/editor-event.js:251
+#: assets/js/editor-event.js:253
 msgid "Where is this event happening?"
 msgstr ""
 
-#: assets/js/editor-event.js:256
+#: assets/js/editor-event.js:258
 msgid "Donation / Payment Link"
 msgstr ""
 
-#: assets/js/editor-event.js:261
+#: assets/js/editor-event.js:263
 msgid "https://venmo.com/examplefarm"
 msgstr ""
 
-#: assets/js/editor-event.js:265
+#: assets/js/editor-event.js:267
 msgid "Venmo link or other payment URL."
 msgstr ""
 
-#: assets/js/editor-event.js:300
+#: assets/js/editor-event.js:304
 msgid "RSVP Settings"
 msgstr ""
 
-#: assets/js/editor-event.js:306
+#: assets/js/editor-event.js:310
 msgid "Enable RSVPs"
 msgstr ""
 
-#: assets/js/editor-event.js:311
+#: assets/js/editor-event.js:315
 msgid "Allow visitors to RSVP on the front end."
 msgstr ""
 
-#: assets/js/editor-event.js:322
+#: assets/js/editor-event.js:326
 msgid "RSVP Cap"
 msgstr ""
 
-#: assets/js/editor-event.js:329
+#: assets/js/editor-event.js:333
 msgid "0 = unlimited. Total headcount including party sizes."
 msgstr ""
 
-#: assets/js/editor-event.js:336
+#: assets/js/editor-event.js:340
 msgid "Button Label"
 msgstr ""
 
-#: assets/js/editor-event.js:342
+#: assets/js/editor-event.js:346
 msgid "Custom text for the RSVP button."
 msgstr ""
 
-#: assets/js/editor-event.js:349
+#: assets/js/editor-event.js:353
 msgid "Manually Close RSVPs"
 msgstr ""
 
-#: assets/js/editor-event.js:354
+#: assets/js/editor-event.js:358
 msgid "Close RSVPs regardless of the cap."
 msgstr ""
 
-#: assets/js/editor-event.js:391
+#: assets/js/editor-event.js:397
 msgid "Event Info"
 msgstr ""
 
-#: assets/js/editor-event.js:397
+#: assets/js/editor-event.js:403
 msgid "Cost / Donation Note"
 msgstr ""
 
-#: assets/js/editor-event.js:402
+#: assets/js/editor-event.js:408
 msgid "Donation-based — suggested $10/person"
 msgstr ""
 
-#: assets/js/editor-event.js:406
+#: assets/js/editor-event.js:412
 msgid "Shown on the event card."
 msgstr ""
 
-#: assets/js/editor-event.js:410
+#: assets/js/editor-event.js:416
 msgid "What to Bring"
 msgstr ""
 
-#: assets/js/editor-event.js:415
+#: assets/js/editor-event.js:421
 msgid "A side dish or dessert to share"
 msgstr ""
 
-#: assets/js/editor-event.js:419
+#: assets/js/editor-event.js:425
 msgid "Shown on the event card with a 🧺 icon."
 msgstr ""
 
-#: assets/js/editor-event.js:426
+#: assets/js/editor-event.js:432
 msgid "Event Cancelled"
 msgstr ""
 
-#: assets/js/editor-event.js:431
+#: assets/js/editor-event.js:437
 msgid "Mark this event as cancelled. It will show a cancelled badge."
 msgstr ""
 
-#: assets/js/editor-event.js:444
+#: assets/js/editor-event.js:450
 msgid "This event is marked as cancelled. It will display with a cancelled badge on the front end."
 msgstr ""
 
-#: assets/js/editor-event.js:527
+#: assets/js/editor-event.js:535
 msgid "Featured Products"
 msgstr ""
 
-#: assets/js/editor-event.js:538
+#: assets/js/editor-event.js:546
 msgid "What you are bringing to this one. Shown on the event in the API, so a booth listing can name the three things worth the trip."
 msgstr ""
 
-#: assets/js/editor-event.js:574
-#: assets/js/editor-location.js:414
-#: assets/js/editor-location.js:486
-#: assets/js/editor-location.js:725
-#: assets/js/editor-product.js:300
+#: assets/js/editor-event.js:582
+#: assets/js/editor-location.js:418
+#: assets/js/editor-location.js:490
+#: assets/js/editor-location.js:731
+#: assets/js/editor-product.js:304
 msgid "Remove"
 msgstr ""
 
-#: assets/js/editor-event.js:595
+#: assets/js/editor-event.js:603
 msgid "— Add a product —"
 msgstr ""
 
-#: assets/js/editor-event.js:620
+#: assets/js/editor-event.js:628
 msgid "No products created yet. Add them under Catalog in the sidebar."
 msgstr ""
 
-#: assets/js/editor-event.js:624
+#: assets/js/editor-event.js:632
 msgid "Every product is already featured."
 msgstr ""
 
-#: assets/js/editor-event.js:781
+#: assets/js/editor-event.js:785
 msgid "Repeats"
 msgstr ""
 
-#: assets/js/editor-event.js:785
+#: assets/js/editor-event.js:789
 msgid "Does not repeat"
 msgstr ""
 
-#: assets/js/editor-event.js:789
+#: assets/js/editor-event.js:793
 msgid "Every week"
 msgstr ""
 
-#: assets/js/editor-event.js:793
+#: assets/js/editor-event.js:797
 msgid "Every other week"
 msgstr ""
 
-#: assets/js/editor-event.js:797
+#: assets/js/editor-event.js:801
 msgid "Every month, on this date"
 msgstr ""
 
-#: assets/js/editor-event.js:801
+#: assets/js/editor-event.js:805
 msgid "Every month, on the first of this weekday"
 msgstr ""
 
-#: assets/js/editor-event.js:808
+#: assets/js/editor-event.js:812
 msgid "Every month, on the last of this weekday"
 msgstr ""
 
-#: assets/js/editor-event.js:815
+#: assets/js/editor-event.js:819
 msgid "Every year"
 msgstr ""
 
-#: assets/js/editor-event.js:819
+#: assets/js/editor-event.js:823
 msgid "Custom rule…"
 msgstr ""
 
-#: assets/js/editor-event.js:833
+#: assets/js/editor-event.js:837
 msgid "Worked out from this event’s own start date."
 msgstr ""
 
-#: assets/js/editor-event.js:837
+#: assets/js/editor-event.js:841
 msgid "Set a start date first — the pattern is worked out from it."
 msgstr ""
 
-#: assets/js/editor-event.js:848
+#: assets/js/editor-event.js:852
 msgid "Recurrence rule"
 msgstr ""
 
-#: assets/js/editor-event.js:851
+#: assets/js/editor-event.js:855
 msgid "An iCal RRULE. Supported: FREQ, INTERVAL, COUNT, UNTIL, BYDAY, BYMONTHDAY, BYMONTH."
 msgstr ""
 
-#: assets/js/editor-event.js:887
+#: assets/js/editor-event.js:891
 msgid "Next dates"
 msgstr ""
 
-#: assets/js/editor-event.js:899
+#: assets/js/editor-event.js:903
 msgid "…and more. Dates are created about a year ahead and topped up daily."
 msgstr ""
 
-#: assets/js/editor-event.js:1016
+#: assets/js/editor-event.js:1022
 msgid "Doors are at or after the start time, so they will not be shown. Set them earlier, or clear them."
 msgstr ""
 
-#: assets/js/editor-event.js:1036
+#: assets/js/editor-event.js:1042
 msgid "e.g. 18+, All ages, Under-12s with an adult"
 msgstr ""
 
-#: assets/js/editor-event.js:1075
+#: assets/js/editor-event.js:1087
 msgid "Who and When"
 msgstr ""
 
-#: assets/js/editor-location.js:50
+#: assets/js/editor-location.js:52
 msgid "Location Details"
 msgstr ""
 
-#: assets/js/editor-location.js:56
+#: assets/js/editor-location.js:58
 msgid "Location Type"
 msgstr ""
 
-#: assets/js/editor-location.js:60
+#: assets/js/editor-location.js:62
 msgid "Farm Stand"
 msgstr ""
 
-#: assets/js/editor-location.js:64
+#: assets/js/editor-location.js:66
 msgid "Farmers Market"
 msgstr ""
 
-#: assets/js/editor-location.js:67
+#: assets/js/editor-location.js:69
 msgid "On-Farm"
 msgstr ""
 
-#: assets/js/editor-location.js:69
+#: assets/js/editor-location.js:71
 msgid "Retailer"
 msgstr ""
 
-#: assets/js/editor-location.js:77
+#: assets/js/editor-location.js:79
 msgid "What kind of location is this?"
 msgstr ""
 
-#: assets/js/editor-location.js:86
+#: assets/js/editor-location.js:88
 msgid "123 Farm Road, Yourtown, ST 00000"
 msgstr ""
 
-#: assets/js/editor-location.js:90
+#: assets/js/editor-location.js:92
 msgid "Full street address shown to visitors."
 msgstr ""
 
-#: assets/js/editor-location.js:102
+#: assets/js/editor-location.js:104
 msgid "Saturdays 1:00 – 4:00 PM, May – December"
 msgstr ""
 
-#: assets/js/editor-location.js:106
+#: assets/js/editor-location.js:108
 msgid "Displayed on the front end. Free-form text."
 msgstr ""
 
-#: assets/js/editor-location.js:113
+#: assets/js/editor-location.js:115
 msgid "Venmo Handle"
 msgstr ""
 
-#: assets/js/editor-location.js:118
-#: assets/js/editor-location.js:743
+#: assets/js/editor-location.js:120
+#: assets/js/editor-location.js:749
 msgid "examplefarm"
 msgstr ""
 
-#: assets/js/editor-location.js:119
+#: assets/js/editor-location.js:121
 msgid "Without the @. Used to generate the Venmo payment link."
 msgstr ""
 
-#: assets/js/editor-location.js:129
+#: assets/js/editor-location.js:131
 msgid "Latitude"
 msgstr ""
 
-#: assets/js/editor-location.js:139
+#: assets/js/editor-location.js:141
 msgid "Longitude"
 msgstr ""
 
-#: assets/js/editor-location.js:151
+#: assets/js/editor-location.js:153
 msgid "Currently Open"
 msgstr ""
 
-#: assets/js/editor-location.js:156
+#: assets/js/editor-location.js:158
 msgid "Toggle this location open or closed right now."
 msgstr ""
 
-#: assets/js/editor-location.js:164
+#: assets/js/editor-location.js:166
 msgid "Status Message"
 msgstr ""
 
-#: assets/js/editor-location.js:169
+#: assets/js/editor-location.js:171
 msgid "Back at 2 PM"
 msgstr ""
 
-#: assets/js/editor-location.js:170
+#: assets/js/editor-location.js:172
 msgid "Optional message shown alongside open/closed status."
 msgstr ""
 
-#: assets/js/editor-location.js:276
+#: assets/js/editor-location.js:280
 msgid "Schedule & Season"
 msgstr ""
 
-#: assets/js/editor-location.js:285
+#: assets/js/editor-location.js:289
 msgid "Season Dates"
 msgstr ""
 
-#: assets/js/editor-location.js:293
+#: assets/js/editor-location.js:297
 msgid "Leave blank if open year-round."
 msgstr ""
 
-#: assets/js/editor-location.js:327
+#: assets/js/editor-location.js:331
 msgid "Auto-toggle from schedule"
 msgstr ""
 
-#: assets/js/editor-location.js:332
+#: assets/js/editor-location.js:336
 msgid "Automatically open/close based on the weekly schedule below."
 msgstr ""
 
-#: assets/js/editor-location.js:348
+#: assets/js/editor-location.js:352
 msgid "Weekly Schedule"
 msgstr ""
 
-#: assets/js/editor-location.js:361
+#: assets/js/editor-location.js:365
 msgid "No schedule set. Add a day below."
 msgstr ""
 
-#: assets/js/editor-location.js:402
+#: assets/js/editor-location.js:406
 msgid "Close"
 msgstr ""
 
-#: assets/js/editor-location.js:433
+#: assets/js/editor-location.js:437
 msgid "Add Day"
 msgstr ""
 
-#: assets/js/editor-location.js:447
+#: assets/js/editor-location.js:451
 msgid "Closed Dates"
 msgstr ""
 
-#: assets/js/editor-location.js:455
+#: assets/js/editor-location.js:459
 msgid "Specific dates with no pickups — holidays, closures. Pre-orders for these dates are refused."
 msgstr ""
 
-#: assets/js/editor-location.js:503
+#: assets/js/editor-location.js:507
 msgid "Add Closed Date"
 msgstr ""
 
-#: assets/js/editor-location.js:576
+#: assets/js/editor-location.js:580
 msgid "Market Vouchers (WIC/Sr FMNP)"
 msgstr ""
 
-#: assets/js/editor-location.js:656
+#: assets/js/editor-location.js:662
 msgid "Payment Options"
 msgstr ""
 
-#: assets/js/editor-location.js:680
+#: assets/js/editor-location.js:686
 msgid "No payment options set. Add one below."
 msgstr ""
 
-#: assets/js/editor-location.js:734
+#: assets/js/editor-location.js:740
 msgid "Handle"
 msgstr ""
 
-#: assets/js/editor-location.js:744
+#: assets/js/editor-location.js:750
 msgid "Username without the @ or $."
 msgstr ""
 
-#: assets/js/editor-location.js:752
+#: assets/js/editor-location.js:758
 msgid "URL"
 msgstr ""
 
-#: assets/js/editor-location.js:758
+#: assets/js/editor-location.js:764
 msgid "https://squareup.com/…"
 msgstr ""
 
-#: assets/js/editor-location.js:765
+#: assets/js/editor-location.js:771
 msgid "Display label (optional)"
 msgstr ""
 
-#: assets/js/editor-location.js:784
+#: assets/js/editor-location.js:790
 msgid "Add Payment Option"
 msgstr ""
 
@@ -4110,107 +4110,107 @@ msgstr ""
 msgid "other (type below)"
 msgstr ""
 
-#: assets/js/editor-product.js:111
+#: assets/js/editor-product.js:113
 msgid "Product Details"
 msgstr ""
 
-#: assets/js/editor-product.js:123
+#: assets/js/editor-product.js:125
 msgid "Display price. Can be \"$5\", \"Donation\", \"$3–5\", etc."
 msgstr ""
 
-#: assets/js/editor-product.js:130
+#: assets/js/editor-product.js:132
 msgid "Unit of Sale"
 msgstr ""
 
-#: assets/js/editor-product.js:141
+#: assets/js/editor-product.js:143
 msgid "How this product is sold."
 msgstr ""
 
-#: assets/js/editor-product.js:146
+#: assets/js/editor-product.js:148
 msgid "Custom Unit"
 msgstr ""
 
-#: assets/js/editor-product.js:151
+#: assets/js/editor-product.js:153
 msgid "e.g. 4 oz bag"
 msgstr ""
 
-#: assets/js/editor-product.js:165
+#: assets/js/editor-product.js:167
 msgid "Heirloom variety, cold-hardy. No-till grown."
 msgstr ""
 
-#: assets/js/editor-product.js:169
+#: assets/js/editor-product.js:171
 msgid "Shown on the product card and single product page."
 msgstr ""
 
-#: assets/js/editor-product.js:263
+#: assets/js/editor-product.js:267
 msgid "Link this product to grain origins or partner farms."
 msgstr ""
 
-#: assets/js/editor-product.js:316
+#: assets/js/editor-product.js:320
 msgid "— Add a source —"
 msgstr ""
 
-#: assets/js/editor-product.js:345
+#: assets/js/editor-product.js:349
 msgid "No sources created yet. Add them under Sources in the sidebar."
 msgstr ""
 
-#: assets/js/editor-product.js:412
+#: assets/js/editor-product.js:416
 msgid "Trade Details"
 msgstr ""
 
-#: assets/js/editor-product.js:528
+#: assets/js/editor-product.js:534
 msgid "When a customer pre-orders this"
 msgstr ""
 
-#: assets/js/editor-product.js:532
+#: assets/js/editor-product.js:538
 msgid "Reserve only — pay at pickup"
 msgstr ""
 
-#: assets/js/editor-product.js:539
+#: assets/js/editor-product.js:545
 msgid "Take a deposit now"
 msgstr ""
 
-#: assets/js/editor-product.js:543
+#: assets/js/editor-product.js:549
 msgid "Take the full amount now"
 msgstr ""
 
-#: assets/js/editor-product.js:552
+#: assets/js/editor-product.js:558
 msgid "No money changes hands online. This is the default."
 msgstr ""
 
-#: assets/js/editor-product.js:556
+#: assets/js/editor-product.js:562
 msgid "Raises a pending WooCommerce order and emails the customer a payment link."
 msgstr ""
 
-#: assets/js/editor-product.js:567
+#: assets/js/editor-product.js:573
 msgid "Deposit is"
 msgstr ""
 
-#: assets/js/editor-product.js:571
+#: assets/js/editor-product.js:577
 msgid "A fixed amount per item"
 msgstr ""
 
-#: assets/js/editor-product.js:578
+#: assets/js/editor-product.js:584
 msgid "A percentage of the line"
 msgstr ""
 
-#: assets/js/editor-product.js:596
+#: assets/js/editor-product.js:602
 msgid "Percent to take now"
 msgstr ""
 
-#: assets/js/editor-product.js:597
+#: assets/js/editor-product.js:603
 msgid "Amount per item"
 msgstr ""
 
-#: assets/js/editor-product.js:610
+#: assets/js/editor-product.js:616
 msgid "A deposit above 100% is charged as the full amount."
 msgstr ""
 
-#: assets/js/editor-product.js:614
+#: assets/js/editor-product.js:620
 msgid "Multiplied by quantity — $50 on two items takes $100. A deposit above the item price is charged as the full amount."
 msgstr ""
 
-#: assets/js/editor-product.js:626
+#: assets/js/editor-product.js:632
 msgid "Pre-Order Payment"
 msgstr ""
 
