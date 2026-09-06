@@ -29,10 +29,6 @@
 			return select( 'core/editor' ).getCurrentPostType();
 		}, [] );
 
-		if ( postType !== 'pkit_location' ) {
-			return null;
-		}
-
 		const _address = useEntityProp( 'postType', 'pkit_location', 'meta' );
 		const meta = _address[ 0 ];
 		const setMeta = _address[ 1 ];
@@ -41,6 +37,12 @@
 			const updated = {};
 			updated[ key ] = value;
 			setMeta( Object.assign( {}, meta, updated ) );
+		}
+
+		// After every hook, never before one: a hook that runs only
+		// sometimes is a hook React cannot account for.
+		if ( postType !== 'pkit_location' ) {
+			return null;
 		}
 
 		return el(
@@ -195,12 +197,8 @@
 			return select( 'core/editor' ).getCurrentPostType();
 		}, [] );
 
-		if ( postType !== 'pkit_location' ) {
-			return null;
-		}
-
 		const _meta = useEntityProp( 'postType', 'pkit_location', 'meta' );
-		const meta = _meta[ 0 ];
+		const meta = _meta[ 0 ] || {};
 		const setMeta = _meta[ 1 ];
 
 		function updateMeta( key, value ) {
@@ -268,6 +266,12 @@
 
 		// Pickup blackout dates (JSON array of YYYY-MM-DD in meta).
 		const blackouts = parseBlackouts();
+
+		// After every hook, never before one: a hook that runs only
+		// sometimes is a hook React cannot account for.
+		if ( postType !== 'pkit_location' ) {
+			return null;
+		}
 
 		return el(
 			PluginDocumentSettingPanel,
@@ -590,12 +594,8 @@
 			return select( 'core/editor' ).getCurrentPostType();
 		}, [] );
 
-		if ( postType !== 'pkit_location' ) {
-			return null;
-		}
-
 		const _meta = useEntityProp( 'postType', 'pkit_location', 'meta' );
-		const meta = _meta[ 0 ];
+		const meta = _meta[ 0 ] || {};
 		const setMeta = _meta[ 1 ];
 
 		const methodsRaw = meta._pkit_payment_methods || '[]';
@@ -647,6 +647,12 @@
 					return copy;
 				} )
 			);
+		}
+
+		// After every hook, never before one: a hook that runs only
+		// sometimes is a hook React cannot account for.
+		if ( postType !== 'pkit_location' ) {
+			return null;
 		}
 
 		return el(

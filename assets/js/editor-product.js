@@ -79,12 +79,8 @@
 			return select( 'core/editor' ).getCurrentPostType();
 		}, [] );
 
-		if ( postType !== 'pkit_product' ) {
-			return null;
-		}
-
 		const _meta = useEntityProp( 'postType', 'pkit_product', 'meta' );
-		const meta = _meta[ 0 ];
+		const meta = _meta[ 0 ] || {};
 		const setMeta = _meta[ 1 ];
 
 		const _customUnit = useState( false );
@@ -103,6 +99,12 @@
 			return u.value === currentUnit;
 		} );
 		const isCustom = showCustomUnit || ( currentUnit && ! unitInList );
+
+		// After every hook, never before one: a hook that runs only
+		// sometimes is a hook React cannot account for.
+		if ( postType !== 'pkit_product' ) {
+			return null;
+		}
 
 		return el(
 			PluginDocumentSettingPanel,
@@ -184,12 +186,8 @@
 			return select( 'core/editor' ).getCurrentPostType();
 		}, [] );
 
-		if ( postType !== 'pkit_product' ) {
-			return null;
-		}
-
 		const _meta = useEntityProp( 'postType', 'pkit_product', 'meta' );
-		const meta = _meta[ 0 ];
+		const meta = _meta[ 0 ] || {};
 		const setMeta = _meta[ 1 ];
 
 		const sourceIds = meta._pkit_source_ids || [];
@@ -244,6 +242,12 @@
 		const availableSources = allSources.filter( function ( s ) {
 			return sourceIds.indexOf( s.id ) === -1;
 		} );
+
+		// After every hook, never before one: a hook that runs only
+		// sometimes is a hook React cannot account for.
+		if ( postType !== 'pkit_product' ) {
+			return null;
+		}
 
 		return el(
 			PluginDocumentSettingPanel,
@@ -505,13 +509,15 @@
 		const hasStore =
 			settings.hasWooCommerce && modules.indexOf( 'woocommerce' ) !== -1;
 
+		const _meta = useEntityProp( 'postType', 'pkit_product', 'meta' );
+		const meta = _meta[ 0 ] || {};
+		const setMeta = _meta[ 1 ];
+
+		// After every hook, never before one: a hook that runs only
+		// sometimes is a hook React cannot account for.
 		if ( postType !== 'pkit_product' || ! hasStore ) {
 			return null;
 		}
-
-		const _meta = useEntityProp( 'postType', 'pkit_product', 'meta' );
-		const meta = _meta[ 0 ];
-		const setMeta = _meta[ 1 ];
 
 		function updateMeta( key, value ) {
 			const updated = {};

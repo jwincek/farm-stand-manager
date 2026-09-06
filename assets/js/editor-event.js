@@ -82,12 +82,8 @@
 			return select( 'core/editor' ).getCurrentPostType();
 		}, [] );
 
-		if ( postType !== 'pkit_event' ) {
-			return null;
-		}
-
 		const _meta = useEntityProp( 'postType', 'pkit_event', 'meta' );
-		const meta = _meta[ 0 ];
+		const meta = _meta[ 0 ] || {};
 		const setMeta = _meta[ 1 ];
 
 		function updateMeta( key, value ) {
@@ -130,6 +126,12 @@
 
 		// Validation.
 		const noStartDate = ! meta._pkit_start_datetime;
+
+		// After every hook, never before one: a hook that runs only
+		// sometimes is a hook React cannot account for.
+		if ( postType !== 'pkit_event' ) {
+			return null;
+		}
 
 		return el(
 			PluginDocumentSettingPanel,
@@ -277,12 +279,8 @@
 			return select( 'core/editor' ).getCurrentPostType();
 		}, [] );
 
-		if ( postType !== 'pkit_event' ) {
-			return null;
-		}
-
 		const _meta = useEntityProp( 'postType', 'pkit_event', 'meta' );
-		const meta = _meta[ 0 ];
+		const meta = _meta[ 0 ] || {};
 		const setMeta = _meta[ 1 ];
 
 		function updateMeta( key, value ) {
@@ -292,6 +290,12 @@
 		}
 
 		const rsvpEnabled = !! meta._pkit_em_rsvp_enabled;
+
+		// After every hook, never before one: a hook that runs only
+		// sometimes is a hook React cannot account for.
+		if ( postType !== 'pkit_event' ) {
+			return null;
+		}
 
 		return el(
 			PluginDocumentSettingPanel,
@@ -370,18 +374,20 @@
 			return select( 'core/editor' ).getCurrentPostType();
 		}, [] );
 
-		if ( postType !== 'pkit_event' ) {
-			return null;
-		}
-
 		const _meta = useEntityProp( 'postType', 'pkit_event', 'meta' );
-		const meta = _meta[ 0 ];
+		const meta = _meta[ 0 ] || {};
 		const setMeta = _meta[ 1 ];
 
 		function updateMeta( key, value ) {
 			const updated = {};
 			updated[ key ] = value;
 			setMeta( Object.assign( {}, meta, updated ) );
+		}
+
+		// After every hook, never before one: a hook that runs only
+		// sometimes is a hook React cannot account for.
+		if ( postType !== 'pkit_event' ) {
+			return null;
 		}
 
 		return el(
@@ -506,10 +512,6 @@
 			[ featuredKey ]
 		);
 
-		if ( postType !== 'pkit_event' ) {
-			return null;
-		}
-
 		function setFeatured( ids ) {
 			setMeta(
 				Object.assign( {}, meta, { _pkit_featured_product_ids: ids } )
@@ -519,6 +521,12 @@
 		const available = allProducts.filter( function ( product ) {
 			return featuredIds.indexOf( product.id ) === -1;
 		} );
+
+		// After every hook, never before one: a hook that runs only
+		// sometimes is a hook React cannot account for.
+		if ( postType !== 'pkit_event' ) {
+			return null;
+		}
 
 		return el(
 			PluginDocumentSettingPanel,
@@ -763,10 +771,6 @@
 			[ rule, startIso ]
 		);
 
-		if ( postType !== 'pkit_event' ) {
-			return null;
-		}
-
 		function setRule( value ) {
 			setMeta(
 				Object.assign( {}, meta, { _pkit_recurrence_rule: value } )
@@ -906,6 +910,12 @@
 			);
 		}
 
+		// After every hook, never before one: a hook that runs only
+		// sometimes is a hook React cannot account for.
+		if ( postType !== 'pkit_event' ) {
+			return null;
+		}
+
 		return el(
 			PluginDocumentSettingPanel,
 			{
@@ -939,10 +949,6 @@
 		const _meta = useEntityProp( 'postType', 'pkit_event', 'meta' );
 		const meta = _meta[ 0 ] || {};
 		const setMeta = _meta[ 1 ];
-
-		if ( postType !== 'pkit_event' ) {
-			return null;
-		}
 
 		function updateMeta( key, value ) {
 			const updated = {};
@@ -1067,6 +1073,12 @@
 				),
 			} )
 		);
+
+		// After every hook, never before one: a hook that runs only
+		// sometimes is a hook React cannot account for.
+		if ( postType !== 'pkit_event' ) {
+			return null;
+		}
 
 		return el(
 			PluginDocumentSettingPanel,

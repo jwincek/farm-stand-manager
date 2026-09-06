@@ -7,6 +7,21 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+
+- Editor sidebar panels no longer call a React hook conditionally. Nine of
+  them bailed on the wrong post type *before* reading their meta, which means
+  the hook ran on some renders and not others.
+
+  It worked, which is why it survived: the post type does not change within a
+  mount, so a panel either always returned early or never did and the hook
+  count stayed consistent. It would have stopped working the moment any
+  condition varied during a mount — "Rendered fewer hooks than expected", and
+  the editor goes down with it. The panels written this week already avoided
+  it; the older ones now match.
+
+  A test asserts the rule, since it is mechanical and easy to reintroduce.
+
 ### Added
 
 - Four things any event can have, named for your trade: who else is on it,
