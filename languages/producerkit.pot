@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-09-05T18:46:58+00:00\n"
+"POT-Creation-Date: 2026-09-06T00:53:58+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: producerkit\n"
@@ -87,30 +87,30 @@ msgid "All"
 msgstr ""
 
 #. translators: %s: trade field name, e.g. Clay Body.
-#: blocks/availability-board/render.php:168
+#: blocks/availability-board/render.php:169
 #, php-format
 msgid "Filter by %s"
 msgstr ""
 
-#: blocks/availability-board/render.php:298
+#: blocks/availability-board/render.php:299
 #: blocks/product-card/render.php:104
 msgid "Price:"
 msgstr ""
 
-#: blocks/availability-board/render.php:313
+#: blocks/availability-board/render.php:314
 #: blocks/product-card/render.php:113
 msgid "Available seasons"
 msgstr ""
 
 #. translators: %d: number of items shown on the availability board.
 #. translators: %d: number of items shown.
-#: blocks/availability-board/render.php:331
+#: blocks/availability-board/render.php:332
 #: blocks/availability-board/index.js:471
 #, php-format,js-format
 msgid "Showing %d items"
 msgstr ""
 
-#: blocks/availability-board/render.php:338
+#: blocks/availability-board/render.php:339
 msgid "Last updated:"
 msgstr ""
 

@@ -93,6 +93,16 @@
     border-color: #374151;
 }
 
+/*
+ * A type with nothing showing under the statuses currently on. Faded rather
+ * than disabled: it stays a legitimate thing to press, and disabling would
+ * take it out of the tab order. The footer already says how many of how many
+ * are showing, so nothing is communicated by colour alone.
+ */
+.pkit-avail-board__filter-btn--empty {
+    opacity: 0.4;
+}
+
 /* ── Group ─────────────────────────────────────── */
 
 .pkit-avail-board__group {

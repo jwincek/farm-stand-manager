@@ -130,6 +130,7 @@ They are generated in the visitor's browser by a bundled open-source library (qr
 == Changelog ==
 
 = Unreleased =
+* Fixed: on the availability board, a product-type button now fades when the statuses you are showing leave it with nothing, instead of looking available and then emptying the board.
 * Fixed: a shop's page listed everything you make instead of what they carry. Products marked available everywhere now show at your own stand and market, not on a retailer's shelf.
 * Fixed: the availability board offered product-type filters that showed nothing when clicked, and counted products rather than what was on the board.
 * Added: the plugin now asks what you make the first time you use it. It names everything after your trade, and until you say, it uses a farm's words — so a beekeeper was quietly getting "Growing / Baking Notes" where they meant hive notes.
