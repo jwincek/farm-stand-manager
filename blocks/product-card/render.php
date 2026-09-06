@@ -59,8 +59,15 @@ if ( $show_source ) {
 	}
 }
 
+// Only rendered on a site with more than one producer to tell apart;
+// byline_for() returns '' otherwise.
+$pkit_byline = \ProducerKit\Core\Producers\byline_for( $product_id );
+
 // Build aria-label.
 $aria_parts = [ $product->post_title ];
+if ( '' !== $pkit_byline ) {
+	$aria_parts[] = $pkit_byline;
+}
 if ( $price ) {
 	$aria_parts[] = $price . ( $unit ? '/' . $unit : '' );
 }
@@ -92,6 +99,10 @@ $wrapper_attrs = get_block_wrapper_attributes(
 				<?php echo esc_html( $product->post_title ); ?>
 			</a>
 		</h3>
+
+		<?php if ( '' !== $pkit_byline ) : ?>
+			<span class="pkit-product-card__producer"><?php echo esc_html( $pkit_byline ); ?></span>
+		<?php endif; ?>
 
 		<?php if ( $types && ! is_wp_error( $types ) ) : ?>
 			<span class="pkit-product-card__type">

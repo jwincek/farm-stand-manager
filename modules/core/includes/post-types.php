@@ -186,7 +186,7 @@ function register_product(): void {
 			],
 			'menu_icon'      => 'dashicons-tag',
 			'menu_position'  => 26,
-			'supports'       => [ 'title', 'editor', 'thumbnail', 'excerpt', 'custom-fields' ],
+			'supports'       => [ 'title', 'editor', 'thumbnail', 'excerpt', 'custom-fields', 'author' ],
 			'show_in_rest'   => true,
 			'rest_base'      => 'products',
 			'rest_namespace' => 'producerkit/v1',
@@ -226,7 +226,7 @@ function register_source(): void {
 			// Nested under the ProducerKit menu: no taxonomies to lose, and
 			// these are configured once rather than worked in daily.
 			'show_in_menu'   => 'producerkit',
-			'supports'       => [ 'title', 'editor', 'thumbnail', 'excerpt', 'custom-fields' ],
+			'supports'       => [ 'title', 'editor', 'thumbnail', 'excerpt', 'custom-fields', 'author' ],
 			'show_in_rest'   => true,
 			'rest_base'      => 'sources',
 			'rest_namespace' => 'producerkit/v1',
@@ -264,7 +264,7 @@ function register_location(): void {
 			// Nested under the ProducerKit menu: no taxonomies to lose, and
 			// these are configured once rather than worked in daily.
 			'show_in_menu'   => 'producerkit',
-			'supports'       => [ 'title', 'editor', 'thumbnail', 'custom-fields' ],
+			'supports'       => [ 'title', 'editor', 'thumbnail', 'custom-fields', 'author' ],
 			'show_in_rest'   => true,
 			'rest_base'      => 'locations',
 			'rest_namespace' => 'producerkit/v1',
@@ -295,7 +295,7 @@ function register_event(): void {
 			],
 			'menu_icon'      => 'dashicons-calendar-alt',
 			'menu_position'  => 27,
-			'supports'       => [ 'title', 'editor', 'thumbnail', 'excerpt', 'custom-fields' ],
+			'supports'       => [ 'title', 'editor', 'thumbnail', 'excerpt', 'custom-fields', 'author' ],
 			'show_in_rest'   => true,
 			'rest_base'      => 'events',
 			'rest_namespace' => 'producerkit/v1',

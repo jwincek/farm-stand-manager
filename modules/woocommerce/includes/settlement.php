@@ -62,10 +62,10 @@ function tables(): array {
  */
 function columns(): array {
 	return [
-		'settlement'    => "VARCHAR(20) NOT NULL DEFAULT '" . DIRECT . "'",
-		'wc_order_id'   => 'BIGINT UNSIGNED NOT NULL DEFAULT 0',
-		'wc_product_id' => 'BIGINT UNSIGNED NOT NULL DEFAULT 0',
-		'settled_at'    => 'DATETIME DEFAULT NULL',
+		'settlement'         => "VARCHAR(20) NOT NULL DEFAULT '" . DIRECT . "'",
+		'wc_order_id'        => 'BIGINT UNSIGNED NOT NULL DEFAULT 0',
+		'wc_product_id'      => 'BIGINT UNSIGNED NOT NULL DEFAULT 0',
+		'settled_at'         => 'DATETIME DEFAULT NULL',
 
 		// The balance leg. A request may be paid in two goes — a deposit now
 		// and the rest at pickup — and the producer decides per pre-order

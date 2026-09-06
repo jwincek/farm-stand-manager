@@ -20,32 +20,32 @@ add_action( 'init', __NAMESPACE__ . '\\register' );
 
 function register(): void {
 	$fields = [
-		'_pkit_status_message' => [
+		'_pkit_status_message'  => [
 			'type'        => 'string',
 			'description' => 'Custom status message shown alongside the badge, e.g. "Back at 2 PM" or "Sold out for today".',
 			'default'     => '',
 		],
-		'_pkit_last_toggled'   => [
+		'_pkit_last_toggled'    => [
 			'type'        => 'string',
 			'description' => 'ISO 8601 timestamp of the last open/closed toggle.',
 			'default'     => '',
 		],
-		'_pkit_weekly_schedule'       => [
+		'_pkit_weekly_schedule' => [
 			'type'        => 'string',
 			'description' => 'JSON-encoded weekly schedule array. Each entry: { day: 0-6, open: "HH:MM", close: "HH:MM" }.',
 			'default'     => '',
 		],
-		'_pkit_season_start'   => [
+		'_pkit_season_start'    => [
 			'type'        => 'string',
 			'description' => 'Season opening date (YYYY-MM-DD).',
 			'default'     => '',
 		],
-		'_pkit_season_end'     => [
+		'_pkit_season_end'      => [
 			'type'        => 'string',
 			'description' => 'Season closing date (YYYY-MM-DD).',
 			'default'     => '',
 		],
-		'_pkit_auto_toggle'    => [
+		'_pkit_auto_toggle'     => [
 			'type'        => 'boolean',
 			'description' => 'Whether to auto-toggle open/closed based on the weekly schedule.',
 			'default'     => false,

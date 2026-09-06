@@ -12,22 +12,26 @@ declare(strict_types=1);
 defined( 'ABSPATH' ) || exit;
 
 return [
-	'label'         => __( 'Farm', 'producerkit' ),
-	'description'   => __( 'Produce, bread and pantry goods for a farm stand or market garden.', 'producerkit' ),
+	'label'          => __( 'Farm', 'producerkit' ),
+	'description'    => __( 'Produce, bread and pantry goods for a farm stand or market garden.', 'producerkit' ),
 	// A farm sells what it grew; material/finish/component add nothing.
-	'taxonomies'    => [],
-	'names'         => [],
-	'request_names' => [
+	'taxonomies'     => [],
+	'names'          => [],
+	'request_names'  => [
 		'singular' => __( 'Special Order', 'producerkit' ),
 		'plural'   => __( 'Special Orders', 'producerkit' ),
 		'menu'     => __( 'Special Orders', 'producerkit' ),
 		'action'   => __( 'Request a special order', 'producerkit' ),
 	],
-	'meta_labels'   => [
+	'producer_names' => [
+		'byline'     => __( 'Grown by', 'producerkit' ),
+		'name_label' => __( 'Farm name', 'producerkit' ),
+	],
+	'meta_labels'    => [
 		'_pkit_also_appearing' => [ __( 'Sharing the booth', 'producerkit' ), __( 'Another grower or maker selling alongside you.', 'producerkit' ) ],
 		'_pkit_doors_datetime' => [ __( 'Gates open', 'producerkit' ), __( 'When people can arrive, if that is earlier than the start.', 'producerkit' ) ],
 	],
-	'sample'        => [
+	'sample'         => [
 		'unit'        => 'bunch',
 		'price'       => '$4',
 		'place'       => __( 'Farm Stand', 'producerkit' ),
@@ -46,7 +50,7 @@ return [
 		],
 		'place_blurb' => __( 'Our honor-system roadside stand. Cash and Venmo accepted.', 'producerkit' ),
 	],
-	'terms'         => [
+	'terms'          => [
 		'pkit_product_type' => [ 'Produce', 'Bread', 'Baked Good', 'Pantry Good', 'Seedling' ],
 		'pkit_season'       => [ 'Spring', 'Summer', 'Fall', 'Winter' ],
 		'pkit_event_type'   => [ 'Pizza Night', 'Potluck', 'Farm Dinner', 'Workshop', 'Farm Tour', 'Seed Exchange', 'Mini Market' ],

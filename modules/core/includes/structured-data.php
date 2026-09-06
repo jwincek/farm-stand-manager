@@ -95,6 +95,16 @@ function product_data( \WP_Post $post ): array {
 		$data['image'] = $image;
 	}
 
+	// Brand: only when the producer declared a name. Falling back to a
+	// display name would publish "admin" as the maker of a jar of honey.
+	$producer_name = \ProducerKit\Core\Producers\declared_name_for( (int) $post->post_author );
+	if ( '' !== $producer_name ) {
+		$data['brand'] = [
+			'@type' => 'Brand',
+			'name'  => $producer_name,
+		];
+	}
+
 	// Offer: only when the display price parses to a number.
 	$price = parse_price( (string) get_post_meta( $post->ID, '_pkit_price', true ) );
 	if ( $price !== null ) {

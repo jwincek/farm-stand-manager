@@ -29,9 +29,13 @@ return [
 		'menu'     => __( 'Requests', 'producerkit' ),
 		'action'   => __( 'Request a signed copy or an appearance', 'producerkit' ),
 	],
+	'producer_names'  => [
+		'byline'     => __( 'Written by', 'producerkit' ),
+		'name_label' => __( 'Pen name or imprint', 'producerkit' ),
+	],
 	'meta_labels'     => [
-		'_pkit_production_notes'     => [ __( 'Book Notes', 'producerkit' ), __( 'Shown on the book page. Free-form.', 'producerkit' ) ],
-		'_pkit_also_appearing' => [ __( 'Also reading', 'producerkit' ), __( 'Who else is on the bill.', 'producerkit' ) ],
+		'_pkit_production_notes' => [ __( 'Book Notes', 'producerkit' ), __( 'Shown on the book page. Free-form.', 'producerkit' ) ],
+		'_pkit_also_appearing'   => [ __( 'Also reading', 'producerkit' ), __( 'Who else is on the bill.', 'producerkit' ) ],
 	],
 	'sample'          => [
 		'unit'        => 'copy',

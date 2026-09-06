@@ -30,11 +30,15 @@ return [
 		'menu'     => __( 'Special Orders', 'producerkit' ),
 		'action'   => __( 'Order something special', 'producerkit' ),
 	],
+	'producer_names'  => [
+		'byline'     => __( 'Baked by', 'producerkit' ),
+		'name_label' => __( 'Bakery name', 'producerkit' ),
+	],
 	'meta_labels'     => [
-		'_pkit_source_name'  => [ __( 'Mill / Farm', 'producerkit' ), __( 'Who grew or milled it. Falls back to the post title on the front end if left empty.', 'producerkit' ) ],
-		'_pkit_source_processing_notes'     => [ __( 'Milling Notes', 'producerkit' ), __( 'Grind, extraction rate, how fresh it was milled.', 'producerkit' ) ],
-		'_pkit_production_notes'     => [ __( 'Baking Notes', 'producerkit' ), __( 'Shown on the product page. Free-form.', 'producerkit' ) ],
-		'_pkit_also_appearing' => [ __( 'Sharing the table', 'producerkit' ), __( 'Another baker or maker selling alongside you.', 'producerkit' ) ],
+		'_pkit_source_name'             => [ __( 'Mill / Farm', 'producerkit' ), __( 'Who grew or milled it. Falls back to the post title on the front end if left empty.', 'producerkit' ) ],
+		'_pkit_source_processing_notes' => [ __( 'Milling Notes', 'producerkit' ), __( 'Grind, extraction rate, how fresh it was milled.', 'producerkit' ) ],
+		'_pkit_production_notes'        => [ __( 'Baking Notes', 'producerkit' ), __( 'Shown on the product page. Free-form.', 'producerkit' ) ],
+		'_pkit_also_appearing'          => [ __( 'Sharing the table', 'producerkit' ), __( 'Another baker or maker selling alongside you.', 'producerkit' ) ],
 	],
 	'sample'          => [
 		'unit'        => 'loaf',

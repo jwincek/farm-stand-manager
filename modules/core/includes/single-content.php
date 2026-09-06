@@ -82,6 +82,20 @@ function render_product_details( \WP_Post $post ): string {
 	ob_start();
 	?>
 	<div class="pkit-single-details pkit-single-details--product">
+		<?php
+		// Attribution leads, when there is more than one producer on the site
+		// to tell apart. Producers\byline_for() decides that; this only asks.
+		$producer = \ProducerKit\Core\Producers\should_show_byline()
+			? \ProducerKit\Core\Producers\for_post( $id )
+			: null;
+		?>
+		<?php if ( null !== $producer ) : ?>
+			<div class="pkit-single-details__row pkit-single-details__row--producer">
+				<span class="pkit-single-details__label"><?php echo esc_html( $producer['byline'] ); ?></span>
+				<span class="pkit-single-details__value"><?php echo esc_html( $producer['name'] ); ?></span>
+			</div>
+		<?php endif; ?>
+
 		<?php if ( $price || $unit ) : ?>
 			<div class="pkit-single-details__row">
 				<span class="pkit-single-details__label"><?php esc_html_e( 'Price', 'producerkit' ); ?></span>
@@ -432,6 +446,18 @@ function render_event_details( \WP_Post $post ): string {
 	ob_start();
 	?>
 	<div class="pkit-single-details pkit-single-details--event">
+		<?php
+		$producer = \ProducerKit\Core\Producers\should_show_byline()
+			? \ProducerKit\Core\Producers\for_post( $id )
+			: null;
+		?>
+		<?php if ( null !== $producer ) : ?>
+			<div class="pkit-single-details__row pkit-single-details__row--producer">
+				<span class="pkit-single-details__label"><?php echo esc_html( $producer['byline'] ); ?></span>
+				<span class="pkit-single-details__value"><?php echo esc_html( $producer['name'] ); ?></span>
+			</div>
+		<?php endif; ?>
+
 		<?php if ( $cancelled ) : ?>
 			<div class="pkit-single-details__alert">
 				<?php esc_html_e( 'This event has been cancelled.', 'producerkit' ); ?>

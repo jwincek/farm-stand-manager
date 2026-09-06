@@ -239,10 +239,10 @@ function price_preorder( array $order ): array|\WP_Error {
 
 		$split = Deposits\split_line( $line_total, $policy );
 
-		$total     += $line_total;
-		$due_now   += $split['due_now'];
-		$balance   += $split['balance'];
-		$lines[]    = [
+		$total   += $line_total;
+		$due_now += $split['due_now'];
+		$balance += $split['balance'];
+		$lines[]  = [
 			'product_id' => $product_id,
 			'qty'        => $qty,
 			'title'      => (string) ( $item['title'] ?? '' ),

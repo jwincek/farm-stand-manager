@@ -24,18 +24,18 @@ function register(): void {
  * ─────────────────────────────────────────────── */
 function register_product_meta(): void {
 	$fields = [
-		'_pkit_source_ids'    => [
+		'_pkit_source_ids'       => [
 			'type'        => 'array',
 			'description' => 'Related source (grain/farm) post IDs.',
 			'default'     => [],
 			'items'       => [ 'type' => 'integer' ],
 		],
-		'_pkit_unit'          => [
+		'_pkit_unit'             => [
 			'type'        => 'string',
 			'description' => 'Unit of sale — bunch, loaf, pint, lb, each, etc.',
 			'default'     => '',
 		],
-		'_pkit_price'         => [
+		'_pkit_price'            => [
 			'type'        => 'string',
 			'description' => 'Display price (free-text to allow "donation" or "$5/loaf").',
 			'default'     => '',
@@ -45,19 +45,19 @@ function register_product_meta(): void {
 			'description' => 'Brief growing / baking notes shown on front end.',
 			'default'     => '',
 		],
-		'_pkit_payment_mode'  => [
+		'_pkit_payment_mode'     => [
 			'type'        => 'string',
 			'description' => 'What a pre-order collects up front: none (reserve only), deposit, or full.',
 			'default'     => 'none',
 			'sanitize'    => __NAMESPACE__ . '\\sanitize_payment_mode',
 		],
-		'_pkit_deposit_kind'  => [
+		'_pkit_deposit_kind'     => [
 			'type'        => 'string',
 			'description' => 'Whether the deposit is a fixed amount per unit or a percentage of the line.',
 			'default'     => 'fixed',
 			'sanitize'    => __NAMESPACE__ . '\\sanitize_deposit_kind',
 		],
-		'_pkit_deposit_value' => [
+		'_pkit_deposit_value'    => [
 			'type'        => 'number',
 			'description' => 'Deposit amount per unit, or percent of the line when the kind is percent.',
 			'default'     => 0,
@@ -184,22 +184,22 @@ function sanitize_deposit_value( mixed $value ): float {
  * ─────────────────────────────────────────────── */
 function register_source_meta(): void {
 	$fields = [
-		'_pkit_source_name' => [
+		'_pkit_source_name'             => [
 			'type'        => 'string',
 			'description' => 'Name of the partner farm or grain origin.',
 			'default'     => '',
 		],
-		'_pkit_source_location'  => [
+		'_pkit_source_location'         => [
 			'type'        => 'string',
 			'description' => 'Geographic location of source (county, state).',
 			'default'     => '',
 		],
-		'_pkit_source_history'   => [
+		'_pkit_source_history'          => [
 			'type'        => 'string',
 			'description' => 'Historical / heritage notes about the grain or ingredient.',
 			'default'     => '',
 		],
-		'_pkit_source_processing_notes'    => [
+		'_pkit_source_processing_notes' => [
 			'type'        => 'string',
 			'description' => 'Notes on milling process, grind, etc.',
 			'default'     => '',

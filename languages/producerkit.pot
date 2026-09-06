@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-09-06T21:30:32+00:00\n"
+"POT-Creation-Date: 2026-09-06T21:58:16+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: producerkit\n"
@@ -19,6 +19,7 @@ msgstr ""
 #: includes/admin-dashboard.php:26
 #: includes/admin-dashboard.php:27
 #: includes/admin-dashboard.php:127
+#: modules/core/includes/admin-producer-field.php:33
 #: producerkit.php:273
 msgid "ProducerKit"
 msgstr ""
@@ -93,12 +94,12 @@ msgid "Filter by %s"
 msgstr ""
 
 #: blocks/availability-board/render.php:299
-#: blocks/product-card/render.php:104
+#: blocks/product-card/render.php:115
 msgid "Price:"
 msgstr ""
 
 #: blocks/availability-board/render.php:314
-#: blocks/product-card/render.php:113
+#: blocks/product-card/render.php:124
 msgid "Available seasons"
 msgstr ""
 
@@ -204,7 +205,7 @@ msgstr ""
 
 #: blocks/location-info/render.php:73
 #: blocks/stand-status-banner/render.php:67
-#: modules/core/includes/single-content.php:299
+#: modules/core/includes/single-content.php:313
 #: blocks/location-info/index.js:224
 #: blocks/stand-status-banner/index.js:177
 msgid "Open Now"
@@ -215,7 +216,7 @@ msgstr ""
 #: blocks/stand-status-banner/render.php:68
 #: includes/admin-dashboard.php:142
 #: modules/commissions/includes/admin-commissions.php:272
-#: modules/core/includes/single-content.php:299
+#: modules/core/includes/single-content.php:313
 #: blocks/location-info/index.js:225
 #: blocks/stand-hours-schedule/index.js:337
 #: blocks/stand-status-banner/index.js:178
@@ -235,9 +236,9 @@ msgstr ""
 #: blocks/location-info/render.php:101
 #: blocks/location-info/render.php:139
 #: blocks/stand-status-banner/render.php:261
-#: modules/core/includes/single-content.php:349
-#: modules/core/includes/single-content.php:519
-#: modules/core/includes/single-content.php:559
+#: modules/core/includes/single-content.php:363
+#: modules/core/includes/single-content.php:545
+#: modules/core/includes/single-content.php:585
 #: modules/event-manager/includes/render-helpers.php:167
 msgid "(opens in a new tab)"
 msgstr ""
@@ -255,7 +256,7 @@ msgstr ""
 
 #. translators: 1: payment service name, 2: account handle.
 #: blocks/location-info/render.php:131
-#: modules/core/includes/single-content.php:341
+#: modules/core/includes/single-content.php:355
 #, php-format
 msgid "%1$s (@%2$s)"
 msgstr ""
@@ -345,11 +346,11 @@ msgstr ""
 msgid "Payment is at pickup."
 msgstr ""
 
-#: blocks/product-card/render.php:134
+#: blocks/product-card/render.php:145
 msgid "Current availability"
 msgstr ""
 
-#: blocks/product-card/render.php:148
+#: blocks/product-card/render.php:159
 #: blocks/product-card/index.js:466
 msgid "Sourced from:"
 msgstr ""
@@ -420,7 +421,7 @@ msgid "Day"
 msgstr ""
 
 #: blocks/stand-hours-schedule/render.php:85
-#: modules/core/includes/single-content.php:320
+#: modules/core/includes/single-content.php:334
 #: assets/js/editor-location.js:99
 msgid "Hours"
 msgstr ""
@@ -543,7 +544,7 @@ msgstr ""
 #: includes/admin-dashboard.php:214
 #: modules/availability-board/includes/admin-quick-entry.php:25
 #: modules/core/includes/admin-columns.php:33
-#: modules/core/includes/single-content.php:162
+#: modules/core/includes/single-content.php:176
 msgid "Availability"
 msgstr ""
 
@@ -563,7 +564,7 @@ msgstr ""
 #: modules/availability-board/includes/admin-quick-entry.php:117
 #: modules/commissions/includes/admin-commissions.php:158
 #: modules/core/includes/admin-columns.php:277
-#: modules/core/includes/single-content.php:296
+#: modules/core/includes/single-content.php:310
 #: modules/pre-order/includes/admin-orders.php:215
 #: modules/pre-order/includes/order-response.php:131
 msgid "Status"
@@ -572,9 +573,9 @@ msgstr ""
 #: includes/admin-dashboard.php:260
 #: modules/availability-board/includes/admin-quick-entry.php:116
 #: modules/core/includes/admin-columns.php:276
-#: modules/core/includes/single-content.php:99
-#: modules/core/includes/single-content.php:306
-#: modules/core/includes/single-content.php:459
+#: modules/core/includes/single-content.php:113
+#: modules/core/includes/single-content.php:320
+#: modules/core/includes/single-content.php:485
 #: modules/notifications/includes/commission-notifications.php:63
 msgid "Type"
 msgstr ""
@@ -776,13 +777,13 @@ msgid "A sample %s, so you can see how the board and the blocks look with someth
 msgstr ""
 
 #: includes/sample-data.php:313
-#: modules/producer-profiles/profiles/farm.php:33
+#: modules/producer-profiles/profiles/farm.php:37
 #: assets/js/editor-location.js:62
 msgid "Farm Stand"
 msgstr ""
 
 #: includes/sample-data.php:314
-#: modules/producer-profiles/profiles/farm.php:47
+#: modules/producer-profiles/profiles/farm.php:51
 msgid "Our honor-system roadside stand. Cash and Venmo accepted."
 msgstr ""
 
@@ -1031,7 +1032,7 @@ msgstr ""
 #: modules/commissions/includes/admin-commissions.php:250
 #: modules/commissions/includes/quote-response.php:177
 #: modules/core/includes/admin-columns.php:32
-#: modules/core/includes/single-content.php:87
+#: modules/core/includes/single-content.php:101
 #: assets/js/editor-product.js:119
 msgid "Price"
 msgstr ""
@@ -1338,7 +1339,7 @@ msgstr ""
 #: modules/core/includes/admin-columns.php:134
 #: modules/core/includes/meta-labels.php:49
 #: modules/core/includes/post-types.php:243
-#: modules/core/includes/single-content.php:468
+#: modules/core/includes/single-content.php:494
 #: modules/pre-order/includes/admin-orders.php:214
 #: assets/js/editor-event.js:244
 #: assets/js/editor-source.js:134
@@ -1349,7 +1350,7 @@ msgid "Location"
 msgstr ""
 
 #: modules/core/includes/admin-columns.php:135
-#: modules/core/includes/single-content.php:534
+#: modules/core/includes/single-content.php:560
 #: modules/event-manager/includes/admin-rsvps.php:34
 #: modules/event-manager/includes/admin-rsvps.php:35
 #: modules/event-manager/includes/admin-rsvps.php:81
@@ -1357,9 +1358,15 @@ msgid "RSVPs"
 msgstr ""
 
 #: modules/core/includes/admin-columns.php:278
-#: modules/core/includes/single-content.php:313
+#: modules/core/includes/single-content.php:327
 #: assets/js/editor-location.js:83
 msgid "Address"
+msgstr ""
+
+#. translators: %s: the user's display name, used when the field is left empty.
+#: modules/core/includes/admin-producer-field.php:51
+#, php-format
+msgid "Shown on the products and events you publish, when more than one producer shares this site. Leave blank to use %s."
 msgstr ""
 
 #: modules/core/includes/deposits.php:136
@@ -1389,7 +1396,7 @@ msgid "Who this came from. Falls back to the post title on the front end if left
 msgstr ""
 
 #: modules/core/includes/meta-labels.php:50
-#: modules/producer-profiles/profiles/beekeeping.php:32
+#: modules/producer-profiles/profiles/beekeeping.php:36
 #: assets/js/editor-source.js:143
 msgid "County and state, or however you would say where."
 msgstr ""
@@ -1420,17 +1427,17 @@ msgid "Growing / Baking Notes"
 msgstr ""
 
 #: modules/core/includes/meta-labels.php:62
-#: modules/producer-profiles/profiles/bakery.php:36
-#: modules/producer-profiles/profiles/beekeeping.php:35
-#: modules/producer-profiles/profiles/fiber-arts.php:24
-#: modules/producer-profiles/profiles/jewelry.php:24
-#: modules/producer-profiles/profiles/leather.php:24
-#: modules/producer-profiles/profiles/metalwork.php:24
-#: modules/producer-profiles/profiles/painting.php:28
-#: modules/producer-profiles/profiles/pottery.php:25
-#: modules/producer-profiles/profiles/screen-printing.php:28
-#: modules/producer-profiles/profiles/taxidermy.php:35
-#: modules/producer-profiles/profiles/woodworking.php:24
+#: modules/producer-profiles/profiles/bakery.php:40
+#: modules/producer-profiles/profiles/beekeeping.php:39
+#: modules/producer-profiles/profiles/fiber-arts.php:28
+#: modules/producer-profiles/profiles/jewelry.php:28
+#: modules/producer-profiles/profiles/leather.php:28
+#: modules/producer-profiles/profiles/metalwork.php:28
+#: modules/producer-profiles/profiles/painting.php:32
+#: modules/producer-profiles/profiles/pottery.php:29
+#: modules/producer-profiles/profiles/screen-printing.php:32
+#: modules/producer-profiles/profiles/taxidermy.php:39
+#: modules/producer-profiles/profiles/woodworking.php:28
 msgid "Shown on the product page. Free-form."
 msgstr ""
 
@@ -1470,7 +1477,7 @@ msgid "Ticket link"
 msgstr ""
 
 #: modules/core/includes/meta-labels.php:78
-#: modules/producer-profiles/profiles/musician.php:50
+#: modules/producer-profiles/profiles/musician.php:54
 #: assets/js/editor-event.js:1069
 msgid "Where tickets are sold. This plugin does not sell them."
 msgstr ""
@@ -1575,7 +1582,7 @@ msgid "Catalog"
 msgstr ""
 
 #: modules/core/includes/post-types.php:205
-#: modules/producer-profiles/profiles/taxidermy.php:33
+#: modules/producer-profiles/profiles/taxidermy.php:37
 msgid "Source"
 msgstr ""
 
@@ -1643,6 +1650,30 @@ msgstr ""
 
 #: modules/core/includes/post-types.php:283
 msgid "Calendar"
+msgstr ""
+
+#: modules/core/includes/producers.php:69
+#: modules/producer-profiles/profiles/fiber-arts.php:21
+#: modules/producer-profiles/profiles/jewelry.php:21
+#: modules/producer-profiles/profiles/leather.php:21
+#: modules/producer-profiles/profiles/pottery.php:22
+#: modules/producer-profiles/profiles/woodworking.php:21
+msgid "Made by"
+msgstr ""
+
+#: modules/core/includes/producers.php:70
+msgid "Producer name"
+msgstr ""
+
+#: modules/core/includes/producers.php:166
+msgid "Hosted by"
+msgstr ""
+
+#. translators: 1: attribution verb for the trade, e.g. "Grown by". 2: the producer's name.
+#: modules/core/includes/producers.php:264
+#, php-format
+msgctxt "producer byline"
+msgid "%1$s %2$s"
 msgstr ""
 
 #: modules/core/includes/product-import-export.php:30
@@ -1774,84 +1805,84 @@ msgstr ""
 msgid "Tip: export your existing products first to see the format, then edit the CSV and re-import."
 msgstr ""
 
-#: modules/core/includes/single-content.php:114
+#: modules/core/includes/single-content.php:128
 msgid "Where to find it"
 msgstr ""
 
-#: modules/core/includes/single-content.php:140
+#: modules/core/includes/single-content.php:154
 #: modules/core/includes/taxonomies.php:184
 msgid "Season"
 msgstr ""
 
-#: modules/core/includes/single-content.php:183
+#: modules/core/includes/single-content.php:197
 msgid "Sourced from"
 msgstr ""
 
-#: modules/core/includes/single-content.php:265
+#: modules/core/includes/single-content.php:279
 msgid "Used in"
 msgstr ""
 
-#: modules/core/includes/single-content.php:327
-#: modules/core/includes/single-content.php:555
+#: modules/core/includes/single-content.php:341
+#: modules/core/includes/single-content.php:581
 msgid "Payment"
 msgstr ""
 
-#: modules/core/includes/single-content.php:367
+#: modules/core/includes/single-content.php:381
 msgid "Available here"
 msgstr ""
 
-#: modules/core/includes/single-content.php:378
+#: modules/core/includes/single-content.php:392
 msgid "Running low"
 msgstr ""
 
-#: modules/core/includes/single-content.php:437
+#: modules/core/includes/single-content.php:463
 #: modules/event-manager/includes/rsvp-table.php:145
 msgid "This event has been cancelled."
 msgstr ""
 
-#: modules/core/includes/single-content.php:443
+#: modules/core/includes/single-content.php:469
 #: assets/js/editor-event.js:176
 #: assets/js/editor-event.js:217
 msgid "Date"
 msgstr ""
 
-#: modules/core/includes/single-content.php:447
+#: modules/core/includes/single-content.php:473
 #: assets/js/editor-event.js:188
 #: assets/js/editor-event.js:229
 msgid "Time"
 msgstr ""
 
-#: modules/core/includes/single-content.php:508
+#: modules/core/includes/single-content.php:534
 msgid "Cost"
 msgstr ""
 
-#: modules/core/includes/single-content.php:518
+#: modules/core/includes/single-content.php:544
 msgid "Buy tickets"
 msgstr ""
 
-#: modules/core/includes/single-content.php:527
+#: modules/core/includes/single-content.php:553
 msgid "What to bring"
 msgstr ""
 
 #. translators: %d: number of people who have RSVPed.
-#: modules/core/includes/single-content.php:538
+#: modules/core/includes/single-content.php:564
 #: modules/event-manager/includes/render-helpers.php:178
 #, php-format
 msgid "%d people coming"
 msgstr ""
 
 #. translators: %d: total number of RSVP spots.
-#: modules/core/includes/single-content.php:543
+#: modules/core/includes/single-content.php:569
 #, php-format
 msgid "(%d spots total)"
 msgstr ""
 
-#: modules/core/includes/single-content.php:547
+#: modules/core/includes/single-content.php:573
 #: modules/event-manager/includes/admin-rsvps.php:121
 msgid "Full"
 msgstr ""
 
-#: modules/core/includes/single-content.php:558
+#: modules/core/includes/single-content.php:584
 #: modules/event-manager/includes/render-helpers.php:166
 msgid "Donate / Pay"
 msgstr ""
@@ -2673,8 +2704,8 @@ msgstr ""
 
 #: modules/producer-profiles/includes/sample-hints.php:41
 #: modules/producer-profiles/profiles/general.php:20
-#: modules/producer-profiles/profiles/leather.php:29
-#: modules/producer-profiles/profiles/woodworking.php:29
+#: modules/producer-profiles/profiles/leather.php:33
+#: modules/producer-profiles/profiles/woodworking.php:33
 msgid "The Workshop"
 msgstr ""
 
@@ -2741,29 +2772,38 @@ msgid "Request a signed copy or an appearance"
 msgstr ""
 
 #: modules/producer-profiles/profiles/author.php:33
-#: modules/producer-profiles/profiles/comics.php:45
+msgid "Written by"
+msgstr ""
+
+#: modules/producer-profiles/profiles/author.php:34
+#: modules/producer-profiles/profiles/comics.php:46
+msgid "Pen name or imprint"
+msgstr ""
+
+#: modules/producer-profiles/profiles/author.php:37
+#: modules/producer-profiles/profiles/comics.php:49
 msgid "Book Notes"
 msgstr ""
 
-#: modules/producer-profiles/profiles/author.php:33
-#: modules/producer-profiles/profiles/comics.php:45
+#: modules/producer-profiles/profiles/author.php:37
+#: modules/producer-profiles/profiles/comics.php:49
 msgid "Shown on the book page. Free-form."
 msgstr ""
 
-#: modules/producer-profiles/profiles/author.php:34
+#: modules/producer-profiles/profiles/author.php:38
 msgid "Also reading"
 msgstr ""
 
-#: modules/producer-profiles/profiles/author.php:34
-#: modules/producer-profiles/profiles/musician.php:48
+#: modules/producer-profiles/profiles/author.php:38
+#: modules/producer-profiles/profiles/musician.php:52
 msgid "Who else is on the bill."
 msgstr ""
 
-#: modules/producer-profiles/profiles/author.php:39
+#: modules/producer-profiles/profiles/author.php:43
 msgid "The Desk"
 msgstr ""
 
-#: modules/producer-profiles/profiles/author.php:40
+#: modules/producer-profiles/profiles/author.php:44
 msgid "Where the writing happens, and where orders are posted from."
 msgstr ""
 
@@ -2818,38 +2858,46 @@ msgid "Order something special"
 msgstr ""
 
 #: modules/producer-profiles/profiles/bakery.php:34
+msgid "Baked by"
+msgstr ""
+
+#: modules/producer-profiles/profiles/bakery.php:35
+msgid "Bakery name"
+msgstr ""
+
+#: modules/producer-profiles/profiles/bakery.php:38
 msgid "Mill / Farm"
 msgstr ""
 
-#: modules/producer-profiles/profiles/bakery.php:34
+#: modules/producer-profiles/profiles/bakery.php:38
 msgid "Who grew or milled it. Falls back to the post title on the front end if left empty."
 msgstr ""
 
-#: modules/producer-profiles/profiles/bakery.php:35
+#: modules/producer-profiles/profiles/bakery.php:39
 msgid "Milling Notes"
 msgstr ""
 
-#: modules/producer-profiles/profiles/bakery.php:35
+#: modules/producer-profiles/profiles/bakery.php:39
 msgid "Grind, extraction rate, how fresh it was milled."
 msgstr ""
 
-#: modules/producer-profiles/profiles/bakery.php:36
+#: modules/producer-profiles/profiles/bakery.php:40
 msgid "Baking Notes"
 msgstr ""
 
-#: modules/producer-profiles/profiles/bakery.php:37
+#: modules/producer-profiles/profiles/bakery.php:41
 msgid "Sharing the table"
 msgstr ""
 
-#: modules/producer-profiles/profiles/bakery.php:37
+#: modules/producer-profiles/profiles/bakery.php:41
 msgid "Another baker or maker selling alongside you."
 msgstr ""
 
-#: modules/producer-profiles/profiles/bakery.php:42
+#: modules/producer-profiles/profiles/bakery.php:46
 msgid "The Bakehouse"
 msgstr ""
 
-#: modules/producer-profiles/profiles/bakery.php:43
+#: modules/producer-profiles/profiles/bakery.php:47
 msgid "Where the baking happens, and where you collect."
 msgstr ""
 
@@ -2899,51 +2947,59 @@ msgid "Ask about bulk orders"
 msgstr ""
 
 #: modules/producer-profiles/profiles/beekeeping.php:31
-msgid "Apiary"
-msgstr ""
-
-#: modules/producer-profiles/profiles/beekeeping.php:31
-msgid "Which yard this came from. Falls back to the post title on the front end if left empty."
+msgid "Harvested by"
 msgstr ""
 
 #: modules/producer-profiles/profiles/beekeeping.php:32
-msgid "Yard Location"
-msgstr ""
-
-#: modules/producer-profiles/profiles/beekeeping.php:33
-msgid "Forage Notes"
-msgstr ""
-
-#: modules/producer-profiles/profiles/beekeeping.php:33
-msgid "What the bees were working — the floral sources behind this crop."
-msgstr ""
-
-#: modules/producer-profiles/profiles/beekeeping.php:34
-msgid "Extraction Notes"
-msgstr ""
-
-#: modules/producer-profiles/profiles/beekeeping.php:34
-msgid "How it was taken off and handled — crush, spin, strain, settle."
+msgid "Apiary name"
 msgstr ""
 
 #: modules/producer-profiles/profiles/beekeeping.php:35
+msgid "Apiary"
+msgstr ""
+
+#: modules/producer-profiles/profiles/beekeeping.php:35
+msgid "Which yard this came from. Falls back to the post title on the front end if left empty."
+msgstr ""
+
+#: modules/producer-profiles/profiles/beekeeping.php:36
+msgid "Yard Location"
+msgstr ""
+
+#: modules/producer-profiles/profiles/beekeeping.php:37
+msgid "Forage Notes"
+msgstr ""
+
+#: modules/producer-profiles/profiles/beekeeping.php:37
+msgid "What the bees were working — the floral sources behind this crop."
+msgstr ""
+
+#: modules/producer-profiles/profiles/beekeeping.php:38
+msgid "Extraction Notes"
+msgstr ""
+
+#: modules/producer-profiles/profiles/beekeeping.php:38
+msgid "How it was taken off and handled — crush, spin, strain, settle."
+msgstr ""
+
+#: modules/producer-profiles/profiles/beekeeping.php:39
 msgid "Hive Notes"
 msgstr ""
 
-#: modules/producer-profiles/profiles/beekeeping.php:36
-#: modules/producer-profiles/profiles/farm.php:27
+#: modules/producer-profiles/profiles/beekeeping.php:40
+#: modules/producer-profiles/profiles/farm.php:31
 msgid "Sharing the booth"
 msgstr ""
 
-#: modules/producer-profiles/profiles/beekeeping.php:36
+#: modules/producer-profiles/profiles/beekeeping.php:40
 msgid "Another beekeeper or maker selling alongside you."
 msgstr ""
 
-#: modules/producer-profiles/profiles/beekeeping.php:41
+#: modules/producer-profiles/profiles/beekeeping.php:45
 msgid "The Home Yard"
 msgstr ""
 
-#: modules/producer-profiles/profiles/beekeeping.php:42
+#: modules/producer-profiles/profiles/beekeeping.php:46
 msgid "Our own hives, and where you can pick up an order."
 msgstr ""
 
@@ -2967,23 +3023,27 @@ msgstr ""
 msgid "Request a commission or a sketch"
 msgstr ""
 
-#: modules/producer-profiles/profiles/comics.php:46
+#: modules/producer-profiles/profiles/comics.php:45
+msgid "Drawn by"
+msgstr ""
+
+#: modules/producer-profiles/profiles/comics.php:50
 msgid "Also tabling"
 msgstr ""
 
-#: modules/producer-profiles/profiles/comics.php:46
+#: modules/producer-profiles/profiles/comics.php:50
 msgid "Who else is sharing the table."
 msgstr ""
 
-#: modules/producer-profiles/profiles/comics.php:51
-#: modules/producer-profiles/profiles/fiber-arts.php:29
-#: modules/producer-profiles/profiles/painting.php:34
-#: modules/producer-profiles/profiles/pottery.php:31
-#: modules/producer-profiles/profiles/taxidermy.php:40
+#: modules/producer-profiles/profiles/comics.php:55
+#: modules/producer-profiles/profiles/fiber-arts.php:33
+#: modules/producer-profiles/profiles/painting.php:38
+#: modules/producer-profiles/profiles/pottery.php:35
+#: modules/producer-profiles/profiles/taxidermy.php:44
 msgid "The Studio"
 msgstr ""
 
-#: modules/producer-profiles/profiles/comics.php:52
+#: modules/producer-profiles/profiles/comics.php:56
 msgid "Where the pages are drawn and the books are put together."
 msgstr ""
 
@@ -3000,14 +3060,22 @@ msgid "Request a special order"
 msgstr ""
 
 #: modules/producer-profiles/profiles/farm.php:27
+msgid "Grown by"
+msgstr ""
+
+#: modules/producer-profiles/profiles/farm.php:28
+msgid "Farm name"
+msgstr ""
+
+#: modules/producer-profiles/profiles/farm.php:31
 msgid "Another grower or maker selling alongside you."
 msgstr ""
 
-#: modules/producer-profiles/profiles/farm.php:28
+#: modules/producer-profiles/profiles/farm.php:32
 msgid "Gates open"
 msgstr ""
 
-#: modules/producer-profiles/profiles/farm.php:28
+#: modules/producer-profiles/profiles/farm.php:32
 msgid "When people can arrive, if that is earlier than the start."
 msgstr ""
 
@@ -3035,47 +3103,55 @@ msgstr ""
 msgid "Techniques"
 msgstr ""
 
-#: modules/producer-profiles/profiles/fiber-arts.php:21
+#: modules/producer-profiles/profiles/fiber-arts.php:22
+#: modules/producer-profiles/profiles/jewelry.php:22
+#: modules/producer-profiles/profiles/painting.php:29
+#: modules/producer-profiles/profiles/pottery.php:23
+#: modules/producer-profiles/profiles/taxidermy.php:34
+msgid "Studio name"
+msgstr ""
+
+#: modules/producer-profiles/profiles/fiber-arts.php:25
 msgid "Flock / Mill"
 msgstr ""
 
-#: modules/producer-profiles/profiles/fiber-arts.php:21
+#: modules/producer-profiles/profiles/fiber-arts.php:25
 msgid "Where the fibre came from. Falls back to the post title on the front end if left empty."
 msgstr ""
 
-#: modules/producer-profiles/profiles/fiber-arts.php:22
-#: modules/producer-profiles/profiles/leather.php:22
-#: modules/producer-profiles/profiles/metalwork.php:22
-#: modules/producer-profiles/profiles/musician.php:45
-#: modules/producer-profiles/profiles/pottery.php:23
-#: modules/producer-profiles/profiles/screen-printing.php:26
-#: modules/producer-profiles/profiles/woodworking.php:22
+#: modules/producer-profiles/profiles/fiber-arts.php:26
+#: modules/producer-profiles/profiles/leather.php:26
+#: modules/producer-profiles/profiles/metalwork.php:26
+#: modules/producer-profiles/profiles/musician.php:49
+#: modules/producer-profiles/profiles/pottery.php:27
+#: modules/producer-profiles/profiles/screen-printing.php:30
+#: modules/producer-profiles/profiles/woodworking.php:26
 msgid "Background"
 msgstr ""
 
-#: modules/producer-profiles/profiles/fiber-arts.php:22
+#: modules/producer-profiles/profiles/fiber-arts.php:26
 msgid "The story behind this flock or fibre."
 msgstr ""
 
-#: modules/producer-profiles/profiles/fiber-arts.php:23
+#: modules/producer-profiles/profiles/fiber-arts.php:27
 msgid "Processing Notes"
 msgstr ""
 
-#: modules/producer-profiles/profiles/fiber-arts.php:23
+#: modules/producer-profiles/profiles/fiber-arts.php:27
 msgid "How it was scoured, carded, spun and plied."
 msgstr ""
 
-#: modules/producer-profiles/profiles/fiber-arts.php:24
-#: modules/producer-profiles/profiles/jewelry.php:24
-#: modules/producer-profiles/profiles/leather.php:24
-#: modules/producer-profiles/profiles/metalwork.php:24
-#: modules/producer-profiles/profiles/painting.php:28
-#: modules/producer-profiles/profiles/pottery.php:25
-#: modules/producer-profiles/profiles/woodworking.php:24
+#: modules/producer-profiles/profiles/fiber-arts.php:28
+#: modules/producer-profiles/profiles/jewelry.php:28
+#: modules/producer-profiles/profiles/leather.php:28
+#: modules/producer-profiles/profiles/metalwork.php:28
+#: modules/producer-profiles/profiles/painting.php:32
+#: modules/producer-profiles/profiles/pottery.php:29
+#: modules/producer-profiles/profiles/woodworking.php:28
 msgid "Making Notes"
 msgstr ""
 
-#: modules/producer-profiles/profiles/fiber-arts.php:30
+#: modules/producer-profiles/profiles/fiber-arts.php:34
 msgid "Where the fibre is spun, dyed and worked."
 msgstr ""
 
@@ -3111,39 +3187,39 @@ msgstr ""
 msgid "Stones / Settings"
 msgstr ""
 
-#: modules/producer-profiles/profiles/jewelry.php:21
-#: modules/producer-profiles/profiles/metalwork.php:21
+#: modules/producer-profiles/profiles/jewelry.php:25
+#: modules/producer-profiles/profiles/metalwork.php:25
 msgid "Supplier"
 msgstr ""
 
-#: modules/producer-profiles/profiles/jewelry.php:21
+#: modules/producer-profiles/profiles/jewelry.php:25
 msgid "Where the metal or stone came from. Falls back to the post title on the front end if left empty."
 msgstr ""
 
-#: modules/producer-profiles/profiles/jewelry.php:22
+#: modules/producer-profiles/profiles/jewelry.php:26
 #: assets/js/editor-source.js:169
 msgid "Provenance"
 msgstr ""
 
-#: modules/producer-profiles/profiles/jewelry.php:22
+#: modules/producer-profiles/profiles/jewelry.php:26
 msgid "The story behind this stone or material."
 msgstr ""
 
-#: modules/producer-profiles/profiles/jewelry.php:23
-#: modules/producer-profiles/profiles/pottery.php:24
-#: modules/producer-profiles/profiles/taxidermy.php:34
+#: modules/producer-profiles/profiles/jewelry.php:27
+#: modules/producer-profiles/profiles/pottery.php:28
+#: modules/producer-profiles/profiles/taxidermy.php:38
 msgid "Preparation Notes"
 msgstr ""
 
-#: modules/producer-profiles/profiles/jewelry.php:23
+#: modules/producer-profiles/profiles/jewelry.php:27
 msgid "How it was cut, refined or prepared."
 msgstr ""
 
-#: modules/producer-profiles/profiles/jewelry.php:29
+#: modules/producer-profiles/profiles/jewelry.php:33
 msgid "The Bench"
 msgstr ""
 
-#: modules/producer-profiles/profiles/jewelry.php:30
+#: modules/producer-profiles/profiles/jewelry.php:34
 msgid "Where the work is fabricated and set."
 msgstr ""
 
@@ -3168,27 +3244,32 @@ msgstr ""
 msgid "Hardware"
 msgstr ""
 
-#: modules/producer-profiles/profiles/leather.php:21
+#: modules/producer-profiles/profiles/leather.php:22
+#: modules/producer-profiles/profiles/woodworking.php:22
+msgid "Workshop name"
+msgstr ""
+
+#: modules/producer-profiles/profiles/leather.php:25
 msgid "Tannery"
 msgstr ""
 
-#: modules/producer-profiles/profiles/leather.php:21
+#: modules/producer-profiles/profiles/leather.php:25
 msgid "Who supplied the hide. Falls back to the post title on the front end if left empty."
 msgstr ""
 
-#: modules/producer-profiles/profiles/leather.php:22
+#: modules/producer-profiles/profiles/leather.php:26
 msgid "The story behind this hide or supplier."
 msgstr ""
 
-#: modules/producer-profiles/profiles/leather.php:23
+#: modules/producer-profiles/profiles/leather.php:27
 msgid "Tanning Notes"
 msgstr ""
 
-#: modules/producer-profiles/profiles/leather.php:23
+#: modules/producer-profiles/profiles/leather.php:27
 msgid "How it was tanned and finished — veg, chrome, drum, hand-rubbed."
 msgstr ""
 
-#: modules/producer-profiles/profiles/leather.php:30
+#: modules/producer-profiles/profiles/leather.php:34
 msgid "Where the hides are cut and stitched."
 msgstr ""
 
@@ -3217,26 +3298,34 @@ msgid "Handles / Accessories"
 msgstr ""
 
 #: modules/producer-profiles/profiles/metalwork.php:21
-msgid "Where the stock came from. Falls back to the post title on the front end if left empty."
+msgid "Forged by"
 msgstr ""
 
 #: modules/producer-profiles/profiles/metalwork.php:22
+msgid "Forge or studio name"
+msgstr ""
+
+#: modules/producer-profiles/profiles/metalwork.php:25
+msgid "Where the stock came from. Falls back to the post title on the front end if left empty."
+msgstr ""
+
+#: modules/producer-profiles/profiles/metalwork.php:26
 msgid "The story behind this material."
 msgstr ""
 
-#: modules/producer-profiles/profiles/metalwork.php:23
+#: modules/producer-profiles/profiles/metalwork.php:27
 msgid "Working Notes"
 msgstr ""
 
-#: modules/producer-profiles/profiles/metalwork.php:23
+#: modules/producer-profiles/profiles/metalwork.php:27
 msgid "How it was worked — forged, cast, annealed, finished."
 msgstr ""
 
-#: modules/producer-profiles/profiles/metalwork.php:29
+#: modules/producer-profiles/profiles/metalwork.php:33
 msgid "The Forge"
 msgstr ""
 
-#: modules/producer-profiles/profiles/metalwork.php:30
+#: modules/producer-profiles/profiles/metalwork.php:34
 msgid "Where the work is forged and finished."
 msgstr ""
 
@@ -3282,62 +3371,70 @@ msgid "Enquire about a booking"
 msgstr ""
 
 #: modules/producer-profiles/profiles/musician.php:43
+msgid "Released by"
+msgstr ""
+
+#: modules/producer-profiles/profiles/musician.php:44
+msgid "Artist or band name"
+msgstr ""
+
+#: modules/producer-profiles/profiles/musician.php:47
 msgid "Label"
 msgstr ""
 
-#: modules/producer-profiles/profiles/musician.php:43
+#: modules/producer-profiles/profiles/musician.php:47
 msgid "Who released it. Falls back to the post title on the front end if left empty."
 msgstr ""
 
-#: modules/producer-profiles/profiles/musician.php:44
+#: modules/producer-profiles/profiles/musician.php:48
 msgid "Studio"
 msgstr ""
 
-#: modules/producer-profiles/profiles/musician.php:44
+#: modules/producer-profiles/profiles/musician.php:48
 msgid "Where it was recorded."
 msgstr ""
 
-#: modules/producer-profiles/profiles/musician.php:45
+#: modules/producer-profiles/profiles/musician.php:49
 msgid "The story behind the session or the songs."
 msgstr ""
 
-#: modules/producer-profiles/profiles/musician.php:46
+#: modules/producer-profiles/profiles/musician.php:50
 msgid "Mastering Notes"
 msgstr ""
 
-#: modules/producer-profiles/profiles/musician.php:46
+#: modules/producer-profiles/profiles/musician.php:50
 msgid "What was done in post — mixing, mastering, the cut."
 msgstr ""
 
-#: modules/producer-profiles/profiles/musician.php:47
+#: modules/producer-profiles/profiles/musician.php:51
 msgid "Release Notes"
 msgstr ""
 
-#: modules/producer-profiles/profiles/musician.php:47
+#: modules/producer-profiles/profiles/musician.php:51
 msgid "Shown on the release page. Free-form."
 msgstr ""
 
-#: modules/producer-profiles/profiles/musician.php:48
+#: modules/producer-profiles/profiles/musician.php:52
 msgid "Support Acts"
 msgstr ""
 
-#: modules/producer-profiles/profiles/musician.php:49
+#: modules/producer-profiles/profiles/musician.php:53
 msgid "Doors"
 msgstr ""
 
-#: modules/producer-profiles/profiles/musician.php:49
+#: modules/producer-profiles/profiles/musician.php:53
 msgid "When the room opens, if that is before the set."
 msgstr ""
 
-#: modules/producer-profiles/profiles/musician.php:50
+#: modules/producer-profiles/profiles/musician.php:54
 msgid "Tickets"
 msgstr ""
 
-#: modules/producer-profiles/profiles/musician.php:55
+#: modules/producer-profiles/profiles/musician.php:59
 msgid "The Practice Room"
 msgstr ""
 
-#: modules/producer-profiles/profiles/musician.php:59
+#: modules/producer-profiles/profiles/musician.php:63
 msgid "Where the records are boxed and the merch is kept."
 msgstr ""
 
@@ -3377,16 +3474,20 @@ msgstr ""
 msgid "Works"
 msgstr ""
 
-#: modules/producer-profiles/profiles/painting.php:29
-#: modules/producer-profiles/profiles/pottery.php:26
+#: modules/producer-profiles/profiles/painting.php:28
+msgid "Painted by"
+msgstr ""
+
+#: modules/producer-profiles/profiles/painting.php:33
+#: modules/producer-profiles/profiles/pottery.php:30
 msgid "Also showing"
 msgstr ""
 
-#: modules/producer-profiles/profiles/painting.php:29
+#: modules/producer-profiles/profiles/painting.php:33
 msgid "Another artist exhibiting alongside you."
 msgstr ""
 
-#: modules/producer-profiles/profiles/painting.php:35
+#: modules/producer-profiles/profiles/painting.php:39
 msgid "Where the work is made, and where you can see it in person."
 msgstr ""
 
@@ -3422,27 +3523,27 @@ msgstr ""
 msgid "Firing Methods"
 msgstr ""
 
-#: modules/producer-profiles/profiles/pottery.php:22
+#: modules/producer-profiles/profiles/pottery.php:26
 msgid "Clay Supplier"
 msgstr ""
 
-#: modules/producer-profiles/profiles/pottery.php:22
+#: modules/producer-profiles/profiles/pottery.php:26
 msgid "Where the clay or glaze came from. Falls back to the post title on the front end if left empty."
 msgstr ""
 
-#: modules/producer-profiles/profiles/pottery.php:23
+#: modules/producer-profiles/profiles/pottery.php:27
 msgid "The story behind this body or glaze."
 msgstr ""
 
-#: modules/producer-profiles/profiles/pottery.php:24
+#: modules/producer-profiles/profiles/pottery.php:28
 msgid "How it was wedged, aged, sieved or blended."
 msgstr ""
 
-#: modules/producer-profiles/profiles/pottery.php:26
+#: modules/producer-profiles/profiles/pottery.php:30
 msgid "Another maker exhibiting alongside you."
 msgstr ""
 
-#: modules/producer-profiles/profiles/pottery.php:32
+#: modules/producer-profiles/profiles/pottery.php:36
 msgid "Where the work is thrown, glazed and fired."
 msgstr ""
 
@@ -3475,31 +3576,39 @@ msgid "Colours"
 msgstr ""
 
 #: modules/producer-profiles/profiles/screen-printing.php:25
-msgid "Blank Supplier"
-msgstr ""
-
-#: modules/producer-profiles/profiles/screen-printing.php:25
-msgid "Who supplied the blanks. Falls back to the post title on the front end if left empty."
+msgid "Printed by"
 msgstr ""
 
 #: modules/producer-profiles/profiles/screen-printing.php:26
+msgid "Print shop name"
+msgstr ""
+
+#: modules/producer-profiles/profiles/screen-printing.php:29
+msgid "Blank Supplier"
+msgstr ""
+
+#: modules/producer-profiles/profiles/screen-printing.php:29
+msgid "Who supplied the blanks. Falls back to the post title on the front end if left empty."
+msgstr ""
+
+#: modules/producer-profiles/profiles/screen-printing.php:30
 msgid "The story behind this blank or supplier."
 msgstr ""
 
-#: modules/producer-profiles/profiles/screen-printing.php:27
-#: modules/producer-profiles/profiles/screen-printing.php:28
+#: modules/producer-profiles/profiles/screen-printing.php:31
+#: modules/producer-profiles/profiles/screen-printing.php:32
 msgid "Printing Notes"
 msgstr ""
 
-#: modules/producer-profiles/profiles/screen-printing.php:27
+#: modules/producer-profiles/profiles/screen-printing.php:31
 msgid "Inks, mesh, cure — how it was printed."
 msgstr ""
 
-#: modules/producer-profiles/profiles/screen-printing.php:33
+#: modules/producer-profiles/profiles/screen-printing.php:37
 msgid "The Print Shop"
 msgstr ""
 
-#: modules/producer-profiles/profiles/screen-printing.php:34
+#: modules/producer-profiles/profiles/screen-printing.php:38
 msgid "Where the screens are burned and the work is printed."
 msgstr ""
 
@@ -3540,18 +3649,22 @@ msgid "Mounts"
 msgstr ""
 
 #: modules/producer-profiles/profiles/taxidermy.php:33
+msgid "Mounted by"
+msgstr ""
+
+#: modules/producer-profiles/profiles/taxidermy.php:37
 msgid "Where the specimen came from. Falls back to the post title on the front end if left empty."
 msgstr ""
 
-#: modules/producer-profiles/profiles/taxidermy.php:34
+#: modules/producer-profiles/profiles/taxidermy.php:38
 msgid "How it was prepared and mounted."
 msgstr ""
 
-#: modules/producer-profiles/profiles/taxidermy.php:35
+#: modules/producer-profiles/profiles/taxidermy.php:39
 msgid "Mount Notes"
 msgstr ""
 
-#: modules/producer-profiles/profiles/taxidermy.php:41
+#: modules/producer-profiles/profiles/taxidermy.php:45
 msgid "Where the work is prepared and mounted."
 msgstr ""
 
@@ -3567,27 +3680,27 @@ msgstr ""
 msgid "Wood Species"
 msgstr ""
 
-#: modules/producer-profiles/profiles/woodworking.php:21
+#: modules/producer-profiles/profiles/woodworking.php:25
 msgid "Woodlot / Supplier"
 msgstr ""
 
-#: modules/producer-profiles/profiles/woodworking.php:21
+#: modules/producer-profiles/profiles/woodworking.php:25
 msgid "Where the timber came from. Falls back to the post title on the front end if left empty."
 msgstr ""
 
-#: modules/producer-profiles/profiles/woodworking.php:22
+#: modules/producer-profiles/profiles/woodworking.php:26
 msgid "The story behind this tree or stand of timber."
 msgstr ""
 
-#: modules/producer-profiles/profiles/woodworking.php:23
+#: modules/producer-profiles/profiles/woodworking.php:27
 msgid "Milling & Drying Notes"
 msgstr ""
 
-#: modules/producer-profiles/profiles/woodworking.php:23
+#: modules/producer-profiles/profiles/woodworking.php:27
 msgid "How it was cut and seasoned — quarter-sawn, air-dried, kiln."
 msgstr ""
 
-#: modules/producer-profiles/profiles/woodworking.php:30
+#: modules/producer-profiles/profiles/woodworking.php:34
 msgid "Where the timber is milled and the work is made."
 msgstr ""
 

@@ -23,27 +23,27 @@ add_action( 'init', __NAMESPACE__ . '\\register' );
 
 function register(): void {
 	$fields = [
-		'_pkit_rsvp_enabled'  => [
+		'_pkit_rsvp_enabled'    => [
 			'type'        => 'boolean',
 			'description' => 'Whether RSVP / headcount is enabled for this event.',
 			'default'     => false,
 		],
-		'_pkit_rsvp_label'    => [
+		'_pkit_rsvp_label'      => [
 			'type'        => 'string',
 			'description' => 'Custom RSVP button label (e.g. "I\'m coming!", "Count me in").',
 			'default'     => '',
 		],
-		'_pkit_rsvp_closed'   => [
+		'_pkit_rsvp_closed'     => [
 			'type'        => 'boolean',
 			'description' => 'Manually close RSVPs (independent of cap).',
 			'default'     => false,
 		],
-		'_pkit_what_to_bring' => [
+		'_pkit_what_to_bring'   => [
 			'type'        => 'string',
 			'description' => 'What to bring note (e.g. "a dish to share", "your own bowl").',
 			'default'     => '',
 		],
-		'_pkit_cost_note'     => [
+		'_pkit_cost_note'       => [
 			'type'        => 'string',
 			'description' => 'Cost/donation note (e.g. "Donation-based", "$10 suggested").',
 			'default'     => '',
@@ -53,12 +53,12 @@ function register(): void {
 		// became clear that two farmers sharing a booth is a support act, a
 		// co-teacher is a support act, and the rest follow. The words differ
 		// by trade and come from pkit_meta_labels; the fields do not.
-		'_pkit_also_appearing' => [
+		'_pkit_also_appearing'  => [
 			'type'        => 'string',
 			'description' => 'Who else is on this — the other act, the other stallholder, a co-teacher.',
 			'default'     => '',
 		],
-		'_pkit_doors_datetime' => [
+		'_pkit_doors_datetime'  => [
 			'type'        => 'string',
 			'description' => 'When people can arrive, if that differs from when it starts. Y-m-d\TH:i:s in site time.',
 			'default'     => '',
@@ -69,13 +69,13 @@ function register(): void {
 			'description' => 'Who can come — "18+", "All ages", "Under-12s with an adult". Free text on purpose.',
 			'default'     => '',
 		],
-		'_pkit_ticket_url'     => [
+		'_pkit_ticket_url'      => [
 			'type'        => 'string',
 			'description' => 'Where tickets are sold. This plugin does not sell them; a link out is the honest answer.',
 			'default'     => '',
 			'sanitize'    => __NAMESPACE__ . '\\sanitize_ticket_url',
 		],
-		'_pkit_cancelled'     => [
+		'_pkit_cancelled'       => [
 			'type'        => 'boolean',
 			'description' => 'Whether this event has been cancelled.',
 			'default'     => false,

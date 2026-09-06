@@ -17,6 +17,7 @@ require_once __DIR__ . '/includes/taxonomies.php';
 require_once __DIR__ . '/includes/meta-fields.php';
 require_once __DIR__ . '/includes/deposits.php';
 require_once __DIR__ . '/includes/meta-labels.php';
+require_once __DIR__ . '/includes/producers.php';
 require_once __DIR__ . '/includes/requests.php';
 require_once __DIR__ . '/includes/token-page.php';
 require_once __DIR__ . '/includes/payments.php';
@@ -29,6 +30,10 @@ require_once __DIR__ . '/includes/single-content.php';
 require_once __DIR__ . '/includes/single-styles.php';
 require_once __DIR__ . '/includes/admin-columns.php';
 require_once __DIR__ . '/includes/product-import-export.php';
+
+if ( is_admin() ) {
+	require_once __DIR__ . '/includes/admin-producer-field.php';
+}
 
 /**
  * Init hook: register all data structures.

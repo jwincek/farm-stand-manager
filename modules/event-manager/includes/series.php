@@ -92,13 +92,13 @@ function occurrences( int $series_id ): array {
 
 	return get_posts(
 		[
-			'post_type'      => 'pkit_event',
-			'post_parent'    => $series_id,
-			'post_status'    => [ 'publish', 'draft', 'pending', 'private' ],
-			'numberposts'    => -1,
-			'orderby'        => 'meta_value',
-			'meta_key'       => OCCURRENCE_DATE, // phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_meta_key -- The column is what these are ordered by; there is no other key.
-			'order'          => 'ASC',
+			'post_type'        => 'pkit_event',
+			'post_parent'      => $series_id,
+			'post_status'      => [ 'publish', 'draft', 'pending', 'private' ],
+			'numberposts'      => -1,
+			'orderby'          => 'meta_value',
+			'meta_key'         => OCCURRENCE_DATE, // phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_meta_key -- The column is what these are ordered by; there is no other key.
+			'order'            => 'ASC',
 			'suppress_filters' => false,
 		]
 	);
@@ -453,13 +453,13 @@ function detach( int $post_id ): void {
 function all_series(): array {
 	$ids = get_posts(
 		[
-			'post_type'   => 'pkit_event',
-			'post_status' => [ 'publish', 'draft', 'pending', 'private' ],
-			'post_parent' => 0,
-			'numberposts' => -1,
-			'fields'      => 'ids',
+			'post_type'    => 'pkit_event',
+			'post_status'  => [ 'publish', 'draft', 'pending', 'private' ],
+			'post_parent'  => 0,
+			'numberposts'  => -1,
+			'fields'       => 'ids',
 			// phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_meta_key -- Runs once a day from cron, on a key only recurring events carry.
-			'meta_key'    => '_pkit_recurrence_rule',
+			'meta_key'     => '_pkit_recurrence_rule',
 			'meta_compare' => 'EXISTS',
 		]
 	);
@@ -762,8 +762,8 @@ function series_row_action( array $actions, \WP_Post $post ): array {
 		esc_url(
 			add_query_arg(
 				[
-					'post_type'       => 'pkit_event',
-					SHOW_OCCURRENCES  => $post->ID,
+					'post_type'      => 'pkit_event',
+					SHOW_OCCURRENCES => $post->ID,
 				],
 				admin_url( 'edit.php' )
 			)

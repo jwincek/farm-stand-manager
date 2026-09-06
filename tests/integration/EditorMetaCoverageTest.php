@@ -38,14 +38,14 @@ final class EditorMetaCoverageTest extends WP_UnitTestCase {
 	private const NO_CONTROL_EXPECTED = [
 		// Stamped by the toggle itself, in both the REST route and the
 		// ability. A control would let someone falsify it.
-		'_pkit_last_toggled'      => 'written by the stand toggle, never by hand',
+		'_pkit_last_toggled'    => 'written by the stand toggle, never by hand',
 
 		// Read by two REST responses and written nowhere, the same shape as
 		// the sources bug. Unlike the others it is not a missing control:
 		// nothing in the plugin interprets the RRULE, so a control would let
 		// a producer type FREQ=WEEKLY, watch it save, and get one event.
 		// Implement or remove, not a UI.
-		'_pkit_recurrence_rule'      => 'issue #37 — nothing interprets the RRULE yet',
+		'_pkit_recurrence_rule' => 'issue #37 — nothing interprets the RRULE yet',
 	];
 
 	/**

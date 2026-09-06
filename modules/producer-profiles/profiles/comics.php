@@ -41,9 +41,13 @@ return [
 		'menu'     => __( 'Requests', 'producerkit' ),
 		'action'   => __( 'Request a commission or a sketch', 'producerkit' ),
 	],
+	'producer_names'  => [
+		'byline'     => __( 'Drawn by', 'producerkit' ),
+		'name_label' => __( 'Pen name or imprint', 'producerkit' ),
+	],
 	'meta_labels'     => [
-		'_pkit_production_notes'     => [ __( 'Book Notes', 'producerkit' ), __( 'Shown on the book page. Free-form.', 'producerkit' ) ],
-		'_pkit_also_appearing' => [ __( 'Also tabling', 'producerkit' ), __( 'Who else is sharing the table.', 'producerkit' ) ],
+		'_pkit_production_notes' => [ __( 'Book Notes', 'producerkit' ), __( 'Shown on the book page. Free-form.', 'producerkit' ) ],
+		'_pkit_also_appearing'   => [ __( 'Also tabling', 'producerkit' ), __( 'Who else is sharing the table.', 'producerkit' ) ],
 	],
 	'sample'          => [
 		'unit'        => 'copy',

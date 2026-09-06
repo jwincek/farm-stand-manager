@@ -86,9 +86,9 @@ final class SeriesGeneratorTest extends WP_UnitTestCase {
 		$series = $this->series(
 			'FREQ=WEEKLY;BYDAY=SA;COUNT=2',
 			[
-				'_pkit_rsvp_cap'         => 20,
-				'_pkit_rsvp_enabled'  => 1,
-				'_pkit_cost_note'     => 'Free',
+				'_pkit_rsvp_cap'     => 20,
+				'_pkit_rsvp_enabled' => 1,
+				'_pkit_cost_note'    => 'Free',
 			]
 		);
 

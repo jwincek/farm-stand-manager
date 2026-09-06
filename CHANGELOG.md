@@ -7,6 +7,43 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- Attribution when two businesses share one install. A product or event now
+  carries a byline naming the producer who published it — "Grown by Leftfield
+  Urban Farm" on the lettuce, "Baked by Slowbird Bread Co." on the loaf — on
+  the single pages, on the product card, in its accessible label, and as
+  `brand` in the product's structured data.
+
+  Built on `post_author` rather than a new `pkit_producer` taxonomy. Two
+  businesses sharing a site are two WordPress users, every post already
+  records which one saved it, and reassignment is a control WordPress ships.
+  A taxonomy would have been a frozen identifier duplicating a relationship
+  the database already stores. The four post types now declare `author`
+  support, which is what makes the existing column visible and reassignable.
+
+  The wording comes from the profile of whoever **published** the post, not
+  whoever is reading it. Every other vocabulary filter resolves per reader and
+  falls back to the first active profile — correct for admin labelling, and
+  wrong here: on a farm-and-bakery site it would have labelled the bread
+  "Grown by". Events take one neutral word regardless of trade, since nobody
+  grows a Pizza Night.
+
+  Nothing renders on a single-producer site, which is most of them. The
+  threshold is derived from whether published content actually spans more than
+  one author, rather than from a setting — the same instinct as the
+  availability board building its filter rows from what is on the board.
+
+  Set the name on your own user profile; the field is labelled for your trade
+  ("Bakery name", "Artist or band name") and falls back to your display name
+  if left empty. Structured data does **not** take that fallback: a search
+  engine is told a real brand or nothing, never that honey was made by "admin".
+
+  Deliberately not included: producer archives, filtering by producer, and
+  separate storefronts. Those are a different product, and possibly two
+  WordPress installs. See #23.
+
+
 ### Changed
 
 - Stored field names no longer carry one trade's vocabulary, or the name of
