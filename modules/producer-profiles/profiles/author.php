@@ -30,8 +30,14 @@ return [
 		'action'   => __( 'Request a signed copy or an appearance', 'producerkit' ),
 	],
 	'meta_labels'     => [
-		'_pkit_growing_notes' => [ __( 'Book Notes', 'producerkit' ), __( 'Shown on the book page. Free-form.', 'producerkit' ) ],
+		'_pkit_growing_notes'     => [ __( 'Book Notes', 'producerkit' ), __( 'Shown on the book page. Free-form.', 'producerkit' ) ],
 		'_pkit_em_also_appearing' => [ __( 'Also reading', 'producerkit' ), __( 'Who else is on the bill.', 'producerkit' ) ],
+	],
+	'sample'          => [
+		'unit'        => 'copy',
+		'price'       => '$18',
+		'place'       => __( 'The Desk', 'producerkit' ),
+		'place_blurb' => __( 'Where the writing happens, and where orders are posted from.', 'producerkit' ),
 	],
 	'terms'           => [
 		'pkit_product_type' => [ 'Novel', 'Novella', 'Short Stories', 'Poetry', 'Chapbook', 'Zine', 'Anthology', 'Non-fiction', 'Illustrated', 'Childrens' ],

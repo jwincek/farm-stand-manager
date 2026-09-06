@@ -130,8 +130,8 @@ function seed_locations(): int {
 	$id = wp_insert_post(
 		[
 			'post_type'    => 'pkit_location',
-			'post_title'   => 'Farm Stand (Sample)',
-			'post_content' => 'Our honor-system roadside stand at 123 Farm Road. Cash and Venmo accepted.',
+			'post_title'   => sample_hints()['place'],
+			'post_content' => sample_hints()['place_blurb'],
 			'post_status'  => 'publish',
 		]
 	);
@@ -192,7 +192,7 @@ function seed_locations(): int {
 	$market_id = wp_insert_post(
 		[
 			'post_type'    => 'pkit_location',
-			'post_title'   => 'Jonesborough Farmers Market (Sample)',
+			'post_title'   => __( 'Saturday Market (Sample)', 'producerkit' ),
 			'post_content' => 'Courthouse Square, downtown Jonesborough. Saturdays 8 AM – 12 PM, May – October.',
 			'post_status'  => 'publish',
 		]
@@ -209,89 +209,50 @@ function seed_locations(): int {
 }
 
 function seed_products(): array {
-	$products = [
-		[
-			'title'   => 'Arugula (Sample)',
-			'excerpt' => 'Peppery, tender salad greens grown no-till.',
-			'type'    => 'Produce',
-			'seasons' => [ 'Spring', 'Fall' ],
-			'price'   => '$4',
-			'unit'    => 'bunch',
-			'notes'   => 'Heirloom variety, cold-hardy.',
-		],
-		[
-			'title'   => 'Salad Mix (Sample)',
-			'excerpt' => 'A colorful blend of lettuces, arugula, and herbs.',
-			'type'    => 'Produce',
-			'seasons' => [ 'Spring', 'Summer', 'Fall' ],
-			'price'   => '$6',
-			'unit'    => 'bag',
-			'notes'   => 'Harvested fresh on market mornings.',
-		],
-		[
-			'title'   => 'Cherry Tomatoes (Sample)',
-			'excerpt' => 'Sweet, sun-ripened heirloom cherry tomatoes.',
-			'type'    => 'Produce',
-			'seasons' => [ 'Summer' ],
-			'price'   => '$5',
-			'unit'    => 'pint',
-			'notes'   => 'Multiple heirloom varieties.',
-		],
-		[
-			'title'   => 'Sugar Snap Peas (Sample)',
-			'excerpt' => 'Crisp, sweet peas eaten whole — pod and all.',
-			'type'    => 'Produce',
-			'seasons' => [ 'Spring' ],
-			'price'   => '$5',
-			'unit'    => 'half pound',
-			'notes'   => 'Hand-picked at peak sweetness.',
-		],
-		[
-			'title'   => 'Country Sourdough (Sample)',
-			'excerpt' => 'Naturally leavened with freshly milled local wheat.',
-			'type'    => 'Bread',
-			'seasons' => [ 'Spring', 'Summer', 'Fall', 'Winter' ],
-			'price'   => '$12',
-			'unit'    => 'loaf',
-			'notes'   => 'Made with grains from East TN farms.',
-		],
-		[
-			'title'   => 'Cornmeal Cookies (Sample)',
-			'excerpt' => 'Crunchy, buttery cookies made with freshly ground corn.',
-			'type'    => 'Baked Good',
-			'seasons' => [ 'Spring', 'Summer', 'Fall', 'Winter' ],
-			'price'   => '$8',
-			'unit'    => 'half dozen',
-			'notes'   => 'A bakery signature.',
-		],
-		[
-			'title'   => 'Garlic Dill Pickles (Sample)',
-			'excerpt' => 'Lacto-fermented cucumbers with garlic and fresh dill.',
-			'type'    => 'Pantry Good',
-			'seasons' => [ 'Summer', 'Fall' ],
-			'price'   => '$7',
-			'unit'    => 'pint jar',
-			'notes'   => 'Small-batch, naturally fermented.',
-		],
-		[
-			'title'   => 'Tomato Seedlings (Sample)',
-			'excerpt' => 'Heirloom tomato starts ready for your garden.',
-			'type'    => 'Seedling',
-			'seasons' => [ 'Spring' ],
-			'price'   => '$4',
-			'unit'    => 'plant',
-			'notes'   => 'Cherokee Purple, Brandywine, and more.',
-		],
-	];
+	$hints     = sample_hints();
+	$generated = function_exists( '\\ProducerKit\\ProducerProfiles\\SampleHints\\product_names' )
+		? \ProducerKit\ProducerProfiles\SampleHints\product_names( 8 )
+		: [];
+
+	// Without the producer-profiles module there is no trade to follow, and
+	// the farm content this started as is as good a default as any.
+	if ( ! $generated ) {
+		$generated = [
+			[
+				'name'     => 'Arugula',
+				'type'     => '',
+				'material' => '',
+			],
+			[
+				'name'     => 'Cherry Tomatoes',
+				'type'     => '',
+				'material' => '',
+			],
+			[
+				'name'     => 'Salad Mix',
+				'type'     => '',
+				'material' => '',
+			],
+			[
+				'name'     => 'Country Sourdough',
+				'type'     => '',
+				'material' => '',
+			],
+		];
+	}
 
 	$ids = [];
 
-	foreach ( $products as $p ) {
+	foreach ( $generated as $i => $product ) {
 		$id = wp_insert_post(
 			[
 				'post_type'    => 'pkit_product',
-				'post_title'   => $p['title'],
-				'post_excerpt' => $p['excerpt'],
+				'post_title'   => $product['name'],
+				'post_excerpt' => sprintf(
+					/* translators: %s: the product name. */
+					__( 'A sample %s, so you can see how the board and the blocks look with something in them.', 'producerkit' ),
+					mb_strtolower( $product['name'] )
+				),
 				'post_status'  => 'publish',
 			]
 		);
@@ -301,18 +262,57 @@ function seed_products(): array {
 		}
 
 		update_post_meta( $id, SAMPLE_META_KEY, '1' );
-		update_post_meta( $id, '_pkit_price', $p['price'] );
-		update_post_meta( $id, '_pkit_unit', $p['unit'] );
-		update_post_meta( $id, '_pkit_growing_notes', $p['notes'] );
+		update_post_meta( $id, '_pkit_price', $hints['price'] );
+		update_post_meta( $id, '_pkit_unit', $hints['unit'] );
 
-		// Assign taxonomy terms.
-		wp_set_object_terms( $id, $p['type'], 'pkit_product_type' );
-		wp_set_object_terms( $id, $p['seasons'], 'pkit_season' );
+		if ( '' !== $product['type'] ) {
+			wp_set_object_terms( $id, [ $product['type'] ], 'pkit_product_type' );
+		}
+
+		if ( '' !== $product['material'] && taxonomy_exists( 'pkit_material' ) ) {
+			wp_set_object_terms( $id, [ $product['material'] ], 'pkit_material' );
+		}
 
 		$ids[] = $id;
 	}
 
 	return $ids;
+}
+
+/**
+ * An event name from the trade's own event types.
+ *
+ * Falls back to the farm wording this started as, which is also what a site
+ * running without the producer-profiles module gets.
+ */
+function sample_event_name( int $index, string $fallback ): string {
+	if ( ! function_exists( '\\ProducerKit\\ProducerProfiles\\SampleHints\\event_names' ) ) {
+		return $fallback;
+	}
+
+	$names = \ProducerKit\ProducerProfiles\SampleHints\event_names( 3 );
+
+	return (string) ( $names[ $index ] ?? $fallback );
+}
+
+/**
+ * The trade's own sample hints, with a farm's as the fallback.
+ *
+ * The producer-profiles module is optional, so this cannot assume it.
+ *
+ * @return array{unit: string, price: string, place: string, place_blurb: string}
+ */
+function sample_hints(): array {
+	if ( function_exists( '\\ProducerKit\\ProducerProfiles\\SampleHints\\hints' ) ) {
+		return \ProducerKit\ProducerProfiles\SampleHints\hints();
+	}
+
+	return [
+		'unit'        => 'bunch',
+		'price'       => '$4',
+		'place'       => __( 'Farm Stand', 'producerkit' ),
+		'place_blurb' => __( 'Our honor-system roadside stand. Cash and Venmo accepted.', 'producerkit' ),
+	];
 }
 
 function seed_availability( array $product_ids, int $location_id ): void {
@@ -346,7 +346,7 @@ function seed_events( int $location_id, array $product_ids ): void {
 	$pizza_id   = wp_insert_post(
 		[
 			'post_type'    => 'pkit_event',
-			'post_title'   => 'Pizza Night (Sample)',
+			'post_title'   => sample_event_name( 0, __( 'Pizza Night', 'producerkit' ) ),
 			'post_excerpt' => 'Wood-fired pizza in the field. Bring a dish to share!',
 			'post_content' => 'Join us for a laid-back evening of wood-fired pizza made with our own sourdough and farm-fresh toppings. This is a donation-based event — pay what you can. Bring a side dish, a dessert, or just your appetite.',
 			'post_status'  => 'publish',
@@ -375,7 +375,7 @@ function seed_events( int $location_id, array $product_ids ): void {
 	$seed_id   = wp_insert_post(
 		[
 			'post_type'    => 'pkit_event',
-			'post_title'   => 'Seed Exchange + Potluck (Sample)',
+			'post_title'   => sample_event_name( 1, __( 'Seed Exchange + Potluck', 'producerkit' ) ),
 			'post_excerpt' => 'Swap seeds, share stories, and enjoy a community potluck.',
 			'post_content' => 'Bring your saved seeds, extra seedlings, or gardening knowledge to share. We\'ll have tables set up for swapping and a potluck lunch. Everyone is welcome — you don\'t need to bring seeds to attend.',
 			'post_status'  => 'publish',
@@ -400,7 +400,7 @@ function seed_events( int $location_id, array $product_ids ): void {
 	$tour_id   = wp_insert_post(
 		[
 			'post_type'    => 'pkit_event',
-			'post_title'   => 'Farm Tour + Workshop: No-Till Growing (Sample)',
+			'post_title'   => sample_event_name( 2, __( 'Farm Tour + Workshop', 'producerkit' ) ),
 			'post_excerpt' => 'Learn how we grow without tilling and see the farm up close.',
 			'post_content' => 'A guided tour of the farm followed by a hands-on workshop on no-till growing methods. We\'ll cover bed preparation, mulching, composting, and succession planting. Great for beginning and experienced gardeners alike.',
 			'post_status'  => 'publish',

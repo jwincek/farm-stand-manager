@@ -25,8 +25,14 @@ return [
 		'pkit_product' => [ __( 'Work', 'producerkit' ), __( 'Works', 'producerkit' ), __( 'Works', 'producerkit' ) ],
 	],
 	'meta_labels'     => [
-		'_pkit_growing_notes' => [ __( 'Making Notes', 'producerkit' ), __( 'Shown on the product page. Free-form.', 'producerkit' ) ],
+		'_pkit_growing_notes'     => [ __( 'Making Notes', 'producerkit' ), __( 'Shown on the product page. Free-form.', 'producerkit' ) ],
 		'_pkit_em_also_appearing' => [ __( 'Also showing', 'producerkit' ), __( 'Another artist exhibiting alongside you.', 'producerkit' ) ],
+	],
+	'sample'          => [
+		'unit'        => 'each',
+		'price'       => '$250',
+		'place'       => __( 'The Studio', 'producerkit' ),
+		'place_blurb' => __( 'Where the work is made, and where you can see it in person.', 'producerkit' ),
 	],
 	'terms'           => [
 		'pkit_product_type' => [ 'Painting', 'Drawing', 'Study', 'Sketch', 'Giclee Print', 'Screen Print', 'Miniature', 'Diptych', 'Sketchbook' ],

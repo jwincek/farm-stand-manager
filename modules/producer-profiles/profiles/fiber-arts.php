@@ -17,14 +17,21 @@ return [
 		'pkit_material'  => [ __( 'Fiber', 'producerkit' ), __( 'Fibers', 'producerkit' ) ],
 		'pkit_component' => [ __( 'Technique', 'producerkit' ), __( 'Techniques', 'producerkit' ) ],
 	],
-	'meta_labels'     => [
+	'meta_labels' => [
 		'_pkit_source_farm_name' => [ __( 'Flock / Mill', 'producerkit' ), __( 'Where the fibre came from. Falls back to the post title on the front end if left empty.', 'producerkit' ) ],
-		'_pkit_source_history' => [ __( 'Background', 'producerkit' ), __( 'The story behind this flock or fibre.', 'producerkit' ) ],
-		'_pkit_milling_notes' => [ __( 'Processing Notes', 'producerkit' ), __( 'How it was scoured, carded, spun and plied.', 'producerkit' ) ],
-		'_pkit_growing_notes' => [ __( 'Making Notes', 'producerkit' ), __( 'Shown on the product page. Free-form.', 'producerkit' ) ],
+		'_pkit_source_history'   => [ __( 'Background', 'producerkit' ), __( 'The story behind this flock or fibre.', 'producerkit' ) ],
+		'_pkit_milling_notes'    => [ __( 'Processing Notes', 'producerkit' ), __( 'How it was scoured, carded, spun and plied.', 'producerkit' ) ],
+		'_pkit_growing_notes'    => [ __( 'Making Notes', 'producerkit' ), __( 'Shown on the product page. Free-form.', 'producerkit' ) ],
+	],
+	'sample'      => [
+		'unit'        => 'skein',
+		'price'       => '$24',
+		'place'       => __( 'The Studio', 'producerkit' ),
+		'place_blurb' => __( 'Where the fibre is spun, dyed and worked.', 'producerkit' ),
 	],
 	'terms'       => [
 		'pkit_product_type' => [ 'Scarf', 'Blanket', 'Bag', 'Hat', 'Mittens', 'Shawl', 'Wall Hanging', 'Table Runner', 'Pillow', 'Garment' ],
+		'pkit_event_type'   => [ 'Open Studio', 'Fibre Festival', 'Workshop', 'Craft Fair' ],
 		'pkit_material'     => [ 'Merino Wool', 'Alpaca', 'Cotton', 'Linen', 'Silk', 'Bamboo', 'Hemp', 'Cashmere', 'Mohair', 'Wool Blend' ],
 		'pkit_finish'       => [ 'Natural', 'Hand Dyed', 'Plant Dyed', 'Felted', 'Blocked', 'Raw' ],
 		'pkit_component'    => [ 'Hand Knit', 'Hand Woven', 'Crocheted', 'Macrame', 'Punch Needle', 'Embroidered', 'Quilted', 'Hand Sewn' ],
