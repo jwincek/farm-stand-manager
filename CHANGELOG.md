@@ -7,6 +7,29 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- Sample data now matches the trade you chose. Choosing a profile already
+  seeded that trade's vocabulary; the sample content did not follow, so
+  somebody who picked Beekeeping at the first-run prompt and then clicked the
+  toggle to see what the plugin does got eight farm products and a Pizza
+  Night. It is the moment the prompt hands people off to, and the handoff
+  landed somewhere else.
+
+  The names are generated from the terms each profile already declares — a
+  material in front of a product type — rather than authored sixteen times
+  over. So a beekeeper gets Wildflower Honey and a potter gets a Stoneware
+  Mug, and the list stays right when a profile's vocabulary changes.
+
+  Three trades cannot be generated from and say so. A farm's product types
+  are categories, so its own names are kept. A musician's format and product
+  type are the same axis, and pairing them gives "Colored Vinyl Cassette". A
+  blank-slate profile seeds no vocabulary at all.
+
+  Also fills a real hole found on the way: **seven trades seeded no event
+  types**, so a potter had no Open Studio or Kiln Opening to put an event
+  under, sample data or not.
+
 ### Fixed
 
 - Editor sidebar panels no longer call a React hook conditionally. Nine of

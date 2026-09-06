@@ -31,10 +31,16 @@ return [
 		'action'   => __( 'Order something special', 'producerkit' ),
 	],
 	'meta_labels'     => [
-		'_pkit_source_farm_name' => [ __( 'Mill / Farm', 'producerkit' ), __( 'Who grew or milled it. Falls back to the post title on the front end if left empty.', 'producerkit' ) ],
-		'_pkit_milling_notes' => [ __( 'Milling Notes', 'producerkit' ), __( 'Grind, extraction rate, how fresh it was milled.', 'producerkit' ) ],
-		'_pkit_growing_notes' => [ __( 'Baking Notes', 'producerkit' ), __( 'Shown on the product page. Free-form.', 'producerkit' ) ],
+		'_pkit_source_farm_name'  => [ __( 'Mill / Farm', 'producerkit' ), __( 'Who grew or milled it. Falls back to the post title on the front end if left empty.', 'producerkit' ) ],
+		'_pkit_milling_notes'     => [ __( 'Milling Notes', 'producerkit' ), __( 'Grind, extraction rate, how fresh it was milled.', 'producerkit' ) ],
+		'_pkit_growing_notes'     => [ __( 'Baking Notes', 'producerkit' ), __( 'Shown on the product page. Free-form.', 'producerkit' ) ],
 		'_pkit_em_also_appearing' => [ __( 'Sharing the table', 'producerkit' ), __( 'Another baker or maker selling alongside you.', 'producerkit' ) ],
+	],
+	'sample'          => [
+		'unit'        => 'loaf',
+		'price'       => '$9',
+		'place'       => __( 'The Bakehouse', 'producerkit' ),
+		'place_blurb' => __( 'Where the baking happens, and where you collect.', 'producerkit' ),
 	],
 	'terms'           => [
 		'pkit_product_type' => [ 'Sourdough', 'Baguette', 'Focaccia', 'Bagel', 'Croissant', 'Rye Loaf', 'Brioche', 'Pastry', 'Cookie', 'Scone' ],

@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-09-06T19:14:39+00:00\n"
+"POT-Creation-Date: 2026-09-06T19:56:39+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: producerkit\n"
@@ -763,6 +763,39 @@ msgstr ""
 
 #: includes/sample-data.php:108
 msgid "Sample Data"
+msgstr ""
+
+#: includes/sample-data.php:195
+msgid "Saturday Market (Sample)"
+msgstr ""
+
+#. translators: %s: the product name.
+#: includes/sample-data.php:253
+#, php-format
+msgid "A sample %s, so you can see how the board and the blocks look with something in them."
+msgstr ""
+
+#: includes/sample-data.php:313
+#: modules/producer-profiles/profiles/farm.php:33
+#: assets/js/editor-location.js:62
+msgid "Farm Stand"
+msgstr ""
+
+#: includes/sample-data.php:314
+#: modules/producer-profiles/profiles/farm.php:47
+msgid "Our honor-system roadside stand. Cash and Venmo accepted."
+msgstr ""
+
+#: includes/sample-data.php:349
+msgid "Pizza Night"
+msgstr ""
+
+#: includes/sample-data.php:378
+msgid "Seed Exchange + Potluck"
+msgstr ""
+
+#: includes/sample-data.php:403
+msgid "Farm Tour + Workshop"
 msgstr ""
 
 #: modules/availability-board/includes/abilities.php:25
@@ -2638,6 +2671,18 @@ msgstr ""
 msgid "Components"
 msgstr ""
 
+#: modules/producer-profiles/includes/sample-hints.php:41
+#: modules/producer-profiles/profiles/general.php:20
+#: modules/producer-profiles/profiles/leather.php:29
+#: modules/producer-profiles/profiles/woodworking.php:29
+msgid "The Workshop"
+msgstr ""
+
+#: modules/producer-profiles/includes/sample-hints.php:42
+#: modules/producer-profiles/profiles/general.php:24
+msgid "Where the work is made."
+msgstr ""
+
 #: modules/producer-profiles/profiles/author.php:15
 msgid "Author"
 msgstr ""
@@ -2712,6 +2757,14 @@ msgstr ""
 #: modules/producer-profiles/profiles/author.php:34
 #: modules/producer-profiles/profiles/musician.php:48
 msgid "Who else is on the bill."
+msgstr ""
+
+#: modules/producer-profiles/profiles/author.php:39
+msgid "The Desk"
+msgstr ""
+
+#: modules/producer-profiles/profiles/author.php:40
+msgid "Where the writing happens, and where orders are posted from."
 msgstr ""
 
 #: modules/producer-profiles/profiles/bakery.php:16
@@ -2790,6 +2843,14 @@ msgstr ""
 
 #: modules/producer-profiles/profiles/bakery.php:37
 msgid "Another baker or maker selling alongside you."
+msgstr ""
+
+#: modules/producer-profiles/profiles/bakery.php:42
+msgid "The Bakehouse"
+msgstr ""
+
+#: modules/producer-profiles/profiles/bakery.php:43
+msgid "Where the baking happens, and where you collect."
 msgstr ""
 
 #: modules/producer-profiles/profiles/beekeeping.php:16
@@ -2878,6 +2939,14 @@ msgstr ""
 msgid "Another beekeeper or maker selling alongside you."
 msgstr ""
 
+#: modules/producer-profiles/profiles/beekeeping.php:41
+msgid "The Home Yard"
+msgstr ""
+
+#: modules/producer-profiles/profiles/beekeeping.php:42
+msgid "Our own hives, and where you can pick up an order."
+msgstr ""
+
 #: modules/producer-profiles/profiles/comics.php:27
 msgid "Comics & Graphic Novels"
 msgstr ""
@@ -2904,6 +2973,18 @@ msgstr ""
 
 #: modules/producer-profiles/profiles/comics.php:46
 msgid "Who else is sharing the table."
+msgstr ""
+
+#: modules/producer-profiles/profiles/comics.php:51
+#: modules/producer-profiles/profiles/fiber-arts.php:29
+#: modules/producer-profiles/profiles/painting.php:34
+#: modules/producer-profiles/profiles/pottery.php:31
+#: modules/producer-profiles/profiles/taxidermy.php:40
+msgid "The Studio"
+msgstr ""
+
+#: modules/producer-profiles/profiles/comics.php:52
+msgid "Where the pages are drawn and the books are put together."
 msgstr ""
 
 #: modules/producer-profiles/profiles/farm.php:15
@@ -2994,6 +3075,10 @@ msgstr ""
 msgid "Making Notes"
 msgstr ""
 
+#: modules/producer-profiles/profiles/fiber-arts.php:30
+msgid "Where the fibre is spun, dyed and worked."
+msgstr ""
+
 #: modules/producer-profiles/profiles/general.php:13
 msgid "General"
 msgstr ""
@@ -3054,6 +3139,14 @@ msgstr ""
 msgid "How it was cut, refined or prepared."
 msgstr ""
 
+#: modules/producer-profiles/profiles/jewelry.php:29
+msgid "The Bench"
+msgstr ""
+
+#: modules/producer-profiles/profiles/jewelry.php:30
+msgid "Where the work is fabricated and set."
+msgstr ""
+
 #: modules/producer-profiles/profiles/leather.php:13
 msgid "Leather"
 msgstr ""
@@ -3095,6 +3188,10 @@ msgstr ""
 msgid "How it was tanned and finished — veg, chrome, drum, hand-rubbed."
 msgstr ""
 
+#: modules/producer-profiles/profiles/leather.php:30
+msgid "Where the hides are cut and stitched."
+msgstr ""
+
 #: modules/producer-profiles/profiles/metalwork.php:13
 msgid "Metalwork"
 msgstr ""
@@ -3133,6 +3230,14 @@ msgstr ""
 
 #: modules/producer-profiles/profiles/metalwork.php:23
 msgid "How it was worked — forged, cast, annealed, finished."
+msgstr ""
+
+#: modules/producer-profiles/profiles/metalwork.php:29
+msgid "The Forge"
+msgstr ""
+
+#: modules/producer-profiles/profiles/metalwork.php:30
+msgid "Where the work is forged and finished."
 msgstr ""
 
 #: modules/producer-profiles/profiles/musician.php:21
@@ -3228,6 +3333,14 @@ msgstr ""
 msgid "Tickets"
 msgstr ""
 
+#: modules/producer-profiles/profiles/musician.php:55
+msgid "The Practice Room"
+msgstr ""
+
+#: modules/producer-profiles/profiles/musician.php:59
+msgid "Where the records are boxed and the merch is kept."
+msgstr ""
+
 #: modules/producer-profiles/profiles/painting.php:16
 msgid "Painting & Drawing"
 msgstr ""
@@ -3271,6 +3384,10 @@ msgstr ""
 
 #: modules/producer-profiles/profiles/painting.php:29
 msgid "Another artist exhibiting alongside you."
+msgstr ""
+
+#: modules/producer-profiles/profiles/painting.php:35
+msgid "Where the work is made, and where you can see it in person."
 msgstr ""
 
 #: modules/producer-profiles/profiles/pottery.php:13
@@ -3325,6 +3442,10 @@ msgstr ""
 msgid "Another maker exhibiting alongside you."
 msgstr ""
 
+#: modules/producer-profiles/profiles/pottery.php:32
+msgid "Where the work is thrown, glazed and fired."
+msgstr ""
+
 #: modules/producer-profiles/profiles/screen-printing.php:16
 msgid "Screen Printing"
 msgstr ""
@@ -3372,6 +3493,14 @@ msgstr ""
 
 #: modules/producer-profiles/profiles/screen-printing.php:27
 msgid "Inks, mesh, cure — how it was printed."
+msgstr ""
+
+#: modules/producer-profiles/profiles/screen-printing.php:33
+msgid "The Print Shop"
+msgstr ""
+
+#: modules/producer-profiles/profiles/screen-printing.php:34
+msgid "Where the screens are burned and the work is printed."
 msgstr ""
 
 #: modules/producer-profiles/profiles/taxidermy.php:21
@@ -3422,6 +3551,10 @@ msgstr ""
 msgid "Mount Notes"
 msgstr ""
 
+#: modules/producer-profiles/profiles/taxidermy.php:41
+msgid "Where the work is prepared and mounted."
+msgstr ""
+
 #: modules/producer-profiles/profiles/woodworking.php:13
 msgid "Woodworking"
 msgstr ""
@@ -3452,6 +3585,10 @@ msgstr ""
 
 #: modules/producer-profiles/profiles/woodworking.php:23
 msgid "How it was cut and seasoned — quarter-sawn, air-dried, kiln."
+msgstr ""
+
+#: modules/producer-profiles/profiles/woodworking.php:30
+msgid "Where the timber is milled and the work is made."
 msgstr ""
 
 #: modules/stand-status/includes/abilities.php:27
@@ -3887,10 +4024,6 @@ msgstr ""
 
 #: assets/js/editor-location.js:58
 msgid "Location Type"
-msgstr ""
-
-#: assets/js/editor-location.js:62
-msgid "Farm Stand"
 msgstr ""
 
 #: assets/js/editor-location.js:66

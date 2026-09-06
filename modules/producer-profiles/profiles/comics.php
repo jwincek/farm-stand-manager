@@ -42,8 +42,14 @@ return [
 		'action'   => __( 'Request a commission or a sketch', 'producerkit' ),
 	],
 	'meta_labels'     => [
-		'_pkit_growing_notes' => [ __( 'Book Notes', 'producerkit' ), __( 'Shown on the book page. Free-form.', 'producerkit' ) ],
+		'_pkit_growing_notes'     => [ __( 'Book Notes', 'producerkit' ), __( 'Shown on the book page. Free-form.', 'producerkit' ) ],
 		'_pkit_em_also_appearing' => [ __( 'Also tabling', 'producerkit' ), __( 'Who else is sharing the table.', 'producerkit' ) ],
+	],
+	'sample'          => [
+		'unit'        => 'copy',
+		'price'       => '$12',
+		'place'       => __( 'The Studio', 'producerkit' ),
+		'place_blurb' => __( 'Where the pages are drawn and the books are put together.', 'producerkit' ),
 	],
 	'terms'           => [
 		'pkit_product_type' => [ 'Graphic Novel', 'Single Issue', 'Trade Paperback', 'Mini-Comic', 'Ashcan', 'Zine', 'Anthology', 'Art Book', 'Sketchbook', 'Original Page', 'Print', 'Sticker', 'Pin' ],

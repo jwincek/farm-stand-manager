@@ -31,8 +31,14 @@ return [
 	],
 	'meta_labels'     => [
 		'_pkit_source_farm_name' => [ __( 'Source', 'producerkit' ), __( 'Where the specimen came from. Falls back to the post title on the front end if left empty.', 'producerkit' ) ],
-		'_pkit_milling_notes' => [ __( 'Preparation Notes', 'producerkit' ), __( 'How it was prepared and mounted.', 'producerkit' ) ],
-		'_pkit_growing_notes' => [ __( 'Mount Notes', 'producerkit' ), __( 'Shown on the product page. Free-form.', 'producerkit' ) ],
+		'_pkit_milling_notes'    => [ __( 'Preparation Notes', 'producerkit' ), __( 'How it was prepared and mounted.', 'producerkit' ) ],
+		'_pkit_growing_notes'    => [ __( 'Mount Notes', 'producerkit' ), __( 'Shown on the product page. Free-form.', 'producerkit' ) ],
+	],
+	'sample'          => [
+		'unit'        => 'each',
+		'price'       => '$400',
+		'place'       => __( 'The Studio', 'producerkit' ),
+		'place_blurb' => __( 'Where the work is prepared and mounted.', 'producerkit' ),
 	],
 	'terms'           => [
 		'pkit_product_type' => [ 'Shoulder Mount', 'Full Body Mount', 'European Mount', 'Pedestal Mount', 'Bird Mount', 'Fish Mount', 'Hide or Rug', 'Habitat Scene', 'Repair or Restoration' ],

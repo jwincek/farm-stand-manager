@@ -133,6 +133,8 @@ They are generated in the visitor's browser by a bundled open-source library (qr
 == Changelog ==
 
 = Unreleased =
+* Added: the sample data now matches your trade. A beekeeper gets Wildflower Honey at The Home Yard, a potter a Stoneware Mug at The Studio — rather than eight farm products whoever you are.
+* Added: seven trades had no event types at all. A potter now gets Open Studio, Kiln Opening and Craft Fair; a jeweller a Trunk Show.
 * Fixed: a latent crash in the editor sidebars. The panels checked which post type they were on before reading its data, which breaks a rule React relies on — it happened to work, and would have stopped without warning.
 * Added: events can now say who else is on the bill or sharing the booth, when people can arrive, who can come, and where tickets are sold. The words follow your trade — a band's support acts are a farm's shared booth.
 
