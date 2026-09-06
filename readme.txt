@@ -133,6 +133,7 @@ They are generated in the visitor's browser by a bundled open-source library (qr
 == Changelog ==
 
 = Unreleased =
+* Added: when two businesses share one site, products and events now say which one made them — "Grown by Leftfield Urban Farm", "Baked by Slowbird Bread Co." The wording follows the trade of whoever published it, and nothing appears at all on a site with a single producer. Set your business name on your own user profile.
 * Added: the sample data now matches your trade. A beekeeper gets Wildflower Honey at The Home Yard, a potter a Stoneware Mug at The Studio — rather than eight farm products whoever you are.
 * Added: seven trades had no event types at all. A potter now gets Open Studio, Kiln Opening and Craft Fair; a jeweller a Trunk Show.
 * Fixed: a latent crash in the editor sidebars. The panels checked which post type they were on before reading its data, which breaks a rule React relies on — it happened to work, and would have stopped without warning.

@@ -10,26 +10,30 @@ declare(strict_types=1);
 defined( 'ABSPATH' ) || exit;
 
 return [
-	'label'       => __( 'Fiber Arts', 'producerkit' ),
-	'description' => __( 'Knitted, woven and stitched textiles.', 'producerkit' ),
-	'taxonomies'  => [ 'pkit_material', 'pkit_finish', 'pkit_component' ],
-	'names'       => [
+	'label'          => __( 'Fiber Arts', 'producerkit' ),
+	'description'    => __( 'Knitted, woven and stitched textiles.', 'producerkit' ),
+	'taxonomies'     => [ 'pkit_material', 'pkit_finish', 'pkit_component' ],
+	'names'          => [
 		'pkit_material'  => [ __( 'Fiber', 'producerkit' ), __( 'Fibers', 'producerkit' ) ],
 		'pkit_component' => [ __( 'Technique', 'producerkit' ), __( 'Techniques', 'producerkit' ) ],
 	],
-	'meta_labels' => [
-		'_pkit_source_name' => [ __( 'Flock / Mill', 'producerkit' ), __( 'Where the fibre came from. Falls back to the post title on the front end if left empty.', 'producerkit' ) ],
-		'_pkit_source_history'   => [ __( 'Background', 'producerkit' ), __( 'The story behind this flock or fibre.', 'producerkit' ) ],
-		'_pkit_source_processing_notes'    => [ __( 'Processing Notes', 'producerkit' ), __( 'How it was scoured, carded, spun and plied.', 'producerkit' ) ],
-		'_pkit_production_notes'    => [ __( 'Making Notes', 'producerkit' ), __( 'Shown on the product page. Free-form.', 'producerkit' ) ],
+	'producer_names' => [
+		'byline'     => __( 'Made by', 'producerkit' ),
+		'name_label' => __( 'Studio name', 'producerkit' ),
 	],
-	'sample'      => [
+	'meta_labels'    => [
+		'_pkit_source_name'             => [ __( 'Flock / Mill', 'producerkit' ), __( 'Where the fibre came from. Falls back to the post title on the front end if left empty.', 'producerkit' ) ],
+		'_pkit_source_history'          => [ __( 'Background', 'producerkit' ), __( 'The story behind this flock or fibre.', 'producerkit' ) ],
+		'_pkit_source_processing_notes' => [ __( 'Processing Notes', 'producerkit' ), __( 'How it was scoured, carded, spun and plied.', 'producerkit' ) ],
+		'_pkit_production_notes'        => [ __( 'Making Notes', 'producerkit' ), __( 'Shown on the product page. Free-form.', 'producerkit' ) ],
+	],
+	'sample'         => [
 		'unit'        => 'skein',
 		'price'       => '$24',
 		'place'       => __( 'The Studio', 'producerkit' ),
 		'place_blurb' => __( 'Where the fibre is spun, dyed and worked.', 'producerkit' ),
 	],
-	'terms'       => [
+	'terms'          => [
 		'pkit_product_type' => [ 'Scarf', 'Blanket', 'Bag', 'Hat', 'Mittens', 'Shawl', 'Wall Hanging', 'Table Runner', 'Pillow', 'Garment' ],
 		'pkit_event_type'   => [ 'Open Studio', 'Fibre Festival', 'Workshop', 'Craft Fair' ],
 		'pkit_material'     => [ 'Merino Wool', 'Alpaca', 'Cotton', 'Linen', 'Silk', 'Bamboo', 'Hemp', 'Cashmere', 'Mohair', 'Wool Blend' ],

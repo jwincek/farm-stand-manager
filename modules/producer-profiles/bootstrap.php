@@ -34,6 +34,7 @@ add_filter( 'pkit_taxonomy_default_terms', __NAMESPACE__ . '\\Taxonomies\\filter
 add_filter( 'pkit_post_type_names', __NAMESPACE__ . '\\Taxonomies\\filter_post_type_names', 10, 2 );
 add_filter( 'pkit_commission_names', __NAMESPACE__ . '\\Taxonomies\\filter_commission_names' );
 add_filter( 'pkit_meta_labels', __NAMESPACE__ . '\\Taxonomies\\filter_meta_labels' );
+add_filter( 'pkit_producer_words', __NAMESPACE__ . '\\Taxonomies\\filter_producer_names', 10, 2 );
 
 // Tells core which taxonomies are worth showing on a product. Without this
 // module the list stays empty and templates render exactly as before.

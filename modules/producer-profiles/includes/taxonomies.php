@@ -140,6 +140,43 @@ function filter_post_type_names( array $names, string $post_type ): array {
  * @param array{singular: string, plural: string, menu: string, action: string} $words
  * @return array{singular: string, plural: string, menu: string, action: string}
  */
+/**
+ * Attribution wording from the producer's OWN profile.
+ *
+ * Note this resolves through Profiles\user_slug(), not labelling_profile()
+ * like its neighbours. Every other filter here answers "what words does the
+ * person reading this want", and falls back to the first active profile when
+ * nobody is logged in. Attribution asks the opposite question — what words
+ * suit the person who MADE this — and on a farm-and-bakery site the reader's
+ * answer would label the bread "Grown by".
+ *
+ * @param array{byline: string, name_label: string} $words   Current wording.
+ * @param int                                       $user_id The producer.
+ *
+ * @return array<string, string>
+ */
+function filter_producer_names( array $words, int $user_id ): array {
+	$slug = Profiles\user_slug( $user_id );
+
+	if ( '' === $slug ) {
+		return $words;
+	}
+
+	$profile = Profiles\get( $slug );
+
+	if ( null === $profile || ! isset( $profile['producer_names'] ) ) {
+		return $words;
+	}
+
+	foreach ( (array) $profile['producer_names'] as $slot => $value ) {
+		if ( array_key_exists( $slot, $words ) && '' !== (string) $value ) {
+			$words[ $slot ] = (string) $value;
+		}
+	}
+
+	return $words;
+}
+
 function filter_commission_names( array $words ): array {
 	$profile = Profiles\labelling_profile();
 

@@ -24,9 +24,13 @@ return [
 	'post_type_names' => [
 		'pkit_product' => [ __( 'Work', 'producerkit' ), __( 'Works', 'producerkit' ), __( 'Works', 'producerkit' ) ],
 	],
+	'producer_names'  => [
+		'byline'     => __( 'Painted by', 'producerkit' ),
+		'name_label' => __( 'Studio name', 'producerkit' ),
+	],
 	'meta_labels'     => [
-		'_pkit_production_notes'     => [ __( 'Making Notes', 'producerkit' ), __( 'Shown on the product page. Free-form.', 'producerkit' ) ],
-		'_pkit_also_appearing' => [ __( 'Also showing', 'producerkit' ), __( 'Another artist exhibiting alongside you.', 'producerkit' ) ],
+		'_pkit_production_notes' => [ __( 'Making Notes', 'producerkit' ), __( 'Shown on the product page. Free-form.', 'producerkit' ) ],
+		'_pkit_also_appearing'   => [ __( 'Also showing', 'producerkit' ), __( 'Another artist exhibiting alongside you.', 'producerkit' ) ],
 	],
 	'sample'          => [
 		'unit'        => 'each',

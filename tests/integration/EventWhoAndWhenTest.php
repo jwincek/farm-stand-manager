@@ -31,7 +31,7 @@ final class EventWhoAndWhenTest extends WP_UnitTestCase {
 
 	private function event( string $start = '' ): int {
 		$start = '' === $start ? gmdate( 'Y-m-d\\TH:i:s', strtotime( '+2 weeks 19:00' ) ) : $start;
-		$id = self::factory()->post->create(
+		$id    = self::factory()->post->create(
 			[
 				'post_type'   => 'pkit_event',
 				'post_status' => 'publish',
@@ -169,7 +169,7 @@ final class EventWhoAndWhenTest extends WP_UnitTestCase {
 		$this->assertSame( '18+', $detail['event']['age_restriction'] );
 		$this->assertSame( 'https://example.test/tickets', $detail['event']['ticket_url'] );
 
-		$feed = rest_do_request( new WP_REST_Request( 'GET', '/producerkit/v1/events/upcoming' ) )->get_data();
+		$feed  = rest_do_request( new WP_REST_Request( 'GET', '/producerkit/v1/events/upcoming' ) )->get_data();
 		$found = null;
 		foreach ( (array) $feed as $item ) {
 			if ( (int) ( $item['id'] ?? 0 ) === $id ) {

@@ -49,6 +49,17 @@
     text-decoration: underline;
 }
 
+/* Attribution, on a site where more than one producer shares the catalogue.
+   Sits under the title and reads quieter than the product type, which is what
+   someone is scanning for. */
+.pkit-product-card__producer {
+    display: block;
+    font-size: 0.8125rem;
+    font-style: italic;
+    opacity: 0.75;
+    margin-bottom: 0.25rem;
+}
+
 .pkit-product-card__type {
     display: inline-block;
     font-size: 0.75rem;

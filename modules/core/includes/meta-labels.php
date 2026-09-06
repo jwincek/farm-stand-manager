@@ -41,39 +41,39 @@ defined( 'ABSPATH' ) || exit;
  */
 function labels(): array {
 	$defaults = [
-		'_pkit_source_name' => [
+		'_pkit_source_name'             => [
 			__( 'Farm / Origin Name', 'producerkit' ),
 			__( 'Who this came from. Falls back to the post title on the front end if left empty.', 'producerkit' ),
 		],
-		'_pkit_source_location'  => [
+		'_pkit_source_location'         => [
 			__( 'Location', 'producerkit' ),
 			__( 'County and state, or however you would say where.', 'producerkit' ),
 		],
-		'_pkit_source_history'   => [
+		'_pkit_source_history'          => [
 			__( 'History', 'producerkit' ),
 			__( 'Heritage notes — the story behind this ingredient or variety.', 'producerkit' ),
 		],
-		'_pkit_source_processing_notes'    => [
+		'_pkit_source_processing_notes' => [
 			__( 'Milling / Process Notes', 'producerkit' ),
 			__( 'What was done to it in between — grind, cure, age, finish.', 'producerkit' ),
 		],
-		'_pkit_production_notes'    => [
+		'_pkit_production_notes'        => [
 			__( 'Growing / Baking Notes', 'producerkit' ),
 			__( 'Shown on the product page. Free-form.', 'producerkit' ),
 		],
-		'_pkit_also_appearing'  => [
+		'_pkit_also_appearing'          => [
 			__( 'Also appearing', 'producerkit' ),
 			__( 'Who else is on this — another maker, another act, a co-teacher.', 'producerkit' ),
 		],
-		'_pkit_doors_datetime'  => [
+		'_pkit_doors_datetime'          => [
 			__( 'Doors open', 'producerkit' ),
 			__( 'When people can arrive, if that is earlier than when it starts.', 'producerkit' ),
 		],
-		'_pkit_age_restriction' => [
+		'_pkit_age_restriction'         => [
 			__( 'Age restriction', 'producerkit' ),
 			__( 'Leave blank if anyone can come.', 'producerkit' ),
 		],
-		'_pkit_ticket_url'      => [
+		'_pkit_ticket_url'              => [
 			__( 'Ticket link', 'producerkit' ),
 			__( 'Where tickets are sold. This plugin does not sell them.', 'producerkit' ),
 		],

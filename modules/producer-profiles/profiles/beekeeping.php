@@ -13,35 +13,39 @@ declare(strict_types=1);
 defined( 'ABSPATH' ) || exit;
 
 return [
-	'label'         => __( 'Beekeeping', 'producerkit' ),
-	'description'   => __( 'Honey by floral source, hive products, nucs and queens.', 'producerkit' ),
-	'taxonomies'    => [ 'pkit_material', 'pkit_finish', 'pkit_component' ],
-	'names'         => [
+	'label'          => __( 'Beekeeping', 'producerkit' ),
+	'description'    => __( 'Honey by floral source, hive products, nucs and queens.', 'producerkit' ),
+	'taxonomies'     => [ 'pkit_material', 'pkit_finish', 'pkit_component' ],
+	'names'          => [
 		'pkit_material'  => [ __( 'Floral Source', 'producerkit' ), __( 'Floral Sources', 'producerkit' ) ],
 		'pkit_finish'    => [ __( 'Style', 'producerkit' ), __( 'Styles', 'producerkit' ) ],
 		'pkit_component' => [ __( 'Container', 'producerkit' ), __( 'Containers', 'producerkit' ) ],
 	],
-	'request_names' => [
+	'request_names'  => [
 		'singular' => __( 'Enquiry', 'producerkit' ),
 		'plural'   => __( 'Enquiries', 'producerkit' ),
 		'menu'     => __( 'Enquiries', 'producerkit' ),
 		'action'   => __( 'Ask about bulk orders', 'producerkit' ),
 	],
-	'meta_labels'   => [
-		'_pkit_source_name'  => [ __( 'Apiary', 'producerkit' ), __( 'Which yard this came from. Falls back to the post title on the front end if left empty.', 'producerkit' ) ],
-		'_pkit_source_location'   => [ __( 'Yard Location', 'producerkit' ), __( 'County and state, or however you would say where.', 'producerkit' ) ],
-		'_pkit_source_history'    => [ __( 'Forage Notes', 'producerkit' ), __( 'What the bees were working — the floral sources behind this crop.', 'producerkit' ) ],
-		'_pkit_source_processing_notes'     => [ __( 'Extraction Notes', 'producerkit' ), __( 'How it was taken off and handled — crush, spin, strain, settle.', 'producerkit' ) ],
-		'_pkit_production_notes'     => [ __( 'Hive Notes', 'producerkit' ), __( 'Shown on the product page. Free-form.', 'producerkit' ) ],
-		'_pkit_also_appearing' => [ __( 'Sharing the booth', 'producerkit' ), __( 'Another beekeeper or maker selling alongside you.', 'producerkit' ) ],
+	'producer_names' => [
+		'byline'     => __( 'Harvested by', 'producerkit' ),
+		'name_label' => __( 'Apiary name', 'producerkit' ),
 	],
-	'sample'        => [
+	'meta_labels'    => [
+		'_pkit_source_name'             => [ __( 'Apiary', 'producerkit' ), __( 'Which yard this came from. Falls back to the post title on the front end if left empty.', 'producerkit' ) ],
+		'_pkit_source_location'         => [ __( 'Yard Location', 'producerkit' ), __( 'County and state, or however you would say where.', 'producerkit' ) ],
+		'_pkit_source_history'          => [ __( 'Forage Notes', 'producerkit' ), __( 'What the bees were working — the floral sources behind this crop.', 'producerkit' ) ],
+		'_pkit_source_processing_notes' => [ __( 'Extraction Notes', 'producerkit' ), __( 'How it was taken off and handled — crush, spin, strain, settle.', 'producerkit' ) ],
+		'_pkit_production_notes'        => [ __( 'Hive Notes', 'producerkit' ), __( 'Shown on the product page. Free-form.', 'producerkit' ) ],
+		'_pkit_also_appearing'          => [ __( 'Sharing the booth', 'producerkit' ), __( 'Another beekeeper or maker selling alongside you.', 'producerkit' ) ],
+	],
+	'sample'         => [
 		'unit'        => 'jar',
 		'price'       => '$9',
 		'place'       => __( 'The Home Yard', 'producerkit' ),
 		'place_blurb' => __( 'Our own hives, and where you can pick up an order.', 'producerkit' ),
 	],
-	'terms'         => [
+	'terms'          => [
 		'pkit_product_type' => [ 'Honey', 'Comb Honey', 'Creamed Honey', 'Infused Honey', 'Beeswax', 'Candle', 'Soap', 'Lip Balm', 'Pollen', 'Propolis', 'Nucleus Colony', 'Mated Queen', 'Package Bees' ],
 		'pkit_material'     => [ 'Wildflower', 'Clover', 'Orange Blossom', 'Buckwheat', 'Tulip Poplar', 'Sourwood', 'Goldenrod', 'Basswood', 'Alfalfa', 'Knotweed' ],
 		'pkit_finish'       => [ 'Raw', 'Unfiltered', 'Strained', 'Creamed', 'Chunk', 'Infused' ],

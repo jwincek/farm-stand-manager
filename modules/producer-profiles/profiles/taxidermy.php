@@ -29,10 +29,14 @@ return [
 	'post_type_names' => [
 		'pkit_product' => [ __( 'Mount', 'producerkit' ), __( 'Mounts', 'producerkit' ), __( 'Mounts', 'producerkit' ) ],
 	],
+	'producer_names'  => [
+		'byline'     => __( 'Mounted by', 'producerkit' ),
+		'name_label' => __( 'Studio name', 'producerkit' ),
+	],
 	'meta_labels'     => [
-		'_pkit_source_name' => [ __( 'Source', 'producerkit' ), __( 'Where the specimen came from. Falls back to the post title on the front end if left empty.', 'producerkit' ) ],
-		'_pkit_source_processing_notes'    => [ __( 'Preparation Notes', 'producerkit' ), __( 'How it was prepared and mounted.', 'producerkit' ) ],
-		'_pkit_production_notes'    => [ __( 'Mount Notes', 'producerkit' ), __( 'Shown on the product page. Free-form.', 'producerkit' ) ],
+		'_pkit_source_name'             => [ __( 'Source', 'producerkit' ), __( 'Where the specimen came from. Falls back to the post title on the front end if left empty.', 'producerkit' ) ],
+		'_pkit_source_processing_notes' => [ __( 'Preparation Notes', 'producerkit' ), __( 'How it was prepared and mounted.', 'producerkit' ) ],
+		'_pkit_production_notes'        => [ __( 'Mount Notes', 'producerkit' ), __( 'Shown on the product page. Free-form.', 'producerkit' ) ],
 	],
 	'sample'          => [
 		'unit'        => 'each',

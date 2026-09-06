@@ -61,11 +61,11 @@ final class DepositSplitTest extends PHPUnit\Framework\TestCase {
 
 	public static function awkward_totals(): array {
 		return [
-			'third of a tenner'   => [ 10.00, 33.333 ],
-			'sevenths'            => [ 7.77, 14.2857 ],
-			'penny line'          => [ 0.01, 50.0 ],
-			'repeating'           => [ 19.99, 33.0 ],
-			'large'               => [ 1234.56, 17.5 ],
+			'third of a tenner' => [ 10.00, 33.333 ],
+			'sevenths'          => [ 7.77, 14.2857 ],
+			'penny line'        => [ 0.01, 50.0 ],
+			'repeating'         => [ 19.99, 33.0 ],
+			'large'             => [ 1234.56, 17.5 ],
 		];
 	}
 
