@@ -139,6 +139,56 @@ const { state } = store( NAMESPACE, {
 			return String( count );
 		},
 
+		/**
+		 * Would choosing this type show anything, given the statuses on?
+		 *
+		 * The type row and the status row filter independently, and the type
+		 * buttons are rendered once from the server. So a type whose only item
+		 * is sold out gets a button — correctly, the item is on the board —
+		 * and with SOLD OUT off, pressing it empties the board.
+		 *
+		 * Only the status filter is applied here. Narrowing the type row by
+		 * the active *type* would leave a single button and no way back.
+		 *
+		 * The button is greyed rather than disabled. Disabling takes it out of
+		 * the tab order, and it stays a legitimate thing to press — the board
+		 * is allowed to be empty. Sighted readers get a shortcut; everyone
+		 * gets the real answer from the footer, which already says how many of
+		 * how many are showing.
+		 */
+		get isCurrentTypeEmpty() {
+			const ctx = getContext();
+
+			// "All" always has the board behind it.
+			if ( ! ctx.filterType ) {
+				return false;
+			}
+
+			// The one already chosen is never greyed: a selected button that
+			// looks unavailable reads as a fault rather than as information.
+			if ( state.activeType === ctx.filterType ) {
+				return false;
+			}
+
+			// No status narrowing means everything on the board is showing.
+			if ( ! state.anyStatusActive ) {
+				return false;
+			}
+
+			const items = state.allItems;
+
+			for ( let i = 0; i < items.length; i++ ) {
+				if (
+					items[ i ].type === ctx.filterType &&
+					state.activeStatuses[ items[ i ].status ] === true
+				) {
+					return false;
+				}
+			}
+
+			return true;
+		},
+
 		get footerText() {
 			const items = state.allItems;
 			let count = 0;

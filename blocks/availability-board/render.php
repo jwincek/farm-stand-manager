@@ -149,6 +149,7 @@ $wrapper_attrs = get_block_wrapper_attributes(
 								data-wp-on--click="actions.setProductTypeFilter"
 								data-wp-context='<?php echo esc_attr( wp_json_encode( [ 'filterType' => $ft['slug'] ] ) ); ?>'
 								data-wp-class--pkit-avail-board__filter-btn--active="state.isProductTypeActive"
+								data-wp-class--pkit-avail-board__filter-btn--empty="state.isCurrentTypeEmpty"
 								data-wp-bind--aria-pressed="state.isProductTypeActive"
 								data-type-slug="<?php echo esc_attr( $ft['slug'] ); ?>"
 								aria-pressed="false"

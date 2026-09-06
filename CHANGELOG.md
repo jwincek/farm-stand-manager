@@ -9,6 +9,22 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
+- The availability board's product-type buttons now fade when the statuses
+  currently shown leave them with nothing. The two filter rows narrow
+  independently and the type buttons are rendered once, so a type whose only
+  item is sold out gets a button — correctly, the item is on the board — and
+  with sold-out hidden, pressing it emptied the board.
+
+  Faded rather than disabled. Disabling would take the button out of the tab
+  order, and pressing it stays a legitimate thing to do: an empty board is a
+  real answer, and the footer already says how many of how many are showing,
+  so nothing is communicated by colour alone.
+
+  Only the status filter is applied when deciding. Narrowing the row by the
+  active *type* as well would leave one button and no way back. The type
+  already chosen never fades either — a selected button that looks
+  unavailable reads as a fault rather than as information.
+
 - A retailer's page listed everything you make rather than what they stock.
   `get_for_location()` included rows marked "available everywhere", on the
   reasoning that a product generally available is available here too. That
