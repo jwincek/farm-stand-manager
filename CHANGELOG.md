@@ -7,6 +7,21 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.5.0] - 2026-09-06
+
+Recurring events, and the plugin finally asking what you make.
+
+A weekly market was previously one event with one date, which meant it fell
+out of the upcoming feed the week after it started. It is now a series that
+generates a real, bookable event for every Saturday — and any single one can
+be cancelled for a holiday or moved, and stays that way when the series
+changes.
+
+Alongside it, three things found by using the plugin rather than reading it:
+walking the getting-started guide end to end showed nothing ever asks a
+producer what trade they practise, and shooting the screenshots turned up a
+retailer page listing everything you make instead of what they stock.
+
 ### Fixed
 
 - The availability board's product-type buttons now fade when the statuses
@@ -696,7 +711,8 @@ before updating any site that ran 1.1.0 or earlier.
 - **Modular architecture** — every feature module except the core data layer
   can be switched off through the `pkit_active_modules` filter.
 
-[Unreleased]: https://github.com/jwincek/producerkit/compare/v2.4.0...HEAD
+[Unreleased]: https://github.com/jwincek/producerkit/compare/v2.5.0...HEAD
+[2.5.0]: https://github.com/jwincek/producerkit/compare/v2.4.0...v2.5.0
 [2.4.0]: https://github.com/jwincek/producerkit/compare/v2.3.0...v2.4.0
 [1.1.0]: https://github.com/jwincek/producerkit/releases/tag/v1.1.0
 [1.0.2]: https://github.com/jwincek/producerkit/releases/tag/v1.0.2
