@@ -9,16 +9,16 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-09-06T21:58:16+00:00\n"
+"POT-Creation-Date: 2026-09-10T17:36:22+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: producerkit\n"
 
 #. Plugin Name of the plugin
 #: producerkit.php
-#: includes/admin-dashboard.php:26
-#: includes/admin-dashboard.php:27
-#: includes/admin-dashboard.php:127
+#: includes/admin-dashboard.php:32
+#: includes/admin-dashboard.php:33
+#: includes/admin-dashboard.php:145
 #: modules/core/includes/admin-producer-field.php:33
 #: producerkit.php:273
 msgid "ProducerKit"
@@ -214,7 +214,7 @@ msgstr ""
 #: blocks/location-info/render.php:73
 #: blocks/stand-hours-schedule/render.php:127
 #: blocks/stand-status-banner/render.php:68
-#: includes/admin-dashboard.php:142
+#: includes/admin-dashboard.php:160
 #: modules/commissions/includes/admin-commissions.php:272
 #: modules/core/includes/single-content.php:313
 #: blocks/location-info/index.js:225
@@ -446,7 +446,7 @@ msgstr ""
 #. translators: %1$s: season start date, %2$s: season end date.
 #. translators: 1: season start date, 2: season end date.
 #: blocks/stand-status-banner/render.php:112
-#: includes/admin-dashboard.php:172
+#: includes/admin-dashboard.php:190
 #: blocks/stand-status-banner/index.js:378
 #, php-format,js-format
 msgid "Season: %1$s – %2$s"
@@ -486,81 +486,89 @@ msgstr ""
 msgid "Pay online: %s"
 msgstr ""
 
-#: includes/admin-dashboard.php:58
+#: includes/admin-dashboard.php:51
+msgid "ProducerKit Dashboard"
+msgstr ""
+
+#: includes/admin-dashboard.php:52
+msgid "Dashboard"
+msgstr ""
+
+#: includes/admin-dashboard.php:76
 #: modules/core/includes/post-types.php:173
 msgid "Products"
 msgstr ""
 
-#: includes/admin-dashboard.php:62
+#: includes/admin-dashboard.php:80
 #: modules/core/includes/post-types.php:204
 #: modules/core/includes/post-types.php:213
 #: assets/js/editor-product.js:256
 msgid "Sources"
 msgstr ""
 
-#: includes/admin-dashboard.php:66
+#: includes/admin-dashboard.php:84
 #: modules/core/includes/post-types.php:242
 #: modules/core/includes/post-types.php:251
 msgid "Locations"
 msgstr ""
 
-#: includes/admin-dashboard.php:70
+#: includes/admin-dashboard.php:88
 #: modules/core/includes/post-types.php:282
 msgid "Events"
 msgstr ""
 
-#: includes/admin-dashboard.php:141
+#: includes/admin-dashboard.php:159
 #: assets/js/editor-location.js:400
 #: blocks/stand-toggle/index.js:247
 msgid "Open"
 msgstr ""
 
 #. translators: %s: human-readable time since the last update (e.g. "5 mins").
-#: includes/admin-dashboard.php:163
+#: includes/admin-dashboard.php:181
 #, php-format
 msgid "Updated %s ago"
 msgstr ""
 
-#: includes/admin-dashboard.php:181
+#: includes/admin-dashboard.php:199
 msgid "Edit Stand"
 msgstr ""
 
-#: includes/admin-dashboard.php:188
+#: includes/admin-dashboard.php:206
 msgid "Content"
 msgstr ""
 
-#: includes/admin-dashboard.php:198
+#: includes/admin-dashboard.php:216
 msgid "drafts"
 msgstr ""
 
-#: includes/admin-dashboard.php:203
+#: includes/admin-dashboard.php:221
 msgid "View"
 msgstr ""
 
-#: includes/admin-dashboard.php:204
+#: includes/admin-dashboard.php:222
 msgid "Add New"
 msgstr ""
 
-#: includes/admin-dashboard.php:214
+#: includes/admin-dashboard.php:232
 #: modules/availability-board/includes/admin-quick-entry.php:25
 #: modules/core/includes/admin-columns.php:33
 #: modules/core/includes/single-content.php:176
 msgid "Availability"
 msgstr ""
 
-#: includes/admin-dashboard.php:232
+#: includes/admin-dashboard.php:250
 msgid "Needs Attention"
 msgstr ""
 
-#: includes/admin-dashboard.php:254
+#: includes/admin-dashboard.php:272
 msgid "Modules"
 msgstr ""
 
-#: includes/admin-dashboard.php:258
+#: includes/admin-dashboard.php:276
 msgid "Module"
 msgstr ""
 
-#: includes/admin-dashboard.php:259
+#: includes/admin-dashboard.php:277
 #: modules/availability-board/includes/admin-quick-entry.php:117
 #: modules/commissions/includes/admin-commissions.php:158
 #: modules/core/includes/admin-columns.php:277
@@ -570,7 +578,7 @@ msgstr ""
 msgid "Status"
 msgstr ""
 
-#: includes/admin-dashboard.php:260
+#: includes/admin-dashboard.php:278
 #: modules/availability-board/includes/admin-quick-entry.php:116
 #: modules/core/includes/admin-columns.php:276
 #: modules/core/includes/single-content.php:113
@@ -580,148 +588,148 @@ msgstr ""
 msgid "Type"
 msgstr ""
 
-#: includes/admin-dashboard.php:277
+#: includes/admin-dashboard.php:295
 msgid "Active"
 msgstr ""
 
-#: includes/admin-dashboard.php:278
+#: includes/admin-dashboard.php:296
 msgid "Inactive"
 msgstr ""
 
-#: includes/admin-dashboard.php:285
+#: includes/admin-dashboard.php:303
 #: modules/core/includes/product-import-export.php:473
 msgid "Required"
 msgstr ""
 
-#: includes/admin-dashboard.php:286
+#: includes/admin-dashboard.php:304
 msgid "Optional"
 msgstr ""
 
-#: includes/admin-dashboard.php:297
+#: includes/admin-dashboard.php:315
 msgid "Platform"
 msgstr ""
 
 #. translators: %s: WordPress version number.
-#: includes/admin-dashboard.php:302
+#: includes/admin-dashboard.php:320
 #, php-format
 msgid "WordPress %s"
 msgstr ""
 
 #. translators: %s: PHP version number.
-#: includes/admin-dashboard.php:308
+#: includes/admin-dashboard.php:326
 #, php-format
 msgid "PHP %s"
 msgstr ""
 
-#: includes/admin-dashboard.php:312
+#: includes/admin-dashboard.php:330
 msgid "Interactivity API:"
 msgstr ""
 
-#: includes/admin-dashboard.php:314
-#: includes/admin-dashboard.php:322
+#: includes/admin-dashboard.php:332
+#: includes/admin-dashboard.php:340
 #: modules/availability-board/includes/fresh-sheet.php:33
 #: blocks/availability-board/index.js:42
 #: blocks/product-card/index.js:33
 msgid "Available"
 msgstr ""
 
-#: includes/admin-dashboard.php:318
+#: includes/admin-dashboard.php:336
 msgid "Abilities API:"
 msgstr ""
 
-#: includes/admin-dashboard.php:323
+#: includes/admin-dashboard.php:341
 msgid "Not available (requires WP 6.9+)"
 msgstr ""
 
 #. translators: %d: number of products without a featured photo.
-#: includes/admin-dashboard.php:373
+#: includes/admin-dashboard.php:391
 #, php-format
 msgid "%d product without a photo"
 msgid_plural "%d products without photos"
 msgstr[0] ""
 msgstr[1] ""
 
-#: includes/admin-dashboard.php:374
+#: includes/admin-dashboard.php:392
 msgid "Products look better on the availability board with images."
 msgstr ""
 
-#: includes/admin-dashboard.php:377
-#: includes/admin-dashboard.php:396
+#: includes/admin-dashboard.php:395
+#: includes/admin-dashboard.php:414
 msgid "View Products"
 msgstr ""
 
 #. translators: %d: number of products without a price.
-#: includes/admin-dashboard.php:392
+#: includes/admin-dashboard.php:410
 #, php-format
 msgid "%d product without a price"
 msgid_plural "%d products without prices"
 msgstr[0] ""
 msgstr[1] ""
 
-#: includes/admin-dashboard.php:393
+#: includes/admin-dashboard.php:411
 msgid "Visitors see the price on the availability board and product pages."
 msgstr ""
 
 #. translators: %d: number of events without a start date.
-#: includes/admin-dashboard.php:411
+#: includes/admin-dashboard.php:429
 #, php-format
 msgid "%d event without a start date"
 msgid_plural "%d events without start dates"
 msgstr[0] ""
 msgstr[1] ""
 
-#: includes/admin-dashboard.php:412
+#: includes/admin-dashboard.php:430
 msgid "Events need a start date to appear in the event list."
 msgstr ""
 
-#: includes/admin-dashboard.php:415
+#: includes/admin-dashboard.php:433
 msgid "View Events"
 msgstr ""
 
 #. translators: %d: number of locations without an address.
-#: includes/admin-dashboard.php:430
+#: includes/admin-dashboard.php:448
 #, php-format
 msgid "%d location without an address"
 msgid_plural "%d locations without addresses"
 msgstr[0] ""
 msgstr[1] ""
 
-#: includes/admin-dashboard.php:431
+#: includes/admin-dashboard.php:449
 msgid "The address shows on location cards and the stand banner."
 msgstr ""
 
-#: includes/admin-dashboard.php:434
+#: includes/admin-dashboard.php:452
 msgid "View Locations"
 msgstr ""
 
 #. translators: %d: number of products with availability over a week old.
-#: includes/admin-dashboard.php:463
+#: includes/admin-dashboard.php:481
 #, php-format
 msgid "%d product with availability over a week old"
 msgid_plural "%d products with availability over a week old"
 msgstr[0] ""
 msgstr[1] ""
 
-#: includes/admin-dashboard.php:464
+#: includes/admin-dashboard.php:482
 msgid "Consider refreshing the availability board."
 msgstr ""
 
-#: includes/admin-dashboard.php:467
-#: includes/admin-dashboard.php:493
+#: includes/admin-dashboard.php:485
+#: includes/admin-dashboard.php:511
 #: modules/availability-board/includes/admin-quick-entry.php:24
 #: modules/availability-board/includes/admin-quick-entry.php:78
 msgid "Update Availability"
 msgstr ""
 
 #. translators: %d: number of products not on the availability board.
-#: includes/admin-dashboard.php:489
+#: includes/admin-dashboard.php:507
 #, php-format
 msgid "%d product not on the availability board"
 msgid_plural "%d products not on the availability board"
 msgstr[0] ""
 msgstr[1] ""
 
-#: includes/admin-dashboard.php:490
+#: includes/admin-dashboard.php:508
 msgid "These products won't show up for visitors until you set their status."
 msgstr ""
 

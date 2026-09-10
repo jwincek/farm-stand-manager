@@ -7,6 +7,20 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+
+- The ProducerKit dashboard could not be reached by clicking. `add_menu_page()`
+  registers a page callback but no submenu entry for itself, so once Sources
+  and Locations attached with `show_in_menu => 'producerkit'`, core's
+  `_add_post_type_submenus()` put them into `$submenu['producerkit']` first —
+  and WordPress links a top-level menu to whatever sits at index 0. Clicking
+  "ProducerKit" opened an empty Sources list, and the dashboard, which owns the
+  sample-data controls, was reachable only by typing its URL.
+
+  Registration now runs at priority 9, ahead of core's callback, and adds an
+  explicit "Dashboard" submenu entry. Found on a real install.
+
+
 ### Added
 
 - Attribution when two businesses share one install. A product or event now
