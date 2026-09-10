@@ -134,6 +134,8 @@ They are generated in the visitor's browser by a bundled open-source library (qr
 
 = Unreleased =
 * Fixed: clicking "ProducerKit" in the admin menu opened an empty Sources list instead of the dashboard, which made the sample-data controls unreachable without knowing the URL.
+* Fixed: removing sample data also deleted unrelated leftover availability and RSVP rows belonging to content you had deleted yourself.
+* Changed: the Load Sample Data button now says plainly that the example content is published and visible to visitors.
 * Added: when two businesses share one site, products and events now say which one made them — "Grown by Leftfield Urban Farm", "Baked by Slowbird Bread Co." The wording follows the trade of whoever published it, and nothing appears at all on a site with a single producer. Set your business name on your own user profile.
 * Added: the sample data now matches your trade. A beekeeper gets Wildflower Honey at The Home Yard, a potter a Stoneware Mug at The Studio — rather than eight farm products whoever you are.
 * Added: seven trades had no event types at all. A potter now gets Open Studio, Kiln Opening and Craft Fair; a jeweller a Trunk Show.

@@ -68,7 +68,11 @@ function get_dashboard_html(): string {
 		: __( 'Load Sample Data', 'producerkit' );
 	$description = $loaded
 		? __( 'Remove all sample products, locations, events, and availability entries.', 'producerkit' )
-		: __( 'Load example products, a stand location, events, and availability entries so you can see how the blocks look with content.', 'producerkit' );
+		// Says "published" plainly: every seeded post is created with
+		// post_status => 'publish', so on a live site this is visible to
+		// visitors straight away. The banner that warns about it is shown only
+		// to logged-in editors, so the copy is where a producer finds out.
+		: __( 'Publish example products, a stand location, events, and availability entries so you can see how the blocks look with content. These are published, so visitors can see them until you remove them.', 'producerkit' );
 
 	$url = wp_nonce_url(
 		admin_url( 'admin.php?page=producerkit&pkit_sample_action=' . $action ),
@@ -427,16 +431,21 @@ function seed_events( int $location_id, array $product_ids ): void {
  * ─────────────────────────────────────────────── */
 
 function remove_all(): void {
-	// Remove sample posts (products, locations, events).
 	$post_types = [ 'pkit_product', 'pkit_location', 'pkit_event', 'pkit_source' ];
 
+	// Collected before anything is deleted: once the posts are gone these IDs
+	// are the only way to identify the rows that belonged to them.
+	$sample_ids = [];
+
 	foreach ( $post_types as $pt ) {
-		$posts = get_posts(
+		$sample_ids[ $pt ] = get_posts(
 			[
-				'post_type'   => $pt,
-				'post_status' => 'any',
-				'numberposts' => 200,
-				'meta_query'  => [
+				'post_type'     => $pt,
+				'post_status'   => 'any',
+				'numberposts'   => -1,
+				'fields'        => 'ids',
+				'no_found_rows' => true,
+				'meta_query'    => [
 					[
 						'key'   => SAMPLE_META_KEY,
 						'value' => '1',
@@ -444,36 +453,60 @@ function remove_all(): void {
 				],
 			]
 		);
+	}
 
-		foreach ( $posts as $post ) {
-			wp_delete_post( $post->ID, true );
+	purge_sample_rows( $sample_ids );
+
+	foreach ( $sample_ids as $ids ) {
+		foreach ( $ids as $id ) {
+			wp_delete_post( (int) $id, true );
 		}
 	}
+}
 
-	// Remove sample availability rows.
-	// (These reference sample product IDs which are now deleted,
-	//  but we clean up orphans explicitly.)
+/**
+ * Remove table rows belonging to the sample posts about to be deleted.
+ *
+ * Both tables already clean themselves up on before_delete_post — availability
+ * by product_id and location_id, RSVPs by event_id — so in the normal case
+ * wp_delete_post() below would handle this. It does not when the module owning
+ * a table has been deactivated since the sample data was loaded, because the
+ * listener is then not registered.
+ *
+ * This used to be a pair of "delete anything orphaned" sweeps, which cleaned up
+ * after real products and events the producer had deleted at some other time as
+ * well. Scoping it to the IDs being removed keeps the belt-and-braces without
+ * a button labelled "remove sample data" doing site-wide garbage collection.
+ *
+ * @param array<string, array<int, int>> $sample_ids Post type => sample IDs.
+ */
+function purge_sample_rows( array $sample_ids ): void {
 	global $wpdb;
-	$avail_table = $wpdb->prefix . 'pkit_availability';
-	// phpcs:ignore WordPress.DB.PreparedSQL.InterpolatedNotPrepared -- Table name is a $wpdb->prefix identifier, not user input; identifiers cannot be parameterized.
-	if ( $wpdb->get_var( "SHOW TABLES LIKE '{$avail_table}'" ) === $avail_table ) {
-		$wpdb->query(
-			// phpcs:ignore WordPress.DB.PreparedSQL.InterpolatedNotPrepared -- Table name is a $wpdb->prefix identifier, not user input; identifiers cannot be parameterized.
-			"DELETE a FROM {$avail_table} a
-             LEFT JOIN {$wpdb->posts} p ON p.ID = a.product_id
-             WHERE p.ID IS NULL"
-		);
-	}
 
-	// Remove sample RSVPs (orphaned by deleted events).
-	$rsvp_table = $wpdb->prefix . 'pkit_rsvps';
-	// phpcs:ignore WordPress.DB.PreparedSQL.InterpolatedNotPrepared -- Table name is a $wpdb->prefix identifier, not user input; identifiers cannot be parameterized.
-	if ( $wpdb->get_var( "SHOW TABLES LIKE '{$rsvp_table}'" ) === $rsvp_table ) {
+	$delete_in = static function ( string $table, string $column, array $ids ) use ( $wpdb ): void {
+		if ( ! $ids ) {
+			return;
+		}
+
+		// phpcs:ignore WordPress.DB.PreparedSQL.InterpolatedNotPrepared -- Table name is a $wpdb->prefix identifier.
+		if ( $wpdb->get_var( $wpdb->prepare( 'SHOW TABLES LIKE %s', $table ) ) !== $table ) {
+			return;
+		}
+
+		$placeholders = implode( ', ', array_fill( 0, count( $ids ), '%d' ) );
+
 		$wpdb->query(
-			// phpcs:ignore WordPress.DB.PreparedSQL.InterpolatedNotPrepared -- Table name is a $wpdb->prefix identifier, not user input; identifiers cannot be parameterized.
-			"DELETE r FROM {$rsvp_table} r
-             LEFT JOIN {$wpdb->posts} p ON p.ID = r.event_id
-             WHERE p.ID IS NULL"
+			$wpdb->prepare(
+				// phpcs:ignore WordPress.DB.PreparedSQL.InterpolatedNotPrepared -- Identifiers cannot be parameterized; $placeholders is a generated list of %d.
+				"DELETE FROM {$table} WHERE {$column} IN ({$placeholders})",
+				...array_map( 'intval', $ids )
+			)
 		);
-	}
+	};
+
+	$availability = $wpdb->prefix . 'pkit_availability';
+	$delete_in( $availability, 'product_id', $sample_ids['pkit_product'] ?? [] );
+	$delete_in( $availability, 'location_id', $sample_ids['pkit_location'] ?? [] );
+
+	$delete_in( $wpdb->prefix . 'pkit_rsvps', 'event_id', $sample_ids['pkit_event'] ?? [] );
 }

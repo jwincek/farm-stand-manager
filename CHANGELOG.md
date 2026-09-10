@@ -20,6 +20,24 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   Registration now runs at priority 9, ahead of core's callback, and adds an
   explicit "Dashboard" submenu entry. Found on a real install.
 
+- "Remove Sample Data" no longer reaches beyond sample data. It finished with
+  two unscoped sweeps that deleted **every** orphaned availability and RSVP row
+  on the site, including rows left behind by real products and events the
+  producer had permanently deleted at some other time. Both tables already
+  clean themselves up on `before_delete_post`, so the sweeps were redundant as
+  well as over-broad; the belt-and-braces is kept for the case where a module
+  was deactivated between loading and removing, but scoped to the sample IDs
+  being removed.
+
+- Removal is no longer capped at 200 posts per type.
+
+### Changed
+
+- The Load Sample Data button now says that what it creates is published and
+  visible to visitors. Every seeded post is created with `post_status =>
+  'publish'`, and the banner warning about it is shown only to logged-in
+  editors, so the button's own copy is where a producer finds out.
+
 
 ### Added
 
