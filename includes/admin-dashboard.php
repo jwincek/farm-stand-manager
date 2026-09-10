@@ -18,7 +18,13 @@ namespace ProducerKit\Admin;
 
 defined( 'ABSPATH' ) || exit;
 
-add_action( 'admin_menu', __NAMESPACE__ . '\\register_dashboard_page' );
+// Priority 9, ahead of core's _add_post_type_submenus() at 10. Post types
+// that attach here with show_in_menu => 'producerkit' are pushed into
+// $submenu['producerkit'] by that callback, and WordPress links a top-level
+// menu to $submenu[...][0] (wp-admin/menu-header.php). Registering later left
+// Sources sitting at index 0, so clicking ProducerKit opened an empty Sources
+// list and the dashboard could not be reached from the menu at all.
+add_action( 'admin_menu', __NAMESPACE__ . '\\register_dashboard_page', 9 );
 add_action( 'admin_enqueue_scripts', __NAMESPACE__ . '\\enqueue_dashboard_styles' );
 
 function register_dashboard_page(): void {
@@ -35,6 +41,18 @@ function register_dashboard_page(): void {
 		// add_menu_page() nudges by a fraction on collision, so landing on
 		// Comments' 25 puts this directly beneath it rather than replacing it.
 		25,
+	);
+
+	// add_menu_page() registers the page callback but no submenu entry for
+	// itself. Without this the dashboard is absent from $submenu entirely and
+	// only reachable by typing its URL.
+	add_submenu_page(
+		'producerkit',
+		__( 'ProducerKit Dashboard', 'producerkit' ),
+		__( 'Dashboard', 'producerkit' ),
+		'edit_posts',
+		'producerkit',
+		__NAMESPACE__ . '\\render_dashboard',
 	);
 }
 

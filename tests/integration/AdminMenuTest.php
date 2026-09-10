@@ -9,6 +9,13 @@ declare(strict_types=1);
 use ProducerKit\Core\Post_Types;
 use ProducerKit\ProducerProfiles\Profiles;
 
+// producerkit.php loads the dashboard behind is_admin(), false under PHPUnit —
+// which is why its menu registration went untested. Required at file scope
+// rather than in set_up(): WP_UnitTestCase snapshots $wp_filter on the first
+// set_up() and restores it after every test, so a hook added inside set_up()
+// would exist for one case and vanish for the rest.
+require_once dirname( __DIR__, 2 ) . '/includes/admin-dashboard.php';
+
 final class AdminMenuTest extends WP_UnitTestCase {
 
 	public function set_up(): void {
@@ -272,5 +279,82 @@ final class AdminMenuTest extends WP_UnitTestCase {
 		$this->assertSame( 'No widgets found.', $labels->not_found );
 
 		remove_filter( 'pkit_post_type_names', $override, 10 );
+	}
+
+	/* ── Reaching the dashboard ───────────────────────────────── */
+
+	/**
+	 * Build the submenu the way a real admin request does.
+	 *
+	 * @return array<int, array<int, string>>
+	 */
+	private function producerkit_submenu(): array {
+		require_once ABSPATH . 'wp-admin/includes/plugin.php';
+
+		global $menu, $submenu, $_wp_submenu_nopriv, $_wp_real_parent_file;
+
+		// Rebuilding from empty is the point: these are the globals
+		// wp-admin/menu.php populates, and a partial state left by an earlier
+		// case would make the ordering assertion meaningless.
+		// phpcs:disable WordPress.WP.GlobalVariablesOverride.Prohibited
+		$menu                 = [];
+		$submenu              = [];
+		$_wp_submenu_nopriv   = [];
+		$_wp_real_parent_file = [];
+		// phpcs:enable WordPress.WP.GlobalVariablesOverride.Prohibited
+
+		wp_set_current_user( self::factory()->user->create( [ 'role' => 'administrator' ] ) );
+
+		do_action( 'admin_menu', '' );
+
+		return $submenu['producerkit'] ?? [];
+	}
+
+	/**
+	 * add_menu_page() registers a page callback but no submenu entry for
+	 * itself. Sources and Locations attach here with show_in_menu, core's
+	 * _add_post_type_submenus() pushes them into $submenu['producerkit'], and
+	 * wp-admin/menu-header.php links the top-level item to whatever sits at
+	 * index 0. Clicking "ProducerKit" opened an empty Sources list.
+	 */
+	public function test_dashboard_is_the_first_submenu_item(): void {
+		$items = $this->producerkit_submenu();
+
+		$this->assertNotEmpty( $items, 'ProducerKit registered no submenu at all.' );
+
+		$this->assertSame(
+			'producerkit',
+			$items[0][2],
+			sprintf(
+				'Clicking ProducerKit would open "%s" instead of the dashboard.',
+				wp_strip_all_tags( (string) $items[0][0] )
+			)
+		);
+	}
+
+	/**
+	 * And it has to be present at all, not merely first — the dashboard owns
+	 * the sample-data controls, so losing it strands anyone who loaded them.
+	 */
+	public function test_dashboard_has_a_submenu_entry(): void {
+		$this->assertContains(
+			'producerkit',
+			wp_list_pluck( $this->producerkit_submenu(), 2 ),
+			'The dashboard is not in the menu; it would only be reachable by URL.'
+		);
+	}
+
+	/**
+	 * Registering at 10 or later loses the race to core's post-type submenus,
+	 * which is what put Sources at index 0.
+	 */
+	public function test_registration_beats_core_post_type_submenus(): void {
+		$ours = has_action( 'admin_menu', 'ProducerKit\\Admin\\register_dashboard_page' );
+		$core = has_action( 'admin_menu', '_add_post_type_submenus' );
+
+		$this->assertIsInt( $ours, 'The dashboard menu callback is not hooked.' );
+		$this->assertIsInt( $core, 'WordPress core changed how post-type submenus are added.' );
+
+		$this->assertLessThan( $core, $ours, 'The dashboard must register before core appends post-type submenus.' );
 	}
 }
