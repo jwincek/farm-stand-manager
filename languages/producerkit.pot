@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-09-10T17:36:22+00:00\n"
+"POT-Creation-Date: 2026-09-10T17:57:40+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: producerkit\n"
@@ -758,52 +758,52 @@ msgstr ""
 msgid "Remove all sample products, locations, events, and availability entries."
 msgstr ""
 
-#: includes/sample-data.php:71
-msgid "Load example products, a stand location, events, and availability entries so you can see how the blocks look with content."
+#: includes/sample-data.php:75
+msgid "Publish example products, a stand location, events, and availability entries so you can see how the blocks look with content. These are published, so visitors can see them until you remove them."
 msgstr ""
 
-#: includes/sample-data.php:87
+#: includes/sample-data.php:91
 msgid "Sample data loaded! Check your Products, Locations, and Events."
 msgstr ""
 
-#: includes/sample-data.php:88
+#: includes/sample-data.php:92
 msgid "Sample data removed."
 msgstr ""
 
-#: includes/sample-data.php:108
+#: includes/sample-data.php:112
 msgid "Sample Data"
 msgstr ""
 
-#: includes/sample-data.php:195
+#: includes/sample-data.php:199
 msgid "Saturday Market (Sample)"
 msgstr ""
 
 #. translators: %s: the product name.
-#: includes/sample-data.php:253
+#: includes/sample-data.php:257
 #, php-format
 msgid "A sample %s, so you can see how the board and the blocks look with something in them."
 msgstr ""
 
-#: includes/sample-data.php:313
+#: includes/sample-data.php:317
 #: modules/producer-profiles/profiles/farm.php:37
 #: assets/js/editor-location.js:62
 msgid "Farm Stand"
 msgstr ""
 
-#: includes/sample-data.php:314
+#: includes/sample-data.php:318
 #: modules/producer-profiles/profiles/farm.php:51
 msgid "Our honor-system roadside stand. Cash and Venmo accepted."
 msgstr ""
 
-#: includes/sample-data.php:349
+#: includes/sample-data.php:353
 msgid "Pizza Night"
 msgstr ""
 
-#: includes/sample-data.php:378
+#: includes/sample-data.php:382
 msgid "Seed Exchange + Potluck"
 msgstr ""
 
-#: includes/sample-data.php:403
+#: includes/sample-data.php:407
 msgid "Farm Tour + Workshop"
 msgstr ""
 
