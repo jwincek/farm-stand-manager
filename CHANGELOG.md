@@ -7,37 +7,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-### Fixed
-
-- The ProducerKit dashboard could not be reached by clicking. `add_menu_page()`
-  registers a page callback but no submenu entry for itself, so once Sources
-  and Locations attached with `show_in_menu => 'producerkit'`, core's
-  `_add_post_type_submenus()` put them into `$submenu['producerkit']` first —
-  and WordPress links a top-level menu to whatever sits at index 0. Clicking
-  "ProducerKit" opened an empty Sources list, and the dashboard, which owns the
-  sample-data controls, was reachable only by typing its URL.
-
-  Registration now runs at priority 9, ahead of core's callback, and adds an
-  explicit "Dashboard" submenu entry. Found on a real install.
-
-- "Remove Sample Data" no longer reaches beyond sample data. It finished with
-  two unscoped sweeps that deleted **every** orphaned availability and RSVP row
-  on the site, including rows left behind by real products and events the
-  producer had permanently deleted at some other time. Both tables already
-  clean themselves up on `before_delete_post`, so the sweeps were redundant as
-  well as over-broad; the belt-and-braces is kept for the case where a module
-  was deactivated between loading and removing, but scoped to the sample IDs
-  being removed.
-
-- Removal is no longer capped at 200 posts per type.
-
-### Changed
-
-- The Load Sample Data button now says that what it creates is published and
-  visible to visitors. Every seeded post is created with `post_status =>
-  'publish'`, and the banner warning about it is shown only to logged-in
-  editors, so the button's own copy is where a producer finds out.
-
+## [2.6.0] - 2026-09-10
 
 ### Added
 
@@ -76,36 +46,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   WordPress installs. See #23.
 
 
-### Changed
-
-- Stored field names no longer carry one trade's vocabulary, or the name of
-  the module that happened to register them. Nineteen keys were renamed, and
-  an existing site is migrated on update with its values intact.
-
-  Two things were wrong. The `_pkit_em_` and `_pkit_ss_` infixes were
-  documented as collision avoidance between modules — but there is nothing to
-  collide with inside a single plugin, and the convention was not followed
-  anyway: core registered `_pkit_rsvp_cap` while the event module registered
-  `_pkit_em_rsvp_enabled`, so one feature's settings sat under two prefixes on
-  one post type. An infix by module also freezes a code boundary into storage,
-  and code boundaries move. Making a field universal should not rename it.
-
-  Separately, `growing`, `milling` and `farm` named one trade in fields every
-  trade stores. The per-trade labels already covered this at the surface — a
-  potter's `_pkit_milling_notes` reads "Preparation Notes", a musician's
-  "Mastering Notes" — but a label filter cannot reach storage, a REST
-  response, or a spreadsheet header, and those are the places an integration
-  actually sees.
-
-  The API follows: `farm_name` is now `source_name` and `milling_notes` is
-  `processing_notes` in the sources endpoint and the matching ability.
-
-- The product CSV export column `growing_notes` is now `production_notes`.
-  Import still accepts the old header, because the migration can reach a
-  database but not a spreadsheet already sitting on someone's desktop.
-
-
-### Added
 
 - Sample data now matches the trade you chose. Choosing a profile already
   seeded that trade's vocabulary; the sample content did not follow, so
@@ -128,22 +68,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   types**, so a potter had no Open Studio or Kiln Opening to put an event
   under, sample data or not.
 
-### Fixed
-
-- Editor sidebar panels no longer call a React hook conditionally. Nine of
-  them bailed on the wrong post type *before* reading their meta, which means
-  the hook ran on some renders and not others.
-
-  It worked, which is why it survived: the post type does not change within a
-  mount, so a panel either always returned early or never did and the hook
-  count stayed consistent. It would have stopped working the moment any
-  condition varied during a mount — "Rendered fewer hooks than expected", and
-  the editor goes down with it. The panels written this week already avoided
-  it; the older ones now match.
-
-  A test asserts the rule, since it is mechanical and easy to reintroduce.
-
-### Added
 
 - Four things any event can have, named for your trade: who else is on it,
   when people can arrive if that differs from when it starts, who can come,
@@ -177,6 +101,79 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   They ship with their readers: the editor panel, both REST responses, and
   the event page. A field with no reader, or a reader with no field, is
   something this plugin has produced in both directions.
+
+### Changed
+
+- The Load Sample Data button now says that what it creates is published and
+  visible to visitors. Every seeded post is created with `post_status =>
+  'publish'`, and the banner warning about it is shown only to logged-in
+  editors, so the button's own copy is where a producer finds out.
+
+
+
+- Stored field names no longer carry one trade's vocabulary, or the name of
+  the module that happened to register them. Nineteen keys were renamed, and
+  an existing site is migrated on update with its values intact.
+
+  Two things were wrong. The `_pkit_em_` and `_pkit_ss_` infixes were
+  documented as collision avoidance between modules — but there is nothing to
+  collide with inside a single plugin, and the convention was not followed
+  anyway: core registered `_pkit_rsvp_cap` while the event module registered
+  `_pkit_em_rsvp_enabled`, so one feature's settings sat under two prefixes on
+  one post type. An infix by module also freezes a code boundary into storage,
+  and code boundaries move. Making a field universal should not rename it.
+
+  Separately, `growing`, `milling` and `farm` named one trade in fields every
+  trade stores. The per-trade labels already covered this at the surface — a
+  potter's `_pkit_milling_notes` reads "Preparation Notes", a musician's
+  "Mastering Notes" — but a label filter cannot reach storage, a REST
+  response, or a spreadsheet header, and those are the places an integration
+  actually sees.
+
+  The API follows: `farm_name` is now `source_name` and `milling_notes` is
+  `processing_notes` in the sources endpoint and the matching ability.
+
+- The product CSV export column `growing_notes` is now `production_notes`.
+  Import still accepts the old header, because the migration can reach a
+  database but not a spreadsheet already sitting on someone's desktop.
+
+### Fixed
+
+- The ProducerKit dashboard could not be reached by clicking. `add_menu_page()`
+  registers a page callback but no submenu entry for itself, so once Sources
+  and Locations attached with `show_in_menu => 'producerkit'`, core's
+  `_add_post_type_submenus()` put them into `$submenu['producerkit']` first —
+  and WordPress links a top-level menu to whatever sits at index 0. Clicking
+  "ProducerKit" opened an empty Sources list, and the dashboard, which owns the
+  sample-data controls, was reachable only by typing its URL.
+
+  Registration now runs at priority 9, ahead of core's callback, and adds an
+  explicit "Dashboard" submenu entry. Found on a real install.
+
+- "Remove Sample Data" no longer reaches beyond sample data. It finished with
+  two unscoped sweeps that deleted **every** orphaned availability and RSVP row
+  on the site, including rows left behind by real products and events the
+  producer had permanently deleted at some other time. Both tables already
+  clean themselves up on `before_delete_post`, so the sweeps were redundant as
+  well as over-broad; the belt-and-braces is kept for the case where a module
+  was deactivated between loading and removing, but scoped to the sample IDs
+  being removed.
+
+- Removal is no longer capped at 200 posts per type.
+
+
+- Editor sidebar panels no longer call a React hook conditionally. Nine of
+  them bailed on the wrong post type *before* reading their meta, which means
+  the hook ran on some renders and not others.
+
+  It worked, which is why it survived: the post type does not change within a
+  mount, so a panel either always returned early or never did and the hook
+  count stayed consistent. It would have stopped working the moment any
+  condition varied during a mount — "Rendered fewer hooks than expected", and
+  the editor goes down with it. The panels written this week already avoided
+  it; the older ones now match.
+
+  A test asserts the rule, since it is mechanical and easy to reintroduce.
 
 ## [2.5.0] - 2026-09-06
 
@@ -882,7 +879,8 @@ before updating any site that ran 1.1.0 or earlier.
 - **Modular architecture** — every feature module except the core data layer
   can be switched off through the `pkit_active_modules` filter.
 
-[Unreleased]: https://github.com/jwincek/producerkit/compare/v2.5.0...HEAD
+[Unreleased]: https://github.com/jwincek/producerkit/compare/v2.6.0...HEAD
+[2.6.0]: https://github.com/jwincek/producerkit/compare/v2.5.0...v2.6.0
 [2.5.0]: https://github.com/jwincek/producerkit/compare/v2.4.0...v2.5.0
 [2.4.0]: https://github.com/jwincek/producerkit/compare/v2.3.0...v2.4.0
 [1.1.0]: https://github.com/jwincek/producerkit/releases/tag/v1.1.0

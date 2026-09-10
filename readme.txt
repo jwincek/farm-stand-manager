@@ -3,7 +3,7 @@ Contributors: jeromewincek
 Tags: availability, pre-orders, farmers market, artisan, events
 Requires at least: 6.9
 Tested up to: 7.1
-Stable tag: 2.5.0
+Stable tag: 2.6.0
 Requires PHP: 8.1
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -132,7 +132,7 @@ They are generated in the visitor's browser by a bundled open-source library (qr
 
 == Changelog ==
 
-= Unreleased =
+= 2.6.0 =
 * Fixed: clicking "ProducerKit" in the admin menu opened an empty Sources list instead of the dashboard, which made the sample-data controls unreachable without knowing the URL.
 * Fixed: removing sample data also deleted unrelated leftover availability and RSVP rows belonging to content you had deleted yourself.
 * Changed: the Load Sample Data button now says plainly that the example content is published and visible to visitors.
@@ -224,6 +224,8 @@ They are generated in the visitor's browser by a bundled open-source library (qr
 
 = 2.6.0 =
 Stored field names are corrected on update — automatically, with your data intact. If you have written a template, snippet or integration against names like _pkit_em_ticket_url or _pkit_growing_notes, they are now _pkit_ticket_url and _pkit_production_notes. The spreadsheet column growing_notes is now production_notes; older exports still import.
+
+If your products and events were published by more than one WordPress user, they will now carry a byline naming the producer. Set the name each user should be shown as on their own profile, or filter pkit_show_producer_byline to turn bylines off.
 
 = 2.5.0 =
 Recommended. Recurring events now create a real event for each date, so people can RSVP to one Saturday rather than to the series. One thing to know if you set a recurrence rule by hand before this release, through WordPress's custom fields box: that event becomes a series the next time it is saved. It stops appearing on the site itself and the dated events it generates appear instead, reachable from the occurrences link on its row. Nothing is deleted. If you never touched that field — and there was no way to, until now — this does not affect you.
