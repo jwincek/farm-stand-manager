@@ -180,7 +180,26 @@ add_action(
 		$blocks_dir = PLUGIN_DIR . '/blocks';
 
 		foreach ( glob( $blocks_dir . '/*/block.json' ) as $block_json ) {
-			register_block_type( dirname( $block_json ) );
+			$type = register_block_type( dirname( $block_json ) );
+
+			if ( ! $type instanceof \WP_Block_Type ) {
+				continue;
+			}
+
+			// Script modules do not get their translations from
+			// wp_set_script_translations() — that only covers classic scripts,
+			// which is why the availability board's footer reverted to English
+			// the moment anyone touched a filter. WP 7.0 added this; it loads
+			// the module's .json from our own languages directory and calls
+			// wp.i18n.setLocaleData(), so the module can use the global
+			// wp.i18n with real plural rules rather than a guess.
+			if ( ! function_exists( 'wp_set_script_module_translations' ) ) {
+				continue;
+			}
+
+			foreach ( (array) ( $type->view_script_module_ids ?? [] ) as $module_id ) {
+				wp_set_script_module_translations( $module_id, 'producerkit', PLUGIN_DIR . '/languages' );
+			}
 		}
 	}
 );
