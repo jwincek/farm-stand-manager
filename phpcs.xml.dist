@@ -17,6 +17,13 @@
 	     make the upstream diff unreadable at the next version bump. -->
 	<exclude-pattern>/assets/js/vendor/*</exclude-pattern>
 
+	<!-- Generated files. phpcbf reformatting one puts it permanently at odds
+	     with its generator: the formatter splits the heredoc terminator in
+	     guide-content.php, and the next --check run then reports the file it
+	     just produced as stale. Edit the template or the generator instead. -->
+	<exclude-pattern>/includes/guide-content.php</exclude-pattern>
+	<exclude-pattern>/blocks/*/*.asset.php</exclude-pattern>
+
 	<!-- Warnings stay visible but don't fail CI; errors do. -->
 	<config name="ignore_warnings_on_exit" value="1"/>
 

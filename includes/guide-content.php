@@ -331,6 +331,5 @@ from your own delivery notes.</p>
 <hr>
 <h2>Need Help?</h2>
 <p>If something isn't working right or you have ideas for improvements, open an issue on the plugin's GitHub repository.</p>
-PKITGUIDE
-	,
+PKITGUIDE,
 ];
