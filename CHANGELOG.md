@@ -7,6 +7,28 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+
+- Blocks now register in the editor on a site that has no other block plugin
+  installed. They never did. Each block's `editorScript` was registered with an
+  empty dependency list, so the script could run before `wp-blocks` existed —
+  and on a clean WordPress it always did, so every one of the eleven blocks
+  failed to register and none appeared in the inserter. On a development site
+  with Gutenberg or WooCommerce present, something else loads `wp-blocks`
+  first and the problem is invisible, which is why it survived to 2.7.0.
+
+  The same empty list also meant WordPress never set up the blocks' script
+  translations: core only does that when `wp-i18n` is among the declared
+  dependencies, so all 189 translatable strings in the block editor scripts
+  stayed English on every site, not just a clean one.
+
+  `bin/make-block-assets.php` now generates the dependency file each block
+  needs, derived from the globals its script actually uses.
+  `bin/validate-config.php` re-derives them and fails the build if any is
+  missing or stale, and the test suite asserts what core ends up registering
+  rather than what is on disk.
+
+
 ### Changed
 
 - The availability board's filters now say what kind of control they are.

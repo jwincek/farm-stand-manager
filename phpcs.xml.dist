@@ -78,6 +78,11 @@
 	-->
 	<rule ref="WordPress.Files.FileName">
 		<exclude-pattern>/tests/*</exclude-pattern>
+		<!-- The .asset.php name is not ours to choose. Core looks for exactly
+		     this file beside a block's editorScript (register_block_script_handle
+		     in wp-includes/blocks.php builds it with substr_replace), so a
+		     hyphenated name would simply never be found. -->
+		<exclude-pattern>/blocks/*/*.asset.php</exclude-pattern>
 	</rule>
 	<rule ref="WordPress.NamingConventions.PrefixAllGlobals">
 		<exclude-pattern>/tests/*</exclude-pattern>
