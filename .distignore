@@ -38,7 +38,12 @@ assets-src
 # own files, so anything composer installs here is dev tooling — PHPCS,
 # PHPUnit — that must never reach the zip. CI runs `composer install`, so a
 # release built there would ship all of it if this were narrower.
-vendor
+#
+# Leading slash matters. rsync matches an unanchored pattern against every
+# path segment, so a bare `vendor` also excluded assets/jsvendor/ — which is
+# where the bundled QR library lives. That shipped a plugin whose QR codes
+# silently never rendered, in every release up to 2.6.0. See #74.
+/vendor
 bin
 README.md
 CHANGELOG.md

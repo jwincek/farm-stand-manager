@@ -7,6 +7,22 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+
+- QR codes now render in released builds. They never have. `.distignore`
+  excluded `vendor`, and because rsync matches an unanchored pattern against
+  every path segment, that took `assets/js/vendor/` with it — where the bundled
+  QR library lives. The wrapper script shipped, the library did not, and
+  `pkit-qr.js` returns quietly when its global is missing, so the payment QR on
+  the Fresh Sheet and the Location Info block simply drew nothing, with no error
+  anywhere. Affected every release up to 2.6.0.
+
+  The build now also checks that every asset the plugin hands to
+  `plugins_url()` is present in the output, so a `.distignore` rule matching
+  more than it means to fails the build instead of shipping a silently broken
+  feature.
+
+
 ### Added
 
 - A **Generate Default Pages** button on the dashboard. This plugin registers

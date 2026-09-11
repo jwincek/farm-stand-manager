@@ -103,6 +103,35 @@ if (( ${#MISSING[@]} )); then
 	exit 1
 fi
 
+# Every asset the plugin hands to plugins_url() must be in the build.
+#
+# The check above is top-level only, which is how a missing library shipped: a
+# bare `vendor` in .distignore also matched assets/js/vendor/, so the bundled
+# QR library never reached the zip while `assets` itself was present and the
+# guard passed. Nothing errored at runtime either — pkit-qr.js returns quietly
+# when its global is absent — so QR codes simply never rendered, in every
+# release up to 2.6.0 (#74).
+#
+# Registered assets are a contract: WordPress will emit a script or style tag
+# for each one, and a 404 there is a broken feature with no error anywhere.
+# BSD sed has no \s, so the path is pulled out with a capture group. Entries
+# ending in / are a concatenated prefix (plugins_url( 'assets/js/' . $file ))
+# and cannot be checked literally, so they are skipped.
+ASSET_REFS=$(grep -rhoE "plugins_url\( *'[^']+'" "$ROOT/producerkit.php" "$ROOT/includes" "$ROOT/modules" 2>/dev/null \
+	| sed -E "s/.*'([^']+)'.*/\1/" | grep -v '/$' | sort -u)
+
+MISSING_ASSETS=()
+while IFS= read -r asset; do
+	[[ -z "$asset" ]] && continue
+	[[ -e "$DEST/$asset" ]] || MISSING_ASSETS+=("$asset")
+done <<< "$ASSET_REFS"
+
+if (( ${#MISSING_ASSETS[@]} )); then
+	echo "Error: registered assets missing from the build: ${MISSING_ASSETS[*]}" >&2
+	echo "       (a .distignore rule is probably matching more than it means to)" >&2
+	exit 1
+fi
+
 # Every module bootstrap the registry names must be present, or the plugin
 # silently loads fewer features than it advertises: boot() skips any bootstrap
 # whose file_exists() check fails, without warning.
