@@ -133,6 +133,7 @@ They are generated in the visitor's browser by a bundled open-source library (qr
 == Changelog ==
 
 = Unreleased =
+* Fixed: payment QR codes never appeared on the Fresh Sheet or the Location Info block in any released version — the library they need was being left out of the plugin package.
 * Added: a Generate Default Pages button that builds the page set for your trade, with blocks already configured — as drafts, never overwriting anything you have.
 
 = 2.6.0 =
