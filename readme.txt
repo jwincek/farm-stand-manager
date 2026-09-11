@@ -132,6 +132,9 @@ They are generated in the visitor's browser by a bundled open-source library (qr
 
 == Changelog ==
 
+= Unreleased =
+* Added: a Generate Default Pages button that builds the page set for your trade, with blocks already configured — as drafts, never overwriting anything you have.
+
 = 2.6.0 =
 * Fixed: clicking "ProducerKit" in the admin menu opened an empty Sources list instead of the dashboard, which made the sample-data controls unreachable without knowing the URL.
 * Fixed: removing sample data also deleted unrelated leftover availability and RSVP rows belonging to content you had deleted yourself.

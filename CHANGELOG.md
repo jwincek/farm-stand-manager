@@ -7,6 +7,25 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- A **Generate Default Pages** button on the dashboard. This plugin registers
+  no archive pages — the blocks are the listing, which is what makes them
+  configurable — so a fresh install has nothing to navigate to and nothing
+  says the pages are yours to build. This builds them: a home starter, Visit,
+  your events page, pre-orders and made-to-order requests, with the blocks
+  already pointed at your own location.
+
+  Titles follow your trade, from vocabulary the profiles already carry — a
+  musician gets "Shows" and "Bookings" where a farm gets "Calendar" and
+  "Special Orders".
+
+  Pages are created as **drafts**, never overwrite a page you already have,
+  and leave your menu and front page alone. Re-running fills gaps rather than
+  duplicating. A page is only offered when it would render something: Visit
+  waits until you have a location, and pre-orders until you have a product.
+
+
 ## [2.6.0] - 2026-09-10
 
 ### Added

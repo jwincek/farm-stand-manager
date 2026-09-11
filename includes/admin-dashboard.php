@@ -347,6 +347,10 @@ function render_dashboard(): void {
 
 		<!-- ── Sample Data ── -->
 		<?php
+		if ( function_exists( 'ProducerKit\\DefaultPages\\get_dashboard_html' ) ) {
+			echo \ProducerKit\DefaultPages\get_dashboard_html(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- get_dashboard_html() escapes all output internally.
+		}
+
 		if ( function_exists( 'ProducerKit\\SampleData\\get_dashboard_html' ) ) {
 			echo \ProducerKit\SampleData\get_dashboard_html(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- get_dashboard_html() escapes all output internally.
 		}
