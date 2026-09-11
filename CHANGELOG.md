@@ -22,6 +22,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   more than it means to fails the build instead of shipping a silently broken
   feature.
 
+### Changed
+
+- "Sharing the booth" can now link. Paste the other producer's web address
+  after their name — "Slowbird Bread Co. https://slowbird.example" — and the
+  event page shows their name as a link to their own site. A name on its own
+  still renders as plain text, and nothing already stored changes.
+
+  This is the field that carries the whole answer for two producers who keep
+  separate sites and occasionally share a stall: each site's availability board
+  is right about its own goods and silent about the other's, so the event is
+  where a visitor finds out.
+
 
 ### Added
 

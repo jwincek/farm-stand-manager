@@ -134,6 +134,7 @@ They are generated in the visitor's browser by a bundled open-source library (qr
 
 = Unreleased =
 * Fixed: payment QR codes never appeared on the Fresh Sheet or the Location Info block in any released version — the library they need was being left out of the plugin package.
+* Changed: the "Sharing the booth" field on an event can now link to the other producer — paste their web address after their name.
 * Added: a Generate Default Pages button that builds the page set for your trade, with blocks already configured — as drafts, never overwriting anything you have.
 
 = 2.6.0 =

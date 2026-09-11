@@ -54,6 +54,7 @@ function register(): void {
 		// co-teacher is a support act, and the rest follow. The words differ
 		// by trade and come from pkit_meta_labels; the fields do not.
 		'_pkit_also_appearing'  => [
+			'sanitize'    => __NAMESPACE__ . '\\sanitize_also_appearing',
 			'type'        => 'string',
 			'description' => 'Who else is on this — the other act, the other stallholder, a co-teacher.',
 			'default'     => '',
@@ -131,6 +132,94 @@ function sanitize_ticket_url( mixed $value ): string {
 	$value = trim( (string) $value );
 
 	return '' === $value ? '' : (string) esc_url_raw( $value, [ 'http', 'https' ] );
+}
+
+/**
+ * Split "who else is here" into a label and a link.
+ *
+ * One string still, so nothing migrates: a trailing http(s) address becomes
+ * the link and whatever precedes it becomes the label. "Slowbird Bread Co.
+ * https://slowbird.example" reads as the name, pointing at the site. An
+ * address on its own is labelled with its host, because a bare URL is not
+ * what a visitor is looking for. Anything without an address is plain text,
+ * exactly as before.
+ *
+ * This exists because two producers who keep separate sites and share a stall
+ * have nowhere else to say so — each site's availability board is correct
+ * about its own goods and silent about the other's, so the event is where a
+ * visitor finds out (#23, #76).
+ *
+ * @return array{text: string, url: string}
+ */
+function also_appearing( string $value ): array {
+	$value = trim( $value );
+
+	if ( '' === $value ) {
+		return [
+			'text' => '',
+			'url'  => '',
+		];
+	}
+
+	// Only a trailing address is treated as the link. One in the middle is
+	// part of what they wrote, and rewriting their sentence around it would be
+	// a guess.
+	if ( ! preg_match( '#^(.*?)\s*(https?://\S+)$#i', $value, $m ) ) {
+		return [
+			'text' => $value,
+			'url'  => '',
+		];
+	}
+
+	$url = (string) esc_url_raw( $m[2], [ 'http', 'https' ] );
+
+	if ( '' === $url ) {
+		return [
+			'text' => $value,
+			'url'  => '',
+		];
+	}
+
+	$text = trim( $m[1] );
+
+	if ( '' === $text ) {
+		$host = (string) wp_parse_url( $url, PHP_URL_HOST );
+		$text = '' !== $host ? preg_replace( '#^www\.#', '', $host ) : $url;
+	}
+
+	return [
+		'text' => $text,
+		'url'  => $url,
+	];
+}
+
+/**
+ * Keep the text, and keep only an address we would be willing to render.
+ *
+ * sanitize_text_field would leave a javascript: scheme sitting in a value that
+ * becomes an href, so the address half goes through esc_url_raw() the way
+ * sanitize_ticket_url() does. A rejected address is dropped rather than
+ * silently turning the whole entry into a link to nowhere.
+ */
+function sanitize_also_appearing( mixed $value ): string {
+	$raw = trim( (string) $value );
+
+	if ( '' === $raw ) {
+		return '';
+	}
+
+	if ( ! preg_match( '#^(.*?)\s*(\S+://\S+)$#', $raw, $m ) ) {
+		return sanitize_text_field( $raw );
+	}
+
+	$text = sanitize_text_field( trim( $m[1] ) );
+	$url  = (string) esc_url_raw( $m[2], [ 'http', 'https' ] );
+
+	if ( '' === $url ) {
+		return $text;
+	}
+
+	return '' === $text ? $url : $text . ' ' . $url;
 }
 
 /**

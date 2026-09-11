@@ -977,14 +977,24 @@
 				onChange( value ) {
 					updateMeta( '_pkit_also_appearing', value );
 				},
-				help: fieldText(
-					'_pkit_also_appearing',
-					'help',
+				// The link hint is appended rather than written into each
+				// profile's help text: eight profiles override this field with
+				// their own trade wording, and the sentence about pasting an
+				// address is the same in all of them.
+				help:
+					fieldText(
+						'_pkit_also_appearing',
+						'help',
+						__(
+							'Who else is on this — another maker, another act, a co-teacher.',
+							'producerkit'
+						)
+					) +
+					' ' +
 					__(
-						'Who else is on this — another maker, another act, a co-teacher.',
+						'Paste their web address after the name to link to them.',
 						'producerkit'
-					)
-				),
+					),
 			} ),
 
 			el( TextControl, {
