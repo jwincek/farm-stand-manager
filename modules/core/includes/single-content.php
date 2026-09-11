@@ -515,10 +515,27 @@ function render_event_details( \WP_Post $post ): string {
 			</div>
 		<?php endif; ?>
 
-		<?php if ( $also_appearing ) : ?>
+		<?php
+		// A trailing address becomes a link to the other producer's own site,
+		// which is the whole answer when two of them keep separate installs
+		// and share a stall. Plain text without one, exactly as before.
+		$appearing = function_exists( '\ProducerKit\EventManager\Meta\also_appearing' )
+			? \ProducerKit\EventManager\Meta\also_appearing( (string) $also_appearing )
+			: [
+				'text' => (string) $also_appearing,
+				'url'  => '',
+			];
+		?>
+		<?php if ( '' !== $appearing['text'] ) : ?>
 			<div class="pkit-single-details__row">
 				<span class="pkit-single-details__label"><?php echo esc_html( \ProducerKit\Core\MetaLabels\label( '_pkit_also_appearing' ) ); ?></span>
-				<span class="pkit-single-details__value"><?php echo esc_html( $also_appearing ); ?></span>
+				<span class="pkit-single-details__value">
+					<?php if ( '' !== $appearing['url'] ) : ?>
+						<a href="<?php echo esc_url( $appearing['url'] ); ?>" rel="noopener"><?php echo esc_html( $appearing['text'] ); ?></a>
+					<?php else : ?>
+						<?php echo esc_html( $appearing['text'] ); ?>
+					<?php endif; ?>
+				</span>
 			</div>
 		<?php endif; ?>
 
