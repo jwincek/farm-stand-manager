@@ -31,7 +31,7 @@ final class BoardFilterBindingTest extends WP_UnitTestCase {
 
 	public function test_the_type_buttons_bind_the_empty_class(): void {
 		$this->assertStringContainsString(
-			'data-wp-class--pkit-avail-board__filter-btn--empty="state.isCurrentTypeEmpty"',
+			'data-wp-class--pkit-avail-board__radio--empty="state.isCurrentTypeEmpty"',
 			$this->render()
 		);
 	}
@@ -44,7 +44,7 @@ final class BoardFilterBindingTest extends WP_UnitTestCase {
 
 	public function test_the_faded_class_is_styled(): void {
 		$this->assertStringContainsString(
-			'.pkit-avail-board__filter-btn--empty',
+			'.pkit-avail-board__radio--empty',
 			(string) file_get_contents( dirname( __DIR__, 2 ) . '/blocks/availability-board/style.css' )
 		);
 	}

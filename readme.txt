@@ -132,6 +132,10 @@ They are generated in the visitor's browser by a bundled open-source library (qr
 
 == Changelog ==
 
+= Unreleased =
+* Changed: the availability board's filters are clearer — statuses are checkboxes, types and trade fields are radio groups, and the board states what it is showing in a sentence you can undo a piece at a time.
+* Fixed: the board's item count stayed in English after the first filter change, and ignored trade-field filters.
+
 = 2.7.0 =
 * Fixed: payment QR codes never appeared on the Fresh Sheet or the Location Info block in any released version — the library they need was being left out of the plugin package.
 * Changed: the "Sharing the booth" field on an event can now link to the other producer — paste their web address after their name.

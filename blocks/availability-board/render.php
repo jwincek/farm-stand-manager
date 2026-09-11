@@ -53,6 +53,10 @@ foreach ( $groups as $group ) {
 		$all_items[] = [
 			'status' => $item['status'],
 			'type'   => $item['product_slugs'][0] ?? '',
+			// Traits travel with the item now: the count is the headline of
+			// the state sentence, and it was previously computed from status
+			// and type alone, so a trade-field filter left it overstating.
+			'traits' => (object) ( $item['traits'] ?? [] ),
 		];
 	}
 }
@@ -60,15 +64,23 @@ foreach ( $groups as $group ) {
 wp_interactivity_state(
 	'producerkit',
 	[
-		'activeStatuses' => $status_map,
-		'allStatuses'    => array_values( $statuses ),
-		'activeType'     => '',
+		'activeStatuses'  => $status_map,
+		'allStatuses'     => array_values( $statuses ),
+		'activeType'      => '',
 		// One selection per trade field, seeded empty. Declared here rather
 		// than in the store's `state:` block, which would overwrite whatever
 		// the server sent.
-		'activeTraits'   => (object) [],
-		'totalItems'     => $total,
-		'allItems'       => $all_items,
+		'activeTraits'    => (object) [],
+		'totalItems'      => $total,
+		'allItems'        => $all_items,
+		// The drawer starts shut. C's whole argument is that the sentence is
+		// enough most of the time.
+		'filtersOpen'     => false,
+		// What the producer configured, kept so Clear everything can put the
+		// board back to it. Restoring all-statuses-on instead would quietly
+		// discard the defaultStatusFilter attribute — a visitor pressing
+		// "clear" would end up seeing more than the board was set up to show.
+		'defaultStatuses' => clone $status_map,
 	]
 );
 
@@ -76,6 +88,9 @@ $context = [
 	'layout'   => $layout,
 	'restBase' => esc_url_raw( rest_url( 'producerkit/v1' ) ),
 ];
+
+// Unique per instance: two boards on one page must not share a drawer id.
+$drawer_id = wp_unique_id( 'pkit-board-filters-' );
 
 $wrapper_attrs = get_block_wrapper_attributes(
 	[
@@ -96,109 +111,278 @@ $wrapper_attrs = get_block_wrapper_attributes(
 		</p>
 	<?php else : ?>
 
-		<?php if ( $show_filters ) : ?>
-			<div class="pkit-avail-board__filters">
-				<div
-					class="pkit-avail-board__filter-group"
-					role="toolbar"
-					aria-label="<?php esc_attr_e( 'Filter by availability status', 'producerkit' ); ?>"
-				>
-					<span class="pkit-avail-board__filter-label">
-						<?php esc_html_e( 'Show:', 'producerkit' ); ?>
-					</span>
-					<?php
-					foreach ( $statuses as $status ) :
-						$is_active = in_array( $status, $active_list, true );
-						?>
+		<?php
+		// The view, stated in a sentence. This replaces the old footer rather
+		// than joining it: one live region, above the board, where someone
+		// looks before they start hunting for why a thing is missing.
+		?>
+		<p class="pkit-avail-board__state" aria-live="polite" aria-atomic="true">
+			<span class="pkit-avail-board__count" data-wp-text="state.summaryText">
+				<?php
+				printf(
+					/* translators: %d: number of items shown on the availability board. */
+					esc_html( _n( 'Showing %d item', 'Showing %d items', (int) $total, 'producerkit' ) ),
+					(int) $total,
+				);
+				?>
+			</span>
+
+			<?php if ( $show_filters ) : ?>
+				<span class="pkit-avail-board__state-note" data-wp-bind--hidden="!state.isShowingEverything">
+					<?php esc_html_e( '· everything on the board', 'producerkit' ); ?>
+				</span>
+
+				<?php
+				// Every pill that could ever apply is rendered once and hidden
+				// until it does. A bounded set — five statuses, one per type,
+				// one per trait term — so this costs less than templating a
+				// list client-side, and every word stays translated on the
+				// server where the plural rules already work.
+				?>
+				<?php foreach ( $statuses as $status ) : ?>
+					<?php $status_label = ucfirst( str_replace( '_', ' ', $status ) ); ?>
+					<span
+						class="pkit-avail-board__pill"
+						data-wp-context='<?php echo esc_attr( (string) wp_json_encode( [ 'filterStatus' => $status ] ) ); ?>'
+						data-wp-bind--hidden="state.isCurrentStatusActive"
+					>
+						<span>
+							<?php
+							printf(
+								/* translators: %s: an availability status, e.g. "Sold out". */
+								esc_html__( 'hiding %s', 'producerkit' ),
+								esc_html( $status_label ),
+							);
+							?>
+						</span>
 						<button
 							type="button"
-							class="pkit-avail-board__filter-btn pkit-availability-badge pkit-availability-badge--<?php echo esc_attr( $status ); ?><?php echo $is_active ? ' pkit-avail-board__filter-btn--active' : ''; ?>"
+							data-wp-on--click="actions.restoreStatus"
+							aria-label="
+							<?php
+							printf(
+								/* translators: %s: an availability status, e.g. "Sold out". */
+								esc_attr__( 'Show %s again', 'producerkit' ),
+								esc_attr( $status_label ),
+							);
+							?>
+							"
+						>&times;</button>
+					</span>
+				<?php endforeach; ?>
+
+				<?php foreach ( $filter_types as $ft ) : ?>
+					<span
+						class="pkit-avail-board__pill"
+						data-wp-context='<?php echo esc_attr( (string) wp_json_encode( [ 'filterType' => $ft['slug'] ] ) ); ?>'
+						data-wp-bind--hidden="!state.isProductTypeActive"
+					>
+						<span>
+							<?php
+							printf(
+								/* translators: %s: a product type, e.g. "Bread". */
+								esc_html__( '%s only', 'producerkit' ),
+								esc_html( $ft['label'] ),
+							);
+							?>
+						</span>
+						<button
+							type="button"
+							data-wp-on--click="actions.clearProductType"
+							aria-label="<?php esc_attr_e( 'Show all types', 'producerkit' ); ?>"
+						>&times;</button>
+					</span>
+				<?php endforeach; ?>
+
+				<?php foreach ( $filter_traits as $trait ) : ?>
+					<?php foreach ( $trait['terms'] as $term ) : ?>
+						<span
+							class="pkit-avail-board__pill"
+							data-wp-context='
+							<?php
+							echo esc_attr(
+								(string) wp_json_encode(
+									[
+										'filterTaxonomy'  => $trait['taxonomy'],
+										'filterTraitSlug' => $term['slug'],
+									]
+								)
+							);
+							?>
+							'
+							data-wp-bind--hidden="!state.isCurrentTraitActive"
+						>
+							<span><?php echo esc_html( $term['label'] ); ?></span>
+							<button
+								type="button"
+								data-wp-on--click="actions.clearTrait"
+								aria-label="
+								<?php
+								printf(
+									/* translators: %s: a trade field value, e.g. "Stoneware". */
+									esc_attr__( 'Stop filtering by %s', 'producerkit' ),
+									esc_attr( $term['label'] ),
+								);
+								?>
+								"
+							>&times;</button>
+						</span>
+					<?php endforeach; ?>
+				<?php endforeach; ?>
+			<?php endif; ?>
+		</p>
+
+		<?php if ( $show_filters ) : ?>
+			<button
+				type="button"
+				class="pkit-avail-board__disclosure"
+				data-wp-on--click="actions.toggleFilters"
+				data-wp-bind--aria-expanded="state.filtersOpen"
+				aria-expanded="false"
+				aria-controls="<?php echo esc_attr( $drawer_id ); ?>"
+			>
+				<span class="pkit-avail-board__caret" aria-hidden="true">&rsaquo;</span>
+				<span data-wp-text="state.filterToggleLabel"><?php esc_html_e( 'Filter', 'producerkit' ); ?></span>
+			</button>
+
+			<div
+				class="pkit-avail-board__drawer"
+				id="<?php echo esc_attr( $drawer_id ); ?>"
+				data-wp-bind--hidden="!state.filtersOpen"
+				hidden
+			>
+				<?php
+				// Status is an include-set, so it is a set of checkboxes and
+				// says so — to the eye and to a screen reader. The type and
+				// trait rows below are choose-one and are radios. Those two
+				// models used to be the same button with the same
+				// aria-pressed, two inches apart, doing opposite things.
+				?>
+				<div class="pkit-avail-board__checkset" role="group" aria-label="<?php esc_attr_e( 'Show these statuses', 'producerkit' ); ?>">
+					<span class="pkit-avail-board__legend"><?php esc_html_e( 'Show these', 'producerkit' ); ?></span>
+					<?php foreach ( $statuses as $status ) : ?>
+						<?php $is_active = in_array( $status, $active_list, true ); ?>
+						<button
+							type="button"
+							role="checkbox"
+							class="pkit-avail-board__check"
 							data-wp-on--click="actions.toggleStatus"
-							data-wp-context='<?php echo esc_attr( wp_json_encode( [ 'filterStatus' => $status ] ) ); ?>'
-							data-wp-class--pkit-avail-board__filter-btn--active="state.isCurrentStatusActive"
-							data-wp-bind--aria-pressed="state.isCurrentStatusActive"
-							data-status="<?php echo esc_attr( $status ); ?>"
-							aria-pressed="<?php echo $is_active ? 'true' : 'false'; ?>"
-						><?php echo esc_html( ucfirst( str_replace( '_', ' ', $status ) ) ); ?></button>
+							data-wp-context='<?php echo esc_attr( (string) wp_json_encode( [ 'filterStatus' => $status ] ) ); ?>'
+							data-wp-bind--aria-checked="state.isCurrentStatusActive"
+							aria-checked="<?php echo $is_active ? 'true' : 'false'; ?>"
+						>
+							<span class="pkit-avail-board__box" aria-hidden="true">&check;</span>
+							<span class="pkit-avail-board__swatch pkit-availability-badge--<?php echo esc_attr( $status ); ?>" aria-hidden="true"></span>
+							<span class="pkit-avail-board__checkname"><?php echo esc_html( ucfirst( str_replace( '_', ' ', $status ) ) ); ?></span>
+							<span class="pkit-avail-board__n" data-wp-text="state.currentStatusCount"></span>
+						</button>
 					<?php endforeach; ?>
 				</div>
 
 				<?php if ( count( $filter_types ) > 1 ) : ?>
-					<div
-						class="pkit-avail-board__filter-group"
-						role="toolbar"
-						aria-label="<?php esc_attr_e( 'Filter by product type', 'producerkit' ); ?>"
-					>
-						<span class="pkit-avail-board__filter-label">
-							<?php esc_html_e( 'Type:', 'producerkit' ); ?>
-						</span>
-						<button
-							type="button"
-							class="pkit-avail-board__filter-btn pkit-avail-board__filter-btn--active"
-							data-wp-on--click="actions.setProductTypeFilter"
-							data-wp-context='<?php echo esc_attr( wp_json_encode( [ 'filterType' => '' ] ) ); ?>'
-							data-wp-class--pkit-avail-board__filter-btn--active="state.isProductTypeActive"
-							data-wp-bind--aria-pressed="state.isProductTypeActive"
-							data-type-slug=""
-							aria-pressed="true"
-						><?php esc_html_e( 'All', 'producerkit' ); ?></button>
-						<?php foreach ( $filter_types as $ft ) : ?>
+					<div class="pkit-avail-board__radiorow">
+						<span class="pkit-avail-board__legend"><?php esc_html_e( 'Type', 'producerkit' ); ?></span>
+						<div class="pkit-avail-board__radios" role="radiogroup" aria-label="<?php esc_attr_e( 'Filter by product type', 'producerkit' ); ?>">
 							<button
 								type="button"
-								class="pkit-avail-board__filter-btn"
+								role="radio"
 								data-wp-on--click="actions.setProductTypeFilter"
-								data-wp-context='<?php echo esc_attr( wp_json_encode( [ 'filterType' => $ft['slug'] ] ) ); ?>'
-								data-wp-class--pkit-avail-board__filter-btn--active="state.isProductTypeActive"
-								data-wp-class--pkit-avail-board__filter-btn--empty="state.isCurrentTypeEmpty"
-								data-wp-bind--aria-pressed="state.isProductTypeActive"
-								data-type-slug="<?php echo esc_attr( $ft['slug'] ); ?>"
-								aria-pressed="false"
-							><?php echo esc_html( $ft['label'] ); ?></button>
-						<?php endforeach; ?>
+								data-wp-on--keydown="actions.moveWithinRadioGroup"
+								data-wp-context='<?php echo esc_attr( (string) wp_json_encode( [ 'filterType' => '' ] ) ); ?>'
+								data-wp-bind--aria-checked="state.isProductTypeActive"
+								data-wp-bind--tabindex="state.radioTabIndex"
+								aria-checked="true"
+							><?php esc_html_e( 'All', 'producerkit' ); ?></button>
+							<?php foreach ( $filter_types as $ft ) : ?>
+								<button
+									type="button"
+									role="radio"
+									data-wp-on--click="actions.setProductTypeFilter"
+									data-wp-on--keydown="actions.moveWithinRadioGroup"
+									data-wp-context='<?php echo esc_attr( (string) wp_json_encode( [ 'filterType' => $ft['slug'] ] ) ); ?>'
+									data-wp-bind--aria-checked="state.isProductTypeActive"
+									data-wp-bind--tabindex="state.radioTabIndex"
+									data-wp-class--pkit-avail-board__radio--empty="state.isCurrentTypeEmpty"
+									aria-checked="false"
+								><?php echo esc_html( $ft['label'] ); ?></button>
+							<?php endforeach; ?>
+						</div>
 					</div>
 				<?php endif; ?>
 
 				<?php foreach ( $filter_traits as $trait ) : ?>
-					<div
-						class="pkit-avail-board__filter-group"
-						role="toolbar"
-						aria-label="
-						<?php
-						printf(
-							/* translators: %s: trade field name, e.g. Clay Body. */
-							esc_attr__( 'Filter by %s', 'producerkit' ),
-							esc_attr( $trait['label'] )
-						);
-						?>
-						"
-					>
-						<span class="pkit-avail-board__filter-label">
-							<?php echo esc_html( $trait['label'] ); ?>:
-						</span>
-						<?php foreach ( $trait['terms'] as $term ) : ?>
+					<div class="pkit-avail-board__radiorow">
+						<span class="pkit-avail-board__legend"><?php echo esc_html( $trait['label'] ); ?></span>
+						<div
+							class="pkit-avail-board__radios"
+							role="radiogroup"
+							aria-label="
+							<?php
+							printf(
+								/* translators: %s: trade field name, e.g. Clay Body. */
+								esc_attr__( 'Filter by %s', 'producerkit' ),
+								esc_attr( $trait['label'] ),
+							);
+							?>
+							"
+						>
 							<button
 								type="button"
-								class="pkit-avail-board__filter-btn"
+								role="radio"
 								data-wp-on--click="actions.setTraitFilter"
+								data-wp-on--keydown="actions.moveWithinRadioGroup"
 								data-wp-context='
 								<?php
 								echo esc_attr(
 									(string) wp_json_encode(
 										[
 											'filterTaxonomy'  => $trait['taxonomy'],
-											'filterTraitSlug' => $term['slug'],
+											'filterTraitSlug' => '',
 										]
 									)
 								);
 								?>
-													'
-								data-wp-class--pkit-avail-board__filter-btn--active="state.isCurrentTraitActive"
-								data-wp-bind--aria-pressed="state.isCurrentTraitActive"
-								aria-pressed="false"
-							><?php echo esc_html( $term['label'] ); ?></button>
-						<?php endforeach; ?>
+								'
+								data-wp-bind--aria-checked="state.isCurrentTraitActive"
+								data-wp-bind--tabindex="state.radioTabIndex"
+								aria-checked="true"
+							><?php esc_html_e( 'Any', 'producerkit' ); ?></button>
+							<?php foreach ( $trait['terms'] as $term ) : ?>
+								<button
+									type="button"
+									role="radio"
+									data-wp-on--click="actions.setTraitFilter"
+									data-wp-on--keydown="actions.moveWithinRadioGroup"
+									data-wp-context='
+									<?php
+									echo esc_attr(
+										(string) wp_json_encode(
+											[
+												'filterTaxonomy'  => $trait['taxonomy'],
+												'filterTraitSlug' => $term['slug'],
+											]
+										)
+									);
+									?>
+									'
+									data-wp-bind--aria-checked="state.isCurrentTraitActive"
+									data-wp-bind--tabindex="state.radioTabIndex"
+									aria-checked="false"
+								><?php echo esc_html( $term['label'] ); ?></button>
+							<?php endforeach; ?>
+						</div>
 					</div>
 				<?php endforeach; ?>
+
+				<div>
+					<button
+						type="button"
+						class="pkit-avail-board__clear"
+						data-wp-on--click="actions.clearAllFilters"
+						data-wp-bind--disabled="!state.isFiltered"
+						disabled
+					><?php esc_html_e( 'Clear everything', 'producerkit' ); ?></button>
+				</div>
 			</div>
 		<?php endif; ?>
 
@@ -324,23 +508,6 @@ $wrapper_attrs = get_block_wrapper_attributes(
 			</div>
 		<?php endforeach; ?>
 
-		<p class="pkit-avail-board__footer" aria-live="polite" aria-atomic="true">
-			<span data-wp-text="state.footerText">
-				<?php
-				printf(
-					/* translators: %d: number of items shown on the availability board. */
-					esc_html__( 'Showing %d items', 'producerkit' ),
-					(int) $total,
-				);
-				?>
-			</span>
-			<?php if ( $board['generated_at'] ?? false ) : ?>
-				<span class="pkit-avail-board__timestamp">
-					<span class="screen-reader-text"><?php esc_html_e( 'Last updated:', 'producerkit' ); ?> </span>
-					<?php echo esc_html( date_i18n( 'M j, g:i A', strtotime( $board['generated_at'] ) ) ); ?>
-				</span>
-			<?php endif; ?>
-		</p>
 
 	<?php endif; ?>
 </section>

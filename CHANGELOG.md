@@ -7,6 +7,35 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- The availability board's filters now say what kind of control they are.
+  Status is an include-set and is drawn and announced as a set of checkboxes;
+  product type and trade fields are choose-one and are radio groups with
+  arrow-key movement. They used to be the same button carrying the same
+  `aria-pressed`, sitting two inches apart and doing opposite things — so
+  clicking "Abundant" hid the abundant items.
+
+  Above them, the board now states the view in a sentence: "Showing 6 of 8
+  items, hiding Sold out, Bread only", with each constraint carrying its own
+  dismiss. The controls themselves fold away behind a Filter button, so the
+  more explicit markup costs no room until someone wants it. Each status
+  carries its count, and an excluded one is struck through rather than only
+  faded, so the state survives greyscale.
+
+  Clear everything returns the board to the default the producer configured
+  rather than switching every status on.
+
+### Fixed
+
+- The board's item count stayed in English after the first filter change. It
+  is a script module, and those do not get their strings from
+  `wp_set_script_translations()` — the sentence is now translated through
+  WordPress 7.0's script-module translations, with real plural rules rather
+  than an English guess at them. The count also accounts for trade-field
+  filters, which it previously ignored while claiming to be a total.
+
+
 ## [2.7.0] - 2026-09-10
 
 ### Added
