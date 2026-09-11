@@ -161,9 +161,11 @@ if ( is_admin() ) {
 	require_once PLUGIN_DIR . '/includes/admin-dashboard.php';
 	require_once PLUGIN_DIR . '/includes/sample-data.php';
 	require_once PLUGIN_DIR . '/includes/default-pages.php';
+	require_once PLUGIN_DIR . '/includes/admin-guide.php';
 }
 
 // Sample data markers load on both front and admin.
+require_once PLUGIN_DIR . '/includes/guide.php';
 require_once PLUGIN_DIR . '/includes/sample-data-markers.php';
 
 // Data migrations. Front and admin both, since a site may be reached by a

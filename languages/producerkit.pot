@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-09-11T23:28:56+00:00\n"
+"POT-Creation-Date: 2026-09-11T23:53:20+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: producerkit\n"
@@ -20,7 +20,7 @@ msgstr ""
 #: includes/admin-dashboard.php:33
 #: includes/admin-dashboard.php:145
 #: modules/core/includes/admin-producer-field.php:33
-#: producerkit.php:293
+#: producerkit.php:295
 msgid "ProducerKit"
 msgstr ""
 
@@ -542,6 +542,7 @@ msgid "Dashboard"
 msgstr ""
 
 #: includes/admin-dashboard.php:76
+#: includes/guide.php:47
 #: modules/core/includes/post-types.php:173
 msgid "Products"
 msgstr ""
@@ -561,6 +562,7 @@ msgstr ""
 
 #: includes/admin-dashboard.php:88
 #: includes/default-pages.php:161
+#: includes/guide.php:49
 #: modules/core/includes/post-types.php:282
 msgid "Events"
 msgstr ""
@@ -771,6 +773,16 @@ msgstr[1] ""
 msgid "These products won't show up for visitors until you set their status."
 msgstr ""
 
+#: includes/admin-guide.php:32
+#: includes/admin-guide.php:33
+#: includes/admin-guide.php:47
+msgid "Getting Started"
+msgstr ""
+
+#: includes/admin-guide.php:51
+msgid "The guide could not be loaded. Reinstalling the plugin should restore it."
+msgstr ""
+
 #: includes/default-pages.php:171
 msgid "Home (starter)"
 msgstr ""
@@ -815,6 +827,44 @@ msgstr ""
 
 #: includes/default-pages.php:367
 msgid "Generate Default Pages"
+msgstr ""
+
+#: includes/guide.php:43
+msgid "The Farm Stand"
+msgstr ""
+
+#: includes/guide.php:46
+#: modules/producer-profiles/profiles/farm.php:15
+msgid "Farm"
+msgstr ""
+
+#: includes/guide.php:48
+#: modules/availability-board/includes/admin-quick-entry.php:115
+#: modules/core/includes/post-types.php:172
+#: modules/pre-order/includes/admin-orders.php:110
+#: blocks/availability-badge/index.js:88
+msgid "Product"
+msgstr ""
+
+#: includes/guide.php:50
+#: modules/core/includes/post-types.php:281
+#: modules/event-manager/includes/admin-rsvps.php:95
+#: modules/event-manager/includes/rsvp-response.php:106
+msgid "Event"
+msgstr ""
+
+#: includes/guide.php:63
+#: modules/core/includes/taxonomies.php:153
+msgid "Product Types"
+msgstr ""
+
+#: includes/guide.php:64
+#: modules/core/includes/taxonomies.php:216
+msgid "Event Types"
+msgstr ""
+
+#: includes/guide.php:113
+msgid "none by default"
 msgstr ""
 
 #: includes/sample-data-markers.php:89
@@ -923,13 +973,6 @@ msgstr ""
 
 #: modules/availability-board/includes/admin-quick-entry.php:106
 msgid "Save All Changes"
-msgstr ""
-
-#: modules/availability-board/includes/admin-quick-entry.php:115
-#: modules/core/includes/post-types.php:172
-#: modules/pre-order/includes/admin-orders.php:110
-#: blocks/availability-badge/index.js:88
-msgid "Product"
 msgstr ""
 
 #: modules/availability-board/includes/admin-quick-entry.php:118
@@ -1734,12 +1777,6 @@ msgstr ""
 msgid "All Locations"
 msgstr ""
 
-#: modules/core/includes/post-types.php:281
-#: modules/event-manager/includes/admin-rsvps.php:95
-#: modules/event-manager/includes/rsvp-response.php:106
-msgid "Event"
-msgstr ""
-
 #: modules/core/includes/post-types.php:283
 msgid "Calendar"
 msgstr ""
@@ -2007,20 +2044,12 @@ msgstr ""
 msgid "Product Type"
 msgstr ""
 
-#: modules/core/includes/taxonomies.php:153
-msgid "Product Types"
-msgstr ""
-
 #: modules/core/includes/taxonomies.php:185
 msgid "Seasons"
 msgstr ""
 
 #: modules/core/includes/taxonomies.php:215
 msgid "Event Type"
-msgstr ""
-
-#: modules/core/includes/taxonomies.php:216
-msgid "Event Types"
 msgstr ""
 
 #: modules/event-manager/includes/abilities.php:44
@@ -3137,10 +3166,6 @@ msgstr ""
 
 #: modules/producer-profiles/profiles/comics.php:56
 msgid "Where the pages are drawn and the books are put together."
-msgstr ""
-
-#: modules/producer-profiles/profiles/farm.php:15
-msgid "Farm"
 msgstr ""
 
 #: modules/producer-profiles/profiles/farm.php:16

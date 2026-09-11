@@ -155,6 +155,12 @@ jobs:
       - name: Lint CSS
         run: npm run lint:css
 
+      # The full comparison of the guide against its template. The validator
+      # checks the recorded hash with PHP alone; this re-renders, so a change
+      # to the generator itself cannot slip through.
+      - name: Guide is current with its template
+        run: npm run make:guide:check
+
   build:
     name: Build distribution zip
     runs-on: ubuntu-latest

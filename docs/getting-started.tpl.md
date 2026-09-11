@@ -1,16 +1,14 @@
-<!-- Generated from docs/getting-started.tpl.md by bin/make-guide.js — do not edit by hand. -->
-
 # Getting Started with ProducerKit
 
-Welcome! This guide walks you through setting up your website's tools — your farm stand status, availability board, events, and more. You don't need to know how to code. Everything here happens through the WordPress admin.
+Welcome! This guide walks you through setting up your website's tools — your {{place_lower}} status, availability board, events, and more. You don't need to know how to code. Everything here happens through the WordPress admin.
 
-The examples below use **Farm**'s words, because that is the trade this site is set up for. If you keep bees, throw pots, bake, print or record something else, do **Step 1** first — change the trade and this guide changes with it.
+The examples below use **{{trade}}**'s words, because that is the trade this site is set up for. If you keep bees, throw pots, bake, print or record something else, do **Step 1** first — change the trade and this guide changes with it.
 
 ---
 
 ## First Things First
 
-After the plugin is activated, you'll see a **ProducerKit** menu in your WordPress sidebar. Click it to see the dashboard — it shows which modules are active, how much content you have, and your farm stand's current status. If anything needs attention (like products without photos or events without dates), a **Needs Attention** section will flag those items with direct links to fix them.
+After the plugin is activated, you'll see a **ProducerKit** menu in your WordPress sidebar. Click it to see the dashboard — it shows which modules are active, how much content you have, and your {{place_lower}}'s current status. If anything needs attention (like products without photos or events without dates), a **Needs Attention** section will flag those items with direct links to fix them.
 
 Two of the plugin's menus are named to stay out of the way of other plugins:
 **Catalog** is your products (WooCommerce owns "Products"), and **Calendar** is
@@ -21,7 +19,7 @@ inside the **ProducerKit** menu.
 
 ## Payments, QR Codes, and Pre-Orders
 
-**Payment options**: edit a Location and open the **Payment Options** panel in the sidebar. Add links (Venmo, Cash App, PayPal, or a custom payment URL) and badges for other accepted payments (cash, check, SNAP/EBT, market vouchers). They appear in the Location Info block, your farm stand banner, and the location's page.
+**Payment options**: edit a Location and open the **Payment Options** panel in the sidebar. Add links (Venmo, Cash App, PayPal, or a custom payment URL) and badges for other accepted payments (cash, check, SNAP/EBT, market vouchers). They appear in the Location Info block, your {{place_lower}} banner, and the location's page.
 
 **QR code**: in the Location Info block's settings, turn on **Show payment QR code**. Visitors scan it to open your first payment link — and if you print the page, the code enlarges for stand signage.
 
@@ -31,7 +29,7 @@ inside the **ProducerKit** menu.
 
 **Harvest list**: on the Pre-Orders screen, click **Harvest List** for per-pickup-date totals of everything to have ready — print it and take it to the field.
 
-**Fresh Sheet**: under **ProducerKit → Fresh Sheet**, print a one-pager of today's availability with prices, your hours, payment options, and a payment QR code — the morning sign for your farm stand.
+**Fresh Sheet**: under **ProducerKit → Fresh Sheet**, print a one-pager of today's availability with prices, your hours, payment options, and a payment QR code — the morning sign for your {{place_lower}}.
 
 ---
 
@@ -47,13 +45,13 @@ of the plugin calls things.
    or General.
 3. Save.
 
-Everything downstream follows from it. Where a farm records a **Farm / Origin Name** and **Milling / Process Notes**, a beekeeper records an **Apiary** and
+Everything downstream follows from it. Where a farm records a **{{source_field}}** and **Milling / Process Notes**, a beekeeper records an **Apiary** and
 **Extraction Notes**, and a musician a **Label** and **Mastering Notes** — the
 same three questions, in each trade's own words. The optional product fields
 only exist for trades that asked for them, so a farm never sees them at all
 and a potter gets **Clay Body**, **Glaze** and **Firing Method**. Even the word for a made-to-order request changes: a potter takes
 a **Commission**, a beekeeper answers an **Enquiry**, a grower takes a
-**Special Orders**.
+**{{requests}}**.
 
 You can change it later and nothing is lost — switching a profile off leaves
 its terms in the database — but picking it now saves renaming things around
@@ -64,7 +62,7 @@ combine, and further down the same screen each person can pick which trade's
 wording *they* read — so a farm that also bakes can have one of you reading
 Milling Notes and the other reading Baking Notes.
 
-The plugin also pre-loads default terms for your trade — for Farm that is Product Types (Produce, Bread, Baked Good, Pantry Good, Seedling), Seasons (Spring, Summer, Fall, Winter), and Event Types (Pizza Night, Potluck, Farm Dinner, Workshop, Farm Tour, Seed Exchange, Mini Market). You can use these as-is or rename them.
+The plugin also pre-loads default terms for your trade — for {{trade}} that is {{product_types_label}} ({{product_types}}), Seasons (Spring, Summer, Fall, Winter), and {{event_types_label}} ({{event_types}}). You can use these as-is or rename them.
 
 ---
 
@@ -72,7 +70,7 @@ The plugin also pre-loads default terms for your trade — for Farm that is Prod
 
 ## Step 2: Set Up Where You Sell
 
-Your roadside stand needs to exist as a Location in WordPress before your farm stand status tools will work.
+Your roadside stand needs to exist as a Location in WordPress before your {{place_lower}} status tools will work.
 
 1. Go to **ProducerKit → Locations**, then **Add New**.
 2. **Title**: `Farm Stand` (or whatever you call it).
@@ -82,19 +80,19 @@ Your roadside stand needs to exist as a Location in WordPress before your farm s
    - **Hours**: `Saturdays 1:00 – 4:00 PM, May – December`
    - **Venmo Handle**: Your Venmo username (without the @). A payment link is generated automatically.
    - **Latitude / Longitude**: Optional. Used for map links.
-   - **Currently Open**: Toggle this on when your farm stand is open.
+   - **Currently Open**: Toggle this on when your {{place_lower}} is open.
    - **Status Message**: Optional message like "Back at 2 PM" shown alongside the open/closed badge.
 4. Expand the **Schedule & Season** panel:
    - **Season Start / End**: Pick your dates with the date pickers. Leave blank if open year-round.
-   - **Auto-toggle from schedule**: Turn this on if you want your farm stand to automatically open and close on schedule.
-   - **Weekly Schedule**: Click **Add Day** to set your farm stand hours. Pick the day, set open and close times. Add as many days as you need. The × button removes a day.
+   - **Auto-toggle from schedule**: Turn this on if you want your {{place_lower}} to automatically open and close on schedule.
+   - **Weekly Schedule**: Click **Add Day** to set your {{place_lower}} hours. Pick the day, set open and close times. Add as many days as you need. The × button removes a day.
 5. **Publish** the location.
 
-You should now see a green or red dot in the admin bar at the top of every page — that's your farm stand toggle. Click it to open or close your farm stand from anywhere.
+You should now see a green or red dot in the admin bar at the top of every page — that's your {{place_lower}} toggle. Click it to open or close your {{place_lower}} from anywhere.
 
 ---
 
-## Step 3: Add Your Products
+## Step 3: Add Your {{products}}
 
 Products are everything you sell — produce, bread, baked goods, seedlings, pantry items.
 
@@ -104,7 +102,7 @@ Products are everything you sell — produce, bread, baked goods, seedlings, pan
 4. In the sidebar, you'll see a **Product Details** panel:
    - **Price**: Whatever you want to display (e.g., `$4`, `$12`, `Donation`).
    - **Unit of Sale**: Pick from the dropdown (bunch, loaf, pint, pound, etc.) or choose "other" to type a custom unit.
-   - **Growing / Baking Notes**: A short note shown to visitors (e.g., `No-till, heirloom variety`).
+   - **{{notes_field}}**: A short note shown to visitors (e.g., `No-till, heirloom variety`).
 5. If this product came from somewhere worth naming — a partner farm, a mill, a tannery, a particular hive — expand the **Sources** panel to link it. Create sources first under **ProducerKit → Sources**: each one records who it came from, where, and what was done to it in between, in your trade's own words.
 6. In the right sidebar, assign a **Product Type** (Produce, Bread, Baked Good, Pantry Good, Seedling).
 7. Assign **Seasons** (Spring, Summer, Fall, Winter) for when this product is typically available.
@@ -141,7 +139,7 @@ Now put the tools on your actual website pages. Go to any page in the editor (or
 ### Homepage (recommended blocks)
 
 - **Stand Status Banner**: Shows open/closed with address, hours, and Venmo link.
-  - Add the block, select your farm stand location in the sidebar.
+  - Add the block, select your {{place_lower}} location in the sidebar.
   - Pick a layout: Banner (full-width), Compact (strip), or Card (centered).
   - Turn on "Auto-refresh" if you want it to update without page reload.
 
@@ -163,7 +161,7 @@ Now put the tools on your actual website pages. Go to any page in the editor (or
 - **Location Info**: Show stand details in a sidebar or footer.
 - **Stand Hours Schedule**: Show your weekly schedule in a clean table format with today's row highlighted.
 - **Availability Badge**: Show a single product's status inline in any post or page.
-- **Stand Quick Toggle**: An open/closed switch you can put on a private page, for opening your farm stand from a phone without the admin bar.
+- **Stand Quick Toggle**: An open/closed switch you can put on a private page, for opening your {{place_lower}} from a phone without the admin bar.
 
 ### Taking orders
 
@@ -251,7 +249,7 @@ from your own delivery notes.
 
 | Task | Where | How Often |
 |------|-------|-----------|
-| Open/close your farm stand | Admin bar dot (any page) | Every stand day |
+| Open/close your {{place_lower}} | Admin bar dot (any page) | Every stand day |
 | Set a status message | Admin bar → "Set Status Message…" | As needed |
 | Update availability | ProducerKit → Availability | Weekly (Saturday morning) |
 | Update a shop's shelf after a delivery | ProducerKit → Availability | Each delivery |
@@ -280,13 +278,13 @@ Sample content is labeled with amber "Sample" badges on the front end and a noti
 
 - **Featured images matter.** Products with photos look much better on the availability board. Even a quick phone photo of the arugula bed or a fresh loaf is great.
 - **Keep excerpts short.** The excerpt field on products and events shows up in cards and lists. One sentence is perfect.
-- **The admin bar toggle works on your phone.** Open the WordPress app, visit any page on your site, and tap your farm stand status dot to open or close from the field.
+- **The admin bar toggle works on your phone.** Open the WordPress app, visit any page on your site, and tap your {{place_lower}} status dot to open or close from the field.
 - **Availability expires automatically.** If you set an expiration date on an availability entry, it drops off the board on its own. A daily cleanup job removes expired entries from the database.
 - **"Copy Last Week" is your friend.** On the availability page, click Copy Last Week to pre-fill from current data, then adjust the few things that changed. Much faster than starting from scratch.
 - **Events sort by date.** Upcoming events appear in chronological order. Past events move to the "Past" section automatically.
 - **The sidebar panels save with the post.** All the Location, Product, and Event fields in the sidebar save when you click Update or Publish — no separate save button needed.
 - **Admin columns save you time.** The list tables for Products, Events, and Locations show key info at a glance. Use the column headers to sort.
-- **You'll get email notifications.** When someone RSVPs or your farm stand status is toggled, you'll get an email. These can be turned off if they get noisy — just ask Jerome.
+- **You'll get email notifications.** When someone RSVPs or your {{place_lower}} status is toggled, you'll get an email. These can be turned off if they get noisy — just ask Jerome.
 - **Export before you import.** If you're doing a bulk product update, export your current products first to get the CSV format, make changes in a spreadsheet, then re-import.
 
 ---

@@ -8,11 +8,14 @@
 		"start": "wp-env start",
 		"stop": "wp-env stop",
 		"lint:js": "wp-scripts lint-js assets/js/ blocks/",
-		"lint:css": "wp-scripts lint-style 'blocks/**/*.css'"
+		"lint:css": "wp-scripts lint-style 'blocks/**/*.css'",
+		"make:guide": "node bin/make-guide.js",
+		"make:guide:check": "node bin/make-guide.js --check"
 	},
 	"devDependencies": {
 		"@wordpress/env": "^10.0.0",
-		"@wordpress/scripts": "^30.0.0"
+		"@wordpress/scripts": "^30.0.0",
+		"markdown-it": "^12.3.2"
 	},
 	"overrides": {
 		"typescript": "^6.0.0"

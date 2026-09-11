@@ -428,6 +428,59 @@ foreach ( glob( $root . '/blocks/*/block.json' ) ?: [] as $block_json ) {
 	}
 }
 
+// ── Check 6c: the shipped guide matches its template ─────────────────────────
+//
+// docs/getting-started.tpl.md is the source; bin/make-guide.js renders it to
+// GETTING-STARTED.md for the repo and includes/guide-content.php for the
+// plugin. A stale artifact means the dashboard shows a guide that no longer
+// matches what the plugin does, which is worse than no guide.
+//
+// Compares the hash the generator recorded rather than re-rendering, so this
+// needs no Markdown tooling — CI runs it with PHP alone. `npm run
+// make:guide:check` is the full comparison.
+$guide_template = $root . '/docs/getting-started.tpl.md';
+$guide_content  = $root . '/includes/guide-content.php';
+
+if ( ! file_exists( $guide_template ) ) {
+	$add( 'error', 'guide', 'docs/getting-started.tpl.md is missing; the guide cannot be generated.' );
+} elseif ( ! file_exists( $guide_content ) ) {
+	$add( 'error', 'guide', 'includes/guide-content.php is missing. Run: npm run make:guide' );
+} else {
+	// Read, never require: this file carries the ABSPATH guard every shipped
+	// PHP file has, so requiring it from a CLI script exits the validator
+	// silently — which is exactly what it did the first time.
+	$guide_raw = (string) file_get_contents( $guide_content );
+
+	preg_match( "/'source_hash'\s*=>\s*'([a-f0-9]{64})'/", $guide_raw, $guide_hash );
+
+	$guide = [
+		'source_hash' => $guide_hash[1] ?? '',
+		'html'        => str_contains( $guide_raw, "<<<'PKITGUIDE'" ) ? 'present' : '',
+	];
+
+	if ( empty( $guide['html'] ) ) {
+		$add( 'error', 'guide', 'includes/guide-content.php has no rendered guide in it.' );
+	} else {
+		$expected = hash( 'sha256', (string) file_get_contents( $guide_template ) );
+
+		if ( ( $guide['source_hash'] ?? '' ) !== $expected ) {
+			$add( 'error', 'guide', 'includes/guide-content.php is stale. Run: npm run make:guide' );
+		}
+
+		// Every token the template uses must be one the resolver answers, or
+		// the dashboard prints {{braces}} at a reader.
+		preg_match_all( '/\{\{([a-z_]+)\}\}/', (string) file_get_contents( $guide_template ), $guide_tokens );
+
+		$guide_src = (string) file_get_contents( $root . '/includes/guide.php' );
+
+		foreach ( array_unique( $guide_tokens[1] ) as $token ) {
+			if ( ! str_contains( $guide_src, "'" . $token . "'" ) ) {
+				$add( 'error', 'guide', "The guide template uses {{{$token}}}, which includes/guide.php does not resolve." );
+			}
+		}
+	}
+}
+
 // ── Check 7: ability names and categories ────────────────────────────────────
 // Distinct paths rather than register_rest_route() calls. /availability is
 // registered twice — once for GET, once for POST — and counting registrations
