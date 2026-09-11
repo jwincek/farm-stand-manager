@@ -160,6 +160,7 @@ add_action( 'plugins_loaded', __NAMESPACE__ . '\\boot', 5 );
 if ( is_admin() ) {
 	require_once PLUGIN_DIR . '/includes/admin-dashboard.php';
 	require_once PLUGIN_DIR . '/includes/sample-data.php';
+	require_once PLUGIN_DIR . '/includes/default-pages.php';
 }
 
 // Sample data markers load on both front and admin.

@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-09-10T18:10:59+00:00\n"
+"POT-Creation-Date: 2026-09-11T01:57:48+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: producerkit\n"
@@ -20,7 +20,7 @@ msgstr ""
 #: includes/admin-dashboard.php:33
 #: includes/admin-dashboard.php:145
 #: modules/core/includes/admin-producer-field.php:33
-#: producerkit.php:273
+#: producerkit.php:274
 msgid "ProducerKit"
 msgstr ""
 
@@ -513,6 +513,7 @@ msgid "Locations"
 msgstr ""
 
 #: includes/admin-dashboard.php:88
+#: includes/default-pages.php:161
 #: modules/core/includes/post-types.php:282
 msgid "Events"
 msgstr ""
@@ -642,95 +643,141 @@ msgid "Not available (requires WP 6.9+)"
 msgstr ""
 
 #. translators: %d: number of products without a featured photo.
-#: includes/admin-dashboard.php:391
+#: includes/admin-dashboard.php:395
 #, php-format
 msgid "%d product without a photo"
 msgid_plural "%d products without photos"
 msgstr[0] ""
 msgstr[1] ""
 
-#: includes/admin-dashboard.php:392
+#: includes/admin-dashboard.php:396
 msgid "Products look better on the availability board with images."
 msgstr ""
 
-#: includes/admin-dashboard.php:395
-#: includes/admin-dashboard.php:414
+#: includes/admin-dashboard.php:399
+#: includes/admin-dashboard.php:418
 msgid "View Products"
 msgstr ""
 
 #. translators: %d: number of products without a price.
-#: includes/admin-dashboard.php:410
+#: includes/admin-dashboard.php:414
 #, php-format
 msgid "%d product without a price"
 msgid_plural "%d products without prices"
 msgstr[0] ""
 msgstr[1] ""
 
-#: includes/admin-dashboard.php:411
+#: includes/admin-dashboard.php:415
 msgid "Visitors see the price on the availability board and product pages."
 msgstr ""
 
 #. translators: %d: number of events without a start date.
-#: includes/admin-dashboard.php:429
+#: includes/admin-dashboard.php:433
 #, php-format
 msgid "%d event without a start date"
 msgid_plural "%d events without start dates"
 msgstr[0] ""
 msgstr[1] ""
 
-#: includes/admin-dashboard.php:430
+#: includes/admin-dashboard.php:434
 msgid "Events need a start date to appear in the event list."
 msgstr ""
 
-#: includes/admin-dashboard.php:433
+#: includes/admin-dashboard.php:437
 msgid "View Events"
 msgstr ""
 
 #. translators: %d: number of locations without an address.
-#: includes/admin-dashboard.php:448
+#: includes/admin-dashboard.php:452
 #, php-format
 msgid "%d location without an address"
 msgid_plural "%d locations without addresses"
 msgstr[0] ""
 msgstr[1] ""
 
-#: includes/admin-dashboard.php:449
+#: includes/admin-dashboard.php:453
 msgid "The address shows on location cards and the stand banner."
 msgstr ""
 
-#: includes/admin-dashboard.php:452
+#: includes/admin-dashboard.php:456
 msgid "View Locations"
 msgstr ""
 
 #. translators: %d: number of products with availability over a week old.
-#: includes/admin-dashboard.php:481
+#: includes/admin-dashboard.php:485
 #, php-format
 msgid "%d product with availability over a week old"
 msgid_plural "%d products with availability over a week old"
 msgstr[0] ""
 msgstr[1] ""
 
-#: includes/admin-dashboard.php:482
+#: includes/admin-dashboard.php:486
 msgid "Consider refreshing the availability board."
 msgstr ""
 
-#: includes/admin-dashboard.php:485
-#: includes/admin-dashboard.php:511
+#: includes/admin-dashboard.php:489
+#: includes/admin-dashboard.php:515
 #: modules/availability-board/includes/admin-quick-entry.php:24
 #: modules/availability-board/includes/admin-quick-entry.php:78
 msgid "Update Availability"
 msgstr ""
 
 #. translators: %d: number of products not on the availability board.
-#: includes/admin-dashboard.php:507
+#: includes/admin-dashboard.php:511
 #, php-format
 msgid "%d product not on the availability board"
 msgid_plural "%d products not on the availability board"
 msgstr[0] ""
 msgstr[1] ""
 
-#: includes/admin-dashboard.php:508
+#: includes/admin-dashboard.php:512
 msgid "These products won't show up for visitors until you set their status."
+msgstr ""
+
+#: includes/default-pages.php:171
+msgid "Home (starter)"
+msgstr ""
+
+#: includes/default-pages.php:197
+msgid "Visit"
+msgstr ""
+
+#: includes/default-pages.php:229
+msgid "Pre-orders"
+msgstr ""
+
+#. translators: %s: list of links to the pages that were created.
+#: includes/default-pages.php:325
+#, php-format
+msgid "Created as drafts: %s. Review each one, then publish."
+msgstr ""
+
+#. translators: %s: list of page titles that already existed.
+#: includes/default-pages.php:333
+#, php-format
+msgid "Left alone, because a page with that address already exists: %s."
+msgstr ""
+
+#: includes/default-pages.php:339
+msgid "Nothing to create — every default page already exists."
+msgstr ""
+
+#: includes/default-pages.php:358
+msgid "Default Pages"
+msgstr ""
+
+#: includes/default-pages.php:360
+msgid "This plugin has no automatic archive pages — the blocks are the listing, which is what makes them configurable. That means the pages are yours to build, so this builds them for you, with the blocks already pointed at your location."
+msgstr ""
+
+#. translators: %s: comma-separated list of page titles.
+#: includes/default-pages.php:363
+#, php-format
+msgid "Creates as drafts, and never touches a page you already have: %s"
+msgstr ""
+
+#: includes/default-pages.php:367
+msgid "Generate Default Pages"
 msgstr ""
 
 #: includes/sample-data-markers.php:89
