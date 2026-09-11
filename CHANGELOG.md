@@ -7,33 +7,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-### Fixed
-
-- QR codes now render in released builds. They never have. `.distignore`
-  excluded `vendor`, and because rsync matches an unanchored pattern against
-  every path segment, that took `assets/js/vendor/` with it — where the bundled
-  QR library lives. The wrapper script shipped, the library did not, and
-  `pkit-qr.js` returns quietly when its global is missing, so the payment QR on
-  the Fresh Sheet and the Location Info block simply drew nothing, with no error
-  anywhere. Affected every release up to 2.6.0.
-
-  The build now also checks that every asset the plugin hands to
-  `plugins_url()` is present in the output, so a `.distignore` rule matching
-  more than it means to fails the build instead of shipping a silently broken
-  feature.
-
-### Changed
-
-- "Sharing the booth" can now link. Paste the other producer's web address
-  after their name — "Slowbird Bread Co. https://slowbird.example" — and the
-  event page shows their name as a link to their own site. A name on its own
-  still renders as plain text, and nothing already stored changes.
-
-  This is the field that carries the whole answer for two producers who keep
-  separate sites and occasionally share a stall: each site's availability board
-  is right about its own goods and silent about the other's, so the event is
-  where a visitor finds out.
-
+## [2.7.0] - 2026-09-10
 
 ### Added
 
@@ -53,6 +27,32 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   duplicating. A page is only offered when it would render something: Visit
   waits until you have a location, and pre-orders until you have a product.
 
+### Changed
+
+- "Sharing the booth" can now link. Paste the other producer's web address
+  after their name — "Slowbird Bread Co. https://slowbird.example" — and the
+  event page shows their name as a link to their own site. A name on its own
+  still renders as plain text, and nothing already stored changes.
+
+  This is the field that carries the whole answer for two producers who keep
+  separate sites and occasionally share a stall: each site's availability board
+  is right about its own goods and silent about the other's, so the event is
+  where a visitor finds out.
+
+### Fixed
+
+- QR codes now render in released builds. They never have. `.distignore`
+  excluded `vendor`, and because rsync matches an unanchored pattern against
+  every path segment, that took `assets/js/vendor/` with it — where the bundled
+  QR library lives. The wrapper script shipped, the library did not, and
+  `pkit-qr.js` returns quietly when its global is missing, so the payment QR on
+  the Fresh Sheet and the Location Info block simply drew nothing, with no error
+  anywhere. Affected every release up to 2.6.0.
+
+  The build now also checks that every asset the plugin hands to
+  `plugins_url()` is present in the output, so a `.distignore` rule matching
+  more than it means to fails the build instead of shipping a silently broken
+  feature.
 
 ## [2.6.0] - 2026-09-10
 
@@ -926,7 +926,8 @@ before updating any site that ran 1.1.0 or earlier.
 - **Modular architecture** — every feature module except the core data layer
   can be switched off through the `pkit_active_modules` filter.
 
-[Unreleased]: https://github.com/jwincek/producerkit/compare/v2.6.0...HEAD
+[Unreleased]: https://github.com/jwincek/producerkit/compare/v2.7.0...HEAD
+[2.7.0]: https://github.com/jwincek/producerkit/compare/v2.6.0...v2.7.0
 [2.6.0]: https://github.com/jwincek/producerkit/compare/v2.5.0...v2.6.0
 [2.5.0]: https://github.com/jwincek/producerkit/compare/v2.4.0...v2.5.0
 [2.4.0]: https://github.com/jwincek/producerkit/compare/v2.3.0...v2.4.0

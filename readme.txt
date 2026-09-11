@@ -3,7 +3,7 @@ Contributors: jeromewincek
 Tags: availability, pre-orders, farmers market, artisan, events
 Requires at least: 6.9
 Tested up to: 7.1
-Stable tag: 2.6.0
+Stable tag: 2.7.0
 Requires PHP: 8.1
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -132,7 +132,7 @@ They are generated in the visitor's browser by a bundled open-source library (qr
 
 == Changelog ==
 
-= Unreleased =
+= 2.7.0 =
 * Fixed: payment QR codes never appeared on the Fresh Sheet or the Location Info block in any released version — the library they need was being left out of the plugin package.
 * Changed: the "Sharing the booth" field on an event can now link to the other producer — paste their web address after their name.
 * Added: a Generate Default Pages button that builds the page set for your trade, with blocks already configured — as drafts, never overwriting anything you have.
@@ -226,6 +226,11 @@ They are generated in the visitor's browser by a bundled open-source library (qr
 * REST API and Abilities API coverage for all core operations.
 
 == Upgrade Notice ==
+
+= 2.7.0 =
+Recommended, and worth taking if you print the Fresh Sheet: the payment QR code has never appeared in any released version — the library that draws it was being left out of the plugin package. Same for the QR on the Location Info block. Nothing to do on your side beyond updating.
+
+Also adds a Generate Default Pages button. This plugin has no automatic archive pages, so the pages are yours to build; that button builds them for your trade, as drafts, and never touches a page you already have.
 
 = 2.6.0 =
 Stored field names are corrected on update — automatically, with your data intact. If you have written a template, snippet or integration against names like _pkit_em_ticket_url or _pkit_growing_notes, they are now _pkit_ticket_url and _pkit_production_notes. The spreadsheet column growing_notes is now production_notes; older exports still import.
