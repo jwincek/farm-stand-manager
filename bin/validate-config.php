@@ -364,6 +364,70 @@ foreach ( glob( $root . '/blocks/*/block.json' ) ?: [] as $block_json ) {
 	}
 }
 
+// ── Check 6b: every editorScript declares its dependencies ───────────────────
+//
+// block.json's editorScript is registered by core, which reads dependencies
+// from an index.asset.php beside the script. With no such file the list is
+// empty, the script can run before wp-blocks exists, and on a clean install
+// every block fails to register — invisible on a dev site that has another
+// block plugin loading wp-blocks first. That shipped through 2.7.0 (#82).
+//
+// Core also only wires a block's script translations when wp-i18n is among the
+// declared dependencies, so an empty list silently costs those too.
+//
+// Re-derives the expected contents rather than checking the file merely
+// exists: a stale list is the same bug wearing a file.
+$asset_script = $root . '/bin/make-block-assets.php';
+
+if ( ! file_exists( $asset_script ) ) {
+	$add( 'error', 'blocks', 'bin/make-block-assets.php is missing; block dependencies cannot be verified.' );
+} else {
+	$asset_output = [];
+	$asset_status = 0;
+	exec( escapeshellarg( PHP_BINARY ) . ' ' . escapeshellarg( $asset_script ) . ' --check 2>&1', $asset_output, $asset_status );
+
+	if ( 0 !== $asset_status ) {
+		foreach ( $asset_output as $line ) {
+			$line = trim( $line );
+			if ( '' !== $line && ! str_starts_with( $line, 'Run:' ) ) {
+				$add( 'error', 'blocks', ltrim( $line, '- ' ) );
+			}
+		}
+		$add( 'error', 'blocks', 'Run: php bin/make-block-assets.php' );
+	}
+}
+
+foreach ( glob( $root . '/blocks/*/block.json' ) ?: [] as $block_json ) {
+	$dir   = dirname( $block_json );
+	$rel   = 'blocks/' . basename( $dir );
+	$block = json_decode( (string) file_get_contents( $block_json ), true );
+
+	if ( ! is_array( $block ) || ! isset( $block['editorScript'] ) ) {
+		continue;
+	}
+
+	$script = preg_replace( '/^file:\.?\/?/', '', (string) $block['editorScript'] );
+	$asset  = $dir . '/' . substr_replace( $script, '.asset.php', - strlen( '.js' ) );
+
+	if ( ! file_exists( $asset ) ) {
+		$add( 'error', 'blocks', "$rel names an editorScript with no " . basename( $asset ) . " beside it, so it registers with no dependencies." );
+		continue;
+	}
+
+	$declared = require $asset;
+
+	if ( ! is_array( $declared ) || empty( $declared['dependencies'] ) ) {
+		$add( 'error', 'blocks', "$rel/" . basename( $asset ) . ' declares no dependencies.' );
+		continue;
+	}
+
+	foreach ( [ 'wp-blocks', 'wp-element', 'wp-i18n' ] as $required ) {
+		if ( ! in_array( $required, $declared['dependencies'], true ) ) {
+			$add( 'error', 'blocks', "$rel/" . basename( $asset ) . " does not declare $required." );
+		}
+	}
+}
+
 // ── Check 7: ability names and categories ────────────────────────────────────
 // Distinct paths rather than register_rest_route() calls. /availability is
 // registered twice — once for GET, once for POST — and counting registrations
