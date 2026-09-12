@@ -49,3 +49,13 @@ README.md
 CHANGELOG.md
 GETTING-STARTED.md
 RENAME-KEEPLIST.md
+
+# The guide's source template. bin/make-guide.js renders it into
+# includes/guide-content.php, which is the copy the plugin actually reads;
+# shipping the template too would be 17KB of Markdown no user can use.
+#
+# Anchored, like /vendor above: an unanchored `docs` would also match any
+# directory of that name nested inside blocks/ or modules/. That is exactly
+# how the QR library went missing for three releases (#74).
+/docs
+

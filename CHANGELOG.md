@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.8.0] - 2026-09-11
+
 ### Added
 
 - A **Getting Started** page in the dashboard, under ProducerKit — written in
@@ -19,29 +21,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   Until now the guide shipped nowhere at all — `.distignore` excluded it, so
   the only people who could read it were those browsing the source. Everyone
   who installed the plugin got none.
-
-
-### Fixed
-
-- Blocks now register in the editor on a site that has no other block plugin
-  installed. They never did. Each block's `editorScript` was registered with an
-  empty dependency list, so the script could run before `wp-blocks` existed —
-  and on a clean WordPress it always did, so every one of the eleven blocks
-  failed to register and none appeared in the inserter. On a development site
-  with Gutenberg or WooCommerce present, something else loads `wp-blocks`
-  first and the problem is invisible, which is why it survived to 2.7.0.
-
-  The same empty list also meant WordPress never set up the blocks' script
-  translations: core only does that when `wp-i18n` is among the declared
-  dependencies, so all 189 translatable strings in the block editor scripts
-  stayed English on every site, not just a clean one.
-
-  `bin/make-block-assets.php` now generates the dependency file each block
-  needs, derived from the globals its script actually uses.
-  `bin/validate-config.php` re-derives them and fails the build if any is
-  missing or stale, and the test suite asserts what core ends up registering
-  rather than what is on disk.
-
 
 ### Changed
 
@@ -64,13 +43,37 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
+- The guide's source template no longer ships. It is rendered into the plugin
+  at build time, so the 17KB Markdown original was dead weight in the zip. The
+  build now fails if it, or anything else dev-only, reaches the output.
+
+- Blocks now register in the editor on a site that has no other block plugin
+  installed. They never did. Each block's `editorScript` was registered with an
+  empty dependency list, so the script could run before `wp-blocks` existed —
+  and on a clean WordPress it always did, so every one of the eleven blocks
+  failed to register and none appeared in the inserter. On a development site
+  with Gutenberg or WooCommerce present, something else loads `wp-blocks`
+  first and the problem is invisible, which is why it survived to 2.7.0.
+
+  The same empty list also meant WordPress never set up the blocks' script
+  translations: core only does that when `wp-i18n` is among the declared
+  dependencies, so all 189 translatable strings in the block editor scripts
+  stayed English on every site, not just a clean one.
+
+  `bin/make-block-assets.php` now generates the dependency file each block
+  needs, derived from the globals its script actually uses.
+  `bin/validate-config.php` re-derives them and fails the build if any is
+  missing or stale, and the test suite asserts what core ends up registering
+  rather than what is on disk.
+
+
+
 - The board's item count stayed in English after the first filter change. It
   is a script module, and those do not get their strings from
   `wp_set_script_translations()` — the sentence is now translated through
   WordPress 7.0's script-module translations, with real plural rules rather
   than an English guess at them. The count also accounts for trade-field
   filters, which it previously ignored while claiming to be a total.
-
 
 ## [2.7.0] - 2026-09-10
 
@@ -991,7 +994,8 @@ before updating any site that ran 1.1.0 or earlier.
 - **Modular architecture** — every feature module except the core data layer
   can be switched off through the `pkit_active_modules` filter.
 
-[Unreleased]: https://github.com/jwincek/producerkit/compare/v2.7.0...HEAD
+[Unreleased]: https://github.com/jwincek/producerkit/compare/v2.8.0...HEAD
+[2.8.0]: https://github.com/jwincek/producerkit/compare/v2.7.0...v2.8.0
 [2.7.0]: https://github.com/jwincek/producerkit/compare/v2.6.0...v2.7.0
 [2.6.0]: https://github.com/jwincek/producerkit/compare/v2.5.0...v2.6.0
 [2.5.0]: https://github.com/jwincek/producerkit/compare/v2.4.0...v2.5.0

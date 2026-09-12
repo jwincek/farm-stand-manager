@@ -84,7 +84,7 @@ for f in .git .github bin vendor node_modules composer.json composer.lock \
          .wordpress-org assets-src build tests phpunit.xml.dist \
          .git-blame-ignore-revs \
          phpunit-integration.xml.dist .phpunit.result.cache \
-         README.md CHANGELOG.md GETTING-STARTED.md; do
+         README.md CHANGELOG.md GETTING-STARTED.md docs; do
 	[[ -e "$DEST/$f" ]] && LEAKED+=("$f")
 done
 if (( ${#LEAKED[@]} )); then
