@@ -3,7 +3,7 @@ Contributors: jeromewincek
 Tags: availability, pre-orders, farmers market, artisan, events
 Requires at least: 6.9
 Tested up to: 7.1
-Stable tag: 2.7.0
+Stable tag: 2.8.0
 Requires PHP: 8.1
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -132,7 +132,7 @@ They are generated in the visitor's browser by a bundled open-source library (qr
 
 == Changelog ==
 
-= Unreleased =
+= 2.8.0 =
 * Added: a Getting Started guide inside the dashboard, written in your trade's words — a beekeeper reads about their home yard and hive notes, a potter about their studio and clay supplier.
 * Fixed: on a site with no other block plugin installed, none of ProducerKit's blocks appeared in the editor. They do now — and their editor labels can be translated for the first time.
 * Changed: the availability board's filters are clearer — statuses are checkboxes, types and trade fields are radio groups, and the board states what it is showing in a sentence you can undo a piece at a time.
@@ -232,6 +232,11 @@ They are generated in the visitor's browser by a bundled open-source library (qr
 * REST API and Abilities API coverage for all core operations.
 
 == Upgrade Notice ==
+
+= 2.8.0 =
+Important if you installed ProducerKit on a site without another block plugin: its blocks never appeared in the editor. They do now. Nothing to do beyond updating — pages you already built were never affected, only the ability to add new blocks.
+
+Also adds a Getting Started guide inside the dashboard, written in your trade's words, and makes the availability board's filters clearer about which ones include and which ones choose.
 
 = 2.7.0 =
 Recommended, and worth taking if you print the Fresh Sheet: the payment QR code has never appeared in any released version — the library that draws it was being left out of the plugin package. Same for the QR on the Location Info block. Nothing to do on your side beyond updating.
