@@ -7,6 +7,20 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- A **Getting Started** page in the dashboard, under ProducerKit — written in
+  your trade's words. A beekeeper is told to set up their home yard and fill in
+  an Apiary; a potter, their studio and a Clay Supplier. The guide is authored
+  once and rendered twice: with a farm's words into the repository's
+  GETTING-STARTED.md, and live in the dashboard against whatever trade the site
+  chose.
+
+  Until now the guide shipped nowhere at all — `.distignore` excluded it, so
+  the only people who could read it were those browsing the source. Everyone
+  who installed the plugin got none.
+
+
 ### Fixed
 
 - Blocks now register in the editor on a site that has no other block plugin

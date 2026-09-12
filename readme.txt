@@ -133,6 +133,7 @@ They are generated in the visitor's browser by a bundled open-source library (qr
 == Changelog ==
 
 = Unreleased =
+* Added: a Getting Started guide inside the dashboard, written in your trade's words — a beekeeper reads about their home yard and hive notes, a potter about their studio and clay supplier.
 * Fixed: on a site with no other block plugin installed, none of ProducerKit's blocks appeared in the editor. They do now — and their editor labels can be translated for the first time.
 * Changed: the availability board's filters are clearer — statuses are checkboxes, types and trade fields are radio groups, and the board states what it is showing in a sentence you can undo a piece at a time.
 * Fixed: the board's item count stayed in English after the first filter change, and ignored trade-field filters.
