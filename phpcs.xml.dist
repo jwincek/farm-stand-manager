@@ -19,7 +19,7 @@
 
 	<!-- Generated files. phpcbf reformatting one puts it permanently at odds
 	     with its generator: the formatter splits the heredoc terminator in
-	     guide-content.php, and the next --check run then reports the file it
+	     guide-content.php, and the freshness check then reports the file it
 	     just produced as stale. Edit the template or the generator instead. -->
 	<exclude-pattern>/includes/guide-content.php</exclude-pattern>
 	<exclude-pattern>/blocks/*/*.asset.php</exclude-pattern>
